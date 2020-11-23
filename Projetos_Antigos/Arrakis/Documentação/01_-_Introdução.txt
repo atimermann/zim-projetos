@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-09T23:20:32-02:00
+
+====== 01 - Introdução ======
+Created segunda 09 dezembro 2013
+
+Arrakis é um framework que funciona em cima do django e tem como principal objetivo aumentar a produtividade no desenvolvimento de sites e simplificar a criação de módulos (Chamados no arrakis de aplicativos)
+Aproveitando tudo que o django já oferece, ele vai mais longe,  diminuindo o tempo iniciar novos projetos, além de incentivar o desenvolvimento de aplicativos conectaveis entre si para tudo. Desta forma, reaproveitando código e com o tempo ter praticamente tudo pronto.
+
+O Arrakis tem como principio centralizar todos os aplicativos usado nos projetos, desta forma sempre que uma nova versão surgir, todos os projetos serão atualizados automáticamente. A
+
+A seguir serão apresentados os principais componentes do Arrakis

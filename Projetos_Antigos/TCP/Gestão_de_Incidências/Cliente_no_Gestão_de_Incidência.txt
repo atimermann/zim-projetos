@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-08-12T14:29:56-03:00
+
+====== Cliente no Gestão de Incidência ======
+Created terça 12 agosto 2014
+
+====== Como acessar cliente a partir do contêiner ou incidencia ======
+
+**CAD_EMPRESASX**
+
+O Campo email é : **EMP_EMAIL**
+O  Campo que relaciona é : **COD_ARGOS**
+
+RELACIONA COM O **ARGBASEF.CLIENTF.CLICOD**
+
+ID = 1 => Cliente
+porém **CAD_EMPRESASX WHERE TIPO_ID = 1 AND STATUS_ID = 1**
+
+Que se relaciona com FREE02 = ARGYARBASF.CONTF
+
+
+====== Configuração de Email ======
+
+	         $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->Host = "192.168.2.21";
+                    $mail->SMTPAuth = false;
+                    $mail->Username = 'cobranca@tcp.com.br';
+                    $mail->Password = 'tcp';
+                    $mail->From = "info@tcp.com.br";
+                    $mail->FromName = "TCP CONTATO";
+                    $mail->AddBCC("l.ales@cinq.com.br", '');
+                    $mail->AddBCC("helmuth.filho@tcp.com.br", '');
+                    $mail->AddAddress($climail[$i], '');

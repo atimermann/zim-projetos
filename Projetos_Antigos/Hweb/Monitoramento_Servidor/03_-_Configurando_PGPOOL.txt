@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-02T23:49:09-03:00
+
+====== 03 - Configurando PGPOOL ======
+Created quinta 02 outubro 2014
+
+Comando para verificar status:
+pcp_watchdog_info -v 10 localhost 9898 postgres postgres 0
+
+http://www.pgpool.net/docs/latest/pgpool-en.html#memqcache
+
+MASTER NO DB2
+
+APP1 faz 1765 select/s no DB1
+APP1 faz 13 select/s no DB2
+
+APP1 não realiza insert no DB1 pois é o slave
+APP1 faz 1.8 insert/S no DB2
+
+
+APP2 faz 12 select/s no DB1
+APP2 faz 302 select/s no DB2
+
+APP1 não realiza insert no DB1 pois é o slave
+APP2 faz 77 insert/s no DB2
+
+http://helkmut.blogspot.com.br/2010/11/usando-o-pgbench.html

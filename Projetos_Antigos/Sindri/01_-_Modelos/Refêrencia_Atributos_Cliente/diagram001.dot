@@ -1,0 +1,39 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Propriedade</td>
+	<td BGCOLOR="gray">Descrição</td>	
+	<td BGCOLOR="gray">Tipo</td>	
+	<td BGCOLOR="gray">Valor Padrão</td>
+	<td BGCOLOR="gray">Valores</td>
+</tr>
+
+<tr>
+	<td>urlRoot</td>
+	<td>Url No servidor (Usado pelo Backbone)</td>
+	<td>string</td>
+	<td>[Obrigatório]</td>
+	<td>TODO: Entender melhor</td>		
+</tr>
+
+<tr>
+	<td>url</td>
+	<td>Url No servidor (Usado pelo Backbone)</td>
+	<td>string</td>
+	<td>[Obrigatório]</td>
+	<td>TODO: Entender melhor</td>		
+</tr>
+
+<tr>
+	<td>schema</td>
+	<td>Propriedade dos campos</td>
+	<td>object</td>
+	<td>[Obrigatório]</td>
+	<td>Veja em Propriedades por Campo</td>		
+</tr>
+</TABLE>
+>];
+}

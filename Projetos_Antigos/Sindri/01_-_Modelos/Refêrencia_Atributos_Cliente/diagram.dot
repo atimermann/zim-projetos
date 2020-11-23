@@ -1,0 +1,97 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Propriedade</td>
+	<td BGCOLOR="gray">Descrição</td>	
+	<td BGCOLOR="gray">Tipo</td>	
+	<td BGCOLOR="gray">Valor Padrão</td>
+	<td BGCOLOR="gray">Valores</td>
+</tr>
+
+<tr>
+	<td>title</td>
+	<td>Label do Campo</td>
+	<td>string</td>
+	<td>[Nome do Campo Capitalizado]</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>type</td>
+	<td>Tipo do Campo</td>
+	<td>string</td>
+	<td>string</td>
+	<td>string, numeric, enum, date, datetime, time, bool</td>		
+</tr>
+
+<tr>
+	<td>enum</td>
+	<td>Campo Enumerado (ex: SelectBox)</td>
+	<td>object[]</td>
+	<td></td>
+	<td>Array de Objetos com os atributos: label e value</td>		
+</tr>
+
+<tr>
+	<td>default</td>
+	<td>Valor Padrão</td>
+	<td>mixed</td>
+	<td>NULL</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>required</td>
+	<td>Campo Obrigatório</td>
+	<td>bool</td>
+	<td>true</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>size</td>
+	<td>Tamanho Máximo</td>
+	<td>numeric</td>
+	<td>Unlimited</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>insert</td>
+	<td>Permitido ao Criar registro</td>
+	<td>bool</td>
+	<td>true</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>update</td>
+	<td>Permitido ao Atualizar registro</td>
+	<td>bool</td>
+	<td>true</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>select</td>
+	<td>Permitido Obter Valor atual</td>
+	<td>bool</td>
+	<td>true</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>dataHandler</td>
+	<td>Validação, Máscara e formato pré-definido</td>
+	<td>string</td>
+	<td>NULL</td>
+	<td>ver em sindri/dataHandler. ex: cpf</td>		
+</tr>
+
+
+</TABLE>
+>];
+}

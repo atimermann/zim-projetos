@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-07-31T13:21:02-03:00
+
+====== Gestão de Ferrovia ======
+Created quinta 31 julho 2014
+
+===== Bugs Adriana =====
+
+* Não consegue recuperar dados na lista de remoção
+
+* Campos sem validação na Abertura de Segmento
+* Texto misturado em dois idiomas: Português e Inglês (validação de componente herdado)
+* Falta Validação no Envio de B.O.
+
+
+====== Projeto ======
+
+O sistema permitirá o acompanhamento das fases de planejamento e execução da gestão de ferrovias,
+
+**Planejamento:** 
+Registro demanda carga
+Registro demanda descarga
+Gestão de planejamento de carga
+Gestão de planejamento de descarga
+Lista de remoção
+
+**Execução:**
+Abertura de segmento
+
+====== Descrição ======
+
+
+qualquer conteiner planejado estara na ferrovia_planejamento_carga, porem ele está amarrado a uma demanda (navio, viagem, encoste, tipo do conteiner, iso, essas coisas) que ficam na ferrovia_demanda
+
+===== Validação de Contêiner =====
+
+==== Validação de Armador ====
+
+Para obter lista de conteiner de um determinado armador
+
+SELECT CONTA,CONTN, CONTD  FROM
+AEDIMAN.AGRUP_ARM AA
+JOIN
+ AEDIMAN.ITENS_AGRUP IA ON AA.AGAR_ID = IA.AGAR_ID
+ JOIN  ARGYARBASF.CONTF CF  ON (IA.ITAG_SIGLA = ELINEA OR IA.ITAG_SIGLA = SLINEA)
+ WHERE AGAR_SIGLA = 'ALI'
+
+SUDU1480963
+

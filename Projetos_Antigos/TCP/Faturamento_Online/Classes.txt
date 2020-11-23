@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-05-15T13:15:46-03:00
+
+====== Classes ======
+Created quarta 15 maio 2013
+
+====== Classe Container ======
+
+
+===== Atributos =====
+
+==== CONTA, CONTN, CONTD ====
+
+Representa o código do container quebrado em pedaços
+
+
+===== Métodos: =====
+
+==== get_container(id,) ====
+
+
+==== no_sistema() ====
+	Verifica se o Container está no sistema
+
+	Através da Consulta:
+	__"SELECT CONTA,CONTN,CONTD,EFALTA AS DATA_ENTRADA, EBUQUE||SBUQUE AS NAVIO , FREE02 AS CLIENTE FROM ARGYARBASF.CONTF__
+	__WHERE CONTA = '$CONT1' AND CONTN = $CONT2 AND CONTD = $CONT3 AND FREE02 IN ($client)"__
+
+
+====== Classe OS ======
+
+[DUVIDA] Como é o processo de criação de OS?
+
+====== Nota Fiscal ======
+
+
+[DUVIDA]  Como é o processo de criação de NF
+
+====== Boleto ======
+
+[DUVIDA]  Como é o processo de criação de Boleto?
+

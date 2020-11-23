@@ -1,0 +1,202 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-28T16:31:40-03:00
+
+====== Sobre o Produto ======
+Created terça 28 junho 2016
+
+===== Apresentação =====
+
+O Workr é um software que permite configurar um ou mais computadores ou "robôs" para realizar tarefas repetitivas que normalmente são realizadas por pessoas. Navegar em web sites, capturar informações,  preencher formulários, abrir e manipular softwares como Excel, ERPs, intranets ou simples movimentar o mouse, clicar no menu iniciar e desligar o computador, são tarefas que podem ser atribuídas ao Workr.
+
+Aplicação que permite configurar um ou mais computadores ou "robôs" para realizar tarefas repetitivas que normalmente são realizadas por pessoas como navegar em web sites, capturar informações, preencher formulários, abrir e manipular softwares como Excel, ERPs, intranets ou simplesmente movimentar o mouse, clicar no menu iniciar e desligar o computador.
+
+Analisamos tarefas realizadas por colaboradores dentro da empresa e configuramos o Worker para reproduzi-las, permitindo que a empresa posicione seus recursos em tarefas estratégicas que tragam produtividade e rentabilidade ao seu negócio, deixando a cargo do Workr otimizar rotinas, tornando-as processos robóticos de alta performance e gerenciáveis.
+
+**[Criar Diagrama, idéia inspirada no eye share]**
+{{./pasted_image002.png}}
+
+===== Diferenciais =====
+
+Automate:
+{{./pasted_image.png}}
+
+**[ Criar um Gráfico que mostra como o Workr distribui as tarefas]** 
+
+**[ Usar Icones ]**
+
+**Automação Distribuída**
+Gerenciamento ilimitado de máquinas permitindo distribuir tarefas alcançando alta performance.
+
+**Escalabilidade**
+Escale rapidamente sua solução adicionando mais máquinas ao Workr em minutos.
+
+**Gerenciamento Remoto**
+Gerenciamento remoto de todos os aspectos da automação.
+
+**Integração**
+Fácil integração com sistemas externos e sistemas legados. 
+
+**Priorização de Tarefas**
+
+**Agendamento de Execução**
+Executa tarefas em horários e dias programados.
+
+**Geração de Relatórios**
+Extraia diversos tipos de gráficos, tabelas ou histórico das tarefas executadas.
+
+**Execução de Tarefas a partir de Eventos**
+Arquivos criados, removidos ou novos e-mails podem iniciar a execução de uma tarefa.
+
+**Conexões Criptografadas (SSL)** 
+
+**Tenha mais controle de ações críticas.**
+Permite que algumas ações sejam decididas por humanos, através de SMS, e-mail ou aplicação Mobile.
+
+**Interface com seu cliente**
+Crie formulários para que seu cliente entre com informações que ajudem na execução das tarefas.
+
+===== Tópicos que podem  ser usados =====
+
+**Nota:** Podemos criar alguns tópicos, além de usar o títulos em negritos acima, podemos usar também:
+
+(Copia do automate)
+* Solução de Completo Automação
+* Rápido Retorno de investimento
+* Realoque sua mão de obra para tarefas com maior valor agregado
+* Substitui qualquer ação manual em um processo computacional
+
+
+===== Exemplos =====
+Criar um diagrama seguindo a linha do automate, mostrando exemplos:
+{{./pasted_image001.png}}
+* Automação de 
+	* Terminais Mainframe (IBM) e Unix
+	* Aplicações Windows. 
+	* Navegações, consultas ou digitações em páginas Web.
+	* Envio e recebimento de e-mails
+	* Transfêrencias e manipulação de arquivos locais e ftp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====== Antigo ======
+
+
+* **Automação de Processos de TI**
+	* Substitui praticamente qualquer tarefa manual realizada em um computador. Ideal para tarefas repetitivas
+	* Automação de Terminais Mainframe (IBM) e Unix
+	* Automação de Aplicações Windows. 
+	* Automação de navagações, consultas ou digitações em páginas Web.
+	* Automação de envio e recebimento de e-mails
+	* Automação de recebimento e envio de arquivos por ftp
+* **Interface de Monitoramento**
+	* Interface de monitoramento de execução de tarefas: indices de eficiencia, progresso de execução, taxa de falhas, com gráficos e status.
+* **Interface de Controle**
+	* Controle remoto simples e intuitivo  de todos os aspectos da automação: parada, reinicio, alteração de prioridade, agendamentos e outras configurações...
+* **Coleta e Entrega de Tarefa**
+	* Conecta de forma ativa em outros sistemas para carregar novas tarefas e entregar resultado. Conecta em WebService externo, base de dados, arquivos, etc...
+* **Integração entre Sistemas**
+	* Possui WebService (API) para fácil integração com qualquer sistema. Otimizado para sistemas Legados.
+* **Priorização de Tarefa**
+	* Priorize a execução de tarefas por importância
+* **Agendamento de Execução**
+	* Agende a execução da tarefa para os dias e horarios mais apropriados
+* **Registro de Evidência**
+	* Captura de tela de todos os passos da automação, para consulta fácil pela interface de monitoramento
+* **Registro de Execução**
+	* Registro de todas as ações realizados pela automação, como por exemplo, falhas, passos executados etc...
+* **Relatórios**
+	* Extraia diversos tipos de relatórios com tabelas e gráficos, como produtividade, processos executados entre outros
+
+* **Confiabilidade**
+	* Solução com redundancia para garantir que nada de errado
+* **Execução por Evento**
+	* Permite executar uma tarefa a partir de um evento, por exemplo: arquivos removidos ou criados, novo email, trigger de banco de dados etc...
+* **Segurança**
+	* Conexões criptografada (SSL) 
+	* Acesso via Token
+* **Envio de alertas**
+	* Caso algum imprevisto ocorra, sistema envia alertas automaticamente via SMS, email ou aplicativo mobile
+* **Suporte a Tomada de Decisões por Humano**
+	* Em alguns casos pode existir tarefas que exigem decisões que devem ser tomadas por humanos, nesses casos sistema envia um sms, email ou dispara uma mensagem no smartphone para que a decisão seja tomada por um responsável.
+* **Interface de Interação**
+	* Possibilidade de criar dentro da plataforma formulários para que seu cliente possa interagir com o sistema. Ex: Cadastro de novas vendas
+
+
+
+
+====== Mais Antigo ======
+
+
+Produto Principal Smarti -> Workr (Solução Smarti de RPA):
+
+RPA (Robotics Process Automation, ou Automação Robótica de Processos) 
+
+* **Automação de praticamente quaquer processo humano-computador**
+* **Integração de Sistemas Legados**
+* **Automação e Comunicações com Terminais IBM, Web (Páginas Web) , Aplicações Desktop entre outros...**
+* **Retorno Real e Curto Prazo de Investimento**
+* **Redução de Custo Operacional e de Infraestrutura**
+* **Automação Ágil de Processo de Negócio**
+* **Escabilidade**
+
+- Automatiza qualquer ação manual e repetitiva em um processo agil com programação orientada à robótica;
+- Integração entre sistemas legados em operações descentralizadas (CSC);
+- Automatação e Comunicação com Terminais IBM (Mainframe, Unix) __(Automação Web, Desktop)__
+- Retorno real e a curto prazo de investimento
+- Redução Custo Operacional e de Infraestrutura
+- Escalabilidade
+- Workflows de aprovação, input de dados e regras de negócio
+- Automatização ágil de processos de negócio
+
+**Principais Funcionalidades:**
+
+* **Interface de Monitoramento**
+* **Interface de Controle**
+* **Coleta e Entrega de Tarefa**
+* **Integração entre Sistemas através API**
+* **Priorização de Tarefa**
+* **Distribuição de Tarefa **
+* **Agendamento de Execução**
+* **Registro de Evidência**
+* **Log de Execução**
+* **Relatórios**
+
+
+Principais Funcionalidades WORKR:
+
+- Interface de Monitoramento:
+  Monitoramento da Fila: Status, tempo de execução, alertas, log (Histórico), Execução Worker, Refactoring, Contador de acesso (execução);
+
+- Interface de Controle:
+  Inicio/Reinicio Manager, Inicio/Reinicio Seguro Workers, definir quais workflows o worker irá executar;
+
+- API e Coleta de Task:
+  API para comunicação entre sistemas externos e coletor de tasks, que periodicamente acessar outras API para obter tarefas;
+
+- Priorização de Tarefa por Workflow:
+  Agendamento de Execução (scheduled). Ex: Workflow é executado apenas de madrugada;

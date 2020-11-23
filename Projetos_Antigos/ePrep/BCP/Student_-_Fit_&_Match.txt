@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-12T01:10:48-02:00
+
+====== Student - Fit & Match ======
+Created sexta 12 fevereiro 2016
+
+* Alterar apenas modo demo
+* Validação no servidor
+
+====== Consulta ======
+
+ALTER TABLE bcp_account.account ADD lock_profile TINYINT(1) DEFAULT 0 NOT NULL
+

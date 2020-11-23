@@ -1,0 +1,135 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-11T14:57:42-03:00
+
+====== Lista Discussão - 2014-06-11 ======
+Created quarta 11 junho 2014
+
+* Definir Perfis (TCP)
+* ~~Perguntar: Ao enviar email para reparador, usar qual set_point_fisico (TEMPERATURA) já que podemos ter muitas incidencias por OS. Pegar último?~~
+	* ~~USEI TEMPERATURA DA ULTIMA INCIDENCIA INFORMADA~~
+
+
+* ~~Tela Alterar Senha~~ 
+* ~~Tela Histórico de Incidência~~
+* ~~Alterações~~
+* ~~Envio de E-mail com Template~~
+	* Faltou apenas os dados do Cliente
+	* Faltou RETURN/N e RETURN/Y
+
+* ~~Excel~~
+
+* Passo a passo para cadastro do Proteus
+
+* ~~Mudar flag admin do usuário para o perfil,~~
+* ~~Menu~~
+
+
+**Melhorias**
+* Poder selecionar mais de um conteiner, cria várias OS
+
+**Correções:**
+
+* Ao apertar F5 após realizar alguns filtros, a página é recarregada trazendo todos os resultados, porém com os campos do filtro ainda preenchidos.
+* Data de entrada está permitindo “Data incial” maior que “Data final”
+* Não possui máscara nos campos de Data, podendo inserir caracteres alfa-numéricos, 
+* e ao realizar o filtro sem inserir as barras (/), o sistema não realiza mais nenhuma ação, ficando apenas a mensagem “Carregando” eternamente, rs.
+
+* ~~Adicionar campo de temperatura na analise de manutenção, (Set Point Físico) não pegar mais do argos~~
+
+* TRocar o nome do armador pela sigla: (adicionar na tabela Armador o campo sigla e exibir em todos os lugares do sistema a SIGLA):
+	* AGAR_SIGLA
+
+
+* Suporte a Máscara
+* ~~Criar Permissões e revisar~~
+* Savar Permissões em um arquivo separado (SCRIPT SQL) para geração em instalação ou pane
+* Salvar Menus em um arquivo separado (SCRIPT SQL)
+* Criar Categoria no campo de formulário **HasManyThrough** e **HasMany**
+* Melhor Tela de cadastro de Menu
+* ~~Remover isAdmin (quando admin retorna tudo)~~
+* Campo de Formulário Belong_to
+* Campo de Formulário **HasMany** (relacionamento simples)
+
+* Adicionar data de entrada nas colunas
+* por em vermelho
+* Alerta no menu não aparece
+
+* Criar objeto BreadCrump, para poder editar dentro do crud 
+* ~~Em permissões, mudar action para route (no banco de dados)~~
+
+* ~~Página inicial para cada perfil~~
+* Layout para páginas de erro e de permissão negada
+
+
+* Problema de Ordenação na tela de Solicitação de OS
+* ~~Revisar Cancelamentos, pois o processo está com falha, por exemplo não volta a aparecer no painel de eletricista~~
+* Filtros e paginação ficar salvas
+* Adicionar Aguardando ao submeter no plugin filter submit
+
+
+**URGENTE AMANHÃ:**
+
+~~- Alterar campo de password  (AUTOFIELD)~~
+~~- Colocar nome como obrigatório no banco de dados~~
+
+
+===== Eloisa =====
+
+
+Login:
+~~- Caso o usuário possua apenas uma permissão, o sistema não está direcionando o usuário para a página que ele possui permissão, está dando acesso negado.~~
+
+Usuários Internos:
+~~- Grid está com título "Mátricula", alterar para "Matrícula"~~
+- Cadastro de usuário está com calendário desajustado (todos os navegadores) ( PROBLEMA DE CSS, conflito com template) tentar usar do aceAdmin
+~~- Ao tentar salvar usuário sem preencher nenhum dado, está aparecendo em vermelho apenas o campo "Senha" (ou seja, é obrigatório apenas esse campo?)~~
+~~- Após preencher os campos de "Senha" e "Repita Senha", e clicar em qualquer um dos "Salvar" o sistema apresenta mensagem de erro~~
+~~- Posso adicionar um usuário sem perfil? Atualmente está sendo possível.~~
+
+
+Usuários Externos:
+~~- Posso adicionar um usuário sem nome? Atualmente está sendo possível.~~
+~~- Posso adicionar um usuário sem perfil? Atualmente está sendo possível.~~
+- Cadastro de usuário está com calendário desajustado (todos os navegadores)
+
+Usuários Internos:
+- Não há validação de CPF
+
+Usuários Internos & Usuários Externos:
+~~- Sistema está permitindo salvar os campos de "Matrícula" e "Usuário" iguais, fazendo com que na hora de logar no sistema, o segundo usuário cadastrado receba mensagem de Acesso Negado.~~
+	(Obriga primeiro caractere ser letra)
+
+Perfil:
+- Ao tentar inserir nome muito grande, ele aparece estar bloqueando a inserção, porém ao clicar em Salvar aparece o seguinte erro: "CLI0109E String data right truncation."
+
+-Alterar  Supply / Return: (Adicionar no Analise de Incidência Manutenção, igual set point)
+- Adicionar campo situação no monitoramento de os (ex: aguardando analise)
+
+~~- Sistema muda o nome de Intranet para Sistemas Internos~~
+
+- Colocar um alerta em vermelho piscante quando tiver algum usuário habilitado no modo ROOT
+- Criar manual de como recuperar o sistema
+
+
+- Ao atualizar o servidor necessário: reiniciar php-fpm, instalar assets:dump
+- Alterar as mensagens de formulário para isto flash-messages do symfony: http://symfony.com/doc/current/components/http_foundation/sessions.html#flash-messages
+- Alterar login: remover se castrar, colocar instruções em "recuperar senha"
+
+
+===== 08/07 =====
+
+* ~~Problema de codificação no erro (NÃO LIGA)~~ 
+* Na tela montiramento de incidência, não está exibido o numero do erro
+* Pedir senha antiga para alterar senha do administrador
+* ~~Mudar codificação na lista de erros~~
+* Remover opção de cirar parâmetro de configuração
+
+* ~~CRIAR SCRIPT DE INICIALIZAÇÃO QUE VERIFICA BANCO DE DADOS e envia por email~~
+
+* ~~Verificar a instalação do memcache e do Stash cache~~
+
+
+===== 24/07 =====
+
+* Tratar erros de Referencia no Formulário

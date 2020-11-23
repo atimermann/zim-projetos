@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-09-27T20:29:43-03:00
+
+====== Códigos Erros ======
+Created domingo 27 setembro 2015
+
+E001 -> Tipo de Operação Inválida, deve ser C ou A
+E002 -> Erro Ao Alterar Navio
+E003 -> Erro Ao Alterar Navio Gravação
+E004 -> Erro Ao Alterar VIAGEM
+E005 -> Erro Ao Alterar VIAGEM Gravação
+E006 -> Erro Ao Alterar PORTO Descarga
+E007 -> Erro Ao Alterar PORTO Descarga Gravação
+E008 ->  Erro Ao Alterar PORTO Destino
+E009 ->  Erro Ao Alterar PORTO Destino Gravação
+
+E010 - E014 -> Erro ao navegar no Argos, Tela não carregada
+
+F020 -> Não foi possível conectar no argos
+
+E021 -> Erro ao entrar no menu de cancelamento
+E022 -> Erro ao entrar no cancelamento do conteiner
+E023 -> Não foi possível encontrar contêiner para cancelamento
+E024 -> Contêiner não foi cancelado ou não foi possível verificar cancelamento
+E025 -> Erro ao confirmar se o conteiner a cancelar está correto (Robo tentou cancelar conteiner errado)
+
+41 8424 - 8629
+
+41 3042 - 2229
+
+KAEFER AGRO INDUSTRIAL LTDA. (84.874.726/0003-05) 
+39808 (SAN CLEMENTE (9699189)) 

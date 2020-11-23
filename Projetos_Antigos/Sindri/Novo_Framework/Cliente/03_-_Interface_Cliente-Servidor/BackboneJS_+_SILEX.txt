@@ -1,0 +1,61 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-17T18:54:10-03:00
+
+====== BackboneJS + SILEX ======
+Created terça 17 junho 2014
+
+====== Backbone.js + PHP (with Silex microframework) + MySQL ======
+
+**REF:** Backbone.js + PHP (with Silex microframework) + 05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Desenvolvimento Framework:03 - Interface Cliente-Servidor:MySQL
+
+Recentemente, eu tenho investigado diferentes microframework baseado no javascript para contruir uma aplicação RIA que traga a experiencia do desktop para web.
+Backbone é um excelente biblioteca, muito leve, muito flexivel enquanto tinha uma fundação forte.
+
+Existem vários exemplos por ai sobre como usar o backbone.js, mas a maioria deles se concentram em seu uso com armazenamento local ou com Ruby on Rails.
+
+O que você vai encontrar abaixo é um protótipo do bem conhecido TODO list funcionando com PHP e Mysql (Com grande ajuda do Silex, Idiorm e Paris)
+
+Primeiro vamos criar a seguinte tabela:
+
+{{./pasted_image.png}}
+
+Em seguida vamos criar um modelo baseado no Paris:
+
+{{./pasted_image001.png}}
+
+Agora a implementação do aplicativo usando SILEX:
+
+Aqui vamos inicializar o Silex e carregar alguns Provider e namespace (Leia documentação do Silex)
+
+{{./pasted_image002.png}}
+
+Agora vamos criar os controles:
+
+{{./pasted_image003.png}}
+
+Note que implementamos as 4 requisições disponíveis pelo protocolo HTTP: **GET, POST, PUT **e** DELETE**
+
+Note Também que sempre retornamos um JSON codificado
+
+Agora, vamos implementar um objeto Collection do Backbone que sincroniza com nosso WerbService:
+
+{{./pasted_image004.png}}
+
+Pronto, a tarefa está pronta
+
+
+===== Segurança =====
+
+Para proteger sua API, você pode usar um Filtro Befor no Silex. Isto permite você executar um código antes de cada requisição. 
+Abaixo um exemplo mostrando como pode ser combinado com  [[http://hybridauth.sourceforge.net/index.html|hybridauth]] (http://hybridauth.sourceforge.net/index.html)
+
+{{./pasted_image005.png}}
+
+===== Paris =====
+
+Apenas curiosidade aqui está a implementação de um provedor do Paris:
+
+{{./pasted_image006.png}}
+
+

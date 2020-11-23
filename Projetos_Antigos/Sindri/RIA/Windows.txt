@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-23T15:24:23-02:00
+
+====== Windows ======
+Created quinta 23 outubro 2014
+
+Controle de Janela
+
+Geração de janela deve ser feita nesta classe
+
+* Controlar limite de janelas
+
+Vincular ao Admin?

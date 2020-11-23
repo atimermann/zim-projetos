@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-14T21:10:13-02:00
+
+====== 19 - Reunião 14-11-2016 ======
+Created segunda 14 novembro 2016
+
+—————————————————————————————— Prioridade Alta ——————————————————————————————
+
+====== Indicadores (50h) ======
+R$ 2250,00
+
+====== Agenda (200h) ======
+R$ 9000,00
+
+
+====== Módulo Financeiro (300h) ======
+R$ 13.500,00
+
+====== Módulo de Consultório (300h) ======
+R$ 13.500,00
+
+
+
+
+===== Plano de Tratamento =====
+* Arquivos do Paciente
+
+
+===== Cadastros =====
+* Cadeiras Odontológica (??)
+* Especialidade
+* Procedimento
+* Pacientes
+* Funcionarios 
+* Prestadores de Serviço
+* Fornecedores
+* Convenios (Planod e Saúde)
+
+====== Administrativo (50h) ======
+R$ 2250,00
+
+===== Gerenciamento de Contas =====
+
+===== Gerenciamento de Usuário =====
+
+
+—————————————————————————————— Prioridade Média ——————————————————————————————
+
+====== Módulo Estoque (150h) ======
+* Entrada e Saída de Materia Prima
+* Que tipo 
+* Qual Quantidade
+
+====== Módulo do Franqueador (300h) ======

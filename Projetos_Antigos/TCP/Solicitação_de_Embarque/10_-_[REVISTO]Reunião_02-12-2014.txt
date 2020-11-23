@@ -1,0 +1,63 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-02T15:51:10-02:00
+
+====== 10 - [REVISTO]Reunião 02-12-2014 ======
+Created terça 02 dezembro 2014
+
+
+====== [OK] COnsulta Protocolo ======
+
+
+Pendente Presença de Carga
+STATUS_PRESENCA_CARGA = “N”
+
+Pendente Liberação Receita + Pendente Solicitação de Embarque 
+STATUS_PRESENCA_CARGA = “A” e 
+STATUS_SOLICITACAO_LIBERACAO = “N” e 
+STATUS_LIBERACAO_EMBARQUE <> “L” e “A”
+
+Pendente Liberação Receita (SISCOMEX)
+STATUS_PRESENCA_CARGA = “A” e 
+STATUS_SOLICITACAO_LIBERACAO = “S” e 
+STATUS_LIBERACAO_EMBARQUE <> “L” e “A”
+
+Pendente Solicitação de Embarque
+STATUS_PRESENCA_CARGA = “A” e 
+STATUS_SOLICITACAO_LIBERACAO = “N” e 
+STATUS_LIBERACAO_EMBARQUE = “L” ou “A”
+
+
+
+====== [OK] Finalizar Cron ======
+
+
+* TODOS SOLICITADOS PELO SISTEMA USUARIO DEVE ESTAR LIBERADO NO AUTOMATE
+* MAS SE ELE NÂO SELECIONAR TUDO TB APROVA
+
+
+
+====== Teste Sistemas ======
+
+* Adicionar limite ao Recinto de Presença de Carga é 7 numérico
+* Ao desmarcar todos os itens , desmarcar o checkbox geral
+* Adicionar lacre ao box de confirmação de desistencia
+
+
+* O Despacho digitado refere-se a uma Presença de Carga a Posteriori. (D010)
+	- Bloquear, exibir na primeira tela apenas
+
+* Na tela de confirmação de solicitação, quando STATUS_ORDEM_EMBARQUE <> 'L' exibe a mensagem:
+	* Despacho pendente de liberação de embarque junto à receita federal
+
+* Quando Solicitação de liberação já realizada, informar protocolo:
+	* Solicitação de Liberação de Embarque já Realizada. Protocolo: <protocolo> (D004)
+
+* Formatar despacho na tela de solicitação de embarque
+
+* getDeadLine com navio e **VIAGEM**
+	* Não funciona buscar do CONTF
+
+* Adicionar coluna protocolo no sistemas internos
+
+

@@ -1,0 +1,134 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-07-22T18:05:59-03:00
+
+====== Projeto ======
+Created sexta 22 julho 2016
+
+==== Introdução ====
+
+Objeto do projeto é o desenvolvimento de uma extensão para Mozilla Firefox, que deverá automatizar o processo de upload de arquivos em sistema web da Justiça para advogados.
+
+O Projeto será desenvolvido em etapas ordenadaos por complexidade e risco
+
+Será composto por 3 telas (interfaces):
+	* Barra Lateral (Sidebar)
+	* Tela Principal (Gerenciamento de Arquivo)
+	* Configuração de Tela
+
+====== Requisitos ======
+
+* Disponível para download na loja virtual do Mozilla
+* Modo de Instalação/Desinstalação
+* Botão de acesso ao aplicativo através de botão com logo na barra de ferramenta, carregando a barra lateral
+* Comunicação com Backend será feito através de um WebService REST em JSON
+* Reagir a possíveis erros retornados pelo BackEnd (falha de autenticação, não há conexão com internet)
+* Deve ser multi-plataforma: Linux, Windows e Mac
+* Extensão deve entrar na loja do Mozilla Firefox
+
+====== Fluxo ======
+
+{{./pasted_image003.png}}
+
+====== Módulos ======
+
+
+===== Intepretador e Execução de Instruções (Previsão: 30 horas) 3 dias de 10 horas ou 6 dias de 5 horas =====
+
+Depois de carregar, configurar os arquivos para upload e clicar em executar, vai iniciar o processo de upload automático dos arquivos na página atual em que o usuário está acessando. Este execução consiste em iniciar um robô que irá simular as ações do usuário realizando o upload do arquivo.
+
+Como as páginas podem alterar com frequência, o aplicativo irá constantemente consultar ao backend para obter as instruções de como automatizar o upload em determinada página, isso será feito através de um interpretador de instrução:
+* O Interpretator vai carregar uma lista de instruções e executá-las em sequência 
+* Deve validar cada passo, e caso algum falhe, retornar esta informação para o backend para que corrijam o problema
+* Deverá existir um detector de página que irá identificar qual página está sendo acessado, essa informação também deve ser atualizado frequentemente com o backend
+
+* Caso o sistema do judiciário caía, a tarefa deve continuar de onde ela parou. Ou seja, o andamento do processo de anexação deve ser salvo para este poder continuar do ponto que parou. A continuação do processo deve ser autorizada pelo usuário.
+* O sistema precisa detectar se o cliente está trabalhando com o mesmo processo. (Cada detector da página deve ser capaz de recuperar o numero do processo)
+
+* Há vários sistemas em que múltiplos arquivos podem ser carregados/selecionados ao mesmo tempo. É preciso dar suporte a isso monitorando quais arquivos já foram incorporados e quais ainda faltam. Essa leitura da página em execução é importante para recuperar trabalhos deixados pela metade caso haja algum problema de conexão. Um humano iria verificar qual o último arquivo anexado e continuar de onde parou. Nossa ferramenta precisa fazer a mesma coisa!
+* A automação será implementada através de javascript embutido na página
+* Sistema deve estar preparado para criações de novos módulos no futuro. Criar flag de estado, ex: sistema está realizando upload.
+
+===== Gerenciamento de Arquivo para Upload =====
+Ao clicar no botão iniciar, será carregado um novo painel para gerenciar os arquivos de upload:
+
+* Barra lateral irá retrair e exibir apenas a nova tela de upload **(tela principal)**
+* Múltipla seleção de arquivos ou mesmo seleção dos .pdf de uma pasta inteira
+* Checa consistência dos arquivos: formatação, tamanho máximo, etc …
+	* Formatação será feita por um executável externo
+* Segmenta documentos respeitando tamanhos e formatações exigidas por
+cada tribunal (XML específico contém esta informação)
+* Alguns sistemas o usuário precisa fazer upload do arquivo já assinado digitalmente. Isso exigiria dar o split no arquivo, pedir para o usuário manualmente assinar seus documentos, e depois pedir para o usuário selecionar novamente um documento. O que eu vi acontecer é que o .pdf vira .pdf.p7s … logo damos update no path de todos os outros. 
+	* Assinatura será feita pelo usuário, o aplicativo deve abrir a pasta onde estão os arquivos através do gerenciador de arquivo
+* Valida se existem erros na segmentação dos arquivos: arquivos corrompidos, muito grandes, inacessíveis, etc …
+
+* Solicita classificação por parte do usuário, e esta classificação deve ser rápida e simples. Preferencialmente classificando múltiplos arquivos ao mesmo tempo, buscando sugerir classificações com dicas do nome do arquivo. Caso a classificação seja “outro” … o usuário pode inserir um texto, mas o default é o próprio nome do arquivo. 
+* Será possível ordenar os arquivos.
+* Checa consistência da tarefa:
+	* Não há nada para anexar
+	* Faltam campos a serem preenchidos
+	* Erros de verificação de consistência do XML instrutor
+	* Usuário não classificou algum documento
+* Deve haver informação do usuário logado
+* Caso ocorra algum problema no processo do upload, o aplicativo deve ser capaz de saber onde foi o problema.
+	* Isso será feito analizando a página e carregando a lista de arquivos já carregado
+
+{{./pasted_image.png}}
+
+===== Autenticação e Autorização =====
+* Para utilizar o sistema o usuário deverá estar logado
+* Autenticação por Token 
+	* Cliente recebe chave que será utilizada em todas as requisições.
+	* Chave terá período de expiração
+* Haverá um controle de autorização através de níveis de acesso e créditos disponíveis.
+* Toda operação de upload irá descontar créditos, caso chegue a zero o usuário não terá permissão para realizar uploads
+* Para toda atividade no aplicativo existirá uma validação de permissão
+* Haverá uma função de recuperação de senha, ao clicar em esqueci minha senha, será enviado uma requisição ao backend para enviar instruções de recuperação por e-mail
+* Na barra lateral irá existir formulários para o usuário entrar com login e senha:
+{{./pasted_image001.png}}
+
+===== Barra Lateral =====
+
+{{./pasted_image002.png}}
+
+===== Validação =====
+	* Valida se houve alteração na página, caso positivo, enviar alerta para o backend
+	* Valida se os arquivos estão prontos para upload. (Exibir botão executar visível, mas desabilitado)
+	* Valida compatibilidade das versões do browser e inclusive se o tribunal aceita estas versões. 
+
+===== Monitoramento =====
+* Rodar em background quando o browser iniciar. Ele irá monitorar:
+	* se o usuário entrou em algum site do tribunal (mostrar o botão da extensão com nosso logo) 
+	* se o usuário entrou na página de upload (mostrar barra lateral com informações)
+* Monitoramento de Atividade
+	* Toda tarefa que usuário executar no aplicativo será reportado para o backend
+	
+	
+
+===== Atualização Dinâmica =====
+
+Com objetivo de evitar atualização frequente da extensão, alguns comportamentos e configurações do aplicativo serão atualizados dinamicamente através de uma comunicação frequente com o backent:
+* Sistemas suportado pela ferramenta
+	* Se houver algum problema com um dos sistemas, podemos informar o usuário antes dele tentar usar nossa ferramenta em vão.
+* Atualização do mecanismo de Detecção (Ver Detecção de Página)
+* Atualização de instrução de execução (ver Intepretador e Execução de Instruções)
+* Atualização de informação de Validação de Documento
+
+
+===== Configuração =====
+* Na interface de configuração será possível definir o formato que os arquivos terão ao ser feito upload 
+	* Ex: renomear o nome do arquivo (contrato_001) ou contrato_01_02_03,
+* Acesso a configuração será feito através de um botão com ícone engranagem na **barra lateral** ou na **tela principal**
+* Configuração será salva no Servidor
+
+===== Verificação de Nova Versão =====
+Verificar com o BackEnd se existe algum update mais recente da Extensão. Caso exista pede autorização ao usuário para atualizar usando a própria loja de extensões do Mozilla.
+
+===== Suporte ao Cliente =====
+* Haverá um link que redireciona-rá o cliente para o site do aplicativo
+
+===== Estatistica =====
+* Será exibido uma barra lateral com estatistica de uso do aplicativo
+
+
+

@@ -1,0 +1,167 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-06-22T14:21:11-03:00
+
+====== Software para Dentista ======
+Created sábado 22 junho 2013
+
+http://www.smileodonto.com.br/gco/?pagina=download.php
+
+====== Nome ======
+
+
+
+====== Plataforma ======
+
+* ~~Python~~
+* ~~Django~~
+* ~~Arrakis~~
+* ~~Jquery Easy UI~~
+
+* NODEJS
+* Jquery Easy UI é pesado (Usar outra abordagem)
+
+====== Metodologia ======
+
+* RUP
+* Fluxo
+* Iterativo
+* Cliente participa
+* Prototipo
+* Teste TDD
+* Criar relatórios de andamento, hora gasta etc...
+
+====== Servidor ======
+
+* Cloud na under
+
+====== Questão Legal ======
+
+* Conversar com o Caio
+* Alvaro vai ver com o advogado
+
+====== Funcionalidades Básicas ======
+
+
+
+===== Modulos =====
+
+* **Usuario & Grupo (Apenas o básico relacionado a login e coisas do sistema)**
+* Contas (CRO) 
+* Agenda
+* Consultório (Clínica)
+* Cadeiras
+* Especialidades
+* Procedimentos
+* Paciente
+* Plano de Tratamento 
+	* Odontograma
+* Orçamento
+* Funcionarios e Prestadores de Serviço (Prestadores de serviço como dentista que trabalha na clinica)
+* Arquivo de Paciênte
+
+* Serviços (Laboratórios de prótese, clinica de radiologia, lavanderia)
+* Financeiro
+* Estoque
+
+===== Módulos de Apoio =====
+* Autenticação & Autorização (Permissões)
+* Indicadores
+* Relatório e Gráficos
+* Centralizador de Cadastro(ver)
+
+
+===== Módulo Técnicos =====
+* Log (IMPORTANTE)
+* (ver mais)
+
+
+===== Requisitos =====
+* Ser Personalizavel
+* Dinamico (Pode ser atualizado)
+* Modularizavel
+* Segurança
+	* Log (auditoria)
+
+===== Módulos Futuros =====
+* Migração (Exportação & Importações)
+* Programa de Afiliados
+* Compra de material pela internet
+* Pedido de Solicitação de Serviço pela internet
+* Envio SMS
+
+
+===== Procedimento =====
+
+* Procedimentos
+	* Cadastrado
+	* Tem receita
+	* Tempo x custo x minuto
+
+
+===== Aglutinador =====
+
+* Cadastros
+	* Pessoas
+		* Funcionarios
+		* Prestadores de Serviço
+			* Laboratórios
+			* Clinicas
+		* Procedimento
+		* Material
+		* Contas
+
+====== Funcionalidades discutivel ======
+
+* Ver parte Legal
+* Status:
+	* Cliente chegou ou não
+	* Procedimento foi feito ou não
+	* Terminou ou tem que continuar
+
+* Problema do dentista não fazer prontuario, pensar em alternativas
+
+* Plano de Tratamento
+* Paralelo tem um financeiro
+* Orçamento virou um pedido
+* Casos de usos
+* Funcionalidades Personalidades
+
+* Integração (Existe questão legal)
+* Acesso do Cliente
+	* Orçamento
+	* Historico
+	* Prontuário
+
+
+* Migração
+
+====== Formas de Venda ======
+
+* Palestras
+* Revendedores
+* Marketing
+* Email
+
+
+====== Planos de Venda ======
+
+* 15 dias grátis
+* Quantidade Limitada (Numero de Pessos)
+* Funcionalidades Limitadas
+
+====== Plano de Suporte ======
+
+
+====== Plano de Consultaria ======
+
+* Personalização
+
+
+====== Próximas Reuniões ======
+
+
+Alteração e Testes na Solicitação de Embarque nos Sistemas Internos
+
+Atualização da tela de consulta de despacho no Sistemas Internos
+

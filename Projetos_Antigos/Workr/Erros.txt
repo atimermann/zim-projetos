@@ -1,0 +1,104 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-31T18:31:06-03:00
+
+====== Erros ======
+Created terça 31 maio 2016
+
+autoitmanager-0 info: Todas as instruções foram executadas
+autoitmanager-0 error:  Error: ER_LOCK_WAIT_TIMEOUT: Lock wait timeout exceeded; try restarting transaction
+autoitmanager-0     at Query.Sequence._packetToError (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Sequence.js:48:14)
+autoitmanager-0     at Query.ErrorPacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Query.js:83:18)
+autoitmanager-0     at Protocol._parsePacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+autoitmanager-0     at Parser.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Parser.js:73:12)
+autoitmanager-0     at Protocol.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+autoitmanager-0     at Socket.<anonymous> (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/Connection.js:96:28)
+autoitmanager-0     at emitOne (events.js:77:13)
+autoitmanager-0     at Socket.emit (events.js:169:7)
+autoitmanager-0     at readableAddChunk (_stream_readable.js:146:16)
+autoitmanager-0     at Socket.Readable.push (_stream_readable.js:110:10)
+autoitmanager-0     at TCP.onread (net.js:523:20)
+autoitmanager-0     --------------------
+
+
+autoitmanager-0   sql: 'update `taskqueue` set `executed` = ?, `hash` = ?, `status` = ?, `worker` = ? where ((status = \'A\' AND worker IS NULL) OR (status = \'F\') OR (status = \'X\' AND executed < NOW() - INTERVAL 30 MINUTE)) and `workflow_id` in (?, ?) order by CASE WHEN completed IS NULL THEN created ELSE completed END limit ?' }
+autoitmanager-0 error:  Error: ER_LOCK_WAIT_TIMEOUT: Lock wait timeout exceeded; try restarting transaction
+autoitmanager-0     at Query.Sequence._packetToError (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Sequence.js:48:14)
+autoitmanager-0     at Query.ErrorPacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Query.js:83:18)
+autoitmanager-0     at Protocol._parsePacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+autoitmanager-0     at Parser.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Parser.js:73:12)
+autoitmanager-0     at Protocol.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+autoitmanager-0     at Socket.<anonymous> (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/Connection.js:96:28)
+autoitmanager-0     at emitOne (events.js:77:13)
+autoitmanager-0     at Socket.emit (events.js:169:7)
+autoitmanager-0     at readableAddChunk (_stream_readable.js:146:16)
+autoitmanager-0     at Socket.Readable.push (_stream_readable.js:110:10)
+autoitmanager-0     at TCP.onread (net.js:523:20)
+autoitmanager-0     --------------------
+autoitmanager-0     at Protocol._enqueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+autoitmanager-0     at Connection.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/Connection.js:201:25)
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/dialects/mysql/index.js:92:18
+autoitmanager-0     at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Promise._resolveFromResolver (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:480:31)
+autoitmanager-0     at new Promise (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:70:37)
+autoitmanager-0     at Client._query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/dialects/mysql/index.js:88:12)
+autoitmanager-0     at Client.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/client.js:136:24)
+autoitmanager-0     at Runner.<anonymous> (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:115:24)
+autoitmanager-0     at Runner.tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Runner.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/method.js:15:34)
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:43:21
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/using.js:176:30
+autoitmanager-0     at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Promise._settlePromiseFromHandler (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:507:31)
+autoitmanager-0     at Promise._settlePromiseAt (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:581:18)
+autoitmanager-0     at Promise._settlePromises (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:697:14)
+autoitmanager-0     at Async._drainQueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:123:16)
+autoitmanager-0     at Async._drainQueues (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:133:10)
+autoitmanager-0     at Immediate.Async.drainQueues [as _onImmediate] (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:15:14)
+autoitmanager-0     at processImmediate [as _immediateCallback] (timers.js:383:17)
+autoitmanager-0 Unhandled rejection Error: ER_LOCK_WAIT_TIMEOUT: Lock wait timeout exceeded; try restarting transaction
+autoitmanager-0     at Query.Sequence._packetToError (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Sequence.js:48:14)
+autoitmanager-0     at Query.ErrorPacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/sequences/Query.js:83:18)
+autoitmanager-0     at Protocol._parsePacket (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+autoitmanager-0     at Parser.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Parser.js:73:12)
+autoitmanager-0     at Protocol.write (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+autoitmanager-0     at Socket.<anonymous> (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/Connection.js:96:28)
+autoitmanager-0     at emitOne (events.js:77:13)
+autoitmanager-0     at Socket.emit (events.js:169:7)
+autoitmanager-0     at readableAddChunk (_stream_readable.js:146:16)
+autoitmanager-0     at Socket.Readable.push (_stream_readable.js:110:10)
+autoitmanager-0     at TCP.onread (net.js:523:20)
+autoitmanager-0     --------------------
+autoitmanager-0     at Protocol._enqueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/protocol/Protocol.js:141:48)
+autoitmanager-0     at Connection.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/mysql/lib/Connection.js:201:25)
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/dialects/mysql/index.js:92:18
+autoitmanager-0     at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Promise._resolveFromResolver (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:480:31)
+autoitmanager-0     at new Promise (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:70:37)
+autoitmanager-0     at Client._query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/dialects/mysql/index.js:88:12)
+autoitmanager-0     at Client.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/client.js:136:24)
+autoitmanager-0     at Runner.<anonymous> (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:115:24)
+autoitmanager-0     at Runner.tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Runner.query (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/method.js:15:34)
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:43:21
+autoitmanager-0     at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/using.js:176:30
+autoitmanager-0     at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+autoitmanager-0     at Promise._settlePromiseFromHandler (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:507:31)
+autoitmanager-0     at Promise._settlePromiseAt (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:581:18)
+autoitmanager-0     at Promise._settlePromises (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:697:14)
+autoitmanager-0     at Async._drainQueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:123:16)
+autoitmanager-0     at Async._drainQueues (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:133:10)
+autoitmanager-0     at Immediate.Async.drainQueues [as _onImmediate] (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:15:14)
+autoitmanager-0     at processImmediate [as _immediateCallback] (timers.js:383:17)
+
+
+{{./pasted_image.png}}
+
+* Na presença de carga validar quando Volume for zero (GERA ERRO)
+
+
+
+
+{{./pasted_image001.png}}
+Fica travado aqui nunca sai deste loop
+Nunca sai deste loop

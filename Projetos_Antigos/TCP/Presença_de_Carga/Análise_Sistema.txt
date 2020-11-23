@@ -1,0 +1,105 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-08T15:29:59-03:00
+
+====== Análise Sistema ======
+Created sexta 08 maio 2015
+
+Sistema Está no DMZ, arquivo inicial:
+ftp://tisuport@200.195.158.100:221/wwwroot/extranet/agendamento/app/solicita_presenca_carga.php
+
+__ATENÇÃO: ANálise está num arquivo xmin na pasta do projeto:__
+[[~/projetos/tcp/presenca_carga/mindMap/Presença de Carga.xmind]]
+
+====== solicita_presenca_carga.php ======
+
+
+===== ATENÇÂO: Antes de tudo é adicionado um =====
+**include "combo_cliente_novo.php";**
+* Esse Include já traz o javascript para selecionar o cliente
+
+
+**Ao Carregar Página (Jquery .ready())**
+	-> Executa CarregaComboNavios();
+	**Adiciona Máscara em:**
+		-> #numero_despacho_consulta
+		-> #numero_despacho_consulta
+	**Adiciona Focus a:**
+		-> #cliente
+
+
+**Ao carregar a página configura alguns eventos:**
+
+===== Botão Pesquisar (onClick) - Botão Avançar =====
+É o botão Avançar
+
+* Adiciona Imagem Carregando
+* Realiza uma Consulta no SERVIDOR (AJAX)
+	* Solicita Requisição para: __app/solicita_presenca_carga_lista.php__
+	* **POST**
+	* Dados enviados no POST:
+		* cliente (#cliente)
+		* Navio (#navio)
+		* Tipo (#tipo-solic) (Normal ou A Posteriore)
+	* **Callback de Sucesso**
+		* Limpa HTML
+			* $('#lista_detalhes').html('');
+			* $('#lista_detalhes').children().remove();
+		* **ADiciona Dados recebidos via POST (Provavelmente um HTML na DIV lista_detalhes) **__(ANALISAR ENTRADA PHP)__
+		* Cria um evento onChange
+			* **$('#selecao_header').change**
+				* Componente do Datagrid (seleciona todos os itens na coluna
+		* Adiciona Máscara nos campos
+		* COloca focus no campo numero_despacho
+		* Cria Evento consultar_dde Ver: __[#001]__
+	* **Callback de Erro**
+		* Imprime Mensagem: **'Erro no Sistema - Acionar Setor de TI TCP';**
+
+===== [#001] Botão Consultar DDE (Click) =====
+
+* Valida se tem um conteiner está selecionado
+* Valida os campos Numero DDE e Quantidade de volumes
+* Realiza Montagem dos Parâmetros
+	* cliente
+	* navio_imo
+	* numero_despacho
+	* quantidade_volume
+	* tipo
+	* detalhes (ARRAY DE:)
+		* conteiner
+		* navio
+		* viagem
+		* lacre
+		* peso_bruto
+		* armador
+		* porto_descarga
+		* localizacao
+		* parte_lote
+
+* Realiza Validação de lacre (lacre_val_ok)
+
+* AJAX: Solicita Requisição para: __app/solicita_presenca_carga_solicita.php__
+	* Envia Dados setados acima
+	* POST
+	* **Callback de Sucesso**
+		* apenda resultado em **lista_detalhes**
+	* **Callback de Error**
+		* Apenda mensagem: **'Erro no Sistema - Acionar Setor de TI TCP';**
+
+
+===== Botão COnsultar (onClick) =====
+ 
+
+
+====== app/solicita_presenca_carga_lista.php ======
+
+__ATENÇÃO: __**Este arquivo está duplicado, a versão funcional está na raiz do DMZ, junto solicita_presenca_carga.php**
+
+* Realiza algumas validações:
+	* Dado enviados corretamente
+
+* Faz a contagem de Lacre
+
+
+====== app/solicita_presenca_carga_solicita.php ======
+

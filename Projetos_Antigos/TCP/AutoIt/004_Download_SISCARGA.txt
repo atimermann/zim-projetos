@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-09-02T20:19:42-03:00
+
+====== 004 Download SISCARGA ======
+Created quarta 02 setembro 2015
+
+Tabela usada no robo:
+
+CREATE TABLE Autoit.dbo.SISCARGA_DOWNLOAD (
+	SISCARGA_DOWNLOAD_ID int IDENTITY(1,1) NOT NULL,
+	TASK_PREV_ID int NOT NULL,
+	PORTO char(7) NOT NULL,
+	IMO char(10) NOT NULL,
+	CREATED datetime DEFAULT (getdate()) NOT NULL,
+	COMPLETED datetime DEFAULT (getdate()) NOT NULL,
+	STATUS char(1) DEFAULT ('A')
+	PRIMARY KEY (SISCARGA_DOWNLOAD_ID)
+);
+
+
+CRIAR INTERFACE DE RETORNO UNIVERSAL EM VEZ DE CRIAR MAIS CONTROLLERS
+
+
+
+LINK DOCUMENTAÇÃO CONFLUENCE:
+https://terminalcp.atlassian.net/wiki/pages/viewpage.action?pageId=16777222
+
+LINK LOCAL:
+[[~/projetos/tcp/Automação Siscarga Argos|~/projetos/tcp/Automação Siscarga Argos/]]
+
+**Senha Certificado:** tcp2014
+Anderson.pfc
+
+
+
+====== Não está na doc ======
+
+[18:41:36] Romulo Choinski: uma coisa que não esta no documento....
+[18:42:07] Romulo Choinski: quando vc for fazer a recuperação antes do Navio atracar tem que por no combo como Previsão de Atracação
+[18:42:18] Romulo Choinski: depois de atracado o navio tem que ser atracação
+
+
+* Parametrizar o tempo de busca por nova tarefa (Padrão 10s, vamos deixar parametrizado)
+* 10minutos
+
+
+
+
+
+
+====== Implantação ======
+
+* Instalar Certificado
+* Habilitar modo de compatibilidade no IE

@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-30T10:24:25-03:00
+
+====== 01 - Fase 01 ======
+Created terça 30 setembro 2014
+
+===== Etapa01: Criar as Telas =====
+
+**Tela de Solicitação de Embarque para SISCOMEX**
+
+* Criar tela de solicitação de embarque, com os campos em ordem:
+	* **Tipo de Despacho**
+		* Siscomex
+		* Tradex (Desabilitado, próxima fase)
+			* Despacho Comum
+			* A Posteriori
+	* **Nro de Despacho**
+
+* Não será mais necessário retornar a lista de contêiner pois a liberação deverá ser feito para todo o despacho
+
+===== Alteração na Base =====
+
+Busca é feita na **extnet.dbo.PROC_SISCOMEX **que retorna todas as ordens de embarque, 
+* Buscar todos os despacho relacionado ao cliente logado (ver com helmuth)
+
+Retornar:
+	* Nome do Exportador
+	* CNPJ
+[LISTAGEM DE CONTÊIMER]
+
+* Deverá se defino um novo ESTADO, que será salvo numa nova coluna, gerar o controle
+
+* Verificar quando o registro vence ou muda de navio ou é embarcado etc... (DISCUTIR)
+
+====== Fase Futura: Dashboard: Acompanhamento de DDE ======
+
+
+====== Fase Futura: Tradex ======

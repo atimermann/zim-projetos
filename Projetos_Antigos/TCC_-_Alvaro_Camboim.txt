@@ -1,0 +1,163 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-04-01T10:32:45-03:00
+
+====== TCC - Alvaro Camboim ======
+Created terça 01 abril 2014
+
+Bom dia terminei de fazer a análise, ficamos assim:
+
+
+====== Hospedagem e Configuração de Hospedagem ======
+
+
+Eu faço revenda de hospedagem, se for só para o seu TCC faço de graça. **PHP/MYSQL ilimitado**
+Se precisa de um domínio registro para você por **R$ 30,00 / ano**
+Se não precisa de domínio não tem custo
+
+**Configuração Hospedagem:**
+Aqui inclui a configuração para o projeto, gerenciamento do banco de dados, deploy (Implantação do projeto)
+
+**Horas:**  **3**
+
+====== Modelagem de Banco de Dados / Criação de DER (Diagrama Entidade-Relacional) ======
+
+
+Pela minha análise inicial:  Vamos ter a seguintes entidades:
+
+Usuario,  Atas, Regimento, Condôminio, Convenção, RH, Administrativo, Financeiro, Manutenção, Eventos eCondominio
+
+**Horas: 8**
+
+====== Layout ======
+
+
+Layout vou terceirizar, tenho 2 pessoas que trabalham comigo nos layout, vou te entregar um projeto com layout padrão, depois podemos negociar esta parte caso queira mudar alguma coisa.
+
+Vai ter um layout apresentável, mas nada personalizado ou muito elaborado. Para vocẽ ter uma idéia, eu vou usar o bootstrap:
+http://getbootstrap.com/
+e o Jquery Easy UI para as interfaces:
+https://jqueryui.com
+
+**Sobre oq vc me disse:**
+P.S: as telas de pesquisa devem abrir estilo as imagens do Gmail. O fundo destaca e ao arredor "escurece".
+
+Isso não está no protótipo que me passou, você não consegue um prótotipo correto? ou então vamos precisar sentar pra discutir esse e outro detalhe que vai acabar consumindo muito mais horas.
+
+Para abrir na mesma janela estilo Gmail, (se entendi direito) vamos precisar criar páginas com requisição AJAX, que dá mais trabalho e vai consumir bem mais horas. Recomendo fazer em páginas separadas por causa do prazo apertado.
+
+**Horas: 0 (Incluído nos outros módulos)**
+
+====== Desenvolvimento do Sistema ======
+
+
+Dividi o desenvolvimento nas seguintes módulos:
+
+==== Autenticação e Autorização das Páginas ====
+
+* Aqui vamos fazer uso de sessão, cada página vai precisar validar a autenticação e autorização do usuário 
+
+**Horas: 6**
+
+==== Login ====
+
+Vamos criar tela de login com:
+* Tela de Login, Sistema verifica se usuario está autenticado, e em seguida verifica qual autorização ele tem
+	* **Horas:** **6**
+* São perfis FIXOS, portanto é mais simples e não vamos precisar criar uma Entidade para isso
+* Tela de Recuperação de Senha com envio de emaio
+	* **Horas: 6**
+
+**Total: 12 horas**
+
+==== CRUDs de UPLOAD ====
+
+* São 3 telas idênticas:
+	* ATAS
+	* REGIMENTO
+	* CONVENÇÃO
+
+* Com Cadastro/Pesquisa 
+* Validação, componentes javascript para habilitar e desabilitar botões, upload
+
+Então será desenvolvida uma e depois será replicado
+
+**Horas: **
+Primeira página:   **6 horas**
+Pesquisa:            **5 horas**
+
+Replicar:  1hora por página total: **2 horas**
+
+**TOTAL:  13 horas**
+
+===== CRUDS Básicos =====
+
+* São 4 telas idênticas:
+	* RH
+	* Administrativo
+	* Financeiro
+	* Manutenção
+
+Então será desenvolvida uma e depois será replicado
+
+**Horas: **
+Primeira página:   **3 horas**
+Pesquisa:            **5 horas**
+
+Replicar:  1hora por página total: **3 horas**
+
+**TOTAL:  11 horas**
+
+==== CRUD - Eventos ====
+Primeira página:   **3 horas**
+Pesquisa:            **5 horas**
+
+**IMPORTANTE: **Assumindo que setor é fixo, não será cadastrável
+
+**Horas: 8 horas**
+
+==== CRUD - Condôminio ====
+Primeira página:   **4 horas**
+Pesquisa:            **5 horas**
+
+**Horas: 9 horas**
+
+==== CRUD - Usuário ====
+Primeira página:   **4 horas**
+Pesquisa:            **5 horas**
+
+**Horas: 9 horas**
+
+====== Tecnologias ======
+
+Caso autorize vou fazer uso das seguintes técnologias:
+* Framework de desenvolvimento PHP Symfony: http://symfony.com/
+* Abstração de Banco de dados: Active Record: http://www.phpactiverecord.org/
+* Jquery Easy Ui: Interface de componentes: http://www.jeasyui.com/
+* Layout Padrão: Bootstrap: http://getbootstrap.com/
+
+
+====== Serviço de Hospedagem ======
+
+Minha empresa: http://www.ousadiadigital.com/
+
+====== Resumo ======
+
+Hospedagem e Configuração: **3 horas**
+Modelagem e criação de DER: **8 horas**
+Autenticação e Autorização de páginas:  **6 horas**
+Telas de Login: **12 horas**
+CRUDS de upload: **13 horas**
+CRUDS Básicos: **11 horas**
+Eventos: **8 horas**
+Condoinio: **8 horas**
+Usuário: **9 horas**
+
+**TOTAL:** 78 horas
+**Valor/hora** : R$ 60,00
+
+**TOTAL SISTEMA:** R$ 4680,00
+
+
+
+

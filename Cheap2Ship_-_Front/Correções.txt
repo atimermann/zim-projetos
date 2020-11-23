@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-11-17T14:19:56-03:00
+
+====== Correções ======
+Created terça 17 novembro 2020
+
+————————————————————————————————————————————————————————————————————————————————————————————————————
+
+{{./pasted_image001.png}}
+Esses dois
+
+mutation {
+  createAuctionGroupContract(
+	auctionGroupContract: {
+	  auctionGroup: {
+		uuid: "7c80b920-618d-454c-809b-410b1d2b6acc"
+	  }
+	  freightForwarder: {
+		id: 342
+	  }
+	  share: 100
+	}
+  ) {
+	id
+  }
+}
+
+Essa é a mutation
+
+Vai deixando essa parte de interfaces e afins pronta
+
+Que tô bolando aqui como vão ficar as views
+
+Mas, basicamente, se o modelo de contratação for "um fornecedor por continente", no campo share você envia 100
+
+Se for o modelo "multíplos", você vai enviar a porcentagem que o cliente informar
+
+Vamos mexer nos gráficos nessa etapa
+
+————————————————————————————————————————————————————————————————————————————————————————————————————
+
+https://vue-chartjs.org/guide/#introduction

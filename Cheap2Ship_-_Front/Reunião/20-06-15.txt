@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-06-17T14:08:58-03:00
+
+====== 20-06-15 ======
+Created quarta 17 junho 2020
+
+alless@cheap2ship.com
+Cubs3562rb
+
+
+
+{{./pasted_image.png}}
+
+https://cheap2ship-199518.appspot.com/company/bid/in-progress
+https://cheap2ship-199518.appspot.com/company/bid/quote/list/196fdf89-8ca1-4ecb-a675-8456d52ad47b
+
+Padronizar
+
+
+====== Listagem de Cotação ======
+
+* **Novo Header igual do bid**
+Origem => destino (canto direito)
+
+* Deixar uma cópia do bid na antes da listagem de cotação, porém contraido
+
+* Remover buscar cotação
+
+* remover **embarque a partir de** e **desembarque**

@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-04-28T05:14:48-03:00
+
+====== Cavalheiro - Eng Florestal ======
+Created domingo 28 abril 2013
+
+===== Projeto Freelance - Ricardo Cavalheiro =====
+
+* Deve ser Responsivo (Funcionar em Mobile)
+* Modular, Ricardo quer adicionar módulos no futuro
+* Verificar possibilidade de usar Arrakis (num primeiro momento não)
+* Montar Contrato
+* Bibliotecas usadas:
+	* scipi
+	* numpi (
+	* mathplot (http://www.scipy.org/Cookbook/Matplotlib/Django)
+
+* Verifica  a possibilidade de prestar serviço pela empresa, segundo carlos é possívem montar contrato sem compromisso de emitir nota depois
+
+====== Proposta ======
+
+* Valor da Hora R$ 50,00
+* Sem compromisso depois, código livre: Arrakis (Será necessário bolar uma licensa para o Arrakis)
+* Primeira reunião de 2 ou 4h no valor de R$ 100,00
+* Próxima Reunião dia 04 ou dia 05
+
+
+====== Retorno ======
+
+* Sugestões de biliotecas:
+	* https://pypi.python.org/pypi/django-chart-tools
+	* http://www.scipy.org/Cookbook/Matplotlib/Django
+	* http://imagecharteditor.appspot.com/
+	* http://mbostock.github.io/protovis/
+	* https://code.google.com/p/flot/
+
+
+* Links de Django:
+	* https://www.djangoproject.com/
+	* http://www.aprendendodjango.com/python
+
+* Biblioteca de interface:
+	* http://www.jeasyui.com/

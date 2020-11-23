@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-10T23:33:01-03:00
+
+====== 20160314 - Notas ======
+Created quinta 10 março 2016
+
+ALTER TABLE athlete_notes ADD admin TINYINT DEFAULT 0 NOT NULL
+
+
+ post_max_size = 16M
+ max_execution_time = 300
+ max_input_time = 300
+ date.timezone = ...

@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-05T17:16:41-02:00
+
+====== 09 - [REVISTO] Reunião ======
+Created quarta 05 novembro 2014
+
+* Atualizar DT_ATUALIZAÇÃO
+
+* PROTOCOLO:
+	* DATA/HORA DE CRIAÇÃO
+	* USUÁRIO LOGADO NO SITE (EMPRESA_ID VERIFICAR?)
+	* DESPACHO
+	* CONTEINERES
+
+* LIstar: 
+	* PROTOCOLO
+	* DATAHORA
+	* CNPJ
+	* TIPO DE LIBERAÇÃO:
+		* IGUAL COMPO SOLICITAÇÃO
+	* DESPACHO
+file:///usr/share/applications/zim.desktop

@@ -1,0 +1,147 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-21T20:22:04-02:00
+
+====== Migration ======
+Created sexta 21 novembro 2014
+
+**Objetivo: **Criar uma ferramenta para migrar banco de dados como o South, de forma automatizada fazendo uso do Knex e do urlParser
+
+**Nomes Possiveis:**
+
+dbTool
+diaTool
+aDbTool
+aDataMigrationTool
+
+==== 1ª Rodada ====
+** DIA -> Gera arquivo model JSON**
+modeldatabase-20141121-00001.json
+
+**Gera arquivo de geração de schema ou executa direto**
+sql-schemagenerate-20141121-00001.sql
+
+**Gera arquivo de Geração de dados ou executa direto (dados iniciais)**
+sql-datagenerate-20141121-00001.sql
+
+
+
+
+
+==== 2ª Rodada ====
+
+* **DIA -> Gera arquivo model JSON**
+	modeldatabase-20141121-0002.json
+
+* **Gera arquivo de geração de schema ou executa direto**
+	sql-schemagenerate-20141121-00002.sql
+
+* **Realiza Backup completo do Banco de dados (0001, pois é backup da versão antiga)**
+	backup-20141121-0001-a.sql
+	backup-20141121-0001-a.dump
+
+* **Salva mapa de dados numa estrutura json**
+	sql-datamap-20141121-00002.json
+
+* **Apaga Banco de Dados**
+
+* **Recria novo Banco de Dados Vazio**
+
+* **Cria tabelas baseada no arquivo criado**
+	Lê: modeldatabase-20141121-0002.json ou  sql-schemagenerate-20141121-00002.sql
+	
+* **Cria Map de Migração UP e DOWN**
+
+
+
+====== Geração de Arvore de Dados ======
+
+
+===== Salva dados da Migração ORIGINAL =====
+**[TABELA 1]**
+	**-> $1** (Valor da chave primária da tabela)( Não suporta chave primária duplicada)
+		__[ SE COLUNA SEM RELACIONAMENTO]__
+			**COLUNA_A:** VALOR
+			**COLUNA_B:** VALOR
+		__[ SE COLUNA DE RELACIONAMENTO]__
+			**COLUNA_C:** $2 (ID precedido por $ do relacionamento)
+			[COLUNA CHAVE PRIMÁRIA NÃO É SALVA  AQUI, pois é identificada pelo indice **($1)**
+
+**[TABELA 2]**
+
+E ASSIM POR DIANTE
+
+===== Recuperação de dados =====
+
+* Vamos usar uma abordagem recursiva
+* Vamos abrir transação para realizar todas as alterações
+
+* Percorre todas as tabelas
+	* Percorre todas as linhas da tabela **(PARA CADA LINHA DA TABELA VAMOS CHAMAR UMA FUNÇÃO "SALVA REGISTRO")**
+		* Vamos verificar se essa linha já foi salva, se sim **PULA (vamos criar um buffer com todas as colunas salvas indicando q ela foi salva)**
+		* Vamos através do indice obter o ID da TABELA (pode ser gerar novo indice ou aproveitar oq já existe)
+		* Vamos percorre todas as colunas da linha
+			* SE a Coluna for normal, apenas indica no insert
+			* Se for uma coluna de __RELACIONAMENTO __ vamos:
+				* Verificar se o registro externo já foi salvo **(vamos criar um buffer com todas as colunas salvas indicando q ela foi salva)**
+				* Se ela foi salva, recuperamos o ID dela e indicamos aqui
+				* Se não foi salva vamos executar **"SALVA REGISTRO" **para este registro externo em particular
+
+
+
+===== Problema com Memória =====
+
+* Podemos ter problema com quantidade de memória disponível, imagine umab ase de 10GB, não será possível carregar tudo direto na memório, ir salvando no disco
+	* 1 tabela por aquivo
+
+* Porém na memória será muito mais rápido, tentar fazer as duas versões ao mesmo tempo, usando um "driver"
+
+==== Salva dados ====
+
+* **Abre Tabela por Tabela no Sistema (1)**
+	* Salva valor de id como $v (na recuperação decide-se se vai ou não manter o mesmo id ou gerar um novo conjunto)
+
+	* Pega Primary Key
+	* Pega Chaves Estrangeira
+
+	* **Percorre registro por registro (2) (tabela, registro)**
+	* Verifica se as chaves estrangeiras apontam para algum lugar
+		* Se Sim vamos Salvar esse registro (RECURSÃO AQUI) **(->2) **Deve retornar o id precedido com $
+		* Se não apenas marca com null
+	* Salva os registros anteriores
+	* Marca como processado (Apenas salva)
+	* Retorna ID salvo
+
+
+==== Recuperação ====
+
+	* Vamos ter um arquivo de migração com os filtros que deve processar
+	* Esse Arquivo de migração será gerado automaticamente por um script que vai verificar a diferença, mas tb pode ser convertido
+	* Deve ser de IDA e VOLTA?
+	* Primeiro se cria a nova estrutura depois realiza o povoamento baseado nas regras
+
+————————————————————
+* Criação de Tabela
+	* Registros Iniciais
+* Remoção de Tabela
+* Renomeação de Tabela
+
+* Carregar Dados Iniciais
+————————————————————
+* Criação de Coluna
+* Remoção de Coluna
+	* Verifica se alguém depende
+* Renomeação de Coluna
+
+* Valor Padrão ou lista de relacionamento
+————————————————————
+* Criação de Relacionamento
+	* Necessário montar o relacionamento (função de montagem de relacionamento)
+* Remoção de Relacionamento
+	* Função de remoção
+————————————————————
+* Mudança para NOT NULL
+* Mudança de Tamanho
+* Mudança de Tipo
+	* Função de transformação
+* Mudança de Chave Unica

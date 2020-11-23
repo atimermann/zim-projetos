@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-07T13:23:55-02:00
+
+====== AGTSistemas ======
+Created sábado 07 fevereiro 2015
+
+* Criar uma ferramenta q permita o aproveitamento de diversos módulos entre diferentes sistemas
+
+**ex:** LavaCar, financeiro
+
+
+Precisamos desacoplar para melhor aproveitamento

@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-09T17:28:54-02:00
+
+====== Reunião 2016-11-09 ======
+Created quarta 09 novembro 2016
+
+[*] - Erro do popup
+[*] - Assinatura invalida
+[*] - Verificação de Nova versão
+	Estudar possibilidade de Nova versão
+[*] - Verificar se o processo mudou
+
+[x] - Enviar Instrução pro backend antes de executar em vez de depois, pra saber a ultima executada
+	* Já está sendo enviado antes
+
+[ ] - Levantar estimativa de prazo para o workr
+
+
+[ ] Bug: Ao cancelar operação (não libera mais os controles)
+[x] Bug: Não destroi corretamente em alguns casos (com certificado)
+	* Erro de permissão na pasta, possível causa falta de espaço
+
+- Remoção botão minizar no gerenciador de upload
+- 

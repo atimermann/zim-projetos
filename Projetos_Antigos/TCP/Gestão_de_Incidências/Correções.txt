@@ -1,0 +1,72 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-05-21T10:02:53-03:00
+
+====== Correções ======
+Created quarta 21 maio 2014
+
+
+===== Alterações no Processo =====
+
+* ~~Na manutenção: Remover temperatura das análises~~
+
+* ~~Se a coleta vier do Argos, pega o código do auxiliar (Usar campo auxiliar)~~
+	~~- Auxiliar não vai vir para o sistema~~
+	~~- Se a coleta vier do sistema, pega o usuario logado (no caso o monitor logado)~~ 
+	
+* ~~Remover opção de revincular eletricista da tela de manutenção e colocar na tela de Vincular eletricsita deixar lá enquanto não tiver analisado~~
+
+* ~~Formatar para Tablet, agora tem filtro, aumentar botões~~
+
+* ~~Mudar o label temperatura para Set Point Físico em todo o sistema~~
+
+* ~~Ao puxar armador do argos já converter código para nome do armador~~
+
+* ~~Remover cadastro de SIGLA~~
+
+~~pega automatica daqui:~~
+	~~SELECT 	~~
+	~~	AGAR_SIGLA	~~
+	~~FROM 	~~
+	~~	AEDIMAN.AGRUP_ARM AA 	~~
+	~~JOIN 	~~
+	~~	AEDIMAN.ITENS_AGRUP IA 	~~
+	~~	ON AA.AGAR_ID = IA.AGAR_ID 	~~
+	~~JOIN 	~~
+	~~	ARGYARBASF.CONTF CF 	~~
+	~~	ON (IA.ITAG_SIGLA = ELINEA 	~~
+	~~	OR IA.ITAG_SIGLA = SLINEA) 	~~
+	~~WHERE 	~~
+	~~	CONTA = '' 	~~
+	~~	AND CONTN = '' 	~~
+	~~	AND CONTD = ''~~
+
+
+* ~~Em manutenção ao aprovar, encerrar automático~~
+
+
+
+* ~~Ao selecionar o reparador (terceirizar), mostrar o Armador~~
+
+* Na Análise Operacional e Manutenção, colocar informação do Cliente (operacional), Armador e Prestador de Serviço e o email (Importante saber para quem está sendo enviado o email)
+
+* Histórico da ORdem de serviço, detalhar incidência
+
+* Criar SLA, no config deixar formato **28:23:23, VALIDAR e colocar campo hora /data, complexo, melhor ficar minutos**
+
+===== Erros =====
+* ~~Erro ao analisar, tá puxando nome do código de erro inválido~~
+
+
+===== Outras Alterações =====
+
+* ~~Botão Encerrar não desabilita quando reprovo, mudar regras~~
+* ~~Ao puxar armador do argos já converter código para nome do armador~~
+
+* Problema de Ordenação na tela de Solicitação de OS
+
+* Revisar Cancelamentos, pois o processo está com falha, por exemplo não volta a aparecer no painel de eletricista
+
+* Filtros e paginação ficar salvas
+
+* Adicionar Aguardando ao submeter no plugin filter submit

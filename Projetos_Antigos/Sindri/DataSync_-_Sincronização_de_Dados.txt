@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-04-13T17:49:10-03:00
+
+====== DataSync - Sincronização de Dados Servidor -> Cliente ======
+Created segunda 13 abril 2015
+
+Módulo para padronizar e automatizar a comunicação do servidor para o cliente com tratamento de erro.
+
+O módulo será instanciado tanto no cliente quanto no servidor, 
+
+Layout de Comunicação:
+
+====== Formatos aceitos: ======
+
+===== String =====
+* Sempre será considerado um erro
+* Caso retorne uma mensagem será tratada como erro
+
+===== Json =====
+
+Objeto no formato json com as seguintes propriedades:
+
+* **error:**  (Boolean. Padrão: false)
+* **errors: **Lista de Erros
+* **data: **Dados enviados para o Cliente
+
+===== Outros =====
+
+É possível aceitar outros formatos, porém é necessário um método especial
+
+
+====== errors ======
+
+o Atributo errors pode ser de dois tipos:
+
+===== Objeto =====
+
+Contém um objeto de erro, com as seguintes propriedades:
+
+* **message:** Mensagem de Erro
+* **id:** Identificação do erro, podendo ser:
+	* **null: **Erro global
+	* **not null: **Erro com indentificavel. ex: Campos de um formulário
+* **type: **Tipo do erro
+
+Suporta outros tipos de informação, como numero da linha etc, porém deve ser tratado externamente
+
+===== Lista =====
+
+* Uma lista de Objeto **(ver Objeto)**
+
+
+
+
+

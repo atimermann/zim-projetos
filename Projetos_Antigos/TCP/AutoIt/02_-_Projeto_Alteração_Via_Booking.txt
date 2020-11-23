@@ -1,0 +1,95 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-13T14:15:28-03:00
+
+====== 02 - Projeto Alteração Via Booking ======
+Created segunda 13 julho 2015
+
+* Alteração de Contêiner
+	* Já estiver destinado ao Navio.Viagem
+	* Contêiner sem Navio/Viagem
+
+
+* Alteração de Booking
+
+* É conteiner de exportação
+
+* ???????????????? Digitar XXX 0<NUMERO SEM DIGITO>
+
+====== Validações ======
+
+* Se Alterou o Navio
+	* Obtém o Código Navio no Argos
+	* Obtém o Código Viagem no Argos
+	* Valida se Navio está no Argos
+	* Valida se Viagem está no Argos
+	* Valida Porto de Destino
+	* Valida Porto de Descarga
+
+
+* Se Porto de Destino
+	* Valida Porto de Destino
+
+* Se Alterar Porto de Descarga
+	* Valida Porto de Descarga
+
+
+
+
+- Se der problema no contêiner, cancela apenas o conteiner
+- INDEFI
+
+
+
+===== Alteração de Navio.Viagem =====
+
+- Late Runner (pegar apenas diferente de L)
+
+-> Se nao tiver navio viagem ->APENAS  ALTERA
+-> Se tiver Navio/viagem -> CANCELA e ALTERA
+
+===== Se alterar apenas o Porto =====
+
+-> Só altera
+
+
+
+
+
+
+====== Tabela de contole ======
+
+
+CREATE TABLE Autoit.dbo."002_BOOKIN_CONTEINER"
+("002_BOOKIN_CONTEINER_ID" int IDENTITY (1,1) NOT NULL,
+OPERACAO char(1) NOT NULL,
+BOOKIN char(35) NOT NULL,
+CONTEINER varchar(15) NOT NULL,
+NAVIO char(10),
+VIAGEM char(10),
+CREATED datetime DEFAULT 'GET_DATE()' NOT NULL,
+COMPLETED datetime DEFAULT 'GET_DATE()',
+STATUS char(1) DEFAULT 'A' ,
+INFO varchar(max),
+PRIMARY KEY ("002_BOOKIN_CONTEINER_ID"))
+
+
+====== Flags ======
+
+==== OPERAÇAO: ====
+A -> Alteracao
+C -> Cancelamento e Alteração
+
+
+==== Status ====
+NULL -> Não processado
+I -> Inválido  (Descrição na Coluna Info)
+A -> Aguardando Alteração
+S -> Cancelado/Alterado com Sucesso
+E -> Erro ao Cancelar/Alterar (Descrição na Coluna Info)
+
+
+====== Erros ======
+
+
+

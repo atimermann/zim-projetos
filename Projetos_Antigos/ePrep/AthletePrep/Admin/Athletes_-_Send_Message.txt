@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-03T15:59:57-02:00
+
+====== Athletes - Send Message ======
+Created quarta 03 fevereiro 2016
+
+====== Módulo de envio de mensagens para Athleta ======
+
+==== Acesso: ====
+
+	* Acesso apenas via Admin
+	* Menu Admin -> Athletes -> Messages -> Send Messages
+
+{{./pasted_image.png}}
+
+
+==== Descrições: ====
+
+	* No Admin Athletes, todos as páginas (HTML) são carregadas via AJAX)
+
+==== Caminhos: ====
+
+	* Controller:
+		* athleteprep/application/controllers/admin/Athlete.php
+	* View:
+		* athleteprep/application/views/admin/athlete/messages.php
+	* Model
+		* athleteprep/application/models/M_athlete.php
+
+
+
+
+==== DIagrama de Processo ====
+
+
+{{./diagram.png?type=diagram}}
+
+
+
+
+
+

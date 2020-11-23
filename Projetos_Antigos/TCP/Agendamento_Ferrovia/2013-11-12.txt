@@ -1,0 +1,302 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-12T10:53:14-02:00
+
+====== 2013-11-12 ======
+Created terça 12 novembro 2013
+
+* AGE_SERVICOS
+	* São as categorias de agendamento
+
+* AGE_GRADES
+	* São os horarios com os limites disponíveis
+	* GRADE_INICIO-GRADE_FIM -> Periodo (janela)
+	* TOLERANCIA_INICIO-TOLERANCIA_FIM -> Tolerancia
+	* DIAS_SEMANAS -> Dias da semana liberado
+	* GRADE_BLOQUEIO -> Tempo que o agendamento fica bloqueado, "punição" em horas, para quem não cumprir o horario
+
+
+* AGE_ERROS
+	* informa os erros que apareceram no sistema
+
+
+AGE_AGEND:
+	* AGE_MODAL: 2
+	* AGE_STATUS: 1 ( Em trânsito)
+		* Tabela: AGE_STATUS 
+	* AGE_CONTROL_ID:
+		* Tabela AGE_CONTROL
+		* Serve para evitar fazer count em toda consulta, para cada alteração ele faz update nessa tabela para indicar quantos foram agendados
+		* Também valida os feriados: CONTROL_BLOQ (CONTROL_MOTIV: motivo do feriado)
+		* Um registor para cada janela
+		* CONTROL_REALIZADO -> Deu baixa no coletor
+	* SERVICO_ID = **10**
+		<input type="hidden" value="5" id="SERV_ID" name="SERV_ID"/>
+	* Sempre a BRADO
+	* Cliente do Contêiner
+		* Tras código do cliente do Argos
+		* Vai pegar do CAD_EMPRESASX
+			* COD_ARGUS
+			* Pega o EMP_ID
+		* Jogo o mesmo para o despachante AGE_DESP_ID = AGE_CLIENTE_ID 
+	* AGE_MOT_ID
+		* Pega do CAD_MOTORISTAS
+	* Vagão cadastra AGE_VAGAO_ID (plataforma)
+		* Se não tiver cadastra, se tiver usa ele mesmo
+	* AGE_USER_ID
+	* AGE_DOCUMENTO
+		* Numero do  Booking
+		* CONTF do DB2
+	* AGE_CONT_TIPO
+		* CONTF do DB2
+	* AGE_COD_CLIENTE_ARGOS
+		* FREE_02
+		* CONTF do DB2
+	* AGE_TARA
+		* CONTF do DB2
+	* PESO_BRUTO
+	* PESO_LIQUIDO
+	* AGE_VCTO_DOC
+		* tá no db, data máxima que pode agendar
+	* AGE_NAVIO
+		* DB2
+	* TIPO_DOCUMENTO
+		* Booking
+	* AGE_OBS
+		* Campo de observação
+	* AGT_IMO
+		* db2
+	* AGE_ALTOH
+		* 0
+	* AGE_OWRS
+		* 0
+	* AGE_DT_ATUALIZACAO
+	* AGE_TEMP
+	* AGE_LINHA
+	* AGE_CONSIG
+	* AGE_CONTEINER
+	* AGE_COD_BARRAS
+	* AGT_DT_*
+		* Deixa nulo, será atualizado depois
+	* AGT_VG_NAVIO
+		* Vem do argos, DB2
+	* AGE_PLACA
+	* AGE_XML_FUNCTION
+		* 9 (inclusão)
+
+
+AGE_EXTENSAO
+	- AGE_QUEBRA_LIMITE
+		* Pode ocorrer de ter extensão, mas não ter janela disponível, se Não, ele não insere, se SIM, ele insere
+
+AGE_CONDICOES
+
+
+
+
+**Listagem de Gates agendados**
+http://200.195.158.100//extranet/agendamento/index.php?t=gates
+
+**Listagem de guia de agendamento:**
+http://200.195.158.100//extranet/agendamento/index.php?t=lista_agendamentos
+
+**Guia de agendamento:**
+http://200.195.158.100//extranet/agendamento/guia_agendamento.php?token=93ab33a29143339369d72812da685b309c86135e2c4eab72441be7a2278f3f3b911cfb3ea01b1e7785a3c369ec65cdf53f63dec849dbebc35be1e3bea42717ef&tipo=opts
+
+
+
+====== Etapa ======
+
+====== 1ª Etapa ======
+
+* Pede os seguintes dados do Usuário?
+	* Documento do Maquinista
+	* Data para agendamento
+
+====== 2ª Etapa ======
+
+* O serviço será 10 (ferrovia)
+* Carrega a janela do dia (AGE_GRADES) (Mas vai ter uma só)
+* Requisita no (AGE_CONTROL) 
+* Calcula quantidade disponíve
+
+====== 3ª Etapa ======
+
+( Doc de motorista, data, id_serviço (Ferrovia) janela (ID_GRADE), Saldo para aquela grade)
+(segunda janela)
+
+* Carrega Planilha com as colunas
+* Assim que for digitado o sistema via ajax já valida e busca as informações
+* Nome "Vagão/Plataforma"
+
+===== Puxar dados da contf (ARGOS) =====
+
+    $sql_fcl = odbc_exec($con_db2, "SELECT  ES,CONTA,CONTN,CONTD,TIPO,TARA,EPNETO,EPBRT,ESEALL,FREE02,PIES,TIPO,TEMPE,IMCO,SSEALL,SLINEA,SCONSG,ALTOH,OWRS,OWLS,OLAS,OLFS,STATUS,FILTF,
+CLIDES,CLICOD,CLICGC,SVOY,SBUQUE,EFALTA,BOOKIN,PBFECH,PBETA,SPIER,FINAL,FINAP,SPIEP,FREE02
+FROM ARGYARBASF.CONTF 
+INNER JOIN ARGBASEF.CLIENTF ON  CLICOD = FREE02
+INNER JOIN   ARGBASEF.PLBUSEF  ON PBCOBU = SBUQUE
+WHERE CONTA = '$parte1'  AND CONTN = $parte2 AND CONTD = '$parte3'
+AND STATUS <> 'EMT'
+ORDER BY PBFECH DESC  ");
+
+
+====== Validações ======
+
+==== 1º Verificar se Contêiner é válido ou não ====
+
+
+
+==== 2º Verficar se o contêiner já possui agendamento ativo no sistema ====
+
+    $checa_container = select("AGE_CONTAINER,AGE_DOCUMENTO,AGE_DT_AGENDADO", "AGE_AGEND", "WHERE
+AGE_CONTAINER = '$_REQUEST[CONTAINER]' AND AGE_STATUS < 3", $con_sql);
+
+A tabela que armazena o agendamento é AGE_AGENDA
+
+==== 3º Verificar se conteiner  está no sistema ====
+
+    if ($dados_fcl->CONTN == '') {
+
+Verifica no SQL SERVER Se está pendente de aprovação:
+
+
+ERRO: "Contêiner não está no sistema"
+
+==== 4º Valida se o contêiner está dentro do TCP ====
+
+ARGYARBASF.CONTF.E_FALTA <> 0
+
+ERRO: "Contêiner já está dentro TCP"
+
+==== 5º Validar DEADLINE e Extensão ====
+
+Verificar $dados_fcl->PBETA
+$dados_fcl->PBFECH
+
+* Concatenar data com a hora
+
+* Vericar se esta data é maior que a data informada no formulário inicial (verificar ainda na TCP)
+
+Se o dead line for menor, então verifica a extensão de dead line (Extensão de LAR)
+
+__//CHECA SE O CONTAINER INFORMADO PELO USUARIO TEM EXTENSAO DE DEADLINE (LAR) PARA ABORTAR AS REGRAS DE CHECAGEM PELO DEADLINE.__
+__    $_REQUEST[CONTAINER] = trim($_REQUEST[CONTAINER]);__
+__    $checa_extensao = odbc_exec($con_sql, "SELECT * FROM extnet.dbo.AGE_EXTENSAO(NOLOCK) WHERE__
+__UPPER(AGE_CONTAINER) = '$_REQUEST[CONTAINER]' AND AGE_DATA_MAXIMA >= '$deadline_data'  ORDER BY EXT_ID DESC");__
+__    $ext = odbc_fetch_object($checa_extensao);__
+
+__    if ($ext->AGE_CONTAINER <> '') { //CHECA SE O CONTAINER FOI LOCALIZADO, CASO POSITIVO PEGA AS STRING PARA FORMACAO DA INFORMACAO__
+
+
+__        //MONTA O HORARIO PARA O AGENDAMENTO__
+__        $deadline_data = date('Y-m-d', strtotime($ext->AGE_DATA_MAXIMA));__
+__        $final = date('d/m/Y', strtotime($ext->AGE_DATA_MAXIMA));__
+__        $ext->AGE_HORA_MAXIMA = $ext->AGE_HORA_MAXIMA;__
+__        $hora_atual = $ext->AGE_HORA_MAXIMA . ':00';__
+__        $agora = date('d/m/Y');__
+__        $agora_final = date('d/m/Y H:i');__
+__        $data_deadline = date('Y-m-d', strtotime($ext->AGE_DATA_MAXIMA));__
+__        $diferenca = Diferenca($agora, $final, "D");__
+
+__        $_SESSION[extensao_lar] = "SIM";__
+
+__        if ($ext->AGE_QUEBRA_LIMIT == "SIM") {__
+__            $extra = "1";__
+
+__        }__
+__        if ($ext->AGE_QUEBRA_LIMIT == "NAO") {__
+__            $extra = "0";__
+
+__        }__
+
+
+__    }__
+
+ERRO: "Deadline encerrado para o contêineres as [DATA_DEADLINE] "
+ERRO: "Extensão encerrada em [DATA_EXTENSÃO]"
+
+
+Submeter os dados (verificar melhor opção: sessão puxar os dados do banco de dados novamenteo)
+
+Caso seja cadastrado para mesmo dia do deadline alertar: "Deadline é as HH:MM, contêiner deve se entregue até as[HH:MM - 1hora]
+
+
+
+====== Salvando os dados ======
+
+
+**Executa o process abaixo para cada contêiner:**
+
+* **Verifica na tabela no cadastro de vagões se existe, se não existir criar: **
+
+==== Verifica se já existe registro correspondente na AGE_CONTROL: ====
+
+* $conta_grade = select("COUNT(CONTROL_ID) AS TOTAL", "AGE_CONTROL(NOLOCK)", "WHERE CONTROL_DATA = '$DATA_AGEND' AND GRADE_ID = $GRADE_ID  ", $con_sql);
+        $grade_total = odbc_fetch_array($conta_grade);
+
+
+==== Se existir cria update, CONTROL_TOTAL + 1 ====
+
+        if ($grade_total[TOTAL] > 0) {
+            $q = select("CONTROL_TOTAL,CONTROL_ID", "AGE_CONTROL(NOLOCK)", "WHERE CONTROL_DATA = '$DATA_AGEND' AND GRADE_ID = $GRADE_ID  ", $con_sql);
+            $d = odbc_fetch_object($q);
+            update("CONTROL_TOTAL = CONTROL_TOTAL + 1 , CONTROL_ULTIMO = '$datahora'", "AGE_CONTROL", "WHERE CONTROL_ID = $d->CONTROL_ID", $con_sql);
+            $CONTROL_ID = $d->CONTROL_ID;
+        }
+
+
+==== Se não existir, cadastra um novo ====
+
+ 
+if ($grade_total[TOTAL] == 0) {
+            $age_control = insere("AGE_CONTROL", "GRADE_ID,CONTROL_DATA,CONTROL_TOTAL,CONTROL_PRIMEIRO,CONTROL_ULTIMO", "'$GRADE_ID','$DATA_AGEND','1','$datahora','$datahora'", $con_sql);
+            $qxx = select("CONTROL_TOTAL,CONTROL_ID", "AGE_CONTROL(NOLOCK)", "WHERE CONTROL_DATA = '$DATA_AGEND' AND GRADE_ID = $GRADE_ID  ", $con_sql);
+            $dxx = odbc_fetch_object($qxx);
+            $CONTROL_ID = $dxx->CONTROL_ID;
+        }
+
+
+==== Cria token, ====
+$token = hash('sha512', md5(hash('whirlpool', base64_encode(md5(hash('sha512', md5(uniqid(rand(time(), true)))))))));
+
+==== Gera código de barra ====
+
+include "cod_barras.php";
+
+==== Grava agendamento ====
+
+  $grava = odbc_exec($con_sql, "INSERT INTO extnet.dbo.AGE_AGEND
+(AGE_COD_BARRAS,AGE_TOKEN,AGE_DATA,AGE_MODAL,AGE_STATUS,AGE_CONTROL_ID,AGE_GRADE_ID,AGE_SERV_ID,AGE_TRANSP_ID,AGE_DESP_ID,AGE_CLIENTE_ID,AGE_USER_ID,AGE_CONTAINER,AGE_DOCUMENTO,AGE_CONT_TIPO,AGE_PENALTI,AGE_VLR_PENALTI,AGE_CONT_PES,AGE_COD_CLIENTE_ARGOS,AGE_TARA,AGE_PESO_LIQUIDO,AGE_PESO_BRUTO,AGE_VCTO_DOC,AGE_NAVIO,AGE_TIPO_DOC,AGE_OBS,AGE_IMO,AGE_ALTOH,AGE_OWRS,AGE_OWLS,AGE_OLAS,AGE_MOT_ID,AGE_PLACA_ID,AGE_PLACA2_ID,AGE_PLACA3_ID,AGE_TEMP,AGE_ISO_CONT,AGE_LINHA,AGE_CONSIG,AGE_STATUS_ARGOS,AGE_LACRE_ARGOS,AGE_DT_AGENDADO,AGE_PLACA2,AGE_PLACA3,AGE_VG_NAVIO,AGE_PORTO_DESCARGA,AGE_DESTINO_FINAL,AGE_PENDENTE) 
+VALUES 
+('$cod_barras','$token',GETDATE(),'$MODAL_ID','1','$CONTROL_ID','$GRADE_ID','$SERV_ID','$TRANSP_ID','$dados_desp->EMP_ID','$dados_emp->EMP_ID','$_SESSION[EMPRESA_ID]','$AGE_CONTAINER','$DOCUMENTO','$TIPO','$PENALTI','$VLR_PENALTI','$PES','$AGE_COD_CLIENTE_ARGOS','$AGE_TARA','$AGE_PESO_LIQUIDO','$AGE_PESO_BRUTO','$LIBERADO_ATE','$AGE_NAVIO','$AGE_TIPO_DOC','$AGE_OBS','$AGE_IMO','$AGE_ALTOH','$AGE_OWRS','$AGE_OWLS','$AGE_OLAS','$dados_mot->MOT_ID','$dados_vei1->VEI_ID','$dados_vei2->VEI_ID','$dados_vei3->VEI_ID','$AGE_TEMP','$AGE_ISO_CONT','$AGE_LINHA','$AGE_CONSIG','$AGE_STATUS_ARGOS','$AGE_LACRE_ARGOS','$DATA_AGENDAMENTOX','$PLACA_REBOQUE1','$PLACA_REBOQUE2','$AGE_VG_NAVIO','$AGE_PORTO_DESCARGA','$AGE_DESTINO_FINAL','$AGE_PENDENTE')");
+
+
+==== Grava informação no ARGOS, DB2 para relatório e controle ====
+
+        $grava = odbc_exec($con_sql, "INSERT INTO extnet.dbo.AGE_AGEND
+(AGE_COD_BARRAS,AGE_TOKEN,AGE_DATA,AGE_MODAL,AGE_STATUS,AGE_CONTROL_ID,AGE_GRADE_ID,AGE_SERV_ID,AGE_TRANSP_ID,AGE_DESP_ID,AGE_CLIENTE_ID,AGE_USER_ID,AGE_CONTAINER,AGE_DOCUMENTO,AGE_CONT_TIPO,AGE_PENALTI,AGE_VLR_PENALTI,AGE_CONT_PES,AGE_COD_CLIENTE_ARGOS,AGE_TARA,AGE_PESO_LIQUIDO,AGE_PESO_BRUTO,AGE_VCTO_DOC,AGE_NAVIO,AGE_TIPO_DOC,AGE_OBS,AGE_IMO,AGE_ALTOH,AGE_OWRS,AGE_OWLS,AGE_OLAS,AGE_MOT_ID,AGE_PLACA_ID,AGE_PLACA2_ID,AGE_PLACA3_ID,AGE_TEMP,AGE_ISO_CONT,AGE_LINHA,AGE_CONSIG,AGE_STATUS_ARGOS,AGE_LACRE_ARGOS,AGE_DT_AGENDADO,AGE_PLACA2,AGE_PLACA3,AGE_VG_NAVIO,AGE_PORTO_DESCARGA,AGE_DESTINO_FINAL,AGE_PENDENTE) 
+VALUES 
+('$cod_barras','$token',GETDATE(),'$MODAL_ID','1','$CONTROL_ID','$GRADE_ID','$SERV_ID','$TRANSP_ID','$dados_desp->EMP_ID','$dados_emp->EMP_ID','$_SESSION[EMPRESA_ID]','$AGE_CONTAINER','$DOCUMENTO','$TIPO','$PENALTI','$VLR_PENALTI','$PES','$AGE_COD_CLIENTE_ARGOS','$AGE_TARA','$AGE_PESO_LIQUIDO','$AGE_PESO_BRUTO','$LIBERADO_ATE','$AGE_NAVIO','$AGE_TIPO_DOC','$AGE_OBS','$AGE_IMO','$AGE_ALTOH','$AGE_OWRS','$AGE_OWLS','$AGE_OLAS','$dados_mot->MOT_ID','$dados_vei1->VEI_ID','$dados_vei2->VEI_ID','$dados_vei3->VEI_ID','$AGE_TEMP','$AGE_ISO_CONT','$AGE_LINHA','$AGE_CONSIG','$AGE_STATUS_ARGOS','$AGE_LACRE_ARGOS','$DATA_AGENDAMENTOX','$PLACA_REBOQUE1','$PLACA_REBOQUE2','$AGE_VG_NAVIO','$AGE_PORTO_DESCARGA','$AGE_DESTINO_FINAL','$AGE_PENDENTE')");
+        $erro_sql = odbc_errormsg();
+//FUNCAO PARA INSERIR NO DB2
+//$qxx = select("AGE_ID","AGE_AGEND","WHERE AGE_TOKEN LIKE '%$token%' ",$con_sql);
+        $query_id = odbc_exec($con_sql, "SELECT AGE_ID FROM extnet.dbo.AGE_AGEND WHERE AGE_TOKEN = '$token' ORDER BY AGE_ID DESC");
+        $id_agend = odbc_fetch_array($query_id);
+        $AGE_CONTA = $AGE_CONTAINER[0] . $AGE_CONTAINER[1] . $AGE_CONTAINER[2] . $AGE_CONTAINER[3];
+        $AGE_CONTN = $AGE_CONTAINER[4] . $AGE_CONTAINER[5] . $AGE_CONTAINER[6] . $AGE_CONTAINER[7] . $AGE_CONTAINER[8] . $AGE_CONTAINER[9];
+        $AGE_CONTD = $AGE_CONTAINER[10];
+        $AGE_FREE02 = $AGE_COD_CLIENTE_ARGOS;
+        $qxxg = select("GRADE_INICIO,GRADE_FIM", "AGE_GRADES(NOLOCK)", "WHERE GRADE_ID = $GRADE_ID", $con_sql);
+        $grade = odbc_fetch_object($qxxg);
+        $insert = odbc_exec($con_db2, "INSERT INTO INTERFACES.AGEND
+(AGE_ID,AGE_DATA,AGE_HORA_INICIO,AGE_HORA_FIM,AGE_CONTA,AGE_CONTN,AGE_CONTD,AGE_FREE02,AGE_REGISTRO,AGE_STATUS) 
+VALUES 
+('$id_agend[AGE_ID]','$DATA_AGEND','$grade->GRADE_INICIO','$grade->GRADE_FIM','$AGE_CONTA','$AGE_CONTN','$AGE_CONTD','$AGE_FREE02',current timestamp,'AUTORIZADO')");
+
+
+
+==== Caso de erro realiza roolback ====
+
+include "erro_gravar_agendamento.php";
+

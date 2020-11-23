@@ -1,0 +1,172 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-01T19:43:03-03:00
+
+====== Sindri-Crud ======
+Created domingo 01 junho 2014
+Updated domingo 12 Dezembro 2014
+
+
+Será desenvolvido um módulo Crud que irá integrar o módulo FORM e DATAGRID, fará refêrencia aos dois.
+
+* Terá um estilo de janela (vai depender do módulo de janela)
+* Ao cliar em novo abre janela para novo cadastro
+
+* FOCAR NO DESEMPENHO, DEVE SER MUITO RÁPIDO
+
+* Usar o backbone.stickit para databinding
+
+* No futuro migrar para **AngularJs**
+
+* Foi migrado para Backbone.Marionette
+
+
+====== Estrutura de DIretório ======
+
+**————————————————**
+* Usar o padrão de nome para vincular componentes
+	* Ex: conta.js se vincula  contaForm.js
+* Template no mesmo diretório do formulário
+* Definir Classes nesses arquivos, deve ser instanciado onde for usado
+
+**/crud**
+	conta.js
+**/form**
+	contaForm.js
+	contaForm.hjs
+**/grid**
+	contaGrid.js	
+
+
+====== Arquitetura ======
+
+var Crud = Backbone.View.extend({
+
+//Merge default options
+	options = this.options = _.extend({
+	  submitButton: false
+	}, options);
+
+
+});
+
+Será uma VIEW do Backbone.View,
+terá os seguintes atributos:
+
+* ~~schema: Um schema unificado para o grid(columns) e o form (schema) ~~Melhor não, pq o formulário terá muita personalização, melhor criar um e linkar
+* **form:** Caso deseje usar o objeto Form diferente em vez de gerar um
+* **grid:** Caso deseje usar um objeto grid externo em vez de gerar um
+
+* **template:** Objeto função renderizada do template (tentar usar o mustache hogan)
+
+* **update:** true (habilita/desabilita componente de atualização)
+* **delete: **true (habilita/desabilita componente de remoção)
+* **create: **true (habilita/desabilita componente de criação)
+
+* **paginate: **true
+
+* Geração Dinamica, poderá consultar estrutura do Banco de dados **(Pensar se neste caso não é melhor criar um script scafolding)**
+
+* Botões: Criar/Remover em Cima
+* Paginaçao em Baixo
+
+* Possibilidade de escolher 5 layouts:
+	* Form e Grid exibidos ao mesmo tempo no body
+	* Grid abre no body, form substitui (tradicional)
+	* Grid abre no body, forms abre na janela
+	* Grid abre numa janela, form substitui na mesma janela
+	* Grid abre em uma janela, form abre em outra janela (com modal)
+
+====== Form ======
+* Botões:
+	* Salvar
+	* Salvar e Fechar
+	* Salvar e Adicionar outro
+	* Cancelar
+	* Excluir
+* Mascara **(NECESSÀRIO IMPLEMENTAR)**
+* Validação
+* Form Aninhado
+* Controle de exibição (um input pode desativar outro) Grupos **(Com eventos, necessário criar Form)**
+* Inline Help Text
+* Template
+* date/time picker
+* Autocompletar
+
+===== Processo de Validação =====
+O backbone.form não tem um mecanismo de validação automático, é necessário implementar, veja o sindri-crud como exemplo, todo processo deve ser implementado:
+
+	__form.on('submit', function (event) {__
+	__            self.formSubmit(event);__
+	__});__
+
+{{./pasted_image001.png}}
+
+Podemos definir 4 níveis de validação com o backbome,forms
+
+==== Nível 1: Validação no Cliente: (Backbone.forms:  Validações Pré-definidas) ====
+
+__VALIDAÇÃO CONFIGURADA NO BACKBONE.FORM ( https://github.com/powmedia/backbone-forms)__
+
+Podemos definir algumas validações pré-definidas no backbone.forms, são elas:
+	* required
+	* number
+	* email
+	* url
+	* match
+	* regexp
+
+* As mensagens de erro podem ser personalizadas:
+	* https://github.com/powmedia/backbone-forms#customising-error-messages
+
+==== Nível 2: Validação no Cliente: (Backbone.forms: Validações implementadas) ====
+
+__VALIDAÇÃO CONFIGURADA NO BACKBONE.FORM ( https://github.com/powmedia/backbone-forms)__
+
+Podemos  criar novas validações especifica no proprio backbone.forms, podemos criar string, objetos funções ou expressões regulares
+
+
+==== Nível 3: Validação no Cliente (Backbone.Model) [RECOMENDADO POR VALE PARA TODOS QUE USAR O MODELO E NÂO SÓ O FORMULÁRIO] ====
+
+__VALIDAÇÃO CONFIGURADA NO MODEL, USA O BACKBONE.VALIDATE (__http://thedersen.com/projects/backbone-validation/__)__
+
+Validações disponíveis neste nível:
+	* number - Matches any number (e.g. -100.000,00)
+	* email - Matches a valid email address (e.g. mail@example.com)
+	* url - Matches any valid url (e.g. http://www.example.com)
+	* digits - Matches any digit(s) (i.e. 0-9)
+
+Podemos também criar expressões regulares
+
+Podemos definir validações no modelo que o backbone.form vai processar, porém para "pegar" os campos certos é necessário seguir um padrão:
+
+Achei este cara para automatizar o processo, talvez não precisamos mexer na validação do form
+http://thedersen.com/projects/backbone-validation/
+
+==== Nível 4: Validação no Servidor ====
+
+Validação é feita ao executar o save() , foi definido um padrão:
+[[Padrão de Mensagem de Erros no Servidor]]
+
+Seguindo este padrão, podemos tratar os erros de servidor e incluindo no formulário
+
+COmo exemplo veja o **_handlerModelServerError **do módulo sindri-crud
+
+
+====== Grid ======
+* Conexão **WebSocket** (atualização Dinâmica)
+* Edição in Place
+
+
+
+====== Crud V.2 ======
+
+* No futuro criar versão com suporte a plugin
+* Criar suporte a estilos de crud
+* o Crud terá uma responsabilidade minima, deixando trabalho para plugins
+* Conecta eventos com métodos para os plugins responderem determinada ação
+	* openForm -> on('openForm')
+	* render -> on('render)
+
+* Alteraçao em Massa
+* Exportar Excel (E outros Relatórios)

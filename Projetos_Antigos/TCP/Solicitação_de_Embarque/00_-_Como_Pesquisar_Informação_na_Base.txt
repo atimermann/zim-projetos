@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-26T10:09:38-03:00
+
+====== 00 - Como Pesquisar Informação na Base ======
+Created quinta 26 fevereiro 2015
+
+====== Buscar empresa ======
+
+SELECT * From [extnet].[dbo].CAD_EMPRESASX WHERE EMP_NOME = 'KLABIN SA';
+
+====== Listar todos os usuários ======
+
+SELECT USER_LOGIN, USER_SENHA, EMPRESA_ID, EMP_NOME, EMP_RAZAO, EMP_CNPJ
+FROM [extnet].[dbo].[CAD_EMPRESASX] AS E
+INNER JOIN [extnet].[dbo].[CAD_USUARIOS] AS U ON E.EMP_ID = U.EMPRESA_ID
+  
+
+
+====== BUsca de COnteineres de uma determinada EMPRESA ======
+
+SELECT DISTINCT CONTEINER FROM [extnet].[dbo].[PROC_SISCOMEX] AS S
+INNER JOIN [extnet].dbo.[PROC_SISCOMEX_CONTEINERES] AS C ON C.PROC_ID = S.ID
+WHERE EMPRESA_ID = 3171
+
+
+====== Buscar Numero de Despacho de uma determinada empresa ======
+
+SELECT *
+FROM [extnet].[dbo].[PROC_SISCOMEX]
+WHERE EMPRESA_ID = '5254'
+ORDER BY ID DESC

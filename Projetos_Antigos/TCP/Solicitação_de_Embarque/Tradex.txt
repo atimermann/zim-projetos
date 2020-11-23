@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-11T14:25:31-02:00
+
+====== Tradex ======
+Created terça 11 novembro 2014
+

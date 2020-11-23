@@ -1,0 +1,238 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-03-10T10:11:51-03:00
+
+====== Novo Relatório NVOCC ======
+Created terça 10 março 2015
+
+Oq NVOCC (Agende de Carga)
+
+https://portogente.com.br/portopedia
+
+Elaborar um novo Relatório com as Notas faturadas no Hermes para os conceitos de LCL, conforme documento em anexo.
+
+Fase 01 -> Relatório com as seguintes colunas:
+Nro da DI
+Nro da CE Master
+Nro da CE House
+Valor Real Pago (Soma das Notas da DI – Cada linha da nota será uma DI)
+Data de Emissão (Data da Geração da Nota – Campo HBDFEF?)
+Importador (Nome do Cliente)
+Tipo Nota = “Automática” ou “Branca”
+
+**DI** => Declaração de Importação
+
+
+Fase 02 -> Adicionar NVOCC (Obter as informações através da CE)
+
+————————————————————————————————————————————
+
+
+appteste/reports/relatorio_lcl_nvocc3.php
+
+Relatórios são criado no Hermes (Sistema de Faturamento)
+
+**Objetivo:**  Saber por qual Agente (NVOCC) o cliente fez o processo de importação
+
+* Somente importação
+* CE = Conhecimento Eletronico 
+	* **Master: **Conhecimento eletronico do Armador para o Agente
+	* **House: **Conhecimento do Agente para os clientes
+
+Agente(NVOCC) compra um "frete" (1 ou mais contêiner) e revende para os clientes
+
+A TCP paga comissão para o Agente trazer as cargas para Armazem da TCP (TCP Log)
+
+**Objetivo: **Saber quem é o agente da carga faturada para pagar a comissão
+
+————————————————————————————————————————————
+
+Sistema acessa o Siscarga para verificar se o agente é consolidador da carga através da CE HOUSE
+Atualmente uma planilha é preenchida manualmente e sobe para o sistema
+
+**Objetivo: **Automatizar o processo
+
+————————————————————————————————————————————
+**Primeira Etapa**
+Criar um tabela nova (Usar do Postgres ou migrar pro DB2)
+Pega CE House 
+* Migrar DB2
+
+http://www.sqlines.com/postgresql/how-to/pg_dump_database_file
+
+**Posgres:**
+CREATE TABLE db_siscarga (
+	id integer NOT NULL,
+	ide integer,
+	idu integer,
+	data_registro timestamp without time zone,
+	ce bigint,
+	tipo_conhecimento character varying,
+	bl_servico character varying,
+	ce_master_vinculado bigint,
+	data_emissao date,
+	embarcador character varying,
+	bl_ordem character varying,
+	consig_cnpj character varying,
+	consig_nome character varying,
+	consig_comp character varying,
+	notify_cnpj character varying,
+	notify_nome character varying,
+	notify_comp character varying,
+	transp_cnpj character varying,
+	transp_nome character varying,
+	conhecimento_original character varying,
+	porto_origem character varying,
+	pais_procedencia character varying,
+	uf_destino_final character varying,
+	porto_destino_final character varying,
+	num_doc_despacho character varying,
+	desc_mercadoria1 character varying,
+	desc_mercadoria2 character varying,
+	peso_bruto_carga numeric,
+	m3_carga numeric,
+	categoria_carga character varying,
+	situacao_carga character varying,
+	modalidade_frete character varying,
+	itens_carga character varying
+);
+
+CREATE TABLE db_siscarga_itens (
+	id integer NOT NULL,
+	ide integer,
+	idu integer,
+	data_registro timestamp without time zone,
+	num_ce bigint,
+	num_item integer,
+	num_conteiner character varying,
+	num_lacre character varying,
+	tipo_carga character varying,
+	pes_container character varying,
+	tipo_container character varying,
+	tare_container numeric,
+	peso_bruto_item numeric,
+	m3_item numeric,
+	imo character varying,
+	imo_classe character varying,
+	mercadoria character varying,
+	ncm character varying,
+	embalagem character varying,
+	marca character varying,
+	contramarca character varying,
+	qtde_volumes numeric,
+	uso_parcial_conteiner character varying
+);
+
+**DB2:**
+CREATE TABLE "SISINT"."SI_SISCARGA" (
+		"SI_SISCARGA_COD" FOR COLUMN GF_CO00001 INTEGER GENERATED ALWAYS AS IDENTITY (
+			START WITH 1
+			INCREMENT BY 1
+			MINVALUE 1
+			MAXVALUE 2147483647
+			NO CYCLE
+			CACHE 20
+			NO ORDER ),
+		"ide" INTEGER,
+		"idu" INTEGER,
+		"data_registro" TIMESTAMP,
+		"ce" BIGINT,
+		"tipo_conhecimento" VARCHAR(128) CCSID 37,
+		"bl_servico" VARCHAR(128) CCSID 37,
+		"ce_master_vinculado" BIGINT,
+		"data_emissao" DATE,
+		"embarcador" VARCHAR(128) CCSID 37,
+		"bl_ordem" VARCHAR(128) CCSID 37,
+		"consig_cnpj" VARCHAR(128) CCSID 37,
+		"consig_nome" VARCHAR(128) CCSID 37,
+		"consig_comp" VARCHAR(128) CCSID 37,
+		"notify_cnpj" VARCHAR(128) CCSID 37,
+		"notify_nome" VARCHAR(128) CCSID 37,
+		"notify_comp" VARCHAR(128) CCSID 37,
+		"transp_cnpj" VARCHAR(128) CCSID 37,
+		"transp_nome" VARCHAR(128) CCSID 37,
+		"conhecimento_original" VARCHAR(128) CCSID 37,
+		"porto_origem" VARCHAR(128) CCSID 37,
+		"pais_procedencia" VARCHAR(128) CCSID 37,
+		"uf_destino_final" VARCHAR(128) CCSID 37,
+		"porto_destino_final" VARCHAR(128) CCSID 37,
+		"num_doc_despacho" VARCHAR(128) CCSID 37,
+		"desc_mercadoria1" VARCHAR(128) CCSID 37,
+		"desc_mercadoria2" VARCHAR(128) CCSID 37,
+		"peso_bruto_carga" NUMERIC,
+		"m3_carga" NUMERIC,
+		"categoria_carga" VARCHAR(128) CCSID 37,
+		"situacao_carga" VARCHAR(128) CCSID 37,
+		"modalidade_frete" VARCHAR(128) CCSID 37,
+		"itens_carga" VARCHAR(128) CCSID 37
+	);
+
+
+
+————————————————————————————————————————————
+**Segunda Etapa**
+Criar o Cron
+* Importa CE Master do Hermes
+	* Pega só oq tiver CE Master (Helmuth tem query pronta, pegar com ele)
+
+**select** 
+DISTINCT
+HECNUM,
+HSVNDI,
+HSVBLM,
+HSVBLH,
+DFECFA,
+NOMCLI
+ **from** 
+ARGFACBRAF.HESTADCF 
+LEFT JOIN ARGFACBRAF.DETFACFT ON DNUMFA = HECNUM
+LEFT JOIN ARGFACBRAF.HISVARF ON HSVNUM = HECNUM AND HSVCON = DCONCE
+LEFT JOIN ARGFACBRAF.CLIENF ON CODCLI = HECCLF
+WHERE DCONCE IN('500001','390001','340130','340124','340123','340122',
+'340121','340120','340110','340040','340030','340020','300090','300050')
+AND
+HECFEF >= '$inicial'
+AND HECFEF <= '$final'
+
+
+**Tabela do Hermes:**
+ARGFACBRAF.HISVARF
+
+HSVBLM -> CE MASTER
+
+**Tabela de Itens da Nota Fiscal do Hermes**
+ARGFACBRAF.DETFACFT
+
+
+————————————————————————————————————————————
+**Terceira  Etapa**
+
+* Criar Cron que acessa a API do [[LogComex]] pra recuperar os dados do NVOCC
+
+http://logcomex.com.br/api/#siscarga
+"consignatario_nome": "XXX",
+	  "consignatario_cnpj": "00.000.000\/0000-00",
+	  "consignatario_complemento": "XXX",
+
+————————————————————————————————————————————
+**Quarta  Etapa**
+
+Alterar relatório pra mostrar NVOCC
+
+http://appteste/reports/relatorio_lcl_nvocc3.php?action=ok
+
+
+
+
+ARGFACBRAF.DETFACFT
+ARGFACBRAF.HISVARF
+
+São dois campos
+
+
+————————————————————————————————————————————
+**Quinta  Etapa**
+
+83600000001 5 16980111000 1  00101020152 1  06774100402 1
+
+

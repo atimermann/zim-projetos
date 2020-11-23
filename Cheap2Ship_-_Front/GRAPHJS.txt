@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-11-23T02:54:15-03:00
+
+====== GRAPHJS ======
+Created segunda 23 novembro 2020
+
+**Site do projeto:**
+https://www.chartjs.org/
+
+**Versão vuejs:**
+https://vue-chartjs.org/
+
+**Adaptação para Nuxt:**
+Basta instalar conforme documentação, não é necessário criar nenhum plugin no nuxt. pois o uso é direto
+
+O interessante é criar um unico arquivo para o gráfico, é possível criar arquivos.vue
+
+**Instalação de plugins do chartjs**
+
+
+
+
+
+
+
+
+
+
+
+
+- instalado plugin chartjs datalabels
+- Criado gráficos de progresso
+- Correção grãfico que não era exibido

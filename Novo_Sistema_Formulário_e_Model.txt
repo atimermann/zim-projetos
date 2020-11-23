@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-11-06T04:28:40-03:00
+
+====== Novo Sistema Formulário e Model ======
+Created sexta 06 novembro 2020
+
+* Separar FormHandler em um módulo próprio -> NPM
+* Separar Model em um módulo próprio -> NPM
+* Implementar validação, remover biblioteca atual, utilizar:
+* Migrar validação biblioteca: https://github.com/validatorjs/validator.js - Connect to preview 
+* Revisar impressão de erros
+* Suporte schema
+* Corrigir hide-details, mb-3 
+* Integração com Model
+* Dar foco ao primeiro campo com erro após validação
+* Criar nova funcionalidade de impressão de erro abaixo dos campos que permita Multilinhas / Label
+* Definir erros globais 
+* Configurar arquivos GQL separadamente
+* Separar forms das "Pages" e por em um componente em "Apps"
+* Tratar todos os Any
+* Configurar todas as validações do vuelidate com tradução
+* Mudar estrutura para centalizar GQLs (mutation e query) separado da app para poder ser aproveitada por outros apps
+* Fluxo de bloqueio do form quando aguardando,
+* Loading
+* Envio do token automaticamente na requisição
+* Suporte blur, ao perder foco validar novamentem ou quando digitar, deixar opcional
+
+
+**Discussão:**
+
+* Suporte a Vuejs ou apenas Nuxt
+* Estudar como criar plugins
+
+* Criar um modulo que englobe form e model????
+	* dataHandlernão
+	* dataManager
+
+* Typescript (apenas comentários)
+* nunca vai ser possivel mapear objeto ⇔ form diretamente, criar um mapper (Atual tá complicado), mas deixar separado

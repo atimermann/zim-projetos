@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-21T14:17:03-02:00
+
+====== Desenvolvimento ======
+Created terça 21 outubro 2014
+
+* Adicionar no Processo de modelagem:
+	* Camel Case para nome de tabela e campo
+	* relacionamento M-N deve ter o nome das duas tabelas com __ (underline duplo) delimitando
+	* fk deve ter o nome fk_[nome da tabela 1]__[nome da tabela N]  (delimitado por underline duplo)
+	* chaveprimaria deve ser composto por [nome da tabela]_id
+	* relacionamentos M-N devem ter indice unico para as duas chaves estrangeiras
+	* Tabela deve ser no singular
+	* Dicas de Modelagem: http://www.pedrofcarvalho.com.br/DICAS_MODELAGEM.pdf
+	* associação deve ter como prefixo o nome da base separado por _ (unico underline) (Vale para relacionaento 1-N também)
+	* Check List (Lista de verificação)
+
+* SCript deve validar erros de padrão
+
+**STATUS:**  ATIVO, INATIVO, **REMOVIDO** (pode ter varios, então usar campo status em vez de ativo)
+Filosofia: Nunca remover nada
+
+
+====== Dicas Rest. Padrão Rest ======
+
+http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/

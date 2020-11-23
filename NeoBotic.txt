@@ -1,0 +1,165 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-06-29T22:18:14-03:00
+
+====== NeoBotic ======
+Created segunda 29 junho 2020
+
+- Oq mais tá pegando na Terin é ambiente:
+	- Preparar um ambiente deve espelhando para correções e depuração
+	- definir claramente acesso ao banco de dados para outros integrantes da equipe
+   - Documentar uso do ngork(ou alternativa) q foi uma boa solução para acesso ao cliente via tunel reverso
+
+CI
+Entendimento do sistema
+Gerenciador de erro
+
+============================
+MELHORIAS  WORKR PÓS ANALISE
+============================
+- Revisar conceito de Task e Package
+Tá confuso, vamos chamar tudo de package
+Task apenas a unidade (REVER TODO CODIGO E RENOMEAR)
+
+
+- Atualizar informações do Scenario em todo Loop
+
+
+CONECTANDO REMOTAMENTE HTTP:
+ssh smarti@0.tcp.ngrok.io -p 13212 -L 8080:127.0.0.1:80 -N
+
+
+
+============================
+NOVO DEPLOY:
+============================
+
+Projeto Google Drive AGTHost
+
+Limpar Projeto Frase
+
+
+
+colocar captcha solver no docker versionar, organiazar projeto, usado pela frase
+
+- criar registro docker
+- Configurar Gitlab CI
+
+- Criar Versionamento apenas do código e outro da imagem
+
+
+
+
+
+
+============================
+Workr
+============================
+
+- Verificar configuração especial knexjs, como logs
+- Melhorar backtrace e gerenciamento de erro com console.trace()
+
+- Desenvolver modulo de envio de email com spool e logar como sisterma separado
+
+- WorkrClient imprimir e verificar versão (script de atualização)
+
+- Implantar Sistema de Captcha na infraEstrutura
+
+
+
+====
+NOTA: Verddacio foi desativado
+Para ativar, decompactar verdaccio.xfix 
+no usuario andre gitlab
+e executar via screen
+============
+Captcha Server está no aggt.in
+============
+
+- Colocar na lista de projetos
+Servidor de e-mail com Proxmox Gateway
+- Painel dinamico de hospedagem, qualquer cliente pode criar quantas VMs quiser, sem limite de tamanho, e o custo é creditado na hora, similar digital ocean / amazon
+Usar sistema de crédito, vinculado ao Real - 10
+
+
+==========================================
+NOVO NOVA EMPRESA e PRODUTO:
+==========================================
+- Envolve automação
+- Remete a robótica, automação, rpa
+
+===================
+Palavras para compor:
+===================
+neo, smart, inteligence, automacao, automation,
+droid, robot, andróide, nano, rpa
+Robotic, process, automation, soft, fusion, focus
+
+Final r Workr, hacker
+Final y ou TI Selecty, SmarTI
+
+[GERENCIAMENTO] + [Robotcs]
+
+Serverbotics
+Clusterbotics
+Robotic Orquestration
+
+Concorrentes
+--------------------
+crowdbotics (final botics)
+UI Path
+workr
+Automate
+Automation Anywhere
+IDWall
+piio
+lift
+
+
+
+Referentes a Robôs:
+--------------------
+Dors Venabilis 
+Daneel Olivaw
+
+===================
+Sugestões:
+===================
+neotech
+neodroid
+neobot
+opertech
+Worktech
+Robofocus
+
+AutoManager
+RpaManager
+NeoBot Automation Orchestration
+NeoBotic
+NeoBotis
+NeoBot
+NeoBot RPA Automation Orchestatrion
+
+----- Como apresentar projeto incerto para cliente ----
+
+- Explicar como funciona o projeto, as siglas documentação
+- fazer reunião, entender como funciona integrações siglas
+
+
+- Precisamos fazer um levantamento, 
+- Entender quais os maiores problemas
+- apresentar solução
+- Revisar todos os documentos
+- Entender as integrações
+
+
+
+- Costumamos fazer um projeto primeiro, 
+- fazer uma reunião para entender o problema -
+- apartir dai propor soluções
+- Entender todos os documentos
+- entender todos os processos
+- Priorizar o projeto, entender o que precisa ser entregue antes, quais são as maiores dores.
+
+
+Minha sugestão é trabalharmos para desenvolver um projeto detalhado com todos os 

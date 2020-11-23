@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-19T14:57:07-02:00
+
+====== Novo Ambiente Desenvolvimento ======
+Created quinta 19 fevereiro 2015
+
+Integração Continua com Jetkins e Phings
+http://duodra.co/2011/03/28/integracao-continua-e-php/
+http://duodra.co/2012/02/28/instalacao-do-jenkins-e-phing-para-projetos-php/
+http://duodra.co/2012/02/18/desenvolvimento-php-usando-maquinas-virtuais-fastcgi-fpm/ (Aqui dá uma idéia, mas o correto é usar Vagrand)
+
+http://pt.slideshare.net/gpupo/integracao-continua-em-php-com-lenkins
+
+http://jenkins-ci.org/
+
+
+
+
+===== Instalação =====
+http://jenkins-php.org/
+>> http://duodra.co/2012/02/28/instalacao-do-jenkins-e-phing-para-projetos-php/
+
+===== Configurando seu proprio vimVagrant Box =====
+http://www.brownfort.com/2014/09/create-vagrant-box/
+
+
+-> Configuração de Servidor (PROD, HOMOL, TESTE)
+
+===== Configuração de Servidor de Integração continua =====
+**Estrutura de Servidores**
+http://1.bp.blogspot.com/-8_FOficUQwQ/TxfZu7Q-GrI/AAAAAAAAALw/D1yc8cZ0auE/s1600/Drawing1.jpg (http://howaswengineerthinks.blogspot.com.br/2012/01/data-migrations-for-continuous.html)
+* Implantação Automatico
+* Integração de versões automático
+* Controle de QUalidade	
+* Testes Automatico
+	* Teste Unitário
+	* Teste Funcional
+	* Até teste de qualidade de código, Gerador de Documentação
+
+* Gera Releases
+
+**"Indo além: a prática da Integração Contínua vai melhorar a Qualidade e a Velocidade de entrega de seus softwares, e de cada nova versão que ele venha a ter. IC também é uma das práticas que auxiliam metodologias ágeis."**
+
+Programador vai saber de ante-mão se o seu sistema funciona com a versão atual do servidor e consegue corrigir
+(Problema entre eu e o Alessandro)
+
+**[SERVIDOR DE INTEGRAÇÃO CONTINUA]**  => **[SERVIDOR DE HOMOLOGAÇÃO]** => **[SERVIDOR DE PRODUÇÃO]**
+
+Servidor de integração continua irá realizar todos os testes
+
+
+===== -> Adoção de VMs para teste em ambiente de desenvolvimento (Vagranda) =====
+
+
+-> Idéia é fazer lago sério ou quebrar o galho?
+
+-> Possibilidade de Uso de Unit Test e Functional Test (Selennium)
+
+
+====== Geranciamento de Banco de Dados ======
+
+* Criação de Banco de dados de DEV/TESTE Rápidamente
+* Servidor de teste deve sempre ser atualizado com espelho da produção (Modelo de dados) 
+* Sempre q alterar produção alterar dev
+

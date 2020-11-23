@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-06-10T08:46:35-03:00
+
+====== Baixa Boleto ======
+Created segunda 10 junho 2013
+
+
+Se não achar na SE1020
+
+Cria uma RA NOVA
+BOL com numero do arquivo 3000
+
+
+====== Baixa Boleto ======
+
+A diferença só pode lançar em 1 (na nota fiscal, tá lançando em 2 diferentes)
+
+
+===== Lançamento Misto =====
+
+Ver se tem lançamento em outra tabela, se tiver cai fora
+
+"Notas Fiscais foram X foram lançadas como MISTO"
+
+* Antes de entrar no loop para baixar as notas, cria RA DIRETO com BOL e coloca mensagem na tela e cai fora
+
+
+select count(*) from recebimento
+inner join nfse on nfse_id = idnfe
+where numero_rps in ('')
+
+
+Lê o arquivo de texto
+se for processo antigo
+faz select  SE1020 e SE5020
+no campo valor sempre somando, 
+
+3 colunas
+* Valor do arquivo (CNAB)
+* Valor SE1020
+* VAlor SE5020
+* Diferença entre as 3
+
+
+Se for processo novo
+
+vê fatura vinculada , vê as notas e vê a diferença
+
+====== Alteração 27/06 ======
+
+[16h05min22s] André Gustavo Timermann: Qual saldo?
+[16h05min52s] André Gustavo Timermann: digo, ele tem que fazer uma analise de todas as notas verificar quais estão no protheus
+[16h06min14s] André Gustavo Timermann: e criar RA com valor das que não estão?
+
+CRIAR RA apenas com as notas que não estão no protheus, não fazer tudo, deve ser feita uma analise para saber quem não tem nota e criar RA com o valor apenas destas.
+
+
+

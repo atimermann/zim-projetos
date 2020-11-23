@@ -1,0 +1,81 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-05T18:44:53-02:00
+
+====== Login ======
+Created sexta 05 fevereiro 2016
+
+
+	**Controller:**
+	* bcp/application/controllers/main.php (login)
+	**View:**
+	* bcp/application/views/login.php
+
+	**Processo:**
+	* Ao locar é feito uma requisição AJAX para a mesma url (bcp/application/controllers/main.php (login))
+		* Função que processa o Login é:
+			* **bcp/application/libraries/bcp.php**
+			* **function doLogin($data, $cfg=array())**
+	* Dependendo da autenticação envia uma página para redirecionar
+	* Execução está em: 
+		* **bcp/httpdocs/js/jq.json.js **
+		* **function ajaxResponse(obj)**
+			
+{{{code: lang="js" linenumbers="True"
+function ajaxResponse(obj){
+	if (obj.update) AR_update(obj.update);
+	if (obj.popup) AR_popup(obj.popup);
+	if (obj.css) AR_css(obj.css);
+	if (obj.attr) AR_attr(obj.attr);
+	if (obj.eval) AR_eval(obj.eval);
+	if (obj.remove) AR_remove(obj.remove);
+}
+}}}
+			
+	* SE ADMIN
+{{{code: lang="js" linenumbers="True"
+eval: Array[2]
+	0: "window.location = 'admin/students/view'"
+	1: "$(window).scrollTop(0)"	
+update: Array[1]
+	0: Object
+		html: "<div class="user_alert">If you are not redirected, <a href="admin/students/view" >please click here</a> to continue</div>"
+		id: "f_login_response"	
+	
+}}}
+			
+	* Se Estudante
+{{{code: lang="js" linenumbers="True"
+obj: Object
+	eval: Array[2]
+		0: "window.location = 'account/start'"
+		1: "$(window).scrollTop(0)"
+update: Array[1]
+	0: Object
+		html: "<div class="user_alert">If you are not redirected, <a href="account/start" >please click here</a> to continue</div>"
+		id: "f_login_response"
+}}}
+			
+	* Nesses Cados Chama Função AR_update
+{{{code: lang="js" linenumbers="True"
+function AR_update(arr){
+	for(i in arr) {
+		var itm = arr[i];
+		if (itm.append){
+			$('#'+itm.append).append(itm.html);
+			continue;
+		} else if (!$('#'+itm.id).attr('id')){
+			parent = (itm.parent) ? '#'+item.parent : document.body;
+			$(parent).append('<div id="'+itm.id+'"></div>');
+			$('#'+itm.id).html(itm.html);
+		} else {
+			$('#'+itm.id).html(itm.html);
+		}
+
+		if (!itm.noshow) $('#'+itm.id).css('display', 'block');
+		if (itm.fade) $('#'+itm.id).fadeOut(4000);
+	}
+}
+}}}
+			
+

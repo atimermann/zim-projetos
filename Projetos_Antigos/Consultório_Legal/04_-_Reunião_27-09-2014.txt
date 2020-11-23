@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-27T16:38:20-03:00
+
+====== 04 - Reunião 27-09-2014 ======
+Created sábado 27 setembro 2014
+
+* Definir e implementar os atores do sistema
+
+* Controle de acesso por horário
+* Focar no clique
+
+===== Fase 01 (Cadastros) =====
+
+* Responsável Técnico (Dono da conta)
+* Dentistas
+* Consultório
+* Secretária
+* ASB (Assistente de Saude Bucal)
+* THD (Técnico em Higiene Dental)
+
+* Cadeira
+* Especialidade
+* Procedimentos
+	* Própria
+	* TISS
+	* CBHPO
+	* CONVÊNIO
+		* Os procedimentos vem da tabela TISS, porém cada convêncio tem sua própria tabela de preço

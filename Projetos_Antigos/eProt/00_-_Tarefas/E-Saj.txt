@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-19T17:16:20-02:00
+
+====== E-Saj ======
+Created segunda 19 dezembro 2016
+
+====== Automação em Java ======
+https://marathontesting.com/marathon/
+https://www.autoitscript.com/forum/topic/87956-java-udf/
+
+
+Bom dia!
+
+Acabei de conferir no sistema e aquilo que está no vídeo continua igual. Seguem os dados para acesso ao sistema e os endereços de peticionamento:
+
+login: 05062228964
+senha: 130789ph
+
+https://esaj.tjsp.jus.br/petpg/abrirNovaPeticaoInicial.do
+https://esaj.tjsp.jus.br/petpg/abrirNovaPeticaoIntermediaria.do
+
+https://esaj.tjsp.jus.br/petcr/abrirNovaPeticaoInicial.do
+https://esaj.tjsp.jus.br/petcr/abrirNovaPeticaoIntermediaria.do
+
+https://esaj.tjsp.jus.br/petsg/abrirNovaPeticaoInicial.do
+https://esaj.tjsp.jus.br/petsg/abrirNovaPeticaoIntermediaria.do
+
+Para ver o procedimento de peticionamento, use o último dessa lista "Peticionamento de Segundo Grau" com o número de autos 
+1094993-24.2014.8.26.0100
+
+ (pode ser um processo eletrônico em tramitação qualquer, peguei este por acaso). Acho que sem o cartão vc não consegue peticionar, mas só lembrando que como se trata de um processo ao qual o Pedro não está vinculado é bom ter um cuidado extra para não enviar.
+
+Qualquer outra coisa avise.
+
+Abs!
+Alexandre
+
+Vídeo:
+https://www.youtube.com/watch?v=3An3CUyHaM4&feature=youtu.be

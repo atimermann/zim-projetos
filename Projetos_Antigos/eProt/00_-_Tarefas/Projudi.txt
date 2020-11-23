@@ -1,0 +1,144 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-09T15:14:19-02:00
+
+====== Projudi ======
+Created sexta 09 dezembro 2016
+
+====== Acesso Sistema: ======
+
+http://projudi.tjpr.jus.br/
+
+**Login de Acesso:**
+[10:45, 6/12/2016] Victor Mazura: o login é 
+PR55098
+[10:45, 6/12/2016] Victor Mazura: e a senha 
+25367864
+
+====== Outros ======
+
+
+
+
+* Faltou processamento de Outros
+* Faltou configuração da assinatura
+
+**Vìdeo Descritivo:**
+https://www.youtube.com/watch?v=lEzH7HDUhzo&feature=youtu.be
+
+
+
+
+
+alealt94@hotmail.com
+123456
+
+ECLEARBUFFER();
+PCALL(3, "+getElementsByTagName", ["+frame"], 1);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementById", ["+conteudo"]);
+PCALL(1, "+click");
+
+
+ECLEARBUFFER();
+PPROJUDICLICKUPLOAD();
+PCALL(1, "+click");
+
+====== Script ======
+
+===== Match =====
+
+
+let firstFrame = document.getElementsByTagName('frame')[1]
+let firstFrameDocument = firstFrame.contentDocument
+
+let secondFrame = firstFrameDocument.getElementsByTagName('iframe')[0]
+let secondFrameDocument = secondFrame.contentDocument
+
+let thirdFrame = secondFrameDocument.getElementsByTagName('iframe')[0]
+let thirdFrameDocument = thirdFrame.contentDocument
+--------------------
+ firstFrame = document.getElementsByTagName('frame')[1]
+ firstFrameDocument = firstFrame.contentDocument
+
+ secondFrame = firstFrameDocument.getElementsByTagName('iframe')[0]
+ secondFrameDocument = secondFrame.contentDocument
+
+ thirdFrame = secondFrameDocument.getElementsByTagName('iframe')[0]
+ thirdFrameDocument = thirdFrame.contentDocument
+--------------------
+PCALL(3, "+getElementsByTagName", ["+frame"], 1);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementById", ["+trUploadArquivo"]);
+
+===== ClassificationLIst =====
+
+
+PCALL(3, "+getElementsByTagName", ["+frame"], 1);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(3, "+getElementById", ["+codDescricao"]);
+PGETSELECT();
+
+
+===== Get Process =====
+
+PCALL(3, "+getElementsByTagName", ["+frame"], 1);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByClassName", ["+tjpr_n"], 0);
+PATTR(1, "+textContent");
+
+(pegar [[TextContent]])
+
+====== Upload Script ======
+
+let table = thirdFrameDocument.getElementsByClassName('resultTable')[0]
+let trs = table.getElementsByTagName('tr')
+trs[3]
+
+
+
+“can’t access dead object”
+
+
+PRESETBUFFER();
+
+PCALL(3, "+getElementsByTagName", ["+frame"], 1);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementsByTagName", ["+iframe"], 0);
+PATTR(1, "+contentDocument");
+
+PCALL(1, "+getElementById", ["+conteudo"]);
+PCALL(1, "+click");
+
+
+
+ {"id":"Outras Pecas","filename":"Outras Peças.pdf","pdfName":"Outras Peças","path":"E:\\Outras Peças.pdf","progress":100,"classificacao":"Teste","statusDesc":"1 Segmento","status":3,"busy":false,"error":false,"segment":["c:\\cygwin64\\tmp\\eprotExtension\\pdf\\Outras Pecas_0000.pdf"],"completed":true,"pdf":{"filePath":"E:\\Outras Peças.pdf","fileId":"Outras Pecas","executionTime":783,"executionTimeLastTask":311,"progress":1,"info":{"Encryption":" Not encrypted","Permissions":" ","Linearized":" false","Version":" 1.5","Pages":4,"Title":" Apresentao do PowerPoint","Author":" Cosmo Alpha","Subject":" ","Keywords":" ","Creator":" Microsoft PowerPoint 2013","Producer":" Microsoft PowerPoint 2013","Created":" D:20160916164448-03'00'","Modified":" D:20160916164448-03'00'"},"start":"2016-12-13T05:10:14.606Z"},"segmentTime":783,"other":true}

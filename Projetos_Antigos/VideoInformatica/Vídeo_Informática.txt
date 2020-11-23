@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-11-03T22:39:47-02:00
+
+====== Vídeo Informática ======
+Created quinta 03 novembro 2011
+
+====== Usabilidade ======
+
+* O menu principal e as opções devem aparecer de forma consistente em todas as páginas e exatamente no mesmo local, 
+	* A opção de menu "Página Inicial" deveria vir por primeiro, pois é o que o usuário espera
+	* Toda página deveria ter exatamente o mesmo menu e no mesmo lugar, fico muito perdido pq algumas páginas nem tem link pra inicial e menu muda toda hora
+	* Era bom centralizar o menu chamando através de include ou algo parecido (não sei como é em aspx), mas php usa-se include ou no pior caso usar frame (oq não é recomendavel hoje em dia tb)
+	* Tirar o "Tem certeza que deseja sair desta página, usuario não gosta disso )
+	* Os adsence parecem meio intrusivo na página inicial, fica dando ao site cara desses sites q só pensa em dinheiro, fica menos profissional, apesar q entendo que deve gerar receita, só precisa posicionar melhor :) apesar q quanto menos mais feliz fica o usuário, tem q conciliar, mas ali ocupando metade da tela achei um pouco demais
+	* o Conceito de Breadcrumb é muito bom pro usuário saber onde está (http://en.wikipedia.org/wiki/Breadcrumb_(navigation))
+	* Clico num vídeo, termino de assistir, e agora? fico perdido, não tem um "próximo video" o ideal era ter um menu de navegação 
+	* no rodapé sempre tem "Basta você copiar as linhas do código HTML abaixo e colar em seu site ou blog:" será q isso é bom? alguem faz isso? achei meio forçado, apesar q é opinião minha hehe apenas, mas acho q deixa menos "profissional"
+	* Algumas páginas vc colocou, mas é bom sempre ter link no final das páginas para o topo, ou outros menus
+	* Caixa de busca (quando o site crescer, mas sempre bom hehe)
+
+
+====== Layout ======
+	* A logo está com uma qualidade baixa, dá pra ver uma sombra embaixo do texto "Conhecimento rápido e descomplicado"
+	* Não por os dados de identificação em uma imagem (Sou Gilson Alves...)
+	* Achei q logo um pouco fraca, podemos criar uma nova logo
+	* Oq folhas tem haver com informática? hehe
+
+====== Programação ======
+	* Formulário sem validação hehe
+
+
+Cara, qualquer coisa eu posso investir junto com vc, eu investiria principalmente em:
+- SEO
+- Usabilidade
+- Layout
+
+(Claro os cursos hehe)
+
+QUalquer coisa eu conheço uma equipe muito competente q eu agarantio muito, q eu mesmo trabalhei por quase 4 anos
+
+SEO dá pra melhorar MUITO, mostrei pra algumas pessoas especialista nisso
+
+

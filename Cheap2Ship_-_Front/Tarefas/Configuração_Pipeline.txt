@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-03-12T20:10:56-03:00
+
+====== Configuração Pipeline ======
+Created quinta 12 março 2020
+
+Copiar da API

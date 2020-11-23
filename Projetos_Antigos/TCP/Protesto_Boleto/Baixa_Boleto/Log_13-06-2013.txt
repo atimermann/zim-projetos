@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-06-13T12:50:52-03:00
+
+====== Log 13-06-2013 ======
+Created quinta 13 junho 2013
+
+Warning: mssql_query(): message: Cannot insert duplicate key row in object 'dbo.SE1020' with unique index 'SE1020_UNQ'. The duplicate key value is (01, BOL, 30010129, E, RA, 0). (severity 14) in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 Warning: mssql_query(): General SQL Server error: Check messages from the SQL Server (severity 14) in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 Warning: mssql_query(): Query failed in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 Warning: mssql_query(): message: Cannot insert duplicate key row in object 'dbo.SE1020' with unique index 'SE1020_UNQ'. The duplicate key value is (01, BOL, 30010130, E, RA, 0). (severity 14) in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 Warning: mssql_query(): General SQL Server error: Check messages from the SQL Server (severity 14) in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 Warning: mssql_query(): Query failed in /var/www/NFSE/baixa_boleto/baixa_boleto2.php on line 1500 

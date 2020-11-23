@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-02-03T15:15:13-02:00
+
+====== Requisitos ======
+Created segunda 03 fevereiro 2014
+
+* Coletar Incidência do Contêiner
+* Agrupar Incidências pré-existente
+* Criar Lista de Incidência
+* Vincular Eletricista a Incidências
+* Analisar Incidências
+* Registrar Nova Incidência
+* Manter Cadastro de Prestador de Serviço
+* Manter Cadastro de Eletricista
+* Manter cadastro de Monitor/Auxiliar
+* Manter cadastro do Responsável Manutenção
+* Manter Cadastro do Tipo de Atividade
+
+
+10) 	

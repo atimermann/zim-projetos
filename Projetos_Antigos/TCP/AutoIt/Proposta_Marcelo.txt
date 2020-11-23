@@ -1,0 +1,78 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-28T22:51:35-03:00
+
+====== Proposta Marcelo ======
+Created terça 28 julho 2015
+
+* Visão da HWEB e feedback do meu trabalho
+
+* Manter o Gerenciamento dos robos no meu software
+* Relatório de controle do andamento do robo no meu software
+* Indicadores no .NET apenas
+
+* Relacionar o Software q gerencia o robo em conjunto com o Autoit como o software do Automate, algo separado do INTEGRA
+
+* Gerenciar robos por minha conta.
+* Dizer q eu já tenho um software q eu uso com outras empresas, não é viavel manter 2 códigos
+
+* Como tem mais um mês pra acabar o contrato, gostaria de já começar a conversar, se vamos renovar mais 1 ano, se menos tempo, se vou continuar com php ou só com autoit
+
+* Qual a demanda. 
+
+* Se seria interessante fazer um contrato de prestação de serviço diferente
+
+====== Topicos ======
+
+* Meu Feedback e Hweb
+* Contar a história na tcp
+	* Falar do Pró-ativo
+
+
+* Proposta da HWEB
+	* Oq eu gostaria e oq podemos negociar
+		* Ter um contrato separado
+			* Cobrar por script e não por hora
+			* Ter um SLA, Manter código com a TCP etc...
+		* Base de Código e Desenvolvimento
+
+
+
+====== Propostas 1: ======
+
+
+===== Vender solução como Produto =====
+	* Manager total responsabilidade minha
+	* Desenvolvimento em Linguagem Javascript, sem acesso ao fonte do Manager) (Não cobro pelas horas do Manager)
+	* Cobrança apenas pelo acesso ao robo, como API (sem acesso ao fonte dos robos)
+
+===== Manager Fechado, Robo código fonte TCP (Similar ao contrato da TCP com Automate) =====
+	* Manager fonte fechado, aproveito para usar em outros projetos fora da TCP
+	* Robos (fonte aberto na TCP)
+	* Cobrança por Robo (desenvolvimento do Robo)
+	* Gerenciamento do Servidor Linux na TCP
+	* Projeto com SLA
+
+===== Compartilhado - Desenvolvimento cobrado por Hora (Modelo Atual) =====
+	* Manager em Javascript (fonte com a TCP) porém posso usar fora da TCP
+	* Robos (fonte aberto na TCP)
+	* Cobrança por Hora
+	* Contrato bem definido
+
+===== Novo Projeto do Manager - Desenvolvimento em .NET =====
+	* Desenvolver um novo Manager em .NET (preciso de um tempo para estudar )
+	* Fonte com a TCP
+	* Robos com a TCP
+	* Definir um valor de hora maior
+	* Contrato definido 
+
+
+
+
+====== Melhorar a auto gestão ======
+
+* Auto tempo 
+* AVISAR SEMPRE
+
+
+

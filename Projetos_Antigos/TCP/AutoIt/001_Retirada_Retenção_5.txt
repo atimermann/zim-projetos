@@ -1,0 +1,67 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-08-04T16:08:58-03:00
+
+====== 001 Retirada Retenção 5 ======
+Created terça 04 agosto 2015
+
+__CRIAR USUARIO PARA  AUTOIT2__
+
+===== Nova Consulta =====
+
+{{{code: lang="sql" linenumbers="True"
+SELECT 
+(SELECT TOP 1 NUMERO_RE FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO AND T.STATUS = 2 ) AS NUMERO_RE,
+* FROM [extnet].[dbo].PROC_SISCOMEX_CONTEINERES AS C
+Where (C.STATUS_RETENCAO = 1 or C.STATUS_RETENCAO = 5)
+   and C.STATUS_LIBERACAO_CANCELADA ='N' 
+   and C.ID_PROTOCOLO IS NOT NULL
+   and C.PROC_ID = ''
+   and (SELECT COUNT(*) FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO) > 0
+   and (SELECT COUNT(*) AS t FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO AND T.STATUS <> 2) = 0
+   and STATUS_EXECUCAO IS NULL
+}}}
+
+
+
+===== Consulta para Gerar massa no teste =====
+
+{{{code: lang="sql" linenumbers="True"
+UPDATE [extnet].[dbo].PROC_SISCOMEX
+	SET [extnet].[dbo].PROC_SISCOMEX.STATUS_ORDEM_EMBARQUE = 'A'
+WHERE ID IN
+ 
+(SELECT
+		[extnet].[dbo].PROC_SISCOMEX.ID
+FROM
+	[extnet].[dbo].PROC_SISCOMEX_CONTEINERES
+		INNER JOIN
+		[extnet].[dbo].PROC_SISCOMEX
+		ON
+		[extnet].[dbo].PROC_SISCOMEX_CONTEINERES.proc_id = 
+		[extnet].[dbo].PROC_SISCOMEX.id
+WHERE
+	([extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 1 OR
+	[extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 5) AND
+	[extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_LIBERACAO_CANCELADA ='N' AND
+	-- [extnet].[dbo].PROC_SISCOMEX.STATUS_ORDEM_EMBARQUE = 'A' AND
+	[extnet].[dbo].PROC_SISCOMEX.STATUS_SOLICITACAO_LIBERACAO ='S' AND
+	[extnet].[dbo].PROC_SISCOMEX.dt_atualizacao > '2014-12-10 07:00:00' AND
+	[extnet].[dbo].PROC_SISCOMEX_CONTEINERES.status_execucao IS NULL
+)
+}}}
+
+
+====== Códigos de Erros ======
+
+* **F001 -** Não foi Possível conectar no Argos
+* **F006** - Retenção não retirada
+* **F007 - **Não foi possível verificar se retenção foi retirada	
+
+
+* **E002 - **Erro ao abrir Contêiner para alteração
+* **E003** - Não foi possível Salvar. Verificar Retenção Já retirada
+* **E005 -** E005: Não foi possível verificar se retenção foi retirada
+
+
+* **C004**: Não foi possível Salvar. Verificar Retenção Já retirada e Não foi possível Fechar Menu

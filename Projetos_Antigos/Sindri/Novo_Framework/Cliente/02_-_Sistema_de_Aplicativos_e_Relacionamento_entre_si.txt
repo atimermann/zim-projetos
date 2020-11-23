@@ -1,0 +1,115 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-16T23:58:41-03:00
+
+====== 02 - Sistema de Aplicativos e Relacionamento entre si ======
+Created segunda 16 junho 2014
+
+
+
+====== Sistema de Aplicativos e Relacionamento entre si ======
+
+Primeiramente, criei um modulo chamado **bootstrap**, que deve ser chamado no script inicial main:
+
+	**require(["system/bootstrap"]);**
+	
+Porém como bootstrap, fará uso de um require, **que é assincrono**, ele não poderá retornar nenhum valor, portanto será usado funções de callback, o carregamento será feito pelo **bootstrap**
+
+===== Carregando configurações =====
+
+**NOTA: **Não confunda Módulo com APP, módulo é uma definição do requirejs, e app é um definição do nosso framework, que vamos definir a partir de agora:
+
+**Apps são vários aplicativos, com vários módulos que podem conversar entre si.**
+
+Porém devido a natureza de importações do 05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Desenvolvimento Framework:RequireJs esta tarefa é dificil, 
+
+**por exemplo:**
+
+Vamos supor um app admin que carrega telas de cadastro de outros apps.
+
+* É complicado o admin sair carregando todos os módulos para ver quem tá interessado em criar um cadastro no admin.
+* Também gostariamos de redirecionar alguns processamentos para os módulos, por exemplo a configuração da rota.
+
+==== Solução encontrada - Configuração Global ====
+
+Vamos definir um arquivo de configuração na raiz do framework, neles vamos especificar todas as configurações globais, duas delas neste momento:
+
+**apps: ** Quais aplicativos desejamos carregar em nossa aplicação
+**route: **Rotas padrões globais do sistema
+
+**NOTA: **apps deve ser o nome do diretório do aplicativo que deve estar dentro do diretório **"apps"**
+Exemplo:
+
+**/apps/Admin**
+**/apps/HelloWorld**
+
+deve ser carregado assim:
+{{../pasted_image001.png}}
+
+Note que o arquivo de configuração será um MODULO, que retorna as propriedades
+
+Com isso nossa framework tem acesso a lista de todos os aplicativos disponível no sistema, podemos ativar o desativar um aplicativo por aqui. 
+
+**PARA O FUTURO:** podemos puxar essas dados do servidor e com isso criar um configuração para usuário com interface.
+
+==== Carregando configuração dos aplicativos e permitindo comunicação entre eles ====
+
+Agora que sabemos os aplicativos disponível, podemos obter uma configuração personalizada de cada um, isso é feito chamando um require para todos os aplicativos:
+
+{{../pasted_image002.png}}
+
+Note que Carregamos nossa configuração através do módulo **system/config**
+
+Em seguida fazemos um require de todos os apps;
+
+**IMPORTANTE:** Na verdade vamos fazer o require apenas do **ARQUIVO DE CONFIGURAÇÃO** de todos os apps,  então não devemos criar arquivos grandes ou com muito processamento nele. Vamos usar a filosofia do requirejs e carregar por demanda.
+
+**REGRA 1:**
+Por padrão essa configuração deve ficar no diretório do app na raiz, e deve ser chamado:
+	**config.js**
+	
+**REGRA 2:**
+A configuração deve ser colocada numa váriavel global no módulo com o mesmo nome do app, por exemplo:
+{{../pasted_image003.png}}
+
+**ENTENDENDO: **Não podemos definir um módulo (usando define) pois como a quantidade de apps carregados é variavel, e os parametros de modulo precisa ser fixo. Mas podemos acessas as váriaveis globais dos arquivos carregados.
+E é assim que acessamos as configurações
+
+Esse aplicativo pode ter várias configurações, globais e personalizadas para outros aplicativos (ou até para ele próprio)
+
+no exemplo acima temos uma propriedades global **"routes" **e uma personalizada **"admin" ** que vai ser acessada pelo admin
+
+**IMPORTANTE: **Todas as configurações de todos os apps ficaram disponível para qualquer apps acessar, é assim que a comunicação entre apps é feita, por este arquivo de configuração
+
+**Exemplo: **podemos avisar outros apps que meu app existe e ele pode fazer uma chamada a um módulo especifico do meu app. 
+ou simplesmente vamos ler as configurações
+
+==== Rotas do app ====
+
+Com o config.route, podemos carregar rotas especifica de cada aplicativo, 
+**IMPORTANTE:** Sempre precisamos definir o destino da rota como uma função callback, apenas por o nome como é feito normalmente não funciona para nosso caso. veja a ultima imagem acima
+
+ENtão o bootstrap vai criar uma nova Rota do Backbone, e vamo adicionar a ela todas as rotas definidas em todos os aplicativos.
+
+**SACADA: **Além da rota, vamos adicionar um atributo ao objeto backbone.route, chamado config, nele vamos por todas as configurações de todos os aplicativos.
+
+Outros aplicativos podem acessar essas configurações assim:
+
+**apps/Admin/config.js:**
+{{../pasted_image004.png}}
+
+**Basta usar :**
+var config = this.config
+
+**NOTAS:**
+* Sempre deixa este arquivo o mais simples possível, pois é um arquivo de configuração (e todas as configurações de todos os app são carregados)
+* Use require para iniciar a execução, como no exemplo, pois assim o arquivo só é carregado quando o applicativo for acionado
+* Não é necessário criar a função load, pode ficar direto no Admin, fiz assim pq temos duas rotas.
+
+Então o Módulo admin.js na raiz efetivamente inicia o aplicativo Admin.
+
+===== Padrões para criar apps =====
+
+Veja em:
+05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Desenvolvimento Framework:Passo a passo:01 - Criando Aplicativos
+

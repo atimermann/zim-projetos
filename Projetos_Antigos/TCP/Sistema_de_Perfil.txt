@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-02-10T17:07:05-02:00
+
+====== Sistema de Perfil ======
+Created segunda 10 fevereiro 2014
+
+====== Autenticação ======
+
+
+* No novo sistema, deve ser feito um novo cadastro, usuário deve informar:
+	* MATRICULA NO PROTEUS
+	* CPF
+	* DATA DE NASCIMENTO
+
+* Puxar perfil do usuário do PROTEUS e associar no sistema
+
+* Pede para o usuário informar a nova SENHA (Usar regra de segurança)
+
+* Autenticação será feito através dos campos:
+	* Matricula
+	* Senha
+
+* ARGOS e LDAP Serão desconsiderado
+
+* Sem aprovação
+
+===== Usuários especiais =====
+Podemos ter usuários não vinculado ao proteus, como por exemplo estagiários e residentes
+Neste caso teremos um campo especial "user", a autenticação será feita por "user" e "senha"
+Usaremos dois campos para evitar conflito
+
+A autenticação será feito primeiro no proteus e depois pelo usuario especial
+
+Deve haver uma regra para criar usuário:
+* Mínimo 3 caracteres alphanumérico
+
+
+* Vamos usar generalização
+
+====== Autorização ======
+
+
+
+~~Permissões padrões:~~
+~~- Criar~~
+~~- Alterar~~
+~~- Visualizar~~
+~~- Excluir~~
+
+As permissões serão composta por duas tabelas:
+Aplicação -> Permissão
+* uma tabela com dois campos
+
+**Ex:**
+[Gestão de Incidência]    ->          [Coleta]                ->             [Alterar]
+               V                                      V                                         V
+         APLICAÇÃO                PERMISSÃO-ACTION          PERMISSAO-TITULO
+
+
+Usuario -> Perfil  -> Aplicação -> Permissão
+Menu -> Permissão
+
+
+====== Conexão Proteus ======
+
+
+

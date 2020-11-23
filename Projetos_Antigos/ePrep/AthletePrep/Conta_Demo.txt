@@ -1,0 +1,133 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-23T00:49:28-03:00
+
+====== Conta Demo ======
+Created terça 23 fevereiro 2016
+
+* Formulário Cadastro de Atléta é carregado via json
+	* athleteprep/application/controllers/admin/Athlete.php
+	* athleteprep/application/views/admin/athlete/form.php
+**ADICIONAR  OPÇÃO DEMO AQUI**
+
+———————————————————————
+**ENTENDER COMO COLOCA E REMOVE CREDITO**
+http://dev.icehockeyprep.com:81/admin/athlete/save
+
+
+**Compra**
+http://dev.icehockeyprep.com:81/admin/athlete/purchase/review
+http://dev.icehockeyprep.com:81/admin/athlete/purchase/confirm
+
+
+===== Load =====
+* Só carrega os preços
+loadTotalPrices
+SELECT price_wholesales, price_checkout, price_beta, price_profile, price_retail, price_upgrade, 
+				retail_org_markup, retail_org_markup_type, direct_org_markup, direct_org_markup_type, upgrade_org_markup, upgrade_org_markup_type,
+				checkout_org_markup, checkout_org_markup_type
+				FROM orgs WHERE orgid = 1 LIMIT 1
+
+* $this->countrylist->getCountriesAsSelect($attrs);
+* Carrega Template (SUPER SIMPLES)
+
+	* Preciso automaticamente carregar organização
+	* Puxar o preço de alguma forma
+
+===== Review =====
+	$this->m_organization->getMinimumCredits($_POST['orgid']);
+	SELECT minimum_credits FROM orgs WHERE orgid = '166' LIMIT 1
+	$this->session->set_userdata("creditcard", (object)$_POST);
+		**//Salva Dados Na sessão**
+* Na primeira compra deve ser necessário comprar um minimo de creditos
+* valida apenas valor
+* Carrega Template
+
+===== Efetiva compra =====
+acessa um tal de AuthnetCommerce
+Usa Gateway de pagamento:
+	  http://developer.authorize.net
+* Cuidado para não efeticar uma compra
+
+* Carrega dados da compra na sessão, então podemos fazer o mesmo ao gravar
+OK
+———————————————————————
+
+===== Cadastro de Athleta  e Alteração de Atheta =====
+
+**Consulta para verificar Creditos**
+SELECT c.credit_id
+				FROM credits c
+				INNER JOIN purchase p ON c.purchase_id = p.purchase_id 
+				WHERE c.is_used != '1' AND c.orgid = '1' AND product_id <> '4'
+				LIMIT 1
+
+**Verifique Creditos aqui:**
+SELECT c.credit_id FROM credits c INNER JOIN purchase p ON c.purchase_id = p.purchase_id  WHERE c.is_used != '1' AND c.orgid = '1' AND product_id <> '4' LIMIT 1
+
+**Cadastro de Athléta**
+INSERT INTO athlete(athlete_id,profile_only,name,lastname,gender,is_committed,committed_college,grade,eprep_course,bcp_edition)VALUES('','0','André ','Timermann','M','0','','9','100201','30003')ON DUPLICATE KEY UPDATE athlete_id = '',profile_only = '0',name = 'Andr&eacute;',lastname = 'Timermann',gender = 'M',is_committed = '0',committed_college = '',grade = '9',eprep_course = '100201',bcp_edition = '30003'
+
+DELETE FROM org_athlete WHERE athlete_id = 2976 LIMIT 1
+
+Achei, na linha
+	**athleteprep/application/controllers/admin/Athlete.php**
+Desativar chamada para API
+
+**Remove Atléta do Clube**
+
+**Atualiza Créditos**
+UPDATE credits SET is_used = '1', used_by = '1', used_date = NOW(), athlete_id = 2984 WHERE credit_id = '3162'
+
+
+———————————————————————
+
+* ~~Por enquanto desabilitar tudo que é chamada de API~~ 
+* ~~Todas as organizações vão poder definir uma conta demo~~
+* ~~Se Selecionar demo account~~
+	* ~~Demo não vai descontar crédito~~
+	* ~~Criar Flag is_demo~~
+
+* Os atlétas irão receber uma versão demo do curso BPC
+	* (Admin dedice)
+* Atléta irá receber um form simples tanto ACT or SAT
+	* (Admi deve poder escolher como fazer)
+
+* ~~Todas as organizações vão poder criar uma conta demo~~
+	* ~~obviamente não vai descontar crédito~~
+	* ~~Desabilita chamada de api para criar curso~~
+
+
+* ~~Na tela de criação de conta Coloca um campo entre organization e team~~
+	* ~~Full Account~~
+	* ~~Demo Account~~
+		* ~~Se Demo account Ignora os créditos~~
+* ~~Colocar uma flag na tabela do produto do atleta dizendo q é is_demo~~
+
+**Parte do Atleta**
+	* ~~Demo Account não pode ter perfil público~~
+
+* ~~Possibilidade de pegar uma conta demo e criar uma conta full~~
+	* ~~em /checkout~~
+	* ~~Não precisa pedir  dados usuario pq a conta já está criada~~
+	* ~~Manter as chamadas de api q vai criar o curso certo já (entender)  SImples segundo adriano  (Anotado no caderno)~~
+
+* ~~Possibilidade do próprio admin criar a conta demo numa conta full~~
+	* ~~Remover o renew para usuarios demos~~
+	* ~~Criar botão Upgrade~~
+	* ~~Disconta os pontos~~
+
+* ~~migrar pra conta full significa:~~
+	* ~~tirar a flag is_demo~~
+	* ~~fazer as mesmas chamadas que já estão mo M_athete (model atléta) que cria o curso, tanto na bcp quando embbebed.eprep.com~~
+	* ~~ENtão, só reutiliza as chamadas~~
+	* ~~Vai ter que passar~~
+		* ~~curso~~
+		* ~~grade~~
+		* ~~nome ~~
+		* ~~sobre nome~~
+		* ~~email~~
+	* ~~Perguntar pro adriano onde estão as chamadas~~
+
+
+

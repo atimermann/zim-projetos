@@ -1,0 +1,69 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-17T18:46:52-03:00
+
+====== 03 - Interface Cliente-Servidor ======
+Created terça 17 junho 2014
+
+====== Problemas ======
+
+* Algumas aplicação exigem seu próprio jeito de conversar com o servidor, como o jquery Easy UI, como trataremos este caso? um filtro javascript? uma camada no servidor?
+* Outro exemplo gerador de Excel
+* COmo serão feitos upload?
+
+====== Propostas ======
+
+* Vamos desvincular o servidor do cliente, por exemplo, o módulo crud, não vai ter uma versão do crud no servidor, o máximo que poderá fazer é consultas padrões, mas não deverão estar relacionado
+
+
+===== Carregando dados =====
+
+A idéia é basicamente tratar o servidor como um web service, que somente retorna dados. 
+Principal tarefa é retornar resultado de consulta, fazer comunicação direta com os modelos.
+* Não será possível a afirmação acima, pois temos email, gerador de arquivo upload entre outros, precisamos definir alguns módulos 
+* Mas vamos seguir a separação, poderiamos ter dois CRUD, um servidor e um cliente, porém tratar como aplicações separadas
+
+Então podemos definir algumas regras como (PROPOSTA)
+* Primeira parte da url: palavra-chave "modelo" para definir que estamos buscando um modelo
+* Segunda parte: nome do modelo desejado
+* Terceira parte: parâmetros para o modelo retornar
+
+* Precisamos nos preocupar com a questão de segurança, pois não é qualquer um que poderá ter acesso aos dados
+
+===== Segurança =====
+
+Segurança também é feita pelo servidor, deve haver uma forma de realizar essa comunicação
+
+====== Lista de funcionalidades que podem ficar no cliente ======
+
+**Assetic (Recursos)**
+[*] Acesso a javascript, css, imagens
+[x] Javascript minimificados (UglyJS, Ugly CSS, YUM COmpressor, LESS)
+
+[ ] Cache (Precisamos dos dois lados)
+[x] Banco de Dados Mysql/DB2/Mongo/Doctrine
+[x] E-mail
+
+[*] Formulários
+[x] Log (Parceialmente, mas não ficam salvos)
+
+[*] Rotas
+[x] Segurança (Autenticação)
+[x] Sessões
+
+[*] Template
+[ ] Validação (Precisamos dos dois lados)
+[ ] Testes (Precisamos dos dois lados)
+[*] Traduções
+
+[x] Webservice (REST)
+
+
+====== Desenvolvimentos ======
+
+* Foi adotado o Active Record já usado no projeto da TCP, foi necessário uma modificação e configuração de Namespace:
+	* 05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Silex:Namespace
+
+===== Padrão de Diretório =====
+
+

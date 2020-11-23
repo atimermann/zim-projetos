@@ -1,0 +1,69 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Propriedade</td>
+	<td BGCOLOR="gray">Descrição</td>	
+	<td BGCOLOR="gray">Valor Padrão</td>
+	<td BGCOLOR="gray">Valores</td>
+</tr>
+
+<tr>
+	<td>type</td>
+	<td>Tipo de Relacionamento</td>	
+	<td>[Obrigatório]</td>
+	<td>ManyToMany, ManyToOne, OneToMany, OneToOne</td>		
+</tr>
+
+<tr>
+	<td>localKey</td>
+	<td>Chave estrangeira que irá fazer o relacionamento</td>	
+	<td>PrimaryKey</td>
+	<td>Opcional: Usado em todos os relacionamentos</td>		
+</tr>
+
+<tr>
+	<td>remoteTable</td>
+	<td>Nome da Tabela de Destino (Foreign Table)</td>	
+	<td>[Obrigatório]</td>
+	<td></td>		
+</tr>
+
+<tr>
+	<td>remoteKey</td>
+	<td>Chave Primária da tabela de destino</td>	
+	<td>[NOME DA TABELA DESTINO]_id</td>
+	<td>Opcional: Usado em todos os relacionamentos</td>		
+</tr>
+
+<tr>
+	<td>relationTable</td>
+	<td>Nome da tabela que relaciona com a tabela de Destino</td>	
+	<td>[Obrigatório se ManyToMany]</td>
+	<td>Usado em ManyToMany</td>		
+</tr>
+
+
+
+<tr>
+	<td>relationLocalKey</td>
+	<td>Nome do campo que relaciona a relationTable com a primaryKey da tabela Local</td>	
+	<td>[NOME DA TABELA LOCAL]_id</td>
+	<td>Opcional: Usado em ManyToMany</td>		
+</tr>
+
+<tr>
+	<td>relationRemoteKey</td>
+	<td>Nome do campo que relaciona a relationTable com a ForeignKey da tabela de Destino</td>	
+	<td>[NOME DA TABELA DESTINO]_id</td>
+	<td>Opcional: Usado em ManyToMany</td>		
+</tr>
+
+
+
+
+</TABLE>
+>];
+}

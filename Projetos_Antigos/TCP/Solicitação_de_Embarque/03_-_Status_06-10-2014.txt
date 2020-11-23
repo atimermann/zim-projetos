@@ -1,0 +1,69 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-06T10:10:54-03:00
+
+====== 03 - Status 06-10-2014 ======
+Created segunda 06 outubro 2014
+
+-------------------------------------------------
+|Nº | [X] | Contêiner | Lacre |  AVARIA |
+-------------------------------------------------
+|     |      |                    |             |               |
+|     |      |                    |             |               |
+|     |      |                    |             |               |
+|     |      |                    |             |               |
+|     |      |                    |             |               |
+-------------------------------------------------
+
+* Está habilitado para a empresa: **5254**
+* Uso a seguinte consulta para obter:
+	* $sql = "SELECT ID, NOME_EXPORTADOR, CNPJ_EXPORTADOR, STATUS_PRESENCA_CARGA, STATUS_ORDEM_EMBARQUE, NAVIO, VIAGEM  FROM extnet.dbo.PROC_SISCOMEX WHERE NUMERO_DESPACHO = {$despacho} AND EMPRESA_ID = {$empresa_id}";
+
+21312566078
+
+====== Próximos Passos ======
+
+
+* ~~Criar a lista de avarias e mostrar na terceira coluna~~
+* ~~validas se tiver alguma avaria bloqueia~~
+
+
+SELECT CONTA, CONTN, CONTD, AV1, AV2, AV3, AV4, AV5, LAV1, LAV2, LAV3, LAV4, LAV5 FROM ARGYARBASF.CONTF
+
+SELECT DISTINCT C01CNA, C01CNN, C01CND, C01CNN, C01TAV, C01LAV FROM ARGBASEF.COM01F WHERE (C01CNA = 'MSKU' AND C01CNN = 167351 AND C01CND = '0') OR (C01CNA = 'MRKU' AND C01CNN = 224012 AND C01CND = '8') OR (C01CNA = 'MRKU' AND C01CNN = 217052 AND C01CND = '4') OR (C01CNA = 'MRKU' AND C01CNN = 271233 AND C01CND = '2') OR (C01CNA = 'MRKU' AND C01CNN = 256731 AND C01CND = '6') OR (C01CNA = 'MRKU' AND C01CNN = 343312 AND C01CND = '1') OR (C01CNA = 'MSKU' AND C01CNN = 657141 AND C01CND = '9') OR (C01CNA = 'MSKU' AND C01CNN = 640389 AND C01CND = '0') OR (C01CNA = 'MRKU' AND C01CNN = 449988 AND C01CND = '5') OR (C01CNA = 'MRKU' AND C01CNN = 090410 AND C01CND = '4') OR (C01CNA = 'MRKU' AND C01CNN = 063782 AND C01CND = '0') AND C01TDO = '01'
+
+
+C01BAE, C01VIE, C01BAS, C01VIS
+
+====== Salvar Solicitação de embarque ======
+
+Mudar o campo "PROC_SISCOMEX.
+
+STATUS_SOLICITACAO_LIBERACAO 
+N  =>  p/ Não Solicitado
+
+STATUS_LIBERACAO_CANCELADA 
+
+
+====== "DashBoard" ======
+
+* Criar uma tela no sistemas internos para acessar todas as solicitações de embarque, com filtros
+
+====== Duvidas ======
+
+* oq é "booking (presença de carga)"?
+
+* Exibir informação sobre o status presença de carga (STATUS_PRESENCA_CARGA) se sim quais as siglas??
+
+* Histórico?
+
+* Testar contêineres com menos digitos
+
+
+
+03399.49281 36918.955554 34494.609109 2 00000000000000
+
+3764 867045 92002 
+1317
+
+

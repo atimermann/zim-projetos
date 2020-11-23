@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-02-02T13:37:46-02:00
+
+====== Reunião Cléber 2013-02-02 ======
+Created sábado 02 fevereiro 2013
+
+
+* Os templates ficarão no html mesmo
+* Módulo de entrada: Páginas
+* Estudar como poder gerar banco de dados a partir da aplicação model.py em diretório diferente (Fazer isso de estudar tudo sobre models layer e south)
+* Criar um script que crie uma relação de plugins/recursos disponíveis e onde eles estão
+* No app Paginas arrumar a documentação com epydoc para pegar a referencia para o config_holder
+
+* Criar documentação formato epydoc para todos os app
+
+* Trabalhar em cima dos app:
+	* Paginas
+	* Widgets
+
+* Comunicação entre Paginas e Widgets é feito com o plugin pre_renderização
+* **Estudar o django_debug Toolbar**
+
+* Criar interface amigavel para selecionar o template da página e qual widget vai em cada slot
+	* Opção de clonar uma página
+	* Criar templates
+	* Editar templates (Tiny MCE ou **jwyswyg**)
+
+* LoadURL -> Pagina -> Widgets -> Outros módulos que vão ficar em casa slot
+
+* App que serão removidos:
+	* Clientes
+	* Painel
+	* Listagem__modelo
+	* Login (usar do django, remover)
+
+* config
+	* Plugin pra gerenciar configuração dos aplicativos estilo na wx
+	* Criar forma de edita-los pelo painel do django
+
+* View
+	* Para quem quiser fazer do jeito antigo
+
+* Monitor recursos do sistema

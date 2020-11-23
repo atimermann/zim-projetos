@@ -1,0 +1,70 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-11T23:10:50-02:00
+
+====== Scaffold ======
+Created terça 11 novembro 2014
+
+Será desenvolvido um conjunto de scripts que irão automatizar o processo de criação de projeto, como crud
+
+DIA -> SQL
+KNEX.JS
+
+
+**1º Módulo:**  ~~Converter de DIA p/ SQL (usando parse_dia_sql feito em PERL)~~
+	* Criar ajuda de como instalar
+
+**2º Módulo:  **~~Carrega DIA p/ JSON (OK)~~
+	* Salvar uma cópia do JSON??
+
+**3º Módulo: **~~Validar Modelo~~
+	* ~~Validação de Padrão~~
+	* ~~Erros~~
+
+**4º Módulo: **~~Gerar  SQL com KNEX.JS~~ 
+	* ~~Salvar SQL?~~ 
+
+**5º Módulo: **Gerar Estrutura de código, como Formulário
+
+
+
+Vamos ter a seguinte transformação:
+DIA -> SQL BRUTO -> MODEL JSON -> SQL FINAL
+
+**Codinomes:**
+dia
+rawsql
+modeljson
+finalsql
+
+Script que validará o modeljson (sempre q passar por esta etapa ocorre validação)
+**modeljson-validate**
+
+
+**model-generator --from <dia | rawsql | modeljson | finalsql> --to <dia | rawsql | modeljson | finalsql>**
+
+Deposi teremos outros script como
+
+**crud-generator**
+**form-generator**
+**datagrid-generator**
+**rest-generator**
+
+===== Processo de conversão =====
+
+Oq preciso?
+Abrir do Dia e salvar no Banco de dados
+
+**generate-bd**
+-> Abrir DIA
+-> Converter para SQL RAW
+-> Converter para JSON
+-> Validar
+-> Executar SQL gerado
+
+**generate-sql**
+-> Abrir Dia
+-> Converter SQL RAW
+-> Converter JSON
+-> Validar
+-> Criar SQL

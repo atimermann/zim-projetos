@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-23T14:35:42-02:00
+
+====== 08 - [REVISTO]Reunião 2014-10-23 ======
+Created quinta 23 outubro 2014
+
+* ~~Validar se presença de carga está com Status "A"  (DEIXA FAZER só muda mensagem)~~
+
+* ~~Criar tela de consulta de protocolo (Ver descrição)~~
+* ~~Limpar trava de empresa~~
+
+
+* ~~Adicionar colina Data_entrada~~
+* ~~Arrancar avaria e localização avaria~~
+* ~~Nova coluna sem nome com os dados da avaria e validações~~
+
+
+
+~~Validação no DESPACHO: Despacho com pendência de presença de carga~~
+~~PRESENCA_CARGA_STATUS <> 'A'~~

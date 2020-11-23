@@ -1,0 +1,533 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-09-09T20:05:20-03:00
+
+====== 00 - Tarefas ======
+Created sexta 09 setembro 2016
+
+
+https://www.whitebyte.info/programming/self-update-firefox-addon-programatically
+const self = require('sdk/self');
+const chrome = require('chrome');
+
+/**
+ * Autoupdate this addon on startup
+ */
+(function() {
+  let AddonManager = chrome.Cu.import('resource://gre/modules/AddonManager.jsm', null).AddonManager;
+  
+  AddonManager.getAddonByID(self.id, function(addon) {
+	addon.findUpdates({
+	  onUpdateAvailable: function(addon, install) {
+		install.install();
+	  }
+	}, AddonManager.UPDATE_WHEN_PERIODIC_UPDATE);
+  });
+})();
+
+
+------------------------------------------------------------------------------------------
+Escritório DIgital
+
+ x = document.getElementsByClassName('tabelaFormulario');
+x[2].getElementsByClassName("af_outputLabel")[1]
+
+PCALL(3, "+getElementByClassName", ["+tabelaFormulario"], 2);
+PCALL(3, "+getElementByClassName", ["+af_outputLabel"], 1);
+
+https://www.trt9.jus.br/cas-trt/login?service=https%3A%2F%2Fwww.trt9.jus.br%2Finternet_judiciario%2Ff%2Ft%2Fescritoriodigitalcon%3Fevento%3Dy
+06237464921
+06237464921
+06237464921
+vZCbIf
+vZCbIf
+vZCbIf
+
+**--- Use para teste --**
+PSLEEP(1000);
+PREDIRECT("http://www.dropzonejs.com/");
+PSLEEP(1000);
+PSLEEP(1000);
+
+document.getElementById('MENSAGEM_TABELA_msgVermelho')
+
+document.getElementById('MENSAGEM_TABELA_msgVermelho').getElementsByClassName('msgVermelho')[0].textContent
+
+
+~~TODO:  Depois do upload concluido a página é carregada e a execução do script é perdida. Necessário implementar um controle de recuperação~~
+~~(recarrega o script na página, e o executor de insturção detecta a perda do worker ou timeout e tenta se conectar novamente), ou seja realizar controle de conexão)~~
+
+~~TODO: Validar se aparecer mensgem de documentão não possui assinatura, neste caso exibir um alerta (criar instrução para alerta) e cancelar execução~~
+	~~MENSAGEM_TABELA_msgVermelho~~
+	
+~~TODO: Instrução para registrar progresso de upload, so somar 1 a cada iteração o calculo de progresso será feito pela extensão~~
+
+~~TODO: Desenvolver assinatura de pdf~~
+
+__TODO: __Melhorar o eproc para aguardar upload finalizar
+
+~~PROBLEMA: Arquivo precisa ser renomeado, troca extensão~~
+
+------------------------------------------------------------------------------------------
+https://pje.tjpr.jus.br/pje/login.seam
+https://pje.tjpr.jus.br/pje/login.seam
+06237464921
+06237464921
+maua5001
+maua5001
+maua5001
+
+Processo -> Novo Processor
+Classe Judicial -> Qualquer um
+Incluir
+incluir petições e documentos
+Qualquer Texto
+------------------------------------------------------------------------------------------
+http://eprot.com.br/users/sign_in
+alealt94@hotmail.com
+123456
+
+test@mozilla.org
+test123456
+
+http://lisperator.net/pltut/
+
+------------------------------------------------------------------------------------------
+https://eproc.jfpr.jus.br
+http://dropzonejs.com
+
+let x = document.getElementById('tbInfoProcesso')
+x.getElementsByTagName('td')[0].contents
+y.textContent
+
+Login: pr063810
+Senha: 04111984
+Login: pr063810
+Senha: 04111984
+Login: pr063810
+Senha: 04111984
+
+<li><span class="qq-upload-file">big_0000.pdf</span><span class="qq-upload-spinner"></span><span class="qq-upload-size" style="margin-left: 3px; display: inline;">57% de 7.8MB</span><a class="qq-upload-cancel" href="#">&nbsp;&nbsp;&nbsp;Cancelar</a><span class="qq-upload-failed-text">&nbsp;&nbsp;&nbsp;Falha no Envio</span><span class="qq-upload-success-text"></span></li>
+
+
+class="qq-upload-list"
+qq-upload-size
+
+====== Oq foi feito que impactou no desenvolvimento ======
+
+* Atualização do sistema para segmentação de arquivo
+* Refazer módulo interpretador de instrução devido a complexidade da página 
+
+====== Próximas ======
+
+[*] Verificar se o popup está desbloqueado para página atual e informar usuário
+
+[*] Win Api
+[*] Algoritmo Inteligente..Desenvolver script que identifica automaticamente classificação pelo nome do arquivo
+
+[ ] Ao remover arquivo ou cancelar operação, remover também arquivos assinados
+
+[*] Bloquear controles enquanto está realizando upload, informando ao usuario para aguardar sem mexer no computador
+[*] No modal Alert, criar opção para não cancelar modal ao perder foco (não deve ter acesso ao conteudo atrás)
+[ ] Criar Modo Desenvolvimento
+	[ ] Modo Desenvolvimento para botão minimizar
+
+
+[*] No **eproc** aguardar upload finalizar, aparece janela de upload concluido ( e icone de ok)
+	[ ] Se demorar avisar q travou
+	[*] Atualizar eproc para aguardar upload finalizar
+
+[ ] Tratar erro de execução (achar uma maneira de depurar melhor)
+
+[ ] Criar  uma flag de concluído, pois algumas páginas recarregam divs q ativam validação a página (no content SCript)
+[*] Concluir Informação de Progresso para upload
+
+
+[*] Criar uma nova view no gerenciador de Upload, para travar visualização do usuario enquanto tiver realizando upload, exibir apenas progresso
+	[*] ou apenas bloquear comandos
+	[*] Fazer o mesmo enquanto carrega classificação
+[*] Tratar os Erros
+
+[*] Criar novo Botão de Sugestão
+[*] Modal
+
+[*] EprotManager tem um prompt, desenvolver (Não urgente)
+
+[*] Testar autoit.dll
+
+[*] Enviar Estatistica de tempo de processamento (segmentação e upload)
+[*] Padronizar Log de Erro
+[*] Gerenciar melhor os logs para melhor monitoramento
+
+[*] Remover Página: Valida, para mensagems mais compreensivel
+
+
+
+[*] Concluir Informação de Progresso para segmentação
+
+
+[*] Não ocultar painel ao selecionar arquivo
+[*] Limparar Arquivos (Remover todos) quando trocar de página
+id: modalMensagensUploadContentDiv
+[*] Mudar a funcionalidade Assinar
+[*] Avisar no uploadmanager quando processo finalizar
+
+
+[*] È possível controlar a conclusão do upload, a página envia alerta quando um upload for concluido, tentar criar script para gerenciar isso
+
+[*] Carregar limite da página
+[*] Carregar Classificação do Banco de dados
+[*] Pegar Tarefas do backend
+[*] Abrir Sidebar automaticamente quando chegar na página de upload
+[x] Carregar alerta pedindo para se logar para continuar o processo de upload
+
+
+
+====== Críticos (Mais dificil ou demorado) ======
+
+[*] __Recuperação de Tarefa quando sistema cair__
+[x] __Identificação de Processo__
+[*] **Desenvolver código baseado em dll para automação no Windows, Linux e Mac **(32h)
+[*] **Opção de outros ao classificar(*)**
+[x] **Botões Remover todos**
+[x] **Botão Classificar todos**
+
+[x] As vezes quando processar mais de um pdf por vez trava processo sem erro, necessitando reiniciar extensão (corrigido, forçando processamento de 1 arquivo por vez)
+
+
+
+
+[*] **Envio de log para o backend(*)**
+	[*] **Número de arquivos, e o número de documento após fragmentação.**
+	[*] **Tempo durou o processo**
+
+[*] **Módulo para reconhecer a página por elementos da página  **(8h)
+
+
+
+====== Bug ======
+
+[ ] Se tiver sem internet e tentar acessar um site compativel, mesmo q a internet volte a extensão não a detecta mais
+	Motivo: não carrega as páginas iniciais, necessário tentar novamente quando a internet voltar ou enquanto for null, com mensagem de alerta
+
+[*] CRITICO: Limparar configuração da página atual ao trocar de página válida (quando entro numa página valida, e depois vou pra outra, paramentros da antiga continua (como classification_table)
+
+[x] Ao Cancelar operação, não está removando todos os arquivos da primeira vez
+[x] Precisa clicar duas vezes para cancelar
+
+[x] Botão fechar não aparece ao carregar Gerenciador de upload
+
+
+
+[ ] Ao carregar o eprot em outra janela do firefox (eproc),  os eventos da aba (pageshow, activate, deactivate e close) param de funcionar
+	**Parece BUG do Firefox**
+	
+[*] Ao entrar em outra página válida na mesma sessão (sem reiniciar firefox) não está carregando instruções (testar)
+	* Testar com dropzonejs e depois ir para PJE
+	* Não está informando erro para o backend
+
+[ ] Processamento de arquivos em paralelo não está funcionando (UploadManager) 
+	[ ] Se realizar outras operações em outros arquivos da lista, tudo para tb, não funciona
+
+
+[*] Se acabar espaço em disco, função processador de arquivo para (fica status aguardando, sem nenhum aviso de ero)
+	* Não é pouco espaço, mesmo com 2GB deu erro, mas se eu liberar o [[/tmp]] funciona, estudar problema, pode ser erro arquivo já existe
+
+
+[x] Ao relizar upload a largura do painel está aumentando indiscriminadamente, talvez minimizar ao realizar upload (parou)
+[*] Erro ao digitar senha inválida
+
+[*] Erro ao digitar senha inválida
+
+[*] Limpar campos email e password ao desconectar
+
+[*] Refazer Remoção de Arquivo
+
+[*] Correção troca de aba
+[*] **Corrigir ordenação q não funciona**
+	* Converter fileList Array p/ Objeto
+	* Criar métodos updateOrder
+	* getByOrder
+
+[*] Botão **INICIAR** não funciona
+[*] Recriar Sidebar ao trocar de janela
+
+====== Tarefas Pendentes ======
+
+[ ] Configurar navegadores para linux e mac (linux só o dolphin, mas podemos usar o nautilus)
+[ ] Criar Robôs para:
+	[ ] Projudi
+	[*] Eproc
+	[*] Escritório Digital
+	[*] PJE
+
+
+[*] Fazer Testes com o Backend 
+	[*] Comunicação de envio de log
+
+[*] Correção de Bugs
+[*] **Aplicar HTML do Sidebar**
+[*] Resolver questão dos executaveis para processar pdf
+
+
+====== Outras Pendencias ======
+[*] Bloquear upload enquanto sistema ainda não está pronto
+
+
+[*] Alterar login para ao digitar ENTER logar
+[*] Criar logins no login, para usuario saber q está autenticando
+[*] Tratar erro de arquivo muito grande e o segmentador entra em loop infinito tentando segmentar
+
+
+
+====== Outras Tarefas do Asana ======
+
+
+[x] Validar compatibilidade das versões do browser e inclusive se o tribunal aceita estas versões (Pedir para o Altoff)
+
+[ ] Validar erros na segmentação do arquivo **(Validar se existem erros na segmentação dos arquivos: arquivos corrompidos, muito grandes, inacessíveis, etc …) **__complicado__
+	[ ] Validar que o conjunto de instruções pode ser executado através da checagem de elementos DOM (Adicionar no verificador de Página)
+ 
+[ ] Erros padrões de autenticação
+	[ ] não há conexão com internet → informa ao usuário
+	[x] chave não permite executar ação → informa ao usuário
+	[ ] falha na validação das instruções → informa usuário e envia relatório para backend
+	[ ] Caso o sistema do judiciário caía → enviar relatório via API & aplicar a continuidade na execução das instruções
+[x] Configuração (automatica e manual)
+[*] Autenticação nas requisições
+[x] Validar que o usuário possui privilégios para estar executando a ação
+[*] Criar modo manutenção e exibir na barra lateral (Pedir para o Altoff)
+[*] Adicionar informações na barra lateral
+
+
+====== Publicação ======
+[*] Alterar icone
+[ ] Verificar versão e disponibilizar update
+
+====== Extras ======
+[*] Trocar alert por modal
+[*] Criar tela de loading para o painel que encubra a tela, Mostrando informações como "carregando classificaçoes..."
+[*] Não carregar Upload Manager automaticamente
+[*] Remover mensagem "Pagina: desabilitada" por:
+	[*] "Sistema em Manutenção nesta Página"
+	[*] "Entre na página de upload para ativer esta extensão"
+	[*] Adicionar, lista de dominios compativeis:. ex: Projudi
+
+[*] Mensurar tempo de execução e 
+	[*] enviar para backend
+[*] Remover arquivos quando execuptar UploadManager.unload()
+[*] Carregar Configuração do usuário para analise (configuração do PC)
+
+
+
+====== Instruções ~ Rascunho ======
+
+PCALL(3, "+getElementById", ["+lblListarTipo_1"]);
+PCALL(1, "+click");
+PCALL(3, "+getElementById", ["+divInfraAjaxtxtTipo_1"]);
+PATTR(1, "+firstChild");
+EWAIT(2);
+PATTR(1, "+childNodes");
+PGETLIST("+textContent");
+
+PCALL(3, "+getElementById", ["+lblListarTipo_1"]);
+PCALL(1, "+click");
+PCALL(3, "+getElementById", ["+divInfraAjaxtxtTipo_1"]);
+PATTR(1, "+firstChild");
+EWAIT(2);
+PATTR(1, "+childNodes");
+PGETLIST("+textContent");
+
+—————————————————————————————————————
+**EPROC**
+—————————————————————————————————————
+PCALL(3, "+getElementById", ["+lblAdicionarDocumento"]);
+PSAVE(1, "adicionarDocumento");
+
+EEVAL("interpreter.buffer.it = 0");
+
+EFORIN("loop", "files");
+EGET("loop.value.segment");
+EFORIN("segments", "return");
+
+EEVAL("interpreter.buffer.it++");
+
+EIF("x", "interpreter.buffer.it != 1" );
+PCALL("adicionarDocumento", "+click");
+EIFEND("x");
+
+EGET("loop.value.classificacao");
+PSAVE(0, "classificacao");
+
+EEVAL("'txtTipo_' + interpreter.buffer.it" );
+PSAVE(0, "classificacaoId");
+
+PCALL(3, "+getElementById", ["classificacaoId"]);
+PSAVE(1, "input");
+
+PSETATTR("input", "+value", "classificacao");
+
+EEVAL("'fldInfDocumento' + interpreter.buffer.it" );
+PSAVE(0, "uploadId");
+
+PCALL(3, "+getElementById", ["uploadId"]);
+PCALL(1, "+getElementsByTagName", ["+table"], 0);
+PCALL(1, "+getElementsByClassName", ["+qq-upload-input"], 0);
+PCALL(1, "+click");
+
+EGET("segments.value");
+EFILEUPLOAD();
+
+EFORINEND("segments");
+EFORINEND("loop");
+—————————————————————————————————————
+**DROPZONE**
+————————————————————————————————————— 
+EFORIN("loop", "files");
+
+EGET("loop.value.segment");
+EFORIN("segments", "return");
+EALERT();
+
+PCALL(3, "+getElementById", ["+demo-upload"]);
+PCALL(1, "+click");
+
+EGET("segments.value");
+EFILEUPLOAD();
+
+EFORINEND("segments");
+
+EFORINEND("loop");
+
+—————————————————————————————————————
+**PJE**
+————————————————————————————————————— 
+EFORIN("loop", "files");
+EGET("loop.value.segment");
+EFORIN("segments", "return");
+
+
+ESLEEP(2000);
+PCALL(3, "+getElementById", ["+commandLinkAdicionar"]);
+PCALL(1, "+click");
+
+EGET("segments.value");
+EFILEUPLOAD();
+
+EGET("loop.value.classificacao");
+PSAVE(0, "classificacao");
+
+// Carrega Elemento select de classificação
+ESLEEP(2000);
+PCALL(3, "+getElementById", ["+dz-tabela-upload"]);
+PATTR(1, "+lastChild");
+PCALL(1, "+getElementsByTagName", ["+select"], 0);
+PSAVE(1, "classificacaoButton");
+
+// Altera valor e dispara evento change
+PSETATTR("classificacaoButton", "+selectedIndex", "classificacao");
+PDISPATCHEVENT("classificacaoButton", "change");
+
+// Aguarda Vinalização do Upload (abre janela modal)
+PCALL(3, "+getElementById", ["+modalMensagensUploadContentDiv"]);
+PATTR(1, "+offsetParent");
+EWAIT(2, 120000);
+PCALL(1, "+getElementsByTagName", ["+input"], 0);
+PCALL(1, "+click");
+
+
+EFORINEND("segments");
+EFORINEND("loop");
+
+—————————————————————————————————————
+**ESCRITORIO DIGITAL**
+————————————————————————————————————— 
+
+**Carrega Classificação**
+PCALL(3, "+getElementById", ["+corpo:formulario:tipoDocumentoAnexo"]);
+PGETSELECT();
+
+----------------------------------------- **Upload ----------------------------------------- **
+EFORIN("loop", "files");
+EGET("loop.value.segment");
+EFORIN("segments", "return");
+EGET("segments.value");
+EREPLACEEXT("pdf.p7s");
+EPUT("filepath");
+EFILEEXIST("filepath");
+EIF("ifFileExist", "interpreter.buffer.return === false");
+EABORT("Você não assinou todos os arquivos corretamente.");
+EIFEND("ifFileExist");
+EFORINEND("segments");
+EFORINEND("loop");
+
+
+EEVAL("interpreter.buffer.iElement = 0");
+EFORIN("loop", "files");
+EGET("loop.value.segment");
+EFORIN("segments", "return");
+
+EEVAL("interpreter.buffer.iElement = interpreter.buffer.iElement + 1");
+
+PCALL(3, "+getElementById", ["+corpo:formulario:uploadArquivoAnexo"]);
+PCALL(1, "+click");
+
+EGET("segments.value");
+EREPLACEEXT("pdf.p7s");
+EFILEUPLOAD();
+ESLEEP(2000);
+
+PCALL(3, "+getElementsByClassName", ["+delimitador tabelaFormulario"],4);
+PCALL(1, "+getElementsByTagName", ["+tr"]);
+PATTR(1, "+length");
+EEVAL("interpreter.buffer.return === interpreter.buffer.iElement + 2" );
+EWAIT(4, 120000);
+
+
+EGET("loop.value.classificacao");
+PSAVE(0, "classificacao");
+
+EEVAL("interpreter.buffer.iElement + 1" );
+PSAVE(0, "iElement");
+
+PCALL(3, "+getElementsByClassName", ["+delimitador tabelaFormulario"],4);
+PCALL(1, "+getElementsByTagName", ["+tr"], "iElement");
+PCALL(1, "+getElementsByTagName", ["+td"], 1);
+PCALL(1, "+getElementsByTagName", ["+select"], 0);
+PSETATTR(1, "+value", "classificacao");
+
+EFORINEND("segments");
+EFORINEND("loop");
+----------------------------------------- **Upload ----------------------------------------- **
+
+
+====== e-Proc ======
+--- 
+https://eproc.jfpr.jus.br
+http://dropzonejs.com
+
+Login: pr063810
+Senha: 04111984
+
+Login: pr063810
+Senha: 04111984
+
+Login: pr063810
+Senha: 04111984
+
+
+
+Relatórios -> Relação de Processos
+Clicar em Listar Processos Baixados
+Selecionar qualquer um com status "Baixa Definitiva"
+
+Clicar em Movimentar/Peticionar
+
+Automatizar aqui
+
+
+
+846600000000
+219001090113
+001729608339
+400915671657

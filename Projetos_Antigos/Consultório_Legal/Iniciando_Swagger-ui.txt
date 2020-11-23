@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-06T00:10:46-03:00
+
+====== Iniciando Swagger-ui ======
+Created domingo 06 março 2016
+
+**Para iniciar o servidor swagger-ui e testar o servidor,  necessário usar o** 
+	http-server
+	
+**Primeiro inicia-se o servidor para hospedar os arquivos yaml:**
+	cd [[/home/andre/projetos/consultorio_legal/api]]
+	
+**Em seguinda inicia o http-server**
+	http-server --cors
+	
+**E finalmente o editor:**
+	cd [[/home/andre/app/swagger/swagger-editor]]
+	http-server
+
+**Ou o swagger-ui**
+	cd [[/home/andre/app/swagger/swagger-ui/dist]]
+	http-server
+

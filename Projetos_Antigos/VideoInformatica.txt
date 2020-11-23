@@ -1,0 +1,87 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-02-25T18:17:47-03:00
+
+====== VideoInformatica ======
+Created segunda 25 fevereiro 2013
+
+
+====== TODO ======
+
+
+* Página dizendo como ganhar aulas grátis: 
+	* Indicação
+	* Finalizando um curso
+	* pontos por compartilhamento em redes sociais
+
+====== Outras IDéias ======
+
+
+Minha ideia é a seguinte:
+
+Vai existir uma página onde será listado por categoria todos os cursos
+
+**www.videoinformatica.com.br/cursos**
+
+Categoria A
+---------------------------
+curso 1
+curso 2
+curso 3
+
+
+Categoria B
+---------------------------
+curso 1
+curso 2
+curso 3
+
+
+Categoria C
+---------------------------
+curso 1
+curso 2
+curso 3
+
+**Em duas os 3 colunas**
+
+
+Essa página vai estar sempre aberta, mas vai mudar de acordo com o perfil logado.
+
+
+Se for usuario cadastrado, do lado de cada curso uma indicação de:
+* Quantas aulas foram feita
+* ~~Quantas aulas foram compradas~~
+* uma estrela quando o curso foi finalizado,
+* ALgo do tipo
+
+~~Mas nada de valor ou crédito até aqui~~
+
+Ao Clicar em um curso vai abrir outra página que vai exibir as aulas disponíveis
+
+Ali sim vai ter:
+	* o valor em crédito de cada aula 
+	* assistir (caso já tenha sido comprada ou seja uma aula grátis):
+	* Cadastre para desbloquear esta aula
+
+Clicando na aula entra na "sala de aula"
+
+onde vai ter o video, os comentários e as dúvidas frequentes
+
+**PAGINA INICIAL**
+
+Estou pensando em não ter nada de listagem de cursos ou categoria de curso, apenas colocar especie de banner ou propaganda dos cursos mais procurados
+
+e bem visivel um botão VEJA TODOS OS CURSOS, que vai levar para a página de listagem de todos os cursos que expliquei acima
+
+No menu "CONHEÇA NOSSOS CURSOS"
+
+Ter uma lista de uns 10 cursos mais procurados e uma ultima opção "TODOS OS CURSOS"
+
+
+
+
+
+
+
+

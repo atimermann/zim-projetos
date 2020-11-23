@@ -1,0 +1,65 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-09T14:36:46-02:00
+
+====== Automação Agendamento ======
+Created terça 09 janeiro 2018
+
+Dados Acesso
+**Segue acessos via Teamviewer 12:**
+
+**Robo1**
+Ip 192.168.215.191
+ID teamviewer:    718 809 701
+Senha:                   automacao1
+Obs. Windows Apenas
+ 
+**Robo2**
+Ip 192.168.215.192
+ID teamviewer:    718777872
+Senha:                  automacao2
+Senha Windows: 
+Obs. Windows Apenas (BATCH PROD)
+ 
+**Robo3**
+Ip 192.168.215.193
+ID teamviewer:   718776780
+Senha:                  automacao3
+Obs. Windows + Navegador + Corporate
+ 
+**Robo4**
+Ip 192.168.215.194
+ID teamviewer: 743 489 846
+ID AnyDesk: 777 666 901
+Senha:                 automacao4
+Obs. Windows + Navegador + Corporate
+
+**Os Acessos via TS são:**
+ 
+Robo1: 192.168.215.191
+Usuário:  Admin  
+Senha:  agenda!@#123098
+ 
+Robo2: 192.168.215.192
+Usuário:  Admin  
+Senha:  agenda!@#123098
+ 
+Robo3: 192.168.215.193
+Usuário:  Admin  
+Senha:  agenda!@#123098
+ 
+Robo4: 192.168.215.194
+Usuário:  Admin  
+Senha:  agenda!@#123098
+
+====== Acesso HyperV ======
+
+Usuario VPN: vpnsmarti
+Senha VPN: agenda!@#123098
+
+Ip servidor hyperv: 192.168.215.6
+Usuario: Administrator
+Senha: dwssap123$$
+
+Entrar pelo robô 01
+

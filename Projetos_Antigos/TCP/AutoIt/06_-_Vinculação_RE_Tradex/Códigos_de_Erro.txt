@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-10-15T15:56:08-03:00
+
+====== Códigos de Erro ======
+Created quinta 15 outubro 2015
+
+
+F001 -> Falha ao iniciar internet Explorer (volta pra fila)
+F002 -> Não foi possível entrar na tela de login, verifique conexão
+F003 -> Falha ao carregar Login
+F005 -> Não foi possível entrar no menu Cadastro Pedido de Embarque
+F011 -> Erro ao processar resultado da string programação
+F013-> Não foi possível selecionar exportar, irá processar RE individualmente
+F020 -> Não foi possível selecionar Programação, será processado RE individualmente"
+
+E004 -> Usuario ou Senha Inválida
+E006 -> Erro ao carregar elemento na página: 'QueryPEEForm'
+E007 -> Erro ao carregar elemento na página: 'numero'
+E008 -> Alteração de Página: Não foi possível recuperar 'submit'
+
+E010: Alteração de Página: Não foi possível recuperar 'programacao'
+F011: Erro ao processar resultado da string programação
+E012: Alteração de Página: Não foi possível recuperar 'tab_filter'
+E014:  alteração de Página: Não foi possível recuperar 'exportador_id'
+E015: Alteração de Página: Não foi possível recuperar 'programacaoButton'
+E016: Verificação de botão Selecionar Programação, inválido
+E017: Erro ao Abrir Nova Janela para selecionar programação
+E018: Alteração de Página: Não foi possível recuperar 'codigo'
+E019: Alteração de Página: Não foi possível recuperar 'submit'
+
+===== Existem status especiais para cada re =====
+
+Esses status já foram definidos anteriormente:
+
+Foi adicionado:
+(5) -> RE Inválido, erro no processo, robo pesquisou por uma RE mas carregou outra, não deve acontecer nunca

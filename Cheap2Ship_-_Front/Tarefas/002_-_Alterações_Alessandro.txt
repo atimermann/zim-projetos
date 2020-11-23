@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-23T02:45:29-03:00
+
+====== 002 - Alterações Alessandro ======
+Created quinta 23 abril 2020
+
+
+* Definir Paletas de cores com Alessandro configurar padrões de LAyout menu/header/footer
+
+
+====== 01 - Snackbar ======
+Para as mensagens, tanto de erro de formulário como de sucesso, snackbar: https://vuetifyjs.com/en/components/snackbars/#usage
+
+Já estamos usando, embaixo
+
+====== 02 - Menu Lateral ======
+
+Criar menu lateral Direito
+
+{{./pasted_image.png}}
+
+====== 03 - Expansão ======
+
+Exemplo, botão expansão:
+https://vuetifyjs.com/en/components/cards/#custom-actions
+
+
+====== 04 - Inválido botão ======
+
+{{./pasted_image001.png}}
+
+Usar badges
+https://vuetifyjs.com/en/components/chips/#usage
+
+====== 05 - Cotação Inválida ======
+
+{{./pasted_image002.png}}
+
+====== 06 - Floating Button ======
+
+https://vuetifyjs.com/en/components/floating-action-buttons/

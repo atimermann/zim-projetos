@@ -1,0 +1,122 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-03-06T11:27:21-03:00
+
+====== Mapeamento Tarefas Workr ======
+Created segunda 06 março 2017
+
+* Como será o Trigger para os sistemas Guardian, Corporate e Winspector?
+	* No Winspector podemos fazer um agendamento de X tempo em X tempo para carregar a tarefa
+
+
+===== RegGuardian: =====
+Hexadecimal do Guardian é gerado na base de dados do Corporate automaticamente através de funções de base de dados. Ou seja, ao inseriir dados na tabela de cadastro do motorista do Corporate, há uma trigger que preenche o campo RegGuardian automaticamente com o hexadecimal correto;
+
+
+==== 1. Workr cria ticket preenchido parcialmente no Corporate ====
+
+* Depois do funcionário CPA efetuar cadastro do veículo e dados pessoais no Winspector
+* Realiza o Cadastro parcial tb no Corporate
+
+**Possivelmente descrito em:** 
+	CPA Cadastro de Transportadora.docx
+
+
+==== 2. Workr efetua integração com Guardian e Winspector ====
+
+* **[?]** Realiza cadastro completo no Guardian e Winspector?
+
+==== 3. Workr informa RegGuardian ao Guardian ====
+
+* **[?] **Oque é RegGuardian?
+* **[?] **Que tipo de Integração?
+
+==== 4. Workr Integra dados do Guardian com o Corporate ====
+
+* **[?] **Quais dados? apenas informação de pesagem?
+
+**Possivelmente descrito em:** 
+	CPA Cadastro de Transportadora.docx
+
+
+==== 5. Workr Solicita ao Winspector a Liberação do Veiculo ====
+
+* Integração com o Winspector será via base de dados
+
+==== 6. Workr Informa RegGuardian ao Guardian ====
+
+* Mesmo Item [3]
+
+==== 7. Workr Integra dados do Guardian ao Corporate ====
+
+* Mesmo Item [4]
+
+
+==== 8. Workr controla o Corporate para emitir NF da impressora da balança ====
+
+* **[?]** Como será feito o envio da NF para corporate, quais campos?
+
+**Procedimento descrito em:**
+	CPA Emissão de Nota Fiscal.docx
+
+
+==== 9. Workr Solicita ao Winspector a liberaçao do Veículo ====
+
+* Integração com o Winspector será via base de dados
+
+====== Mapa Mental ======
+
+==== 1. Workr obtém dados do Winspector e insere diretamente na base de dados do Corporate ====
+
+* Necessário adicionar Dados Básicos
+* Foto do Motorista
+* Digital (cadastrar Biometria)
+
+**Possivelmente descrito em:** 
+	CPA Cadastro de Transportadora.docx
+
+
+==== 2. Workr obtém RegGuardian recém-criado pelo Corporate e o insere no Winspector ====
+
+* [[RegGuardian]] vai pro Winspector
+* [[RegGuardian]] não ia para o Guardian?
+
+==== 3. Workr obtém do ticket do Corporate e envia para o Guardian ====
+
+* Numero do Ticket
+* Nome do Motorista
+* Placa da carreta/vagão
+* Placa do cavalo
+* ID Guardia (Hexadecimal) [[RegGuardian?]]
+
+==== 4. Workr envia RegGuardian do veículo em questão para o Guardian ====
+
+==== 5. Workr obtém dados de pesagem do Guardian e envia para o Corporate ====
+
+Procedimento descrito em:
+	**CPA Entrada Veículo Operacional – Com Pesagem.docx**
+
+
+==== 6. Workr solicita abertura da cancela ao Winspector ====
+
+==== 7. Workr envia RegGuardian do veículo em questão para o Guardian ====
+
+==== 8. Workr obtém dados de pesagem do Guardian e envia para o Corporate ====
+
+* Item [5]
+
+==== 9. Workr solicita ao Corporate a impressão da NF no totem da balança de saída ====
+
+**Procedimento descrito em:**
+	CPA Emissão de Nota Fiscal.docx
+
+
+==== 10. Workr solicita abertura da cancela ao Winspector ====
+
+
+
+
+
+
+
+

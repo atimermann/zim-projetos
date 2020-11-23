@@ -1,0 +1,41 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-24T23:54:05-03:00
+
+====== Relatório Espelho DI ======
+Created terça 24 fevereiro 2015
+
+http://ws.logcomex.com.br/rf/siscomex/extrato_pdf.php?di=15/0299659-8&ide=9
+
+http://ws.logcomex.com.br/rf/siscomeximp/espelhoDI.php?ide=9&sid=107175&protocolo=XXX
+
+XML em anexo no skype do Helmuth
+
+01567-14.xml.
+
+Acesso via FIlezilla
+
+ftp://logcomftp@ws.logcomex.com.br/var/www/rf/siscomeximp/espelhoDI.php
+
+[22:37:42] Helmuth Hofstatter: nao
+[22:37:46] Helmuth Hofstatter: file_get_contents
+[22:38:00] Helmuth Hofstatter: $siscomex = json_encode(simplexml_load_string(utf8_encode($dados_xml)));
+		$ret_di = json_decode($siscomex ,true);
+[22:38:31] Helmuth Hofstatter: assim
+[22:38:31] Helmuth Hofstatter: $siscomex = json_encode(simplexml_load_string(utf8_encode("http://ws.logcomex.com.br/rf/siscomeximp/xmlrascunho.php?ide=9&refdi=01460")));
+$ret_di = json_decode($siscomex ,true);
+[22:38:42] Helmuth Hofstatter: manja?
+[22:38:49] Helmuth Hofstatter: aki ja vai vir todo o xml num array so
+[22:38:52] Helmuth Hofstatter: ai é so fazer a leitura
+[22:38:55] Helmuth Hofstatter: e jogar no espelho
+[22:38:55] Helmuth Hofstatter: manja?
+[22:39:14] André Gustavo Timerm
+
+
+
+Gate Bitrem 3481
+
+
+
+
+

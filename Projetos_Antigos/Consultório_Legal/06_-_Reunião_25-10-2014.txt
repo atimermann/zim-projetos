@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-25T14:48:51-02:00
+
+====== 06 - Reunião 25-10-2014 ======
+Created sábado 25 outubro 2014
+
+* verificar concorrentes
+
+
+* Um Usuário pode pertencer a duas contas diferente
+* Conta cadastra usuario
+* login deve ser CRO-ESTADO
+* Integração entre contas :
+	* Pacientes 
+	* Agenda
+	* Cadeira
+
+
+* Criar conta amarrado com CRO (Autonomo - Pessoa Física) 
+	* CLM (PJ ->  Pessoal Jurídica)
+
+* Dentista q cria uma conta deve cadastrar um usuário tb
+
+* Uma conta é quem paga
+* Um usuario pode pertencer a 1 ou mais contas
+
+* Criar dois tipos de usuários : Vinculado a clínica (Dentista, etc...)
+	* e não vinculado a clínica (Secretária etc...)
+
+* Cadastro deve ser por conta e não pode ser unificado
+
+* Separar paciente de cadastro
+	* PACIENTE
+	* CADASTRO (TÉCNICO)
+	* SECRETÁRIA
+
+* Integrar CADASTROS com USUARIO
+
+* TIpo de cadastro ficará por conta do administração do sistema (Clínica não mexe)
+
+* Deixar aberto a operadora, pois pode aparecer novos no futuro
+
+* Conta para testar
+ alvaro@consultoriolegal.com.br
+ 122400
+www.connectodonto.com 
+
+* Adicionar dados para conta:
+	* endereço, complemento, telefone email etc...

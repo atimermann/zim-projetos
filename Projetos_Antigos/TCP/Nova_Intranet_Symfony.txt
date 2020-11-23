@@ -1,0 +1,91 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-08T10:02:57-02:00
+
+====== Nova Intranet Symfony ======
+Created quarta 08 janeiro 2014
+
+===== Servidor =====
+
+**Name server:** APPPRODJOB
+**Login:** root
+**Senha:** jpdpfi0509@#
+**IPV4 para acessar:** 192.168.1.33
+
+
+====== Servidor GIT ======
+
+ssh://git@192.168.1.33/opt/git/tcp.git
+
+Configuração de acesso é feito através de chaves
+
++[[06 Cursos-Tutoriais:Linguagens:PHP:PHP  Symfony:Symfony e Nginx:Guia Instalação Completa com GIT e Nginx]]
+
+Todo commit para o master, irá acionar um gatinho, que vai commitar as alterações diretamente no servidor de produção
++[[06 Cursos-Tutoriais:Linguagens:PHP:PHP  Symfony:Symfony e Nginx]]
+
+* Será usado painel de controle SONATA
+
+
+====== Vendor ======
+
+REF: http://getcomposer.org/doc/00-intro.md
+
+Atenção a pasta vendor deve ficar fora do git, e devem ser gerenciados manualmente.
+
+Composer is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+
+Composer is not a package manager. Yes, it deals with "packages" or libraries, but it manages them on a per-project basis, installing them in a directory (e.g. vendor) inside your project. By default it will never install anything globally. Thus, it is a dependency manager.
+
+Resumindo, o composer.phar irá gerenciar o diretório vendors
+
+	 __$ php composer.phar install__
+
+**Para atualizar os pacotes:**
+	__$ php composer.phar update__
+
+
+====== Data Grid ======
+
+* Supports Entity (ORM), Document (ODM) and Vector (Array) sources
+* Sortable and filterable with operators
+* Auto-typing columns
+* Export (CSV, Excel, PDF, XML, JSON, HTML, …)
+* Row and mass actions
+* Pagination
+* Grid manager for multi-grid on the same page
+* Easy templates overriding (twig)
+* Support for multiple languages
+http://cases.azoft.com/datagridbundle/
+
+
+====== CRUD ======
+
+* Tela de Cadastro
+	* Salvar
+	* Salvar e Continuar
+	* Cancelar
+
+* Data Grid (easyUI)
+	* Filtros
+	* Exportação
+
+===== Redirecionamento =====
+
+Página Inicial é DataGrid
+
+Formulário -> DATA
+
+//Layout do Itau//
+
+
+
+====== Submit do CRUD ======
+
+1) Será tudo integrado ao CRUD
+
+-> Criar dois callbacks:  submitDatagrid, ajaxDataGrid
+
+-> addSubmitField(Field)
+
+

@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-07-18T15:49:06-03:00
+
+====== 20-07-18 ======
+Created sábado 18 julho 2020
+
+**Duvidas sobre tela de lançamento de proposta**
+
+translation: 
+name:
+
+pegar da 
+
+company
+user
+
+
+description
+strip de tag script
+sanitize
+
+traduz
+

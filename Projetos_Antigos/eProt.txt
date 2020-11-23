@@ -1,0 +1,133 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-07-21T17:38:06-03:00
+
+====== eProt ======
+Created quinta 21 julho 2016
+
+Monitorar oque o usuário está fazendo
+Página ele está, pé está o andamento da anexão
+
+
+* Tela de configuração com icone de engrenagem
+	* __Quais configurações?__
+	* __O cliente pode escolher o formato de saída dos segmentos de arquivos (não entendi, quais possíveis formato de saída)__
+		* **Como quero renomear o nome do arquivo (contrato_001) ou contrato_01_02_03, formato para enviar para** **o site Justiça**
+	* __Configuração ficará salva no servidor ou cliente?__
+		* **Servidor**
+* Suporte de Cliente
+	* __Como seria o suporte de cliente?__
+		* **Redireciona para o site????**
+		* **Link para a página que abre nova janela da aplicativo**
+* Tela Principal
+	* __Como é a interação entre a tela principal e a barra lateral?__
+		* **Quanto tiver na pagina que é possível fazer upload, vai habilitar o botão iniciar**
+		* **A Barra retrai e abre tela principal**
+	* __O Botão login vai ficar apenas na tela Principal?__
+		* **Login apenas na tela lateral, na tela principal apenas indicar**
+	* __Como será desenvolvido o layout desta tela por mim ou vai ter outra pessoa na equipe responsável?__
+		* **Já tem uma designer**
+	* __Como será desenvolvido as janelas da aplicação? serão html5/css/javascript, ou vamos usar algum tipo de WinForm (formulários padrões igual quando desenvolve em delphi por exemplo).__ 
+		* **Será HTML5/css**
+* Upload
+	* Arrastar pastas ou multiplos arquivos e a extensão deve ser capaz de baixa-la
+	* __Formato de Arquivo apenas pdf?__
+		* **SIM**
+	* Permitir classificação dos arquivos
+	* Se der problema no upload deve ser possível saber em que ponto deu problema e como continuar
+	* __Como faço essa verificação? Entro com o robo na página e puxo os arquivos já salvos?__
+		* **Isso, verificar no site quais já foram enviados, ter um controle inteligente**
+	* __"Após executar tudo que não deve ser mexido vai ser desabilitado." (Não entendi esta frase)__
+		* **bota uma div transparente que bloqueia enquanto o robo trabalha**
+	* __Como será essa automação? qual método de automação tem em mente?__
+		* **Com javascript que manipula a página diretamente**
+* Autenticação
+	* Autenticação por token
+	* __Como será a recuperação de senha em caso de "esqueci minha senha"?__
+		* **Manda um json para o backend para enviar senha para email**
+* Tela Lateral
+	* __Vi no prototipo a opção crédito, como vai funcionar isso?__
+		* **Enviar status das atividades para analise no backend**
+	* __Qual será estatistica exibida?__
+		* **usuario tem q estar motivado, vamos mostrar se o plano é adequado, utilidade da ferramenta, mostrar: Estatisticas q vão ajudar a vender o negócio**
+			* **Quantas vezes utilizou**
+			* **Numero Médio de horas**
+			* **Proformance**
+
+* Monitorar
+	* __Quais outros módulos?__
+		* **Deixar o sistema pronto para criação de novos modulos, Idéia: flags**
+
+* Validação
+	* __Valida se é possível encontrar todos os seletores necessários para executar a tarefa (Quais seletores?)__
+		* **Seletores de acesso do Javascript**
+	* __Este módulo irá ser usado num robô que diariamente irá testar todos os sistemas suportados pela nossa ferramenta. Autenticar: (5h) __**(Segunda etapa)**
+		* **Segunda etapa podemos usar o work**
+
+* XML Especifico
+	* Vamos usar Json
+	* __mecanismo de detecção quando o usuário entra numa página específica de upload (Porque isto é XML e não uma programação no javascript?)__
+		* **Seriam regras de como identificar que uma página  está na página correta?**
+		* **A identificação não seria apenas pela url?**
+	* __Informação de instruções de upload por arquivo ou conjunto de arquivos. As instruções são sequências de comandos a serem executados pelo FrontEnd, como será isso?__
+	* Informação das validações que preciso fazer para me certificar que a ferramenta funcionará, assim como ações caso alguma destas validações quebre
+	* Informação de como o documento precisa estar formatado para ser anexado no sistema do judiciário.
+		* __Como será feito a validação de formatação? oq tem em mente?__
+			* **É possível encapsular um executavel dentro do extensão e execução, vão passar o executável (existe pra linux, windows, mac), vamos ter 2 extensões**
+		* __Servidor ou Cliente?__
+			* **Tudo no cliente**
+	
+	__Você está chamando de Robô? como vc imagina este robô funcionando?__
+	* **Via javascript**
+	__Me explica melhor essa comunicação entre XML __
+	* **Vamos usar JSON para comunicação**
+
+* Peraração para Upload
+	* __Como funciona essa assinatura de arquivo?__
+		* **Usa um componente Java para assinar o documento,**
+			* **OU vamos nos linkar**
+			* **ou advogado e vai assinar**
+			* **A Partição o executavel vai**
+			* **A extensão abre o navegador de arquivo e o advogado vai lá e assina os arquivos particionado**
+	* __Como o usuário vai manualmente assinar?__
+		* **OU linkando com o plugin Java**
+		* **manualmente com extensão, advogado assine abre a pasta pra ele**
+	* __Quais as regras de classificação vamos sugerir?__
+		* **Vai dizer qual a Categoria, se colocar outros, terá opção de digitar**
+		* **Possibilidade de classificar todos de uma vez**
+			* **Se mandar um pdf com 30MB eu vou ter q quebra-lo em 30 de 1MB ( O Executável faz isso)**
+			* **Nesta caso uma coluna para informar que o arquivo foi quebrado e o tamanho que ficou**
+			* **Ao executar mostrar progresso quantos foram enviado progresso de envio, quantos pedaços foram convertidos**
+		* **Ordenação do arquivo (Depois de quebrar o arquivo não pode mais ordenar)**
+
+* Execução de Instruções
+	* __Como vc pensa que será essa execução? Porque chama de robô?__
+		* **Via javascript**
+	* __o sistema precisa detectar se o cliente está trabalhando com o mesmo processo, (Não entendi)__
+		* **Processo da Justiça**
+		* **Identifica o processo através do numero do processo**
+		* **NO elemento DOM na página vai ser possível identificar numero do processo**
+		* **Se for detectado que trocou de página e trocou numero processo**
+		* **normalmente todos os arquivos do mesmo processo é enviado na mesma páginaEsq**
+	* Há vários sistemas em que múltiplos arquivos podem ser
+	carregados/selecionados ao mesmo tempo. É preciso dar suporte a isso
+	monitorando quais arquivos já foram incorporados e quais ainda faltam. Essa
+	leitura da página em execução é importante para recuperar trabalhos
+	deixados pela metade caso haja algum problema de conexão. Um humano
+	iria verificar qual o último arquivo anexado e continuar de onde parou. Nossa
+	ferramenta precisa fazer a mesma coisa! __(Explica Melhor)__
+
+* Idéia é fazer um robo mesmo
+* Requisição
+
+__Chrome e firefox? demora pq tem q duplicar o trabalho.__
+	* **Primeira fase, apenas Firefox (chrome em outra fase um projeto de portabilidade)**
+
+
+**REQUISITOS:**
+	* Rodar Linux
+	* Rodar Windows
+	* Rodar MAcCans
+
+* Esta extensão possa entrar na loja da mozilla
+	* O Requerimento é que o código fonte seja enviado junto

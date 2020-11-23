@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-04T15:05:15-03:00
+
+====== Reunião 2016-08-04 ======
+Created quinta 04 agosto 2016
+
+* Enviado Arquivo para iniciar implementação
+* Enviado acesso por e-mail
+
+
+===== Reunião com Smarti =====
+* Documentar todas as entregas, enviar email, sobre tudo feito  
+* Definir progresso e cronograma
+* Copiar Para todos
+
+* Organizar Projetos em Módulos, e definir prazo de entrega
+
+* Tem um cara disponível programador javascript / Mobile com Myagui
+	* Levantar

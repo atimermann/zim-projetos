@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-30T13:45:10-03:00
+
+====== Reunião 2016-08-30 ======
+Created terça 30 agosto 2016
+
+**Definição na Reunião:**
+* Usar Asana
+* Usar GitHub diariamente
+* Mandar proposta para layout da extensão (todas as telas)
+
+
+* O Botão de acesso a extensão só vai aparecer quando estiver exatamente na página de upload, 
+* **Discutir o layout da tela de upload**

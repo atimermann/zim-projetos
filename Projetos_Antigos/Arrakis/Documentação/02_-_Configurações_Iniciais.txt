@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-09T23:20:59-02:00
+
+====== 02 - Configurações Iniciais ======
+Created segunda 09 dezembro 2013
+
+* O Arrakis deve ser instalado em um diretório que esteja no PATH do PYTHON, para funcionar.
+Ao iniciar um novo projeto em django, precisamos configura-lo para que funcione com o Arrakis. O Arrakis assume (automatiza) várias configurações do django.
+
+Porém já existe um script que faz esta configuração automáticamente, ele está localizado em :
+	**/script/arrakis-admin.py**
+
+Recomenda-se colocar o diretório [[/script]]  no PATH do sistema.
+
+O script irá utilizar os arquivos de modelo salvos em 
+	**/script/model**
+
+Você pode observar em [[/script/settings.py]] as alterações necessárias, as principais são:
+
+* Configuração básica do banco de dados usando sqlite
+* Ajusta timezone para America/Sao_Paulo
+* Idioma para pt-BR
+* Ativa o sistema de Template automático do Arrakis
+* Ativa os Midlleware do Arrakis
+* Ativa o sistema de APP do Arrakis
+* Ativa o South
+
+Além do settings.py, o url.py é alterado para que fique sob controle do Arrakis e é criado um novo arquivo init.py, que pode ser usado para depuração e executa o arrakis por linha de comando.

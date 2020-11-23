@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-10-09T17:22:33-03:00
+
+====== 03 - Próxima Reunião ======
+Created quarta 09 outubro 2013
+
+* Validar processo, estudar se faltou algo, verificação completa
+* Estudar diferença entre caso de ser uma clinica e ser um consultorio simples ou dentista
+* Definir uso de cadeira, especificar melhor Plano de Tratamento
+* Discutir Procedimento
+* Informar que e esse é o processo, se tem algo que não foi mensionado então significa que ele não foi realizado
+
+
+* Em qual momento do processo será decidido se o profissional será da clínica ou de outra clínica
+	* Será feito na hora de criar o procedimento, depois no orçamento ou em ambos
+* Cadastro será feito só pessoalmente? revisar a parte de contato
+* Ver como será executado o plano de tratamento, precisa ver em que momento os agendamentos poderão ser feitos
+* Definir melhor o processo de Anamnésia
+* Conversar sobre o servidor, tentar colocar no nosso para obter recurso
+

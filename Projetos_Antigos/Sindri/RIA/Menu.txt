@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-01T19:43:35-03:00
+
+====== Menu ======
+Created domingo 01 junho 2014
+
+* Cada aplicação deverá fornecer seu conjunto de MEnu através de arquivo de configuração YAML
+* Ou seja, quando instalar uma aplicação o menu será carregado automaticamente
+
+===== Módulo Menu =====
+
+
+* Os ítens do menu apontam para urls # na aplicação, exemplo: http://www.pagina.com.br/admin#usuarios, que será definido por óutro módulo, chamdo ROTA
+
+* Menus Também podem apontar para links externos
+
+* Dados do Menu serão carregados na inicialização, a montagem será feita no lado do servidor
+
+* Menu ficará salvo no Banco de Dados -> Melhor cada Aplicação fornecer seu conjunto de menu
+
+* Os módulos podem definir menus padrões que serão carregado na configuração inicial do sistema

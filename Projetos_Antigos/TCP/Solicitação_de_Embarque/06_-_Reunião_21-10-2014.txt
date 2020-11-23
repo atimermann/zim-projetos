@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-21T10:21:53-02:00
+
+====== 06 - Reunião 21-10-2014 ======
+Created terça 21 outubro 2014
+
+===== Dashboard =====
+
+* Consulta de despacho
+* Filtrar por Ordem de Embarque, Solicitação Liberação  e presença carga
+
+
+===== Painel =====
+
+* Ao selecionar um contêiner com avaria, exibir antes do botão solicitar embarque uma caixa com rolagem 
+	* Colocar um texto fixo e uma lista com os contêiners
+
+* Embaixo da caixa um checkbox com o texto Li e Aceito para em seguida liberar o botão solicitar 
+
+* Verificar se existe avaria duplicado e remover os duplicados
+
+
+====== Novo processo ======
+
+Ao solicitar ordem de embarque criar um numero de protocolo
+NUMERO PROTOCOLO = IDTABELA + NUMERO DESPACHO
+
+Exibir numero de protocolo junto com o texto, solicitaçao de embarque realizada com sucesso
+
+===== Alterar ordem e os nomes dentro =====
+
+ ~~Seleciona o "Tipo de Despacho"~~
+~~  - DDE (Declaração Despacho Expo)~~
+~~  - Tradex (Normal)~~
+~~  - Tradex (a Posteriori)~~
+
+~~temNro de Despacho (DDE)~~
+
+====== Fase 02 - Consistências ======
+
+
+**NULL ou N** -> Não Solicitado
+**S** -> Solicitado
+
+* Registrar LOG de TUDO q FOI FEITO
+* Criar o Protocolo
+
+* Numero Protocolo
+* Status Protocolo (consistente ou inconsistene)
+* Descrição das inconsistencias ou não liberado
+
+
+
+* ~~Enviar email para o Glaucio pedindo a criação de uma tabela protocolo com os novos  campos~~

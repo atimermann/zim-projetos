@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-06-29T16:01:41-03:00
+
+====== Alterando Props e atributos dinamicamente no vue ======
+Created segunda 29 junho 2020
+
+Achei a solução:
+https://forum.vuejs.org/t/setting-props-using-code-as-well-as-markup/22300/8
+http://jsfiddle.net/gcoq6mo5/2/
+
+para alterar atributos:
+
+**usar $options**
+children.$options.formHandler = this
+
+**e na children:**
+  teste () {    
+	this.$options.formHandler.disable()
+  }
+
+
+
+
+Transformar o formHandler numa diretiva
+https://br.vuejs.org/v2/guide/custom-directive.html

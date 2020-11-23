@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-09-30T21:36:24-03:00
+
+====== 11 - Reunião Danilo 30-09-2015 ======
+Created quarta 30 setembro 2015
+
+* Organizar o sistema de Permissão em Módulo
+	* Usuario -> Grupo -> Funcionalida (Permissão) 
+	* Deixar Hierarquico
+	* Deve ser permissão por conta neste caso

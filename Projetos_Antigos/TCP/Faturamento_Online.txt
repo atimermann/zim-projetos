@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-05-15T13:14:36-03:00
+
+====== Faturamento Online ======
+Created quarta 15 maio 2013
+
+
+====== Fluxo ======
+
+===== Criação de NOVA OS =====
+
+
+===== Conceito =====
+
+Vária conforme o Tipo de Container
+
+**Campo** Tipo, Altoh e
+**Na tabela: **CONTF
+
+====== Alteração 27/06 ======
+
+Na extranet  ao solicitar novo serviço será adicionado um novo campo obrigatório: CNPJ FATURAMENTO, será feita verificação se o cnpj existe, caso sim, será criado uma solicitação com o cnpj informado.
+
+- Na intranet será criado uma tela de consulta de solicitações similar à tela na extranet: http://200.195.158.100/extranet/agendamento/index.php?t=faturamento_online/listagem, porém apenas para os serviços:
+	- Pesagem
+	- Fumigação
+	- B30
+

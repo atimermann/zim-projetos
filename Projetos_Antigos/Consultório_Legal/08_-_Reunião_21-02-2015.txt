@@ -1,0 +1,95 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-21T14:41:54-02:00
+
+====== 08 - Reunião 21-02-2015 ======
+Created sábado 21 fevereiro 2015
+
+* dentista não tem tempo de preencher, quanto mais programado melhor do cara usar
+
+
+====== Clínica ======
+
+* Consultorório pessoa Física
+* Consultório Pessoa Juridica
+
+SALA? CONSULTORIO ?
+(pula questão de sala) (colocar nas observações
+
+===== Responsável Técnico =====
+
+* Seria um perfil do sistema
+* Tem acesso a todas as informações da Clinica
+* Pode ser um dentista ou não
+
+
+
+Ter HISTÓRICO DE TUDO
+
+
+====== Técnico ======
+
+* Alterar nome Técnico para profissional
+
+são 2 atributos principais:
+
+PROFISSIONAL ->
+ESPECIALIDADE -> (um ou mais)
+TIPO_PROFISSIONAL -> (um) 
+**(Vou permitir q cada profissional seja de dois tipos, debater depois)**
+
+Atributo Principal:
+Profissional de saúde (se tiver uma especialidade)
+
+
+
+USUÁRIO -> PROFISSIONAL -> TIPO_PROFISSIONAL -> PERFIL -> USUARIO
+Tipo profissional já vai ter um perfil associado a ele q automaticamente vincula ao usuário
+não amarrado
+
+
+
+====== Conta ======
+
+* ao alterar tipo de cadastro mudar R.G para Inscrição  estadual
+* telefone
+* email
+* Endereço antes dos dados pessoais
+* CEP por primeiro
+* Responsável nome/telefone
+* status
+
+(Todos os dados são obrigatório)
+
+
+====== Layout ======
+
+
+* altura do campo data está menor q os outros
+* Alterar especialização para especialidade
+
+
+====== Admin ======
+
+tipoCadastro será um modelo de Perfil (criar tabela modelo de perfil e vincular ao tipo cadastro, PENSAR EM COMO FAZER)
+
+====== Paciente ======
+
+RESPONSAVEL deve ser um relacionamento pra ele mesmo, não uma string
+* Responsável não pode ter responsável
+* Telefone/email 
+* (ESTUDAR ENVIO DE SMS)
+* Telefone Operador (pesquisar AP)
+
+* Indicação
+
+Convênio: Convênio ou Particular (Principal)
+(TABELA DE CONVENIO: um deles: Particular)
+
+**NOVA  ABA: Origem Paciente**
+
+* Indicação de outro profissional:   (qual)
+* Indicação de outro paciente  (qual)
+* Empresa do convênio   (qual)
+* Outros (qual)
+

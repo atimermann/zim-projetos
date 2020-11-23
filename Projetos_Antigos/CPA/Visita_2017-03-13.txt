@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-03-13T22:35:36-03:00
+
+====== Visita 2017-03-13 ======
+Created segunda 13 março 2017
+
+* Levantamento de detalhado de todos os processos que devem ser automatizados
+* Teste do [[WebService]] e passo a passo do robô
+* Descobrir versão usado pela toledo
+TI
+
+
+* Qual Edição do Guardian é utilizado? pois na versão PRO e TI temos acesso ao WebService
+
+
+* Pedir para o Guilherme apresentar a infra para Ana equato preparo ambiente de teste
+* Verificar acesso remoto para teste posterior
+
+* Tentar conseguir mesmo nível de documentação que o Corporate
+
+* é possível usar [[HardKey]] em maquinas virtuais?
+
+* Tentar Preprar ambiente de Teste Corporate
+
+
+====== Estimativa de Esforço ======
+
+* Criar uma lista de itens a verificar
+* Estudo do SOAP, se formos usar nodejs necessário estudar SOAP e a biblitoeca SOAP do nodejs
+
+====== Listagem ======
+
+* Como vai ser a itegração da OCR

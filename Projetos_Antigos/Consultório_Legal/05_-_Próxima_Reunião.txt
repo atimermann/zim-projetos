@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-23T22:25:32-02:00
+
+====== 05 - Próxima Reunião ======
+Created quinta 23 outubro 2014
+
+* Discutis quais os tipos de cadastros, vamos criar uma tabela pra cada ou vamos aproveitar tabelas e apenas definir o tipo
+
+
+* Vamos discutir todos os papeis dentro da empresa e qual será seu relacionamento no sistema

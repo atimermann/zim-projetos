@@ -1,0 +1,133 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-05-07T17:23:10-03:00
+
+====== Projeto - Gold Arrow - Reserva de Vaga ======
+Created quarta 07 maio 2014
+
+Segue um resumo do que seria o hotsite:
+ 
+- O franqueado entrará no hotsite em local definido ele preenchera seus dados e em seguida informar quantas vagas ele irá comprar e para qual aeroporto são essas vagas.
+- Precisamos receber essa informação via e-mail e retirando um relatório do hotsite para enviarmos ao cliente e ele confirmar se esse franqueado pode realmente participar com essa quantidade de vagas.
+- Após o cliente confirmar essa informação precisaremos enviar um e-mail com a confirmação das compras de vaga dele;
+- Depois da campanha fechada esse franqueado entrará no sistema novamente e indicará as pessoas que irão nas vagas que ele indicou.
+- Após essa informação o sistema também terá que enviar uma mensagem dizendo que está ok a indicação dele.
+ 
+Bom acho que seria isso!! Caso não entenda por gentileza me ligar!!
+ 
+Preciso do valor do hotsite até amanhã e a previsão de estar no ar é até final desse mês (Maio).
+ 
+Tenho uma verba de no máximo R$ 6.500,00 não podemos passar disso até porque é uma concorrência!!
+ 
+Fico no aguardo urgente!!!
+ 
+Favor dar ok de recebimento!!
+ 
+Atenciosamente,
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+boticario
+
+Cadastro de evento
+aeroporto de origem
+
+* Não precisa cadastrar no sistema o LIMITE, apenas SIM ou NÃO
+* No sistema precisa de uma tela de confirmação
+* LImite fica fora do escopo
+
+* No primeiro momento faz o cadastro e ganha um login e senha, depois pede senha
+
+* no primeiro momento apenas pede as vagas
+* depois vai ter vinculação de vagas
+* Pode pedir mais de uma vaga para várias cidades
+
+* Cadastro de aeroporto: só o nome da cidade e do aeroporto
+
+* Relatório será retirado manualmente
+	* Dados das pessoas que comprovou a vaga em quantas / aprovado
+	* Relatório das vagas preenchidas
+	* Relatório geral de TUDO
+* Vaga invidual (Enviar email simples, sem documento, informações no corpo da mensagem)
+	* Todas as informações passadas ao requisitar vaga
+	* AO indicar vendedores 
+
+* Não precisa confirmação ao indicar
+
+* Enviar email para o franqueado quando as vagas forem aprovadas
+
+* dois perfis franqueado e aprovador
+
+====== Sistema de Controle de Vaga - Gold Arrow ======
+
+===== Objetivos =====
+
+* Cadastro para evento
+* Franqueado deve pelo sistema fazer um pedido de vaga para o evento que vai ocorrer em uma determinada cidade
+* Cliente (Boticário) deve aprovar as vagas e então o Franqueado pode fazer a vincualção das vagas ao vendedores
+
+===== Requisitos =====
+
+* Existirá 3 perfis: Franqueado, Aprovador e Vendedor
+* Teremos 2 processos:
+
+==== Processo 1 - Pedido de vaga ====
+* **TELA 01: ** 
+	* Franqueado faz o cadastro no sistema, interessado na vaga
+	* Ganha um login e senha que serão gerados automaticamente pelo sistema e enviado por email
+* **TELA 02:**
+	* Com acesso restrito, franqueado poderá cadastrar cidades/aeroporto e informar a quantidade de vagas requerida
+	* Email é enviado confirmando o pedido
+	* Email é enviado com informação pedido para email especial da Gold Arrow
+
+
+==== Processo 2 - Aprovação de vaga ====
+* **Tela 03:**
+	* Usuário especial, irá abrir uma tela com informação de todas os pedidos pendentes
+	* Poderá aprovar ou recusar os pedidos, 
+	* Um email será enviado para o franquado informando a decisão
+
+==== Processo 3 - Vinculaçao de vendedor ====
+* **Tela 04:**
+	* Terá uma tela onde o franqueado poderá cadastrar vendedores 
+* **Tela 05:**
+	* Terá uma tela onde o franqueado poderá vincular vendedor a determinada vaga
+	* Será enviado um email com os dados atualizados para o franqueado
+	* Será enviado um email com os dados atualizados email especial da Gold Arrow
+
+==== Relatórios ====
+* **Tela 06:**
+	* Usuário aprovador poderá tirar relatório Dados das pessoas que comprovou a vaga em quantas / aprovado
+	* Com possibilidade de exportação excel
+* **Tela 07:**
+	* Usuário aprovador poderá tirar Relatório das vagas preenchidas
+	* Com possibilidade de exportação excel
+* **Tela 08:**
+	* Relatório geral com as duas informações da tela 06 e tela 07
+
+==== Cadastro ====
+* **Tela 09**
+	* Cadastro de Aeroporto cidade
+* **Tela 10**
+	* Cadastro de Usuário
+* **Tela 11**
+	* Cadastro de Perfil
+
+===== Hospedagem =====
+
+* Será necessário configuração de servidor para compatibilidade do sistema
+
+
+===== Layout + HTML =====
+
+* 4 telas: Inicial, telas para autenticação de usuário, telas com Relatórios, formulários
+* HTML/CSS
+
+====== Outras Informações ======
+
+* Não terá um layout elaborado, será usado padrão.
+	* exemplo: http://getbootstrap.com/examples/theme/
+
+* Necessário verificar se existe alguma restrição na emissão de nota-fiscal
+* As telas não terão filtro de busta ou ordenação de coluna, serão apenas uma listagem simples
+* Não teremos log de acesso

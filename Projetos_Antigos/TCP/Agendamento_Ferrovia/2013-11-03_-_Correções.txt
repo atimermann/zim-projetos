@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-03T16:10:40-02:00
+
+====== 2013-11-03 - Correções ======
+Created terça 03 dezembro 2013
+
+* Problema no Calculo da quantidade
+* Não funciona no Chrome (Testar no IE)
+* No Guia a descrição do agendamento está errado, deve ter um período
+
+Cria um php no appteste para ser executado no cron e enviar os emails
+
+Criar em nfse_new (copiar as pastas para o computador via filezilla)
+
+**Enviar email: **
+	ferrovia@tcp.com.br
+	controle_dl@tcp.com.br
+	ronan.koepp@tcp.com.br
+	
+**Assunto:**
+	Contêiner de ferrovia agendado fora do deadline
+
+
+**Texto**
+	Os seguintes contêineres foram agendado fora do deadline:
+	
+
+
+[ORDEM DE SERVIÇO] - [DATA AGENDAMENTO] - [CONTÊINER] 	[VAGÃO] 	[LACRE] 	 [DEADLINE] 	[NAVIO] 	[VIAGEM] 	[VISUALIZAR (LINK PARA A GUIA DE AGENDAMENTO)]
+
+

@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-02T23:43:56-03:00
+
+====== Session Server ======
+Created terça 02 setembro 2014
+
+**DOCUMENTAÇÃO NO BIT BUCKET**
+

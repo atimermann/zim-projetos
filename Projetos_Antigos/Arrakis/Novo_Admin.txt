@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-02-16T02:38:51-02:00
+
+====== Novo Admin ======
+Created sábado 16 fevereiro 2013
+
+* Listagem Filtrada (obter lista do app)
+* Segurança ( Impedir outros site de obter acesso)
+* Nível (sistema de permissão com nível)
+* Comunicação Site <-> Admin
+* Alteração de Usuários do site
+
+http://www.ibm.com/developerworks/br/library/os-django-admin/
+
+Segredo para mudar comportamento do django é herdar a classe:
+
+ModelAdmin, fazendo as alterações necessárias
+
+ModelAdmin se encontraem options.py
+
+https://docs.djangoproject.com/en/1.1/ref/contrib/admin/
+
+===== Comporatamentos que precisam ser alterados: =====
+
+* Filtrar elementos para que exibam só do site atual (ou com permissão)
+* Bloquear exibição/edição/exclusão não autorizado de pessoas de outros sites
+
+
+* Será criado um sistema de permissão separado por site (Configuravel)
+* Tentar mandar tudo isso para o model site

@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-15T10:13:08-02:00
+
+====== 13 - Testes Á Posteriore ======
+Created segunda 15 dezembro 2014
+
+* Problema ao carregar deadline em um caso
+* Corrigir Consulta Protocolo
+* Rever Sistemas Internos
+

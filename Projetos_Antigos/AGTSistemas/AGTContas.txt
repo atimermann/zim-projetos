@@ -1,0 +1,60 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-01-10T15:13:59-02:00
+
+====== AGTContas ======
+Created quinta 10 janeiro 2013
+
+
+* ~~atualizar layout~~
+* Criar um campo a mais de valor: Valor e Valor pago**(ok)**
+* Permitir trabalhar no código tanto no servidor central quanto no notebook
+* ~~Estudar Templates no DJANGO~~
+* ~~Implementar TEMPLATE~~
+* Criar script para carregar extrato de banco/cartões automaticamente
+
+* **Algumas lançamentos não devem ser contabilizados em "Débitos Diretos, mesmo sendo um, por exemplo, pagar uma conta pra alguem"**
+* **Opção de desabilitar um cartão de crédito (Cancelado por exemplo)**
+
+* Melhorar o Pagamendo de contas, muitos dados, separar
+	* Idéia ao pagar conta ter filtros:
+		* Mostrar contas já pagas
+		* Banco
+		* Mês
+		* Tipo de conta a ser paga (lançamento, débito, transferencia etc...)
+* Mostrar nos extratos transferencia DE tb, atualmente só exibe transferencia PARA
+
+* Problema no extrato de conta corrente ao dizer de onde foi feito a transferencia tá infertido o DE/PARA (por Tranferencia do Santander para Dinheiro)
+
+* TODO: Não permitir alterar vencimento do cartão, deve-se cadastrar outro, pois pode quebrar código antigo
+* TODO: Verificar outras questões que podem quebrar integridade de código antigo, principalmente em contas parceladas
+* TODO: Por todos os calculos na modelo
+* TODO: Relatório com datas das ultimas atualizações de dados
+* TODO: Contas não pagas
+# TODO: Criar um novo campo, "valorPago", as vezes pagamos um valor, mas quita um valor maior ("valorPago")
+# TODO: Criar nova tela de pagar conta, debito direto
+# TODO: Criar tela para associar tags (categorias) para itens sem nada
+# TODO: Criar tela de relatorio com gráficos
+# TODO: Criar relatorio do tipo grade q mostre dados de um ano inteiro de uma vez para impressão
+# TODO: Por no ar
+# Exemplo dos ultimos 2 itens:
+#       1) Tenho uma fatura de cartão de crédito no valor de 1500, mas se eu pagar 1450 vou quitar o débito
+#       - Valor do pagamento será de 1450 e mas valor pago será de 1400
+#       2) Tenho um Emprestimo no valor de 2000 reais em 20 parcelas de 100, porém posso antecipar por 1000
+#       - Valor do pagamento será de 1000
+#       - Valor pago será de 20 parcelas de 50 pra quitar cada uma
+
+**#  - Categorizar para melhor analise**
+
+* Relatório deve ter: Gastos no mês, gastos com "jogadinha", gasto com juros,  gráfico de pizza, 
+* Pagamento inteligente que detecta quando a conta é de 800,00 qual débito é de 800,00 e avisa quando o valor fica diferente(Apesar de ser correto ocorrer (quando tem algum desconto)), quando ocorrer **OBRIGAR LANÇAMENTO COMO CRÉDITO OU DÉBITO EXTRA (sob pena de não sair da lista de quitado)**
+* Extrato por dívida de pessoas
+* Mostrar quais ítens não estão categorizados
+* Na hora de pagar , pode ser necessário escolher qual fatura deseja ser paga, mostrar na listagem as faturas que já foram pagas
+* Checklist com os ítens que não foram pagos
+
+**Suporte Empresárial, baseando-se no Contas Online (Com muitos gráficos)**
+
+* Bloco "Vamos categorizar", para incentivar a categorização dos gastos
+* Marcar como Pago, mas sem conciliar, para controle imediato, e depois um alerta que falta conciliar
+* Avisar quando um mês não foi fechado (zero de contas não conciliada) ou quando está terminando o prazo para fechamento, mensagens tipo "se vc não fechar vai ficar perdido"f

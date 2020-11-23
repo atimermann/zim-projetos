@@ -1,0 +1,331 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-23T09:19:08-03:00
+
+====== Solicitação de Embarque ======
+Created terça 23 setembro 2014
+
+===== Presença de carga =====
+
+* Exportação
+* Cliente solicita presença de carga assim que o conteiner entra pela Porta (Gate)
+* (Melhoria)Serviço-> Presença de Carga Exportação
+* (Novo) Criar Serviço-> Liberação de Embargue
+* oq é? **MINUTA**
+
+====== DOCS ======
+
+[[~/projetos/tcp/SolicitacaoEmbarque/src/2014.12.09 - Automate - Status Registros.docx|~/projetos/tcp/SolicitacaoEmbarque/src/2014.12.09 - Automate - Status Registros.docx - Refêrencia Código Status]]
+
+====== Análise Sistema atual ======
+
+**URL Atual:** http://200.195.158.100//extranet/agendamento/?t=solicita_presenca_carga
+
+
+
+Será criado menu Liberação de Embargue para os seguintes processos 2 processos principais:
+
+* Siscomex
+* Tradex
+
+===== Siscomex =====
+
+**SOLICITA PRESENÇA DE CARGA ->** 
+
+
+
+===== Tradex =====
+
+**Posteriori**
+O cara pode dar a presença de carga depois que o contêiner já saiu
+
+
+====== 1. Processo Presença de Carga ======
+
+===== Pré =====
+Toda mercadoria/contêiner que entra no terminal tem que ter um despacho, despacho é conseguido antes da carga entrar no terminal junto com a receia.
+* Um despacho pode ter 1 ou N contêiner (Chamado de unidade)
+* A partir do momento que a carga está dentro do terminal, então inicia-se o processo de **PRESENÇA DE CARGA**
+
+Você pode conseguir numeros de despacho com a consulta:
+	**SELECT TOP 1000 * FROM extnet.dbo.PROC_SISCOMEX INNER JOIN extnet.dbo.PROC_SISCOMEX_MOTIVOS ON STATUS_PRESENCA_CARGA = MOTIVO_ID WHERE EMPRESA_ID = 166**
+* 166 é o código da BRF usuado caso logue com TCP_TESTE
+que pode ser realizado no endereço:
+	http://appteste/NFSE/sql/sql.php
+	
+
+===== Operação Cliente =====
+
+Para solicitar a presença de carga o cliente precisa do:
+* Número DDE (Despacho)
+* Quantidade de Volume (quantidade de itens, varia dependendo da carga. ex: 10 kg de arroz, 100 bicicletas)
+
+==== Parte Lote ====
+(Tenho um contêiner que tem 2 despacho)
+Posso ter 1 contêiner vinculado a 2 despachos
+
+No primeiro despacho, este contêiner pertence ao parte lote
+**Exemplo:** Um contêiner q tem pneu e carroceria dentro dele mas o cliente criou uma DDE para cada item.
+
+
+
+===== Operação Sistema =====
+
+* Sistema faz uma série de validação (Ver depois)
+
+* O sistema trabalha com STATUS, ou seja, cada passo executado um status é alterado, outro ator que altera o status é o Automate
+* Existe um script (robo) feito com automate q a cada 5min realiza tarefas que mudam o status
+
+===== Pós =====
+
+* Despachante realiza a lbieração de embarque na Receita Federal
+
+====== 2.Processo Manual ======
+(será substituido)
+
+* Se estiver tudo OK, o cliente traz os documento para protocolar na TCP
+	* Ordem de empargue
+	* Extrato da DDE
+
+===== Equipe TCP =====
+
+* Manualmente a equipe da TCP realiza a validação dos dados apontados no documento com as informações no Argos
+	a. TCP confere os dados (documento trazido com siscomex);
+	b. Bate com os dados do Argos;
+
+* Se todas as informações tiverem corretas, retira a retenção do ARGOS
+	* Sempre que um contêiner entra na TCP ele recebe uma retenção 5 (Pendente liberação faturamento)
+	* Vincula o embarque do contêiner com o pagamento do cara (liberação)
+	* Existem outras retenção
+
+====== 3.Novo Processo ======
+
+
+Depois que o despachante fazer a liberação de embarque na receita, ele não virá mais na TCP, ele vai entrar no site e solicitar a liberação de embarque via site
+
+===== Sistema realizará validações =====
+* Ao confirmar a Ordem de Embarque, o Sistema TCP deverá consultar o Argos e identificar se os contêineres solicitados possuem avarias. Caso possua avaria: Deverá ser apresentado um pop-up para o cliente com contêineres avariados e a lista de avarias de cada contêiner;
+
+==== [ PROCESSO AUTOMATE] ====
+
+Nesta Etapa o Automate vai consultar o SISCOMEX, e atualizar informações do sistema
+
+Automate vai rodar até que um determinado STATUS seja carregado, quando isso ocorrer o processo continua
+“AVERBAÇÃO AUTOMATICA” ou “DESEMBARCADO C/VERIFIC.-C.LARANJA” ou “CONCLUSAO DE TRANSITO” ou “DADOS DE EMBARQUE REGISTRADOS” ou “LIBERADO S/CONF.ADUANEIRA” ou “TRANSITO CONCLUIDO S/EXIG./DIVERG.” 
+
+===== Realiza VAlidação dos dados carregados =====
+
+Deverá ser criado um cron que verifica quando o automate atualizou os dados para continuar o processo
+
+* Cron deverá ser criado no APPTESTE ou no SISINT
+* Todo Processo HOJE Manual deverá ser automatizado
+
+===== Retira retenção no argo =====
+
+* Caso Tudo certo retira os dados do argo se não exibe mensagem para tela manual
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== TRADEX =====
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+É um processo diferente, o conteiner é estufado num armazém de fora em paranagua
+O armazem realizaa a presença de carga
+O contêiner não está dentro da TCP e sim no armazem
+O armazém dá entrada no TRADEX 
+(Eu estufei um conteiner aqui e enviarei para o TCP via tradex)
+
+
+===== Processo Antigo =====
+
+* Contêiner é estufado (carregado de mercadoria) em um Armazém (Terceiro)
+* Armazém realiza a presença de carga do contêiner no SISCOMEX
+* Armazém da entrada no TRADEX com as informações necessárias - Destino = TCP
+
+* Cliente realiza pré-staking normal (Contêiner com Status L ou seja, ainda não entrou na TCP, tem vários status)
+
+* Despachante traz para TCP impresso, o documento de despacho DDE e o documento de ordem de embarque (Informando que se trata de um TRADEX) Print da TELA DO SISCARGA(Liberação do armador)
+
+**DESPACHO COMUM**
+
+* O Pessoal da TCP olha no sistema manutalmente e garante que a presença de carga foi realizada fora do TCP (através do documento) 
+
+* Caso a presença tenha sido realizada dentro do TCP trata-se de um despacho comum siscomex - não Tradex; **OQ FAZER NESTE CASO?**
+
+* Equipe Siscomex valida/compara os dados da Ordem de Embarque com os dados do Argos (contêiner a contêiner) – conforme documento:   qualquer tipo de divergência é verificada e revertida ao cliente via email, a ordem não é liberada, até resolução
+* Manualmente é retirado a retenção 5 dos contêiners no Argos
+
+* Emite uma minuta e envia para o cliente (Carimbo TRADEX)
+**DESPACHO A POSTERIORE**
+[ CLIENTES ESPECIAIS, APENAS ALGUNS CLIENTES TEM ESTE RECURSO]
+
+* Armazem não realizou a presença de carga
+* Não tem presença de carga, mas o sistema assume como tudo certo
+
+* MANUALMENTE, A Equipe Siscomex valida/compara os dados da Ordem de Embarque com os dados do Argos (contêiner a contêiner). Qualquer tipo de divergência é verificada e revertida ao cliente via email, a ordem não é liberada, até resolução;
+
+* Manualmente é retirado a retenção 5 dos contêiners no Argos
+
+* Emite uma minuta e envia para o cliente (Carimbo TRADEX)
+
+
+===== Processo NOVO =====
+
+1. Contêiner é estufado em um AZ (terceiro);
+2. AZ realiza a presença de Carga do contêiner no siscomex;
+3. AZ da entrada no Tradex com as informações necessárias – Destino = TCP;
+4. Cliente realiza o Pré-Staking – Conteineres com Status L;
+5. Cliente realiza a “Solicitação de Ordem de Embarque” ao TCP através do site (informando que se trata de um Tradex e selecionando o tipo de despacho – “Comum” ou “a Posteriori”);
+6. Ao confirmar a Ordem de Embarque, o Sistema TCP deverá consultar o Argos e identificar se os contêineres solicitados possuem avarias. Caso possua avaria: Deverá ser apresentado um pop-up para o cliente com contêineres avariados e a lista de avarias de cada contêiner;
+7. Sistema TCP verifica se a origem da Presença de Carga do Contêiner foi realizada dentro do TCP (Através do acesso a tabela Proc_Siscomex) > Caso tenha sido realizada dentro do TCP, o processo não deve ser considerado Tradex e o Despacho deve ser tratado como Siscomex (Necessário informar faturamento sobre o caso);
+
+**DESPACHO COMUM**
+
+* Ssitema agora realiza automaticamente  o batimento dos dados (argos e Site)
+	* Caso os dados estejam OK, atualiza abase de dados para retirada de retenção
+	* Caso contrário, apresenta inconsistência para operador
+
+* CRIAR TELA COM TODAS AS MINUTAS "**Minutas Tradex Liberadas"**
+
+**DESPACHO A POSTERIORE**
+
+* Sistema TCP realiza o batimento dos dados (Argos e Site) 
+	* Se OK, Atualiza Base de dados para retirada de retenção
+	* Caso contrário, apresenta inconsistencia para operador analisar e tratar o processo manualmente **(COMO?)**
+
+* Automate realiza solicitação de ortem de embarque dos contêineres no TRADEX e quando consistido realiza a retirada da retençao 05 do contêiner do Argos
+
+**Será executa o RF001**
+**Será executa o RF002**
+**Será executa o RF004 e RF007**
+	* Item 04 fica na fila, não desenvolve
+
+
+
+====== Glossario ======
+
+**Pré-Staking: **Cadastro do Contêiner no sistema
+
+**Despacho (DDE):  **
+
+**estufado: **Contêiner é preenchido com a carga (inverso de desova)
+
+====== Dúvida ======
+
+* Contêiner com **Status L. **Quais São os  status?
+* Vamos separar na tela **PRESENÇA DE CARGA :** **SOLICITAR PRESENÇA DE CARGA **e** CONSULTAR PRESENÇA DE CARGA ? **(Criar duas telas separadas)?
+* Remover consulta de **CNPJ?**
+* Como é feita a retirada a retenção do ARGOS?
+* Cliente ou despachante vai fazer a solicitação de Ordem de Embarque (como funciona este processo?)
+* QUais validações serão executadas? apenas avaria?
+* QUal Batimento o pessoal faz Manual
+* Como é feito a autenticação? pois tem despachante, cliente e armazem
+* No Despacho comum se não for tradex oq fazer?
+* Porque precisa do automate para realizar retirada de retenção? não é possível fazer através de consulta
+
+* Em "os contêineres do booking digitados deverão vir automaticamente selecionados"  como é o relacionamento entre booking e conteiner
+
+* **RF004 e RF007 será executado com CRON?  Verificar como será o  dividido o processo entre as RF**
+
+* Oq é TBD
+* E quanto a "Retenção / Expurgo de Dados"
+
+* QUal a diferença da tela já existente Presença de Carga com nova tela Presença de Carga Exportação ( Por que não é usado a mesma tela?)
+* Oq será semelhante a tela anterior
+
+* Na tela de Solicitação de ordem de embarque será validado apenas avarias?
+
+====== Organizando um Projeto ======
+
+===== 01 - Solicitação de Ordem de Embarque =====
+**Tipo: **Tela
+
+<Criar Protótipo da tela>
+
+**Campos**
+* Nro do Despacho
+* Tipo de Despacho
+	* Siscomex
+	* Tradex - Despacho Comum
+	* Tradex - A Posteriori
+* Observações
+
+**Resultado -> Listagem**
+Carrega Listagem com:
+	* Checkbox
+	* Contêiner
+	* Lacre
+	* Navio
+	* Viagem
+	* Booking(Presença)
+
+Em cima colocar um filtro: Booking (se basear pela tela: http://200.195.158.100//extranet/agendamento/?t=solicita_presenca_carga#)
+
+* Os contêineres do booking digitados deverão vir automaticamente selecionados, sendo que o cliente poderá desmarcar os contêineres que não serão liberados para embarque;
+
+Carregar também botão **Solicitar que realiza submit dos dados**
+
+**[2014-09-24]**
+
+* Abre a tela com o campo "**Tipo de Despacho" **e **"Nro de Despacho"**
+	* SE SISCOMEX, busca informações em enxtnet.dbo.PROC_SISCOMEX_* (ver todo o conjunto de tabel)
+
+* Irá carregar uma nova tela  (ajax) com:
+	* Exportador , CNPJ e listagem com seleção de campos:
+
+* Validar se o NUMERO_DESPACHO vai estar na tabela dbo.PROC_SISCOMEX para o cliente (NUMERO_DESPACHO, EMPRESA_ID)
+
+* A listagem terá:
+	* Conteiner
+	* Lacre
+	* Navio 
+	* Viagem
+	* Booking (Presença)
+* Carregará opção de filtrar por  booking: (NUMERO_DESPACHO< EMPRESA_ID)
+	* Adicionará campo observação
+	* e será possível selecionar os contêineres
+	* Exibir os já liberado (disabled)
+
+* Em seguida será processado (ver abaixo)
+
+
+==== SUBMIT: ====
+
+**Validações**
+
+* O campo “Nro do Despacho” deve aceitar apenas caracteres numéricos e ser dividido em 10 dígitos + 1 dígito, sendo de preenchimento obrigatório;
+
+* Consultar o Argos e identificar se os contêineres solicitados possuem avarias.
+	(Deverá ser apresentado um pop-up para o cliente com contêineres avariados e a lista de avarias de cada contêiner, solicitando ao cliente que apresente a desistência e entre em contato com o SAC, impossibilitando a liberação de embarque para o despacho.)
+
+
+**Processamento**
+
+**[2014-09-24]**
+
+* Criar uma nova Tabela para fazer o controle
+	* DESPACHO
+	* CONTEINER RELACIONADO COM DESPACHO
+
+
+
+* ALTERAR SISCOMEX (Deixar para proxima FASE)
+
+* Criar campo 
+	* STATUS_SOLICITICACAO_LIBERACAO em PROC_SISCOMEX_
+	* SISCOMEX_HISTORICO_SOLICITACAO 
+
+
+===== 02 - Validação dos campos Siscomex / Argos / Solic. Ordem Embarque =====
+**Tipo: **Cron
+
+
+===== 03 - Validação dos campos Tradex / Argos / Solic. Ordem Embarque =====
+**Tipo: **Cron
+
+
+
+===== 04 - Site – Acompanhamento de DDEs (Dashboard) =====
+**Tipo:** Tela
+
+<Criar Protótipo da tela>

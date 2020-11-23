@@ -1,0 +1,100 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-23T01:30:33-03:00
+
+====== Sindri Migration ======
+Created terça 23 agosto 2016
+
+
+
+====== Tarefas ======
+
+[*] Sindri Interface
+[ ] Sindri Migration
+
+* Mapear, desenhar, responsabilidades
+* Deve ser possível executar através de script(??)
+
+[ ] Inicia através do bin/sindri-migration
+
+
+====== Antiga ======
+
+* Novo Projeto usando interface parecida com ncurse, chamada blessed
+* Todas as tarefas podem ser realizadas através da interface
+
+[ ] Mapear usando mapa mental
+[ ] Melhorar arquitetura, remover ideia de interface filha
+
+
+====== Anotações do README ======
+
+
+===== sindri-interface =====
+Framework de Interface baseado no Blessed, Blessed-contrib e node-drawille
+
+this.create('<plugin>' ou <plugin>);
+
+* Vamos Ter Slots para encaixar o plugin se for do tipo interface (pode ser configurado no prṕrio plugin)
+	- não vai ter slot, cada plugin se autoposiciona
+
+No plugin menu, vamos autoconfigurar disparadores para executa interfaces no diretorio interfaces
+
+* Tentar usar objeto em vez de classe estática
+* Método let statusBar = this.create('statusBar');
+
+
+* Seguir arquitetura do próprio Blessed
+* Em vez de Herança, só instancia e passa função
+  * Testar várias Métodologias diferente e ver a melhor# sindri-migration
+Scripts para criação e migração de estrutura de banco de dados
+
+> Configuração da base por arquivo de configuração em vez de parâmetros
+
+> Source vai sair, Schemas serão criados diretamente dos arquivos yaml
+
+> create-schema  vai sair, vamos ter apenas create-migration.
+
+* dia2yaml
+* yaml2dia
+
+--
+
+* init
+* create-migration
+* show-migration
+* run-migration
+* generate-database-from-dia
+* generate-database-from-yaml
+
+	   // Cria versão no formato schema-[DATA:YYYYMMDDHHmmSS]-[NUMERO SEQUENCIAL DE 5 DIGITOS].json
+		// Verifica se é primeira versão, caso negativo, cria um diff da versão anterior para esta
+		// Analisa diferenças e realiza questionário e gera arquivo de migração: migration-[VERSÃO ANTIGA]-[VERSÃO NOVA]
+		// ex: migration-00001-00002.js
+		// Cria script de conversão com  prototipo de funções para usuário implementar as conversões
+		// Coluna Nova: Qual valor padrão? <Se especificado gera função que retorna valor padrão, caso cotrário só gera protótipo>
+		// Coluna removida: Valor é perdido! <Não precisa de função>
+		// Tipo Mudou: cria função (dependendo do tipo gera modelo pré-definido) ex: int 2 string basta converter, mas gera funlçao
+		// Size Mudou: Trunca valor? se sim gera script padrão para truncar, caso contrário gera protótipo com throw not implement
+		// Muda notNULL: Valor padrão, caso valor antigo seja null
+		// Muda Default: Conversão simples, não exige função
+		// Novo Indice Unico:
+		// Função que recebe todos os valores
+		// Função que recebe apenas valores repetidos
+		// Função que é chamada várias vezes com um valor
+		// Nova Tabela: Não faz nada, tabela vazia, talvez seja necessário criar um registro padrão para usar em relacionamentos obrigatório
+		// Novo Relacionamento: Valor padrão, se a tabela de relacionamento for nova, criar um registro novo em newTable
+		// Gerar Up and Down
+		// run-migration
+		// - Cria recomentação para não usar a mesma base de dados, deve ser possível reverter migração facilmente e de forma segura
+		// - Faz Dump de todos os dados da base em arquivo json, salva no disco
+		// - Criar Progresso
+		// - Validar Erros
+		// - Criar sempre com transação, para em caso de erro possibilitar roolback simples
+--
+
+Separar bem oq é da interface e oq é do script de migração
+Pensar em permitir usar o script independente da interface
+
+Fragmentar bem em classe/objeto ( Separação de Responsabilidade )
+

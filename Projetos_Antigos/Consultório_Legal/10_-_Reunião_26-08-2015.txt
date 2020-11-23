@@ -1,0 +1,94 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-08-26T19:50:23-03:00
+
+====== 10 - Reunião 26-08-2015 ======
+Created quarta 26 agosto 2015
+
+
+====== Outros ======
+
+* Pré-cadastro, definir campos obrigatórios
+
+====== Agenda ======
+
+
+* Devemos bloquear o bloco (periodo) de atendimento
+
+* Status de Atendimento
+* Atendimento confirmado ou não (Exemplo: por cor)
+* Estabelecar um status
+
+* Podemos abrir a agenda do Dentista ou abrir a agenda dos dentistas
+
+
+* Não precisamos fechar intervalo, mas vai ser definido por padrão
+0 -> 10 
+10 -> 20
+
+* Registrar todo o processo do paciente, ficou na sala de espera tal hora, entrou na sala, saiu na sala, para relatórios possíveis
+
+* Ver uma ou mais agenda na mesma tela
+
+* Irá existir uma integração de Agenda
+	* Criar permissões de acesso, se a clinica poderá editar a agenda ou apenas visualizar
+	* Quem vai ser o dono da Agenda, para controlar as permissões
+
+* Cada cor significa uma coisa: status
+
+* Temos q ter um histórico do status do agendamento, exemplo: 
+	* Agenda Livre
+	* Paciente faltou
+
+* Em caso de atraso NÃO SERÀ ALTERADO OS HORÁRIOS
+	* A informação de atraso será feito no Status
+
+===== Como a Agenda funciona nos outros sistemas =====
+
+
+===== Interface =====
+ 
+- Full Calandar (http://fullcalendar.io/)
+
+- http://js.syncfusion.com/demos/web/#!/azure/schedule/defaultfunctionalities
+
+
+
+===== Oq será Agendado =====
+
+PERIODO -> PACIENTE -> DENTISTA -> CADEIRA 
+
+* Podemos ter 2 dentistas atendendo na mesma cadeira
+* Agenda Dupla
+
+ Agenda é uma tabela de relacionamento que relaciona
+	* Periodo
+	* Paciente
+	* Dentista
+	* Cadeira
+* Faz um monte de validação de consistencia
+
+
+===== Parâmetros =====
+
+* Observação
+* Pago ou não
+* presente ou não
+* Confirmado
+
+==== Status (Cada status tem uma cor) ====
+* Confirmado (horário de confirmação)
+	* confirmado por
+* Comparecimento ( horario do comparecimento)
+* Inicio Real Atendimento (Botão para iniciar)
+* Término Atendimento (Botão para FInalizar)
+* Agendamento Próxima Consulta
+	* Link para esse Agendamento
+* Ultima Consulta (Término Tratamento)
+
+
+===== REplicação de agenda =====
+
+Usado principalmente em curso, cria-se um par, quando uma agenda é feita para um dentista, o outro dentista replica automaticamente
+
+é Possível 1 dentista atender 2 pacientes em duas cadeiras ao mesmo tempo (orto)

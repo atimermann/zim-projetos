@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-04T17:52:24-03:00
+
+====== AutoIt ======
+Created sábado 04 julho 2015
+fonte: sbrtagt.zip
+
+====== Tarefas ======
+
+==== Configuração dos Servidores ====
+
+**VHOM-LNX-HMG** ->  Novo servidor PROD APPTESTE e SISTEMAS INTERNOS
+
+**VDEV-LNX-QA** -> Deve ser clonado (Clone de VMOM-LNX-HMG)
+
+**VDEV-LNX-DEV** -> Autoit Manager
+
+* Pedir para o Valter alterar o nome do VDEV-LNX-DEV
+* Configurar acessos ao servidor  **VDEV-LNX-DEV**
+	* Bloquear acesso root
+	* Criar e configurar acesso usuarios (sudo)
+	* Definir permissão de projeto (Criar grupos)
+* ~~Configurar Driver DB2 e MSSQL~~
+	* Comparar desempenho usando freetds e o tedious do nodejs
+* ~~Criar os diretórios de teste /var/nodejs/prod e /var/nodejs/test~~
+* Configurar Serviço **PROD (Upstart)**
+
+
+
+==== Aplicação Autoit Manager ====
+
+* ~~Reestruturar código~~
+* ~~Criar Repositório~~
+* Configurar Histórico com log de todos os acessos
+* Gerenciar integração de framework Sindri
+
+
+==== Padronizar Autoit ====
+* ~~Implantar apenas binario~~
+* ~~Criar arquivo de log de tudo q é executado~~
+* Definir padrão de desenvolvimento para cada cenario possível de telas
+* Criar interface de controle para finalizar script, já q o fonte não ficará disponível
+
+====== Retira retenção 5 => Finalização ======
+
+* Criar a tabela no database autoit (replicar do automate)
+* Alterar o Sistema de Solicitação de Ordem de Embarque para cadastrar ordem de embarque nessa tabela
+* Recriar a consulta (q foi perdida) q carrega conteineres dessa tabela
+{{{code: lang="sql" linenumbers="True"
+SELECT 
+(SELECT TOP 1 NUMERO_RE FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO AND T.STATUS = 2 ) AS NUMERO_RE,
+* FROM [extnet].[dbo].PROC_SISCOMEX_CONTEINERES AS C
+Where (C.STATUS_RETENCAO = 1 or C.STATUS_RETENCAO = 5)
+   and C.STATUS_LIBERACAO_CANCELADA ='N' 
+   and C.ID_PROTOCOLO IS NOT NULL
+   and C.PROC_ID = ''
+   and (SELECT COUNT(*) FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO) > 0
+   and (SELECT COUNT(*) AS t FROM [Automate].[dbo].[TB_TRADEX] AS T WHERE T.ID_PROTOCOLO = C.ID_PROTOCOLO AND T.STATUS <> 2) = 0
+   and STATUS_EXECUCAO IS NULL
+}}}
+
+
+* Verificar se substitui o automate no processo de liberar RE na receita pela api do Helmuth (neste caso recria a tabela autoit)
+
+

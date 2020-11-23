@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-02-02T13:21:59-02:00
+
+====== Notas Cléber ======
+Created sábado 02 fevereiro 2013
+
+* O que é?
+* Falta lista de cursos
+* Destaques fracos e sem vida
+* Falta descrição e "leia mais..." para incentivar a ver
+* Não conquista visitante casual
+* falta botões de compartilhar (só tem curtir e sob o video)
+* É Tutorial ou Video-aula (menu deficiente)
+* Link principal escondido(Em baixo do vídeo)
+* **3 opções de comprar, mas não tem pacotes**
+* Eu entrei  em "Vídeo-Aulas", mas a breadcrumb diz tutoriais
+* "Dúvidas" é FAQ, eu queria um form
+* Colaborador não tem como criar conta no site
+* O site é do Gilson, mas cadê foto e dados?
+* Na aula de montagem de computador há dezenas de perguntas não respondidas
+	* Dedicar 1h diária para isso
+* Os comentários são os MESMOS nos tutoriais
+* MSN? a sistemas muito mais eficiente
+	* A mensagem é desanimadora
+* Falta login com facebook
+* Programa de afiliados ia bem  - Deixemos que os outros vendam as aulas
+* cumpom de desconto
+* promoções
+* **se associar ao ABED!**
+* Palavra chave: conquistar, evoluir, crescer, ganhar, vencer 
+* Formas de Pagamento devem ser claras (explicar no rodapé)
+* No vídeo da home, falta link de "proximo", parece que é só 1
+* Como funciona
+	* veja o video > baixe o material > imprima seu certificado > compre mais aulas > vença
+* Comprar créditos, não aulas
+* Sortei de cursos completos, para conseguir mail list
+* Pontos por indicação
+* analytics
+* Webmaster tools
+* sitemap
+* comentários ajudam no SEO?
+* Comissão em vendas de outros produtos
+* **Punchtab (pontos por divulgar redes sociais)**
+* Fidelização: Oferecer sempre um pequeno "plus" e fazer o usuário ficar investindo
+

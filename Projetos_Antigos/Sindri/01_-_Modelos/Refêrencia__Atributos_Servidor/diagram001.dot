@@ -1,0 +1,45 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Método</td>
+	<td BGCOLOR="gray">Parâmetros</td>	
+	<td BGCOLOR="gray">Descrição</td>	
+</tr>
+
+<tr>
+	<td >getRelation</td>
+	<td >relations, id, select</td>	
+	<td >Retorna dados do relacionamento especificado</td>		
+</tr>
+
+<tr>
+	<td >loadRelation</td>
+	<td >relations, id, select</td>	
+	<td >Carrega os dados do relacionamento no resultado da consulta na tabela local</td>		
+</tr>
+
+
+<tr>
+	<td >validate</td>
+	<td >data, mode, dataSync</td>	
+	<td >Valida Dados do Modelo Estáticamente. TODO: Revisar Método enquanto não é muito usado</td>		
+</tr>
+
+<tr>
+	<td >update</td>
+	<td >data, callback</td>	
+	<td >Atualiza Tabela com dados enviados (Deve estar no modo Instanciado - com id definido)</td>		
+</tr>
+
+<tr>
+	<td >saveRelation</td>
+	<td >relationName, data, transaction, callback</td>	
+	<td >(RE)Cria um novo Relacionamento com os dados passados. Transaction pode ser definido</td>		
+</tr>
+
+</TABLE>
+>];
+}

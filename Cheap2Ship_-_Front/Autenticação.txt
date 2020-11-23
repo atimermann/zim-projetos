@@ -1,0 +1,114 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-03-08T21:10:44-03:00
+
+====== Autenticação ======
+Created domingo 08 março 2020
+
+Links:
+https://codesandbox.io/s/github/nuxt/nuxt.js/tree/dev/examples/auth-jwt?from-embed
+https://nuxtjs.org/examples/auth-external-jwt/
+https://bezkoder.com/jwt-vue-vuex-authentication/
+https://github.com/cornflourblue/vue-vuex-jwt-authentication-example
+https://jasonwatmore.com/post/2018/07/06/vue-vuex-jwt-authentication-tutorial-example
+
+
+[*] Blindar projeto (pipeline)
+[*] Configura Vuex, estrutura, tudo
+[*] Converte TypeScript (strict mode)
+[*] Migrar estrutura de pasta para utilizar src:
+	[ ] https://nuxtjs.org/api/configuration-srcdir/
+
+
+[*] Entender CORS e como CORS funciona no nuxts
+[*] Configurar uma porta fixa diferende de 3000 (está aleadtrio
+[ ] Documentar como criar PR (testes q precisar fazer, regras)
+
+
+
+
+
+====== Projeto ======
+
+* https://bezkoder.com/jwt-vue-vuex-authentication/
+
+* Autenticação é feita via REST
+
+http://localhost:3000/auth/login
+
+**Requeste:**
+{
+	"username":"a@a.com",
+	"password":"andreTeste"
+}
+
+**Response**
+{
+  "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEyMywidXNlcm5hbWUiOiJhbmRyZWd1c3Rhdm8iLCJpYXQiOjE1ODQzOTg3NzYsImV4cCI6MTU4NDQwMjM3Nn0.BeO5fsKsptOvrBgc6XWCf_wO0hGjaMkOI-6z1q8hQbDXC8qzWPND2xyNeNG7TcjctGe4zJwPNG2mxC6O3RJcYQ",
+  "decodedAccessToken": {
+	"id": 1123,
+	"username": "andregustavo",
+	"iat": 1584398776,
+	"exp": 1584402376
+  }
+}
+
+USAR o NUXT-AUTH só para gerenciar TOKEN e login
+regras e dados do usuario criar por fora
+
+====== Valores salvos: ======
+
+* **Token**
+* Type???
+* **UserInfo**
+* Authorities (permissoes)
+
+* Vamos utilizar localStorage para salvar authenticação
+
+__Como funciona serviços em aplicações NUXT?__
+
+====== Vuex ======
+
+* Carrega LocalStorage
+* Executa funções do AuthService __(Verificar como funciona service no Nuxt)__
+
+Criar um model no front???
+
+Gerenciar acesso não autorizado com beforeEach?
+* Não!, Usar Middleware para verificar authenticação:
+	* https://codesandbox.io/s/github/nuxt/nuxt.js/tree/dev/examples/auth-jwt?from-embed
+
+
+
+
+====== Criando Usuário ======
+
+mutation {
+  createUser(    
+	user: {
+	  id: 11250
+	  password: "andreTeste"
+	  email: "a@a.com"
+	  emailCanonical: "a@a.com"
+	  username:"andregustavo"
+	  fullName: "Andre Gustavo Timermann"
+	  usernameCanonical: "andregustavo"
+	  createdAt: "2020-02-20T11:03:35"
+	  roles: "['admin']"
+	  enabled: true
+	  manager: true
+	  confirmed: true
+	  company: { id: 482 }
+	}
+  ) {
+	id
+  }
+}
+
+
+====== Como recuperar Token para requisições ======
+	created(): void {
+	  // Recuperando Token
+	  console.log(this.$auth.getToken('local'))
+
+	}

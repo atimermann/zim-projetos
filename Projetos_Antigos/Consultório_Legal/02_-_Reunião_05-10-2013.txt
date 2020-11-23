@@ -1,0 +1,65 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-10-05T16:40:06-03:00
+
+====== 02 - Reunião 05-10-2013 ======
+Created sábado 05 outubro 2013
+
+Inicio: 16h42
+
+* Implementar o Dashboard
+* Prodente: Deixa o dentista preencher tudo que quiser, mas um dentista não sabe preencher corretamente.
+
+* Desenvolver sistema pensando nas limitações, por no diagrama como limitar
+
+
+====== Questionário de Apoio ======
+
+==== 1. Qual é o evento que inicia o processo? ====
+
+* Contato do Paciente
+
+==== 2. Quando o processo acaba (qual o resultado esperado)? ====
+
+* Quando paciente sai da clínica
+
+==== 3. Quem são os participantes? ====
+
+**Nota:** Entidade é uma campanhia, uma divisão da companhia ou setor
+Papel é o compraador, vendedor, analista de crédito, que irá controlar ou será responsável pelo processo de negócio ou a atividade de negócio
+
+==== > Papel de Negócio ====
+* Paciente
+* Dentista
+* Responsável Técnico da Clinica (responsável por tudo que acontece na clinica)
+* Dentista Responsável
+
+==== > Entidade de Negócio ====
+
+* Clinica
+* Fornecedores
+* Dentista
+
+==== 4. Quais são as funções de negócio que estão envolvidas no processo? ====
+
+No caso da Clinica:
+* Escritório
+* Consultório
+* Financeiro
+* Estoque
+
+No caso do Sistema:
+* Paciente
+
+==== 5. Quais são as principais atividades e tarefas? ====
+
+* Contato Com a Clinica
+* Cadastrar paciente (cliente)
+* Realizar Consulta Inicial
+	* Criar Anamnésia
+* Criar Plano de Tratamento
+
+==== 6. Quais são as restrições? ====
+
+
+

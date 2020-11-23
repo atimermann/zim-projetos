@@ -1,0 +1,102 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-13T15:09:35-03:00
+
+====== 00 - CONSULTAS ======
+Created segunda 13 julho 2015
+
+===== Quantidade de Contêineres scaneado por dia =====
+{{{code: lang="sql" linenumbers="True"
+SELECT DAY, COUNT(DAY) AS TOTAL FROM
+(SELECT VARCHAR_FORMAT(SCAN_DATA_GRAVACAO, 'YYYYMMDD') AS DAY FROM "INTERFACES"."SCANNER"
+WHERE SCAN_DATA_GRAVACAO >= '2015-05-01 0:0:0' AND SCAN_DATA_GRAVACAO < '2015-07-13 0:0:0') AS X
+GROUP BY DAY
+ORDER BY DAY
+}}}
+
+
+===== Obtém Informação da empresa dado o CNPJ =====
+{{{code: lang="sql" linenumbers="True"
+SELECT * FROM extnet.dbo.CAD_EMPRESASX WHERE EMP_CNPJ = '83834101001752'
+}}}
+
+
+===== Obtém informação da empresa do usuario especificado =====
+
+{{{code: lang="sql" linenumbers="True"
+SELECT USER_ID, USER_LOGIN, USER_SENHA, USER_NOME, EMP_NOME, EMP_ID, EMP_CNPJ FROM extnet.dbo.CAD_USUARIOS AS U 
+INNER JOIN extnet.dbo.CAD_EMPRESASX AS E ON U.EMPRESA_ID = E.EMP_ID
+WHERE USER_NOME = 'LP BRASIL LTDA'
+}}}
+
+
+===== LISTA TODAS AS EMPRESAS FILHAS =====
+{{{code: lang="sql" linenumbers="True"
+SELECT EMP.*, PAI.EMP_NOME AS PAI_NOME, PAI.EMP_ID AS PAI_ID, FILHA.EMP_NOME AS FILHA_NOME, FILHA.EMP_ID AS FILHA_ID,  FILHA.EMP_CNPJ 
+FROM extnet.dbo.CAD_EMPRESASX AS PAI 
+LEFT JOIN [extnet].[dbo].[CONTROL_EMP] AS EMP ON EMP.EMPRESA_PAI = PAI.EMP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS FILHA ON EMP.EMPRESA_FILHA = FILHA.EMP_ID
+WHERE PAI.EMP_CNPJ = '09408913000116'
+}}}
+
+
+
+===== LISTA TODOS OS DESPACHANTES VINCULADOS =====
+{{{code: lang="sql" linenumbers="True"
+SELECT DESP.*, E.EMP_NOME AS PAI_NOME, E.EMP_ID AS PAI_ID, FILHA.EMP_NOME AS FILHA_NOME, FILHA.EMP_ID AS FILHA_ID, FILHA.EMP_CNPJ
+FROM extnet.dbo.CAD_EMPRESASX AS E 
+LEFT JOIN [extnet].[dbo].[CONTROL_DESP] AS DESP ON DESP.CLIENTE_ID = DESP.DESP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS FILHA ON DESP.DESP_ID = FILHA.EMP_ID
+WHERE E.EMP_CNPJ = '09408913000116'
+}}}
+
+
+===== Lista MATRIZ =====
+{{{code: lang="sql" linenumbers="True"
+SELECT EMP.*, PAI.EMP_NOME AS PAI_NOME, PAI.EMP_ID AS PAI_ID, FILHA.EMP_NOME AS FILHA_NOME, FILHA.EMP_ID AS FILHA_ID,  FILHA.EMP_CNPJ 
+FROM extnet.dbo.CAD_EMPRESASX AS FILHA 
+LEFT JOIN [extnet].[dbo].[CONTROL_EMP] AS EMP ON EMP.EMPRESA_FILHA = FILHA.EMP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS PAI ON EMP.EMPRESA_FILHA = PAI.EMP_ID
+WHERE FILHA.EMP_CNPJ = '08635191000170'
+}}}
+
+
+===== Lista EMPRESA VINCULADA (QUANDO É UM DESPACHANTE) =====
+
+{{{code: lang="sql" linenumbers="True"
+SELECT CLIENTE.*
+FROM extnet.dbo.CAD_EMPRESASX AS D
+LEFT JOIN [extnet].[dbo].[CONTROL_DESP] AS DE ON D.EMP_ID = DE.DESP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS CLIENTE ON CLIENTE.EMP_ID = DE.CLIENTE_ID
+WHERE D.EMP_CNPJ = '10802919000152'
+}}}
+
+
+
+===== Obter Empresa apartir do Despacho =====
+
+{{{code: lang="sql" linenumbers="True"
+SELECT E.* FROM extnet.dbo.PROC_SISCOMEX AS S
+INNER JOIN extnet.dbo.CAD_EMPRESASX AS E ON S.EMPRESA_ID = E.EMP_ID
+WHERE S.NUMERO_DESPACHO = '21550588354'
+
+}}}
+
+
+
+===== Despachante (Usuário) com autorização de processar determinado cliente (empresa) =====
+
+{{{code: lang="sql" linenumbers="True"
+
+SELECT FILHA.EMP_CNPJ, U.*
+FROM extnet.dbo.CAD_EMPRESASX AS PAI 
+LEFT JOIN [extnet].[dbo].[CONTROL_EMP] AS EMP ON EMP.EMPRESA_PAI = PAI.EMP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS FILHA ON EMP.EMPRESA_FILHA = FILHA.EMP_ID
+LEFT JOIN [extnet].[dbo].[CONTROL_DESP] AS DESP ON DESP.CLIENTE_ID = FILHA.EMP_ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS D ON DESP.DESP_ID = D.EMP_ID
+LEFT JOIN extnet.dbo.CAD_USUARIOS AS U ON DESP.DESP_ID = U.EMPRESA_ID
+WHERE PAI.EMP_CNPJ = '81905176000194'
+
+}}}
+
+

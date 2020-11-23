@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-07T15:38:39-02:00
+
+====== Componentes ======
+Created sábado 07 dezembro 2013
+
+Aqui serão descritos os principais componentes do Arrakis, que nada mais são que aplicativos, podendo ser facilmente subtituidos.
+
+
+
+
+====== Admin ======
+
+
+====== Multiplo Sites ======
+
+

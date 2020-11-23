@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-03-07T14:54:42-03:00
+
+====== Refêrencia Restify ======
+Created sábado 07 março 2015
+
+path: **lib/sindriRestify.js**
+

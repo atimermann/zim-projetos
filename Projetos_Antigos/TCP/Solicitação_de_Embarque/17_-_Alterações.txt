@@ -1,0 +1,141 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-26T16:23:27-03:00
+
+====== 17 - Alterações ======
+Created terça 26 maio 2015
+
+====== Relatório Análise Projeto ======
+
+===== Na tela de seleção de Tipo de Tipo de Despacho =====
+	**O Site TCP deve disponibilizar a mensagem informativa “Para realizar o embarque, o CNPJ do Exportador deve estar cadastrado no TCP e vinculado ao grupo de Empresas do usuário logado”.**
+
+
+===== [ANALISAR MARCELO] Alteração Tabela [Automate].[dbo].[TB_TRADEX_CONTEINERES] =====
+__Confundi  AUTOMATE.DBO.TB_TRADEX_CONTEINERES AUTOMATE.DBO.TB_CONTEINERES_TRADEX__
+__Vamos criar outra tabela e remover a coluna ID_PROTOCOLO__
+
+Criação do campo:
+* **ID_PROTOCOLO **relacionado com a tabela: 
+	* **[extnet].[dbo].[PROC_SISCOMEX_PROTOCOLO]**
+
+===== [OK] Alteração Tabela [Automate].[dbo].[TB_TRADEX] =====
+
+Criação do campo:
+* **ID_PROTOCOLO **relacionado com a tabela: 
+	* **[extnet].[dbo].[PROC_SISCOMEX_PROTOCOLO]**
+
+
+===== [OK] Criar Insert ao finalizar Processo de Tradex à posteriore =====
+
+**AUTOMATE.DBO.TB_TRADEX**
+	Número_RE;
+	Número_Ordem_Embarque;
+	DT_cadastro;
+	ID_protocolo (vinculado a tabela TB.SISCOMEX_protocolo);
+
+**Colunas na tabela:**
+	  ,[NUMERO_RE]
+	  ,[NUMERO_ORDEM_EMBARQUE]
+	  ,[STATUS]
+	  ,[OBSERVACAO]
+	  ,[DT_CADASTRO]
+	  ,[DT_STATUS]
+	  ,[DT_ORDEM]
+	  ,[DT_FINALIZACAO]
+
+Oq fazer com outros campos?
+
+===== [ANALISAR MARCELO] Criar Insert ao finalizar Processo de Tradex à posteriore =====
+
+__Confundi  AUTOMATE.DBO.TB_TRADEX_CONTEINERES AUTOMATE.DBO.TB_CONTEINERES_TRADEX__
+__Vamos criar outra tabela e remover a coluna ID_PROTOCOLO__
+
+__Verificar a necessidade desta tabela, automate parece q não usa agora,__
+
+__TABELA NÃO EXISTE__
+**AUTOMATE.DBO.TB_TRADEX_CONTEINERES**
+	ID;
+	Conteiner;
+	ID_protocolo (vinculado a tabela TB.SISCOMEX_protocolo);
+	Lacre;
+	Status_retencao;
+
+
+**Colunas na tabela:**
+		  ,[CONTEINER]
+		  ,[RECINTO_ORIGEM]
+		  ,[DT_INICIO_TRANSITO]
+		  ,[DURACAO]
+		  ,[LACRE]
+		  ,[NAVIO]
+		  ,[NUMERO_DOCUMENTO]
+		  ,[STATUS]
+		  ,[DT_CADASTRO]
+		  ,[DT_FINALIZACAO]
+		  ,[DT_INICIO]
+	
+Oq fazer com outros campos?
+Não existe Status Retenção, realmente importante?
+
+
+===== Relatório Consulta de Despacho Extranet =====
+
+* Alterar periodo :
+	* **"Por default a data início será D-30 e a data final será D0. (Limitar em 90 dias o filtro de período);"**
+
+===== Relatório Consulta de Despacho Extranet - Quebra de LAyout =====
+
+* Botão Não está mais exibindo depois da atualização para a nova Extranet
+* Input está cortando palavras pela metade depois da atualização para nova Extranet
+
+===== Relatório Consulta de Despacho Extranet - Alteração de dados =====
+
+* Alterar titulo "criado em " para "data ordem Embarque"
+* Adicionar coluna "data ordem Embarque" nos detalhes 
+* Adicionar Informação: "Quantidade de Contêineres"
+ 
+**à posteriori**
+	* Status Global 
+	* Informar Status Retenção
+	* Além da Lista de Contêineres, informar lista de REs
+
+
+===== [ANALISAR MARCELO] RF <009> =====
+
+* Ao clicar na DDE, devem ser apresentadas todas as informações referentes a mesma contidas na base de dados do Automate. 
+
+* Possibilitar acesso aos logs dos fluxos Automate nessa mesma tela.
+
+* Apresentar tabela consolidada com a quantidade de DDE’s em cada um dos Status existentes.
+	* __Como seria essa tabela consolidada?__
+		* R: Exibir X conteiner processado de Y
+
+
+===== [ PROGRESS] Alteração Colunas nos sistemas Internos (Consulta Despacho / Consulta Protocolo) =====
+
+* Na coluna Retenção será exibido o numero da retenção
+* Criar uma coluna "retirada retenção em "
+* Criar outra Coluna "status"  para exibir status a posteriore
+* Novo filtro para selecionar Á posteriore, tradex com ou dde
+
+===== 4.10. <RF010> Manter registro de histórico das solicitações de embarque =====
+
+Já existe a Tabela , o Presença de Carga e o Automate já o alimenta
+
+Falta Fazer o solicitação de Embarque aliementar o histórico
+Falta Criar uma tela no Sistemas internos com o histórico para consulta
+e CRiar um botão para acessar o HIstório a partir da tela de consulta de despacho e consulta de Protocolo
+
+===== Automate informa ordem de embarque no Tradex =====
+
+Está Desativado, precisamos alinhar com a equipe do automate, perguntaram se será criado uma nova maquina (caso tenha prioridade) ou não, pode ficar na fila por horas.
+Pedi pra apenas ativar por enquanto depois discutimos com setim outra máquina
+
+
+===== Alteração da consulta para obter lista de conteiner no script do automate Retirada de retenção 5 Argos =====
+
+Criar nova consulta para carregar contêiners do áposteriri e enviar para equipe do automate
+Alinhar alterações com equipe do automate
+
+

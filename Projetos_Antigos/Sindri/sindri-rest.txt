@@ -1,0 +1,210 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-01-12T22:18:04-02:00
+
+====== sindri-rest ======
+Created segunda 12 janeiro 2015
+
+**TODO:** Migrar para README.MD do projeto
+
+
+Módulo responsável por criar automaticamente uma interface REST padrão  no lado do servidor para ser usado no SINDRI
+
+**Objetivo e Metas:**
+
+
+* [OK]ser simples
+* ~~ser facilmente estensivel~~ **se precisar de algo especifico criar uma rota e tratar manualmente**
+* [OK]altomatizar geração de erros
+* Permitir Autorização
+* Usar o KNEX como Base (Mas permitir outras no futuro)
+* [OK]Tratar Validações (Automático com discover e possível criar validação personalizada)
+* Internacionalização
+
+* **SER SEGURO**
+	* Obrigar definir os campos permitidos (geral ou por rota (Ou liberar para todos do discover))
+	* Estudar falhas de segurançã possível, sql injection etc....
+	* http://blog.risingstack.com/node-js-security-tips/
+	* https://github.com/helmetjs/helmet
+	* CSRF Token 
+		* http://symfony.com/doc/current/cookbook/security/csrf_in_login_form.html
+
+* Permitir update seletivo (em vez de fazer update em todos os campos, criar update apenas no campo especifico)
+	* Podemos usar como regra, apenas os campos enviados serão atualizados
+
+* Conversão de id
+* Permitir Paginação
+* Permitir FIltros
+* Permitir Ordenação
+
+* ~~Discover de metadata (para identificação automatica de campo, (Necessário criar 'adapters')~~
+
+
+* Por em mente que serve apenas para os casos comuns, ou como auxilio de casos complexos, ex: gerar erro
+
+* Atualmente não estou criando um "model" e se no futuro eu quiser criar um model? como fica aqui? (deverá ser criado plugin para isso)
+
+* Suporte a log com eventos??
+
+* [OK] CRiar Scafoldding? ~~Não, só será usado para rest simples~~
+
+* ~~[OK] Alterar nome para sindri-knex-rest? (Não, pq no futuro posso pertmiri outros motores como o mongo)~~
+
+* [OK] função que retorna estrutura da tabela para uso no cliente 
+
+* [OK] Relacionamentos(joins...)???? Criar rota personalizada, não usar o sindri-rest
+
+* FILTRAR RESULTADO POR PERMISSÂO: Exemplo: usuario andre só pode acessar o produto cuja empresa é do andre. Como embutir esta consulta??????????????
+
+* Criar MOdelos
+* Compartilhar com client?
+
+
+===== Problemas ao compatilhar modelo =====
+
+==== Em usar ====
+* Modelo do Client normalmente vai ser menor em relação ao servidor
+* Cliente vai ter acesso a informações sigilosas como nome de tabela
+* Podemos ter vários modelos, vai ficar confuso
+* Vamos ter q criar uma classe separada para os métodos
+* Pode ter muita coisa divergente do cliente
+* Existem métodos q nao podem ser misturados
+
+==== Em não usar ====
+* Código repetido e maior chance de divergencia (usar scafonding)
+* Não será possível criar uma integração automatizada (pode ser a minoria dos casos)
+
+====== Referencias ======
+
+Estudo de produtos protos e sua viabilidade com knex
+https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+
+(NÃO ACHEI NADA  ATÉ AGORA)
+
+====== Interface ======
+
+
+var Rest = require('sindri-rest');
+
+
+var rest = new Rest();
+var rest = Object.create(Rest);
+var rest = Rest.new();
+
+// Passa o objeto router a ser modificado
+rest.setRouter(router);
+
+// Objeto knex para executar consulta
+rest.setKnex(knex);
+
+// Especifica a Tabela
+rest.setTable("usuario");
+
+
+// Especifica o campo id, que será tratado como id no rest (se quiser outro pode especificar no segundo argumento)
+rest.setId("usuario_id", ["id"]);
+
+// Habilita Descoberta, ele irá executar uma consulta no banco de dados para obter informação das colunas (necessário implementar adaptador para cada linguagem (mysql, postgres, db2, etc...)
+// Deve ser globa, pois nunca muda, executou uma vez salva essa informação (pode salvar na classe?) ou em um outro lugar (estudar) (Scafolding resolveria...)
+// Carrega esquema automaticamente da tabela
+// ex: se é unico, 
+rest.discoverSchema();
+
+// Se não usado o discovery, podemos definir manualmente, se não definido aceita todos os campos e define um padrão (select *)
+// Pode estender o discoverSchema, podemos definir aqui validações não detectadas automaticamente ou então desativa-las
+// Criar objetos para os diferentes tipos de validações dentro do sindri-rest
+rest.setSchema("usuario_id", "conta_proprietária");
+
+// Validação personalizada
+rest.onValidate(function(){});
+
+// Executaa ações antes de salvar (pode alterar um dad) é passado informação de tipo de crud (INSERT, UPDATE ou DELETE)
+rest.onBeforeSave(function());
+rest.onAfterSave(function());
+
+// Executa antes de retornar dado pra usuário, podendo altera-lo
+rest.onBeforeGet(function());
+rest.onAfterGet(function());
+
+// Expoe a estrutura para o cliente (por padrão true) Se bem que deveria ser feito a nível de compilação
+rest.exposeSchema(true);
+
+// Cria rest (note que o router já vai ser alterado pois é um objeto e objeto em javascript é passado por refêrencia)
+rest.create():
+
+// Configuração de caminhos, por padrão é:
+**GET /route**
+**GET /route/:id**
+**PUT /route/:id**
+**POST /route**
+**GET /route/schema ou HEAD /route/schema ou GET /route-schema **__(estudar melhor alternativa)DICA: veja como funciona o backbone-paginate__
+**GET (ordem/filtro/paginacao)**
+
+
+* __Estudar a melhor maneira de criar filtros, ordem  e paginação (ver com o Backbone pra ficar compatível)o backbone-paginate__
+
+
+* **CRIAR TODA A ESTRUTURA EM FORMA DE MODEL, já definir model schema através de estensão. e criar o método RESTIFY(router);**
+* VER http://bookshelfjs.org/
+
+**var SindriModel = require('sindri-model')(knex);**
+
+var usuarioModel = SindriModel.extend({
+
+	schema: {
+		...
+	},
+	
+	
+
+
+});
+
+—————————————————————————
+**var UsuarioModel = require('usuarioModel');**
+
+**UsuarioModel.restify(router);**
+
+**function(){**
+	
+	**var usuarioModel = UsuarioModel.new();**
+	**usuarioModel.getId();**
+	**usuarioModel.get('nome');**
+
+**}**
+
+
+====== Layout Schema ======
+
+{
+	usuario_id:{
+		enabled: true
+		unique: false (Para ser usado no cliente, pois)
+		default: 23 (Pode ser uma função)
+		nulo: true
+		insert: true (permite alterar este campo na inserção)
+		update: true (Permite alterar este campo na atualização)
+		validate: null (nome ou lista de nome de validações possíveis e built-in do sindri-rest)
+
+	}
+
+}
+
+====== Tipos ======
+
+
+====== Onde por oq? ======
+
+
+Temos 3 lugares:
+
+**sindri/lib**
+	* Aplicações 
+
+**sindri-libs**
+	* Bibliotecas externas, sem diretório node-modules, ou com node-modules mas q foi modificada extraido e ficou um arquivo simples
+**libs**
+
+
+
+' OR '1'='1

@@ -1,0 +1,91 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-09-11T23:26:46-03:00
+
+====== V2 ======
+Created sexta 11 setembro 2015
+
+**TODO:** Implementar no DataSync
+
+Novas definições:
+
+===== Tipos de erros: =====
+
+==== 1. Erros de Sistema (Exception) ====
+* Não deve ser enviado pra o usuario no ambiente de produção
+* Deve ser enviado para o usuario no ambiente de dev / teste / homologação
+
+**Ex: Falha ao conectar carregar uma biblioteca**
+
+==== 2. Erros de Processo (Error) ====
+* Sempre deve ser enviado para o usuario
+* Deve ser acompanhado pela mensagem **(message)**
+* Deve ser acompanhado pelo código do erro **(Cód)**
+
+====== Formato: ======
+
+
+
+===== String =====
+* Sempre será considerado um erro
+* Caso retorne uma mensagem será tratada como erro
+
+===== Booleano =====
+
+* **True**: Sucesso
+* **False:** Erro
+
+===== Json =====
+
+==== Cenário 01: Sucesso ====
+
+* **success:** true
+
+==== Cenário 02: Sucesso Com dados ====
+
+* **success:** true
+* **<Dados diversos>**
+
+==== Cenário 02: Erro de Processo (1 erro) ====
+
+
+* **success:** false
+* **message:** <Mensagem do Erro>
+* **cod:** <Código do Erro> **ex: C001**
+* **type: <**Tipo do erro>
+
+ou
+
+* **success:** false
+* **errors:** <Erro no Formato de Objeto>
+
+
+==== Cenário 03: Erro no Processo (2 ou mais erros) ====
+
+* **success:** false
+* **errors:** <Lista de Erro no Formato de Objeto>
+
+
+==== Cenário 04: Exceção ====
+
+* **sucess:** false
+* **exception:** true
+* **message: **<Mensagem do Erro>
+* **code:** <Código do Erro>
+**Opcionais:**
+* **type: **<Tipo do Erro>
+* **linenumber: **<Numero da linha onde o erro ocorreu>
+* **backtrace: **<Lista com backtrace do erro>
+* **outros...** ex: (sqlError, SqlState etc...)
+
+===== Outros =====
+
+É possível aceitar outros formatos, porém é necessário um método especial
+
+====== Objeto de Erro ======
+
+* **message:** <Mensagem de Erro>
+* **cod:** <Código do erro>
+* **id: <**Identificação do erro>
+	* Caso o erro pertença a alguma entidade (ex: campos de um formulário
+* **type: <**Tipo do erro>

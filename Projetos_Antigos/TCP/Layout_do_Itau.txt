@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-05-24T11:32:37-03:00
+
+====== Layout do Itau ======
+Created sexta 24 maio 2013
+
+-------------------
+Roda no SIte Intranet
+Por Cliente [   Texto   ] criar auto complete e deixar icase
+Por Data de vencimento
+
+Criar Tela de Confirmação [ Enviado para protesto ou não]
+igual aqui: http://appteste/NFSE/notas_aberto.php  
+OK
+
+Será incluido uma coluna no banco e fazer um update:
+   - Data_enviado_protesto
+   - enviado_para_protesto [sim/nao]
+  - Check box com o que quer mandar pra prostesto
+
+
+Enviar para protesto [ Gerar arquivo TXT no formato do ITAU, no layout mandado]
+
+
+AGÊNCIA MANTENEDORA DA CONTA
+NÚMERO DA CONTA CORRENTE DA EMPRESA
+COMPLEMENTO DO REGISTRO 
+NOME POR EXTENSO DA "EMPRESA MÃE"
+No DO BANCO NA CÂMARA DE COMPENSAÇÃO
+ NOME POR EXTENSO DO BANCO COBRADOR
+COMPLEMENTO DO REGISTRO
+ 
+TIPO DE INSCRIÇÃO DA EMPRESA
+No DE INSCRIÇÃO DA EMPRESA (CPF/CNPJ)
+AGÊNCIA MANTENEDORA DA CONTA
+COMPLEMENTO DE REGISTRO
+NÚMERO DA CONTA CORRENTE DA EMPRESA
+COMPLEMENTO DE REGISTRO
+NÚMERO DA CARTEIRA NO BANCO
+CÓDIGO DA CARTEIRA
+AGÊNCIA ONDE O TÍTULO SERÁ COBRADO

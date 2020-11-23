@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-01T09:35:16-03:00
+
+====== 02 - Reunião 01-10-2014 ======
+Created quarta 01 outubro 2014
+
+* REVER VALIDAÇÃO
+
+* Verificar se STATUS_ PRESENCA_CARGA = 
+
+* Mudar Interface para 
+
+1. Front-End - Tela para Solicitação de Embarque
+   > Se o despacho não existir na PROC_SISCOMEX - Mensagem "Despacho Não Encontrado"
+   > Se o despacho existir na PROC_SISCOMEX e o STATUS_SOLICITACAO_LIBERACAO <> "N" - Mensagem "Liberação de Embarque já solicitada para o Despacho "
+   > Se o despacho existir na PROC_SISCOMEX e o STATUS_PRESENCA_CARGA <> "A" - Mensagem "Despacho com Pendência de Presença de Carga"
+
+- Seleção dos Contêineres que serão Liberados
+  Ao apresentar a lista de conteineres, incluir um checkbox, inicialmente deve vir todos selecionados, possibilitando o cliente "desmarcar" os conteineres que não serão embarcados.
+
+- Caso de Avarias bloqueia todos
+
+2. Analisar Avarias dos Conteineres
+3. Para cada conteiner do Despacho, acessar a tabela XXX
+4. Se o conteiner possuir avaria apresentar na lista o conteiner em vermelho, com as descrições das avarias na coluna avaria e não apresentar o botão "Solicitar Embarque" (para os conteineres que nao possuem avaria, colocar n/a na coluna).
+
+Para os conteineres estão no pátio, posso utilizar os dados de avarias existentes na tabela CONTF ?
+Sim. Campos AV1, AV2, AV3, AV4, AV5, LAV1, LAV2, LAV3,  LAV4,  LAV5.
+ 
+ Para os conteineres que não estão no pátio, como consigo identificar as Avarias? HD07L0? Qual chave devo utilizar para acessar essa tabela?
+No caso do histórico, recomento a tabela COM01F, campos C01TAV,  C01LAV. A chave é o conteiner (C01CNA, C01CNN), tipo de movimento (C01TDO='01' entrada por porta, '02' saida por porta, '11' descarga de navio, '12' embarque) e ainda navio/viavem (C01BAE, C01VIE, C01BAS, C01VIS).
+ 
+ Qual tabela possui as descrições dos Status das avarias?
+A tabela AUX1F. Campo DCON='AL' código de localização e 'AT' código da avaria. No campo DCOD está o código e no  DDESC a descrição.
+
+

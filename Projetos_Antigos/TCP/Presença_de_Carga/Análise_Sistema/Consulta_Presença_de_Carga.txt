@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-28T18:00:03-03:00
+
+====== Consulta Presença de Carga ======
+Created quinta 28 maio 2015
+
+Consulta Presença de Carga é feita no link:
+
+Consulta Presença de carga por DDE é feita em:
+	**app/solicita_presenca_carga_consulta_dde.php**
+	
+	
+Consulta presença de carga por Contêiner e feito em:
+	**app/solicita_presenca_carga_consulta_conteiner.php**
+
+

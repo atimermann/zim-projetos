@@ -1,0 +1,53 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-05-04T23:09:43-03:00
+
+====== Reunião Segunda ======
+Created domingo 04 maio 2014
+
+**Apresentar Tarefas realizadas:**
+
+
+====== Criação da Nova Plataforma de Desenvolvimento e Intranet ======
+
+===== Problemas antigos =====
+
+* Sem uma plataforma de desenvolvimento padrão
+* Sem segurança de informação
+* Sem Suporte a testes a nivel de Programação
+* Código sem padrão de qualidade
+* Código desorganizado, sem verificação de erro, extrema dificuldade de manutenção
+* Desenvolvimento direto na produção, com alto risco (com problemas já ocorrido)
+* Obrigatório trabalhar com arquivo remotamente na produção
+* Sem controle de alteração
+
+
+===== Soluções novas =====
+
+* Uma das plataforma de desenvolvimento mais usada no mundo em PHP, testado e reconhecido
+* Suporte a Teste de código (Apesar de ainda não usado)
+* Maior segurança
+* Utilização das melhores técnicas de programação, aumentando a produtividade geral (com o tempo), Criação de modelos prontos de tela, basta configurar ou em alguns casos é gerado automaticamente baseando-se no banco de dados
+* Ambiente de Desenvolvimento / Homologação / Produção
+* Desenvolvimento ocorre localmente na CINQ, e só depois de pronto e testado é enviado para o servidor de homologação onde novamente é testado
+* Todo desenvolvimento é registrado e salvo, podendo ser recuperado de qualquer ponto e possibilidade de verificar quem é responsável por qual alteração (GIT)
+* Melhor documentação de código
+
+===== Desenvolvimento =====
+
+* Criação de Driver para suporte ao Banco de dados DB2 OS/400 Mainframe da TCP (no Framework)
+* Desenvolvimento de nova intranet 
+	* Novo sistema de autenticação
+	* Novo Layout
+	* Novo Sistema de Menu
+	* Novo sistema de Perfil e segurança
+* Desenvolvimento do Gestão de Incidêcia com a nova estrutura
+* Criação de scripts para automatização de tarefas de desenvolvimento
+
+
+====== Servidor ======
+
+* Instalado e configurado novo servidor web com suporte PHP em LINUX
+* Compilação e instalação de driver para PHP do DB2, MSSQL etc... (Foi necessário pesquisa)
+* Instalação de repositório de dados centralizado  (GIT)
+* Separado ambiente de Produção / Homologação ( Por enquanto no mesmo servidor)

@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-10-17T14:32:30-03:00
+
+====== Instrução de Embarque ======
+Created sábado 17 outubro 2020
+
+====== Mutation ======
+
+mutation {
+  createShippingInstruction(
+	shippingInstruction: {
+	  auction: { urlKey: "954f86ec-748b-4cd8-82d3-16b61e7bf378" }
+	  description: "Descrição para a instrução de embarque"
+	  lot: "Título para o lote"
+	  attachments: [
+		{
+		  description: "Novo anexo"
+		  attachment: "https://cheap2ship-website.s3-us-west-2.amazonaws.com/static/attachment/0383ecdd8cc7cc78c5fb05fccf7054b42f0743c5.jpg"
+		  metadata: "{}"
+		}
+	  ]
+	  containers: [{ containerType: { id: 1 }, quantity: 10 }]
+	}
+  ) {
+	id
+  }
+}
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}
+
+{{./pasted_image002.png}}
+
+
+{{./pasted_image003.png}}
+
+{{./pasted_image004.png}}
+
+{{./pasted_image005.png}}
+
+
+{{./pasted_image006.png}}
+
+
+{{./pasted_image007.png}}
+
+
+

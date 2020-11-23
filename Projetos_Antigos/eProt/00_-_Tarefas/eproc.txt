@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-14T22:27:15-02:00
+
+====== eproc ======
+Created terça 14 fevereiro 2017
+
+alealt94@hotmail.com
+123456
+
+https://eproc.jfpr.jus.br
+Login: pr063810
+Senha: 04111984
+
+**>> Petição Inicial**
+
+{{./pasted_image.png}}
+
+**Próxima >>**
+
+Escolher um assunto qualquer
+
+**Próxima >>**
+
+**Digitar o CPF:**
+643.139.059-87
+
+**e Consultar >>**
+
+Selecionar Autora e clicar em Incluir
+
+**Próxima >>**
+
+Selecionar o Primeiro e clicar em Incluir
+
+**Próxima**

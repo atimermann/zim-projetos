@@ -1,0 +1,61 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-07-23T16:47:08-03:00
+
+====== Correções 2 ======
+Created quarta 23 julho 2014
+
+TCP 
+Erros e Sugestões:
+
+1- Na parte de Administração, todas as telas apresentam o seguinte problema:
+ Ao excluir um usuário/item , quando novos usuários são criados, o campo “Código” se perde, mantendo a numeração dos antigos itens.
+{{./pasted_image.png}}
+
+
+2- Na tela de Perfis, ao Cadastrar/Editar um usuário,  o campo Descrição não possui limite de caracteres, e quando o usuário insere uma quantidade significativa de palavras, a descrição não pode ser vista por completo.
+{{./pasted_image001.png}}
+3- Na tela de Permissões, o sistema apresenta erro se o usuário tentar criar duas permissões iguais.
+{{./pasted_image002.png}}
+
+4- Sugestão: Todas as telas que possuem a opção “Cadastrar” apresentam esses botões no rodapé.
+{{./pasted_image003.png}}
+Sugere-se a inserção de um botão “Cancelar” ao lado dos mesmos.
+
+5- Sugestão: Na tela de Usuários, quando o mesmo tentar alterar a senha do Administrador, acrescentar campo “Senha Atual”.
+{{./pasted_image004.png}}
+6-  Ao criar uma O.S. de um contêiner normal, quando pressionado o botão “Ok”, o sistema apresenta erro:
+
+{{./pasted_image005.png}}
+{{./pasted_image006.png}}
+
+{{./pasted_image007.png}}
+7- Sugestão: Nas telas de Monitoração de Incidências, aumentar o limite de linhas por página.
+{{./pasted_image008.png}}
+8- Sugestão: Na tela de Solicitar Ordem de Serviço, a checkbox “Selecionar Tudo” acaba sendo inútil,devido à regra de negócio: O usuário não pode criar uma Ordem de Serviço se as incidências forem de contêineres diferentes.
+{{./pasted_image009.png}}
+{{./pasted_image010.png}}
+9- Sugestão: Na tela de Monitoração de Incidências, o botão “Reabrir” acaba sendo inútil, uma vez que todo O.S. encerrado não é mais exibido no relatório.
+
+{{./pasted_image011.png}}
+{{./pasted_image012.png}}
+{{./pasted_image013.png}}
+10- Na tela “Armador”, eu acrescentei o meu e-mail à todos os itens, porém, quando passe pelo processo de Monitoração de Incidências, nenhum e-mail me foi enviado.
+
+{{./pasted_image014.png}}
+
+
+
+{{./pasted_image015.png}}
+
+
+
+
+
+
+
+
+
+
+
+

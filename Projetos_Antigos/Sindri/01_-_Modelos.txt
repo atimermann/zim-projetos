@@ -1,0 +1,119 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-06-04T21:20:36-03:00
+
+====== 01 - Modelos ======
+Created quinta 04 junho 2015
+
+
+
+====== Discussão de Exibição ======
+
+
+===== Cliente =====
+
+
+
+===== Servidor =====
+
+==== handlerResult ====
+* Trata dados antes de enviar para o cliente
+* Todos os dados enviados pelo modelo é enviado para o cliente
+* Porém só é "tratado" quem tá definido no schema do modelo
+
+modelo descreve os dados do banco diretamente? ou vamos fazer campos virtuais?
+	* Idéia original era descrever o banco de dados
+
+* Mas também precisamos descrever a interface com o usuario, issu era feito com o restiffy
+
+
+* Antes a 
+ideia era deixar a camada de comunicação API manual feito no restify, como automatizei, complicou
+
+__COLOCAR EM MENTE QUE O SERVER MODEL SCHEMA só descreve o modelo__
+
+
+⇒ ADICIONAR REGISTRO
+
+* Antes seria adicionado manualmente com push no result
+* Vai vir do modelo (OK)
+* Dados Vem do MOdelo
+* Renomear campo no retify
+
+
+ ====>  ADICIONAR TEXTO CATEGORIA
+ ====> renomer permissaoCategoria_id p/ categoria_id
+ ====> criar categoria
+
+QUando renomeio, muda ao fazer select, update e insert
+
+Configuração do restify é feita diretamente no model (insert, update, delete, name)
+**1)** **(Vamos mudar, configuração do restiy, será feita ao instanciar restfy)**
+
+**2) Permissão Fica nos Métodos do Modelo**
+
+**3) Renomear o nome de um campo fica no REST **
+	Pois esse novo nome é para quem está de fora, de dentro precisamos acessar o nome original
+	Vamos renomear campos manualmente, assim extinguindo a necessidade de criar configurações no RES
+**Vamos Deixar o nome do Campo com o modelo**
+	Assim migramos também input e outputHandler
+
+	
+**4) Novos campos são definidos pelos métodos**
+	O Rest manda tudo que for enviado pelo model, mesmo q não esteja 
+	Rest controla quem sai e quem entra
+
+**5) Vamos remover Propriedades Insert, update, select e delete**
+	Se para definir quem entra e sai vamos fazer manualmente, pq não padronizar e deixar tudo ser definido manualmente?
+	
+**6) FIltros automaticos e dataHandler no model, pois trata de valores**
+
+
+
+Criar Middlewares extras?
+Criar encadeamento de plugins
+
+COMO VAMOS RENOMEAR?
+- Criar uma opção callback no plugin
+- Criar uma opção de callback geral
+- Encadeamento de plugin? 
+
+
+Propriedades
+* (INSERT)
+* (UPDATE)
+* (SELECT)
+* (NAME)
+
+
+INSERT
+
+Remover Title (PRA Q TITLE?)
+
+Porque datahandler fica no modelo enquanto insert fica no restify?
+
+Pq remover campo fica no modelo enquanto remover insert/update fica no restify?
+
+pq validar q é do modelo fica no restify
+
+
+Existem casos q o mesmo modelo pode ser usado por retify diferente?
+**SIM**
+
+filtro de campos deveriam ficar no restify, não no model, porém 
+
+**IDEIA: VAMOS CENTRALIZAR DADOS NO MODELO, **
+
+
+==== handlerInput ====
+| Nome              | Idade |
+|:------------------|:------|
+| André Timermann   | 31    |
+| Fernando Meneguim | 27    |
+
+
+-> GET FIELDS (GetSelectedFields)
+
+
+
+-> 

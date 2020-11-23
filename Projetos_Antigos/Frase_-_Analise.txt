@@ -1,0 +1,249 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-26T13:17:08-02:00
+
+====== Frase - Analise ======
+Created quinta 26 outubro 2017
+
+
+===== Login Teamviwer: =====
+~~ID: 238524103~~
+~~senha: 991122~~
+
+**Roboô 1**
+**ID: **684897160
+**Senha:** eliza.frase
+
+**Roboô 2**
+**ID: **306228201
+**Senha:** andre123
+
+===== Dominio =====
+**Login:** andre.smarti
+**Senha:** andre2017
+
+===== Login Windows =====
+**vpn**
+eliza
+eliza.frase
+
+**Dominio**
+robo@frase.local
+BqcCsY9CuR
+
+===== Download Frase =====
+https://suporte.dominioatendimento.com:82/soucliente/faces/instalacoes.html
+
+===== Email para envio de erros =====
+luizcnm@gmail.com
+franciele@frasecontabilidade.com.br
+crislaine@frasecontabilidade.com.br
+
+
+===== Email para envio =====
+
+eliza.frase@gmail.com
+eliza2018
+
+====== Reunião de implantação ======
+
+* Se a receita estiver fora do ar necessario aguardar até alguns dias sem gerar erro 
+
+Tentar instalar dominio criar versão de teste com servidor de teste
+
+* Pode ocorrer problema no banco de dados
+* Title:	Mensagem do banco de Dados
+Class:	FNWNS3125
+Position:	726, 435
+Size:	468, 93
+Style:	0x96C80000
+ExStyle:	0x00000101
+Handle:	0x001B04E8
+
+* Carregamento e manipulação planilha
+
+* Criar um robô altera todas os dados, por exemplo, mudou nome da empresa:
+	* Muda no Dominio
+	* Muda nome de pasta
+	* Muda planilhads
+
+
+* Cadastro Interno gerenciado pela frase:
+	* Empresas
+		* Nome da empresa
+		* CNPJ
+		* Tipo: Simples Nacional
+		* Nome do Grupo
+		* Email (Diferenciar do email cadastrado no dominio)
+ 
+
+	* Lista de email para mandar cópia
+
+
+* ~~Extrair informação do PDF~~
+
+* validar se é possível extrair DAS direto no dominio (Necessário usar VPN ou voltar para fazer um pequeno script autoit para validar) ou criar banco de dados
+
+====== Processo ======
+
+**Pré: Gerenciar Atualização**
+
+* Necessário instalar uma VPN pra smarti conseguir desenvolver remoto sem problemas (Deve ser feito pela Smarti)
+
+**Passo 01: Gerenciar Atualização**
+
+* Ver telas no vídeo
+
+
+**Passo 02: Carregar Empresa**
+
+* Identificar as empresas que serão processadas:
+	3 possibilidades:
+	* Palavra chave na aba observações > Fiscais
+		palavra: SIMPLES
+	* Criar cadastro no Workr para que eles mantenham atualizado (Departamento Societário) **(Preferível)**
+	* Importar Planilha Excel
+
+* Cenário acaba aqui, ele é um gerador de tarefa mensal
+* Nova função no workr: customização tabelas
+	* Permite adicionar menu para conta especifico
+	* Definir permissão desse menu
+	* Criação de tabela dinamica via sistema - Usar outro banco de dados para não misturar com o Sindri migration
+	* Tela de cadastro customizado
+
+**Passo 03: Buscar empresa**
+
+F8 -> Seleciona empresa (ver 1:17)
+
+**Passo 03: Menu**
+
+Teclas de atalho (Spy não identifica)
+Alt + M, r
+- Gera novo período, prepara sistema para gerar impostos
+- Fecha e não faz nada
+
+**Passo 04: Entra na prefeitura**
+
+* Segue passos do documento para baixar XML
+* Validar se a empresa está correta
+
+**Passo 05: Volta o Dominio**
+
+* Segue passos do documento até página 11
+
+**Passo 06: Casos erro**
+
+* ~ 4x por ano 
+* Caso de Erro em uma ou mais notas para todo o processo para todas as notas mesmo aquelas q deram certo pois o resultado final depende, 
+* Envia email e sms avisando (CRITICO)
+* Informações da listView não serão usados
+
+
+**Passo 07: Verificação extrato**
+
+* Exportar texto ou planilha, mais fácil extrair
+* Na prefeitura página 18, extrair total somando todas as linhas em vez de imprimir (pois quando imprime gera imagem pdf)
+
+
+**7°) Integração Contábil**
+
+* Se não for possivel navegar no internet explorer embutido é possível carregar externamente extraindo algumas  informações, pelo menu 
+	* Controle > Parâmetros > Federal > Simples Nacional
+
+* Validar automoção via dominio, se não for possível, automatizar externamente via navegador
+
+9**°) Salvando Guia na Rede**
+
+* Regradepastas
+	* Se tiver Grupo:
+		* [[/Empresas/{NOME DO Grupo}/{NOME_]]DA_ EMPRESA}/[[/Empresas/{NOME_DA_EMPRESA}/DEPT_FISCAL/GUIAS|GUIAS]] IMPOSTOS/{ANO}/DAS SIMPLES NACIONAL {MÊS} {ANO}.pdf
+	* Se não tiver Grupo:
+		* [[/Empresas/{NOME_DA_EMPRESA}/DEPT_FISCAL/GUIAS]] IMPOSTOS/{ANO}/DAS SIMPLES NACIONAL {MÊS} {ANO}.pdf
+	* Necessário confirmar  vamos mudar regra
+	* Tomar cuidado com filiais ( a pricipio serviço não tem)
+	* validar bem
+	* Se pasta não existir, cria toda estrura
+
+
+**10°) Preenchendo as planilhas** 
+
+* Carrega Planilha:
+	* DEPARTAMENTOS / FISCAL / IMPOSTOS / IMPOSTOS- { ANO }.xls
+
+
+**11°) Preencher a planilha Resumo DASN**
+
+* Carrega Planilha:
+	* EMPRESAS / { GRUPO } / { EMPRESA } / DEPT FISCAL / RESUMO DASN - {EMPRESA}
+	* Preenche o mês anterior e aliquita
+
+
+**12°) Envio de email**
+	* Usar email do cadastro interno
+	* Vai ser criado outro template sem os dados, ou será necessário extrair da guia
+		* Bom dia, boa tarde, boa noite de acordo com horário 
+
+
+====== Processo externo ======
+
+www8.receita.fazenda.gov.br
+
+Cique em PGDAS-De DEFIS > Código de Acesso
+
+{{./pasted_image.png}}
+
+Puxar do Dominio:
+Controle > Empresas > Empresa
+* cnpj
+* responsavel legal > cpf
+
+
+Controle > Parâmetros > Federal > Simples Nacional
+
+{{./pasted_image001.png}}
+
+{{./pasted_image002.png}}
+preenche mês anterior
+{{./pasted_image003.png}}
+
+
+Para robô
+{{./pasted_image004.png}}
+
+Valor do Extrato do Simples (Aquele verificado)
+* Serviços sempre vai ter receita exerno zero
+{{./pasted_image005.png}}
+Clica ok:
+{{./pasted_image006.png}}
+Deve-se selecionar as atividades
+
+* Verificar com a Contábil Plus como eles fizeram esse mapeamento, pois a nomenclatura é diferente
+* Pesquisar na internet como fazer o mapemaneto
+* Em ultimo caso fazer mapeamento manualmente
+
+{{./pasted_image007.png}}
+
+Preencher apenas valor , em serviço não vai ser necessário preencher outros:
+
+{{./pasted_image008.png}}
+Salvar
+ok
+Calcular
+
+{{./pasted_image009.png}}
+
+Salvar
+OK
+depois em transmitir
+{{./pasted_image010.png}}
+
+Gerar DAS
+{{./pasted_image011.png}}
+
+GerarDAS
+
+{{./pasted_image012.png}}
+
+
+Continua processo salvando guia
+

@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-18T11:39:11-02:00
+
+====== 15 - Reunião de Entrega ======
+Created quinta 18 dezembro 2014
+
+
+* **(OK]Na consulta protocolo exibir os cancelados** 
+* **[OK] Nos Sisint alterar a coluna liberação cancelada para Status Liberação**
+* **[OK] Tradex comum validar automaticamente**
+
+==== Anotação Joacir ====
+
+
+ Apresentação do Site de faturamento aduaneiro.
+Reunião 18/12/14
+Andre/ Joacir / Maria
+
+* **[OK] Alteração no termo de aceite amparadas pela Declaração de Despacho Exportação Nº XXXXXXXXXX;**
+* As consultas Intra e Extra apresentar as informações dos CNTR's Liberadas e Não liberadas;
+* Analisar para inserir as informações na consulta extra avarias para os despachos e Res para Posteriori;
+* Consulta Intra alterar o cabeçalho Liberação cancelada para "Sugestão" Liberação Realizada (Sim ou Não) com ou sem avarias;
+* Analisar os status apresentados na Consulta Intra (Tradex apresentando status com pendência Siscomex)
+* Inclusão do PDF da DDE
+*Sem consistências quando o usuário altera as informaçõs da DDE já liberada no siscomex. O site TCP apresenta a primeira solicitação de embarque "AVALIAR";
+* Avaliar o campo CNPJ Tradex para consistências "AVALIAR".

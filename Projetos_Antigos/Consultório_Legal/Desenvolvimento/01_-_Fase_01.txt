@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-21T14:17:08-02:00
+
+====== 01 - Fase 01 ======
+Created terça 21 outubro 2014
+
+===== Sistema de Autenticação =====
+
+
+CONTA -> USUARIO -> PERFIL -> PERMISSAO
+
+
+

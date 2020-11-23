@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-18T11:35:31-03:00
+
+====== 16 - Revisão Tradex à posteriore ======
+Created segunda 18 maio 2015
+
+
+{{./pasted_image.png}}
+
+
+**Status**
+* Pendente Validação de Dados **(Validação é feita ao realizar Solicitação de Embarque)**
+* Problema de Validação**(Validação é feita ao realizar Solicitação de Embarque, caso contrário não cria protocolo)**
+* Pendente Solicitação Tradex (Automate)
+* Prendente Retirada Retenção Argos
+* Cancelado
+* Finalizado
+
+
+
+**STATUS**
+
+Pendente Solicitação Tradex (Automate)
+Prendente Retirada Retenção Argos
+Cancelado
+Finalizado
+
+
+**Status por contêiner**

@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-09-09T00:25:26-03:00
+
+====== Crontech E-commerce ======
+Created quarta 09 setembro 2020
+
+Diretório do projeto: **~/projetos/crontech**
+
+Diretório de configuração do docker no lifiweb: ~**/projetos/lifiweb/lifiweb-docker-config/apps/crontech**
+
+===== Dominios =====
+
+Projeto para criação do e-commerce de produtos de informática
+
+icrontech.com.br
+ctechinfo.com.br
+crontechinfo.com.br
+crontechinformatica.com.br
+crontechi.com.br
+
+====== Plataforma ======
+
+Plataforma escolhida inicialmente foi a opencart e o marketplace mercadoshop
+
+Ver documentação do opencart do zwiki sobre cursos
+
+**Cursos:** **3 - Aplicações:OpenCart**
+
+
+====== Templates prontos ======
+
+https://www.utemplate.com.br/categoria/eletroeletronicos
+https://shopgames.utemplates.com.br/index.php?route=common/home\
+
+====== Modulos ======
+
+https://www.opencartmaster.com.br/modulos-gratis

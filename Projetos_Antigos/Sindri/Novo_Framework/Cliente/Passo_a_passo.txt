@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-17T23:27:26-03:00
+
+====== Passo a passo ======
+Created terça 17 junho 2014
+
+Objetivo desta sessão é criar uma referencia rápida para realizar diversas tarefas!
+
+Deve ser objetiva e com links para explicações mais detalhadas, de prefêrencia com etapas

@@ -1,0 +1,204 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-09-23T10:29:11-03:00
+
+====== Alteração de Informação de Contêiner ======
+Created segunda 23 setembro 2013
+
+* Alteração de informação de contêiner via site
+
+* Opção para excluir o conteiner
+* Booking Eletronico
+* Rolagem 
+* Mudança de navio
+
+
+* Armadores
+
+* Sistemas IDI
+
+* Dois atores:
+	* Armadores
+	* Cliente
+
+* OCR (Gate)
+
+* Quando estiver fora não pode excluir
+* Quando estiver dentro deve alterar
+* Sistemas EDI Manager
+* Sistemas ARGUS
+
+(PROCESSO SÓ EXPORTAÇÃO)
+- O Cliente cadastra o contêiner antes de entrar na TCP (fora da tcp status = L) (Site cadastra no EDI);
+- Testa os paramêtros se validar cadastra no EDI Manager;
+- Quando a TCP aprova, fica status verde no EDI e ;
+- ENtão é cadastrado no Argus;
+- QUando o contêiner entra na tcp, passa o gate, muda no apenas no Argus (edi só muda quando aprova)
+
+
+**Contêiner dentro**
+
+* Já entra no gateway com o navio/viagem. 
+* Contêiner fica esperando o navio esperar
+* PODE OCORRER ALTERAÇÃO: Navio mudou, destino mudou, erro de cadastro 
+	* **ESSE É O PROBLEMA**
+* Sistema deve poder mudar o booking ou navio
+**Criar**
+	* botão alteração
+	* Contêiner
+	* booking (reserva) (pesquisa o booking)
+	* puxa os campos
+	* navio/viagemn 
+	* Porto de descarga
+	* Destino Final
+
+
+Se fazer alterações é gerado cobrança, verificar como é feita essa cobrança
+
+Verificar os prazos, existem dead-line que não devem permitir a alteraçãod o contêiner
+
+Verificar o que é Extensão de Lar
+
+Ter uma interface de aprovação (Pode recusar alteração)
+
+Alteração de Navio precisa gera retenção 5 (Liberação junto a receita)
+
+
+
+
+====== Chaves ======
+
+* Possível alterar informação do contêiner depois de cadastrado
+
+
+
+====== Anotação Helmuth ======
+
+Segue em anexo doc de requisitos conforme nosso alinhamento;
+
+Alteração automaticamente pelo booking eletronico. Armador.
+
+Cleinte:
+->Conteineres fora do TCP.
+                ->Permitir apenas a exclusão para um novo lancamento.
+                ->Aplica para os conteineres de exportação;
+                ->Caso o conteiner possua ordem de embarque, exibir mensagem que a **Ordem de Embarque** será cancelada.
+                ->Excluir conteiner no EDI e no ARGOS e Agendamento;
+                ->Não gera nenhuma cobrança
+                ->Gravar um historico com a exclusão;
+                **->Somente o usuario que cadastrou o conteiner poderá fazer a**
+**                ->Conteiner vinculado ao Navio Viagem;**
+
+->Conteineres Dentro dO TCP.
+                ->Alterações:Alteração de Conteiner
+                ->Permitir alteração de:
+                               ->Booking
+                               ->Navio
+                               ->Viagem
+                               ->Porto de Descarga
+                               ->Destino Final;
+
+
+                **->Os conteineres que nao tiver booking cadastrado,os dados ficam editado;**
+
+                ->Gerar Cobrança para tudo;
+
+                ->validar com o Faturamento a metodologia de cobrança;
+
+                ->Alteração somente antes do deadline;
+
+                ->Ter uma interface de aprovação das alterações, com a opção de aprovar ou recusar a solicitação;
+
+                ->Toda a alteração de navio o sistema deverá gerar codigo de retenção 5;
+
+ 
+
+
+====== Documento de Negócio ======
+
+===== Visão =====
+
+Atualmente através dos serviços on-line não é possível alterar informações de contêineres depois que o mesmo é incluído. Quando existe esta necessidade a área de operações é acionada através de e-mail para que faça as alterações necessárias para que possibilite a alterações dos dados do container. Estas alterações são feitas manualmente dentro dos sistemas EDI e Argos. Algumas alterações implicam em cobrança e o cliente alega muitas vezes que não sabia.
+O objetivo deste projeto é permitir o cliente editar informações do contêiner, caso o mesmo esteja em situação que permita alterações, e notificação que a alteração pode gerar uma cobrança.
+
+===== Dicionário =====
+
+**Extensão de Lar**
+	Lista de contêineres que tem um prazo para alterações (deadline) estendido.
+	
+**Deadline**
+	Prazo máximo para alterações de um contêiner antes do embarque no navio.
+	
+	
+
+
+===== Regras =====
+
+
+
+====== Revisão 01 - 25/09 ======
+
+
+* A unica função da ordem de embarque é exibir na tela a mensagem: "**O Contêiner já tem ordem de embarque liberada, será perdido"**
+Usd
+* ~~No Argos temos uma coluna que é o código do Cliente, o sistema deverá apenas permitir a alteração/exclusão se o usuario logado no site for o mesmo código que consta nesta tabela.~~
+* Conteiner vinculado ao Navio Viagem no momento do cadastro
+* ~~a exclusão se aplica somente a contêineres fora do TCP, EFALTA = ‘’~~
+* Apenas a alteração será enviada para aprovação
+
+
+* Se o contêiner tiver uma ordem de embarque deve ser enviado para o argus "código de retenção com valor igual a 5 "
+via xml, que será implementado ainda com a equipe da espanha
+
+Códigos de retenção são código de bloqueio do contêiner
+retencao = ele esta retido por algum motivo
+exemplo:
+retencao 9 = pagamento
+retencao 5 = liberacao
+retencao 2 = vistoria
+
+Os dados serão salvmos na base de dados através do XML que irá enviar todas as informações de alteração, além do código de retenção
+NAVIO/VIAGEM/BOOKING/DESTINO etc... deve ser analisado
+
+o caso da retencao
+sometne se aplica se o container estiver ordem de embarque liberada
+ai na alteracao o ele vai perder a liberacao
+
+
+* navio/viagem é apenas uma informação não vai alterar o processo
+
+* A cobrança por alteração seré feito atráves de geração de OS igual o faturamento Online, os valores serão fixos cadastrados no arquivo precos.php, a força de cobrança ainda será definido
+
+cada alteracao de contaienr dentro do patio
+gera uma OS com valor x
+
+
+~~quando for feito alteração do navio A para o navio B~~
+~~temos que verificar 2 deadlines~~
+~~o deadline do navio A e do navio B~~
+~~e é simples assim:~~
+~~para fazer alteração é necessário que tanto o deadline do Navio A quando do navio B não tenham estourado~~
+
+
+
+~~sobre a extensão do lar foi anexado um documento a atividade~~
+
+~~[18h18min16s] Helmuth Hofstatter: q vc~~
+~~[18h18min20s] Helmuth Hofstatter: se o deadline estiver encerrado~~
+~~[18h18min23s] Helmuth Hofstatter: vc checa nesta tabela~~
+~~[18h18min23s] Helmuth Hofstatter: se tiver la~~
+~~[18h18min27s] Helmuth Hofstatter: vc permite a alteracao~~
+~~[18h18min29s] Helmuth Hofstatter: ok~~
+~~[18h18min37s] André Gustavo Timer~~
+
+
+~~Se tiver o deadline checa na tabela e verifica data então permite alteração~~
+
+
+
+====== Alterações 10/10 ======
+
+Faltou
+
+
+

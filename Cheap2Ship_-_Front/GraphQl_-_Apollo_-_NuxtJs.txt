@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-03-12T17:28:06-03:00
+
+====== GraphQl - Apollo - NuxtJs ======
+Created quinta 12 março 2020
+
+https://github.com/nuxt-community/apollo-module
+https://apollo.vuejs.org/api/smart-query.html#options
+https://github.com/apollographql/graphql-tag
+https://github.com/Akryum/vue-apollo-example/blob/master/src/main.js
+https://apollo.vuejs.org/guide/#sponsors
+https://lmiller1990.github.io/electic/posts/integrating_apollo_with_vue_and_vuex.html

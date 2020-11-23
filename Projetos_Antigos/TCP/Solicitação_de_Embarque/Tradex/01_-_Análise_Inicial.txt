@@ -1,0 +1,194 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-11T14:26:17-02:00
+
+====== 01 - Análise Inicial ======
+Created terça 11 novembro 2014
+
+* Oq é Registro de Exportação, como funciona?
+* COlocar avançar nos botões
+* Tem processo de Cancelamento
+
+===== Validação Despacho Tradex =====
+
+* COmo será a quebra de LOTE?
+
+**Para preenchimento:**
+	 DDE; 
+	 Recinto Presença de Carga;
+	
+	
+**Para Seleção:**
+	 Cliente; 
+	 Navio;
+
+
+* 4.3.1
+	* Cliente e Navio igual no Presença de carga do Amauri
+
+* Ao avançar mudar de tela em vez de carregar embaixo
+
+* Vai ter apenas uma validação
+
+* Cabeçalho: (5)
+	* Nome Exportador
+	* Navio
+	* CNPJ ...
+	* etc...
+
+
+* Buscar os conteiner no argos
+* Argos retira a retenção 5
+
+====== Estimativa de Prazo ======
+
+Inicio: **13 de Novembro**
+
+* ~~Análise da tela para novo Layout para trocar de página em vez de carregar embaixo  (4horas)~~
+* ~~Reestruturação para novo esquema de passo a passo em javascript (16 horas)~~
+* Campo de pesquisa: **[4h]**
+	* DDE
+		* **Campo numérico 11 dígitos de preenchimento Obrigatório;**  Criar validação para 11 dígitos + Máscara  e vem se tem repetido**(1h)**
+			* __Vai ter numero do despacho pra TRADEX, como funciona, verificar se vai acessar o tradex para fazer a validação__
+			* ~~Validar código verificador apenas é possível validar (214) [2h]~~
+			* Se der erro repetido deverá ser tratado manual
+	* Recinto Presença de Carga
+		* ~~Máscara: XXX.XXXX  Necessário Informação~~
+	* ~~Cliente~~
+		* ~~Select Box  Necessário Informação~~
+	* ~~Navio~~
+		* ~~Necessário Informação~~
+
+**Entrega:** **19 de Novembro**
+
+* Realiza VALIDAÇÕES:
+	* **Validar Apenas DEADLINE (3h)**
+
+* Tela de Informação **(4h)**
+	* Nome do Exportador:
+	* Navio:
+	* CNPJ Exportador:
+	* Viagem:
+	* Deadline:
+__Verificar com o Helmuth onde obter informação na CLIENTF e COMO BATER__
+
+* Trazer Lista de Contêineres do Argos ** QUE NÃO ESTÃO NA SISCOMEX  (4h)**
+	* Número
+	* Contêiner
+	* Lacre
+	* Data de Entrada
+	* Observação
+	**Igual no SISCOMEX **
+	
+* Verificar Avarias da mesma forma com campo de aceite **[1h]**
+
+* __Verificar Validações __**Sem validações**
+
+* Salva os dados Na SISCOMEX **(5h)**
+
+**Entrega:** **21 de Novembro**
+
+* Módulo de HIstórico **[16h]**
+
+**Entrega:** **25 de Novembro**
+
+* Módulo de Consulta Protocolo **(1h) **
+	* __Vai ter informações diferente, verificar diferença entre eles__
+
+**Entrega:** **26 de Novembro**
+
+--------------------------------
+**Total Temporário:  60 horas (8 dias)**
+
+
+* Adicionar mensagem de despacho inválido e despacho não encontrado na janela vermelha (Alterar mensagem para:)
+	* **Número do Despacho Obrigatório**
+	* **Despacho não encontrado**
+
+
+* ~~Separar o processo de validação (Verificar)~~
+
+* Rever ortografia
+
+* ~~Verificar se sempre vem 00 no deadline~~
+
+* ~~Li e concordo está caindo~~
+
+* Verificar checkbox para checar todos os contêineres com o marcelo ao desmarcar o conteiner apareceu o box de confirmação
+
+* ~~Criar protocolo com numero SE~~
+
+* ~~Testar conteners cancelado no consulta protocolo (NÃO DEVE APARECER)~~
+
+* Adicionar Coluna Status no consulta_despacho 
+
+* ~~Remover CNPJ~~
+
+* ~~Atualizar Framework~~
+
+* Recarregar página ao verificar q está deslogado
+
+
+**REVISAR AS VALIDAÇÔES DO TRADEX**
+
+~~MUDAR TERMO DE ACEITE PELO CPF NO EMAIL, MOSTRAR só OS CONTEINERES~~
+
+TESTAR NO IE
+
+
+
+====== Questionar Próxima Reunião ======
+
+
+Qual o status PRESENCA DE CARGA "**T"**
+	**N/A**
+Qual o status ORDEM DE EMBARQUE **"R"**
+	**ENviar por email para Marcelo**
+
+COmo colocar numero do protocolo no relatório?
+	**Adicionar na listagem de despacho, todos os protocolo, mesmo que exista mais de um protocolo por despacho**
+
+Quais são os status retenção?
+	**ARGBASEF.AUX6F**
+
+Alterar algum filtro?
+	**Adicinar filtro por protocolo**
+
+
+====== Mais questões ======
+
+
+ 
+Na questão abaixo:
+	                > Na lista de Protocolo (consulta do cliente e interno) o Status do Despacho deve ser apresentado como:
+	
+	                               Despacho Aprovado
+	
+	STATUS_PRESENCA_CARGA = “A” e
+	
+	STATUS_SOLICITACAO_LIBERACAO = “S” e
+	
+	STATUS_ORDEM_EMBARQUE = “A”
+	
+	 
+	
+	                               Não Aprovado
+	
+	STATUS_PRESENCA_CARGA = “A” e
+	
+	STATUS_SOLICITACAO_LIBERACAO = “S” e
+	
+	STATUS_ORDEM_EMBARQUE = “C”
+
+Vamos ter nova coluna?
+
+E se o status tiver diferente dessas 2 combinações?
+
+Oq coloco como STATUS_ORDEM_EMBARQUE
+
+Retestar Tudo?
+
+
+* **Sâo adições a outros STATUS**
+* **Testar todos os Status**
+

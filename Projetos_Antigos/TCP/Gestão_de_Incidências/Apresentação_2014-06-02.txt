@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-02T15:34:00-03:00
+
+====== Apresentação 2014-06-02 ======
+Created segunda 02 junho 2014
+
+* ~~Adicionar campo de temperatura na analise de manutenção, (Set Point Físico) não pegar mais do argos~~
+
+* TRocar o nome do armador pela sigla: (adicionar na tabela Armador o campo sigla e exibir em todos os lugares do sistema a SIGLA):
+	* AGAR_SIGLA
+
+===== Template de Email para enviar ao terceirizar (Incidência Manutenção) =====
+**Padrão Solicitação de Reparo.docx**
+
+* No template para envio de email Reparador e Armador, os campos são:
+
+* Set Point -> Chamar de Set Point Físico e colocar valor do Set Point Físico
+
+* Adicionar dois campos na Análise: RETURN/N - RETURN/Y 
+
+* Pendência/Motivo -> Descrição detalhada do problema
+
+* Exportador -> Cliente
+
+* Armador: Nome do Armador
+
+* Prestador: Prestador de Serviço
+
+===== Template de Email para enviar ao Cliente/Armador (Incidência Operacional) =====
+**Padrão Confirmação de Temperatura-1.docx**
+
+* Exportador -> Cliente (Mudar nome do campo de Exportador p/ Cliente)
+	* Se Diferença > |X ºC| ( DESLIGADO) (vermelho)  (pra mais e pra menos)
+	* X ficará na configuração
+
+
+Deixar template editavel como html nas configurações
+
+Ver ckeditor
+
+* luiz.velozo@tcp.com.br com as especificações técnicas para funcionamento do email.
+* Manual do Usuário
+* Manual de Acesso
+* Descrição de Objetivos e Funcionalidades (separados)
+* DER e DFD (BPMN)
+

@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-15T01:11:29-02:00
+
+====== Definindo Modelos, Formulário, Validações, Máscaras ======
+Created domingo 15 fevereiro 2015
+
+Precisamos criar uma documentação para este processo, pois é longo:
+
+O Processo todo pode ser resumido com o seguinte:
+
+
+**1) CLIENTE-MODEL**
+
+* Definimos nosso modelo genérico
+* Configurar Validação em **lib/client-model.js. **Precisamos mapear o nome da validação passada em schema, para configuração validation fornecido pelo backbone-validation
+
+
+* Criar data-handler para tipos em sindri/data-handler
+
+
+1000 - 68
+X - 41
+
+68X = 41000

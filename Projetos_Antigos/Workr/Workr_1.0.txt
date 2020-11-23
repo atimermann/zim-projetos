@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-06-21T21:12:39-03:00
+
+====== Workr 1.0 ======
+Created quarta 21 junho 2017
+

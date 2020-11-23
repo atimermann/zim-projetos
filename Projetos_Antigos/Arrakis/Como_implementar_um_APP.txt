@@ -1,0 +1,105 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-02-27T04:22:51-03:00
+
+====== Como implementar um APP ======
+Created quarta 27 fevereiro 2013
+
+
+* Primeiro passo é criar o método def getInstance() que deverá retornar uma instancia de **app.App**
+* É obrigatório ter o arquivo models.py mesmo que não tenha nenhum modelo (ex: Template)
+* O App deve estar pronto para Multiplos Sites (agora é transparente, não precisa pensar nisto)
+* **(NÃO IMPLEMENTADO AINDA) **O App deve estar pronto para internacionalização  
+* **(NÃO IMPLEMENTADO AINDA) **O app deve se compativel com o app Registro (loga tudo que é feito por todos os usuários) 
+
+* Quando você deseja que alguma configuração do app seja configurada obrigatoriamente, no config default deixar um valor (0 por exemplo) como valor de não configurado, obrigando usuário a configurar
+* Incluir uma descrição de todos os APS no código mesmo (pydoc) pois será usado no futuro por uma ferramenta que vai gerenciar app
+* Desenvolver usando a metodologia TDD
+* Documentar o máximo possível no código 
+
+* Analisar SEO para ver se está de acordo
+* Todos os modelos devem ter os campos:
+	* ~~Cadastrado_em (será automatizado)~~
+	* ~~Cadastrado_por (será feito pelo app registro)~~
+	* Ativo
+
+===== Filosofia Arrakis =====
+
+* Todo aplicativo deve ser o mais simples possível, a idéia é ser estendido.
+	* **Exemplo:** O app de Noticia só exibe notícia, para comentário, vai existir outro app que irá se conectar a ele (noticia_comentário) estentendo html e banco de dados
+	* Então sempre criar com essa filosofia na cabeça
+* Os apps são objetos, então cada app pode ter muitas instancias dele, isso é diferente do objeto gerado pelo app:
+	* **Exemplo:** O app Pagina tem dois objetos: [**Não está claro, entender melhor e tentar explicar de forma mais clara com exemplos]**
+		* **appPagina:** ele é o APLICATIVO PAGINA, que gera páginasHTML, e podem existir muitas instancias do aplicativo Página que gerenciada pelo arrakis
+		* **pagina: **Ele é o objeto paginaHtml que representa uma página no navegador, um appPagina pode gerar muitas páginasHTML
+	* Portanto quando o aplicativo gera instancia de alguma coisa, crie duas entidades: appPagina e pagina
+	* Dar mais importancia a classe pagina, deixando maioria dos códigos lá, pense, oq pertence ao objeto pagina fica em pagina, 
+
+* Os aplicativos podem ser alterados por outros como o Site, que adiciona um novo campo para cada um
+	* Então é bom definir os modelos base, que são modelos que podem ser conectados com outras entidades
+
+====== Padrão de Codificação Arrakis ======
+
+
+minha_variavel
+def minhaFuncao(meu_argumento):
+pass
+MinhaClasse:
+minha_instancia
+def meuMetodo (meu_argumento):
+meu_atributo
+pass
+
+
+====== Implementando um Modelo ======
+
+
+==== 1ª Passada ====
+
+Criar nomes de campos
+
+==== 2ª Passada ====
+
+* Verificar Campos Não-Nulo
+	* __imagem_capa = models.ImageField(null=True, blank=True)__
+	* Geralmente para Campos de texto deixar apenaso blank = True
+		* __subtitulo = models.CharField("Sub-Título", max_length=255, blank=True, default="")__
+* Verificar Campos Únicos
+	* __titulo = models.CharField("Título", max_length=127, unique=True)__
+* Verificar Indices
+* Valor default
+	* __destaque_home = models.BooleanField("Destaque na Home", default=False)__
+
+* Definir títulos (label)	
+	__first_name = models.CharField("Meu Primeiro Nome", max_length=30)__
+
+* Definir dicas
+* Definir nomes reverso de relacionamento, deve ser configurado pelo qual nome será chamado pelo outro lado do relacionamento
+	* https://docs.djangoproject.com/en/1.4/ref/models/fields/#django.db.models.ForeignKey.related_name
+* Definir __unicode__
+	__    def __unicode__(self):__
+	__        return u"%s (%s)" % (self.titulo, self.url)__
+
+* Aplicat decorador arrakisModel em todos os modelos:
+	* from arrakis.system.models import arrakisModel
+	* @arrakisModel
+	* Não pode herdar models.Model
+
+==== 3ª Passada ====
+
+* Rever as propriedades Meta do modelo:
+	* https://docs.djangoproject.com/en/1.4/ref/models/options/#ordering
+
+* Executar
+	* __>>> ./manage.py validate__ para validar os modelos criados e já corrigir eventuais erros
+
+
+====== Como Documentar ======
+
+
+
+* Exibir todos os recursos e plugins que ele provê
+* Exibir todos os plugins e recursos que ele utiliza
+* Criar uma descrição do app
+* Utilizar muitos exemplos
+

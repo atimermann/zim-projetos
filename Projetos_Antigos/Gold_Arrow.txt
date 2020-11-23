@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-03-09T16:59:29-03:00
+
+====== Gold Arrow ======
+Created sábado 09 março 2013
+
+Os dados são cadastrado no Rextur e o gold arrow puxa os dados via webservice
+
+Processo de cadastro de aéreo:
+
+1) Cadastro na Rextur
+2) no sistema da wx usa o loc cadastrado na rextur e carrega via form
+3) Já cadastra tudo
+
+**Dado um aereo:**
+{{./pasted_image.bmp}}
+
+**Usar a url:**
+http://201.22.7.14/rextur/rextur/7A5EAY	
+
+

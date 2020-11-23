@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-07-28T21:10:08-03:00
+
+====== Server - nodejs ======
+Created segunda 28 julho 2014
+
+Como não encontrei nenhum framework completo o suficiente em node vou montar um com pedaços de outros, me baseando no symfony e no Django
+
+
+====== Componentes Necessários ======
+
+* Modularizado, tudo é um aplicativo (estilo Symfony)
+	* Deixar simples sem muita frescura como no outro que desenvolvi
+
+* Dependency Injections( Não é necessário no nodejs)
+
+* ORM Active Record com detecção automatica
+
+* Baseado no Express
+
+* Hot Plugue (ao instalar um .zip sistema funciona automaticamente)

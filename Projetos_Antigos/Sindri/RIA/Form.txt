@@ -1,0 +1,93 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-16T23:24:24-03:00
+
+====== Form ======
+Created quinta 16 outubro 2014
+
+* ~~Usar Javascript PURO ou Jquery para gerar formulario~~
+* Existe uma lista de componentes nos favoritos
+
+* Principais Opções:
+	* Backbone Form
+	* ~~DForm~~
+	* ~~Usar Scafolding~~
+
+
+* Idéia é automatizar o máximo possível, exemplo, com modelo definido o formulário pode ser gerado automaticamente, sem código
+	* Modelo 1: Gerado dinamicamente 
+		* **Vantagem: **
+			* Sistema gera tudo dinamicamente, minimo de códigope
+			* Atualização Automática
+
+
+	* Modelo 2: Scafolding (ou seja, vamos usar um script para gerer código)
+		* **Desvantagem: **
+			* Mais arquivo, que pode ser alterado depois causando quebra
+			* Não tem atualização automatica
+		* **Vantagem: ** Funciona como um cache é mais rápido
+
+
+* Encontrar um meio ponto ideal entre **[RÁPIDO DESENVOLVIMENTO**] e **[ALTO DESEMPENHO]**
+
+* Cachear Objetos com formulários para maior velocidade
+
+
+===== Primeiro Módulo: Gerar Formulário a partir de uma lista de objetos com parâmetros =====
+
+* Usar um objeto Backbone para criar cache
+* Será renderizado apenas quando for usado, ficará na memória
+* Deve ser definido via template
+
+===== Requisitos: =====
+	* [OK] Layout personalizavel
+	* Validação cliente/servidor
+	* Máscará
+	* Personalização de Formulários
+	* Desacoplado
+	* Modular
+	* Suporte a multi formulários (sem conflito)
+	* Internacionalizavel
+
+* Obsevar que existem duas formas de alterar um formulário: Via HTML direto, ou executando um javascript que processa um html pronto depois
+
+* Como será os plugins? vamos deixar no mesmo arquivo pra ganhar desempenho?
+* Pode ter plugins q puxa outras bibliotecas
+
+===== Fluxo =====
+
+**BANCO DE DADOS -> SERVER MODEL -> REST API -> CLIENT BACKBONE MODEL -> FORM**
+
+* Usar com client backbone model para aprender
+
+====== Nível 1: FORM (CLIENT) ======
+
+https://github.com/powmedia/backbone-forms
+
+var User = Backbone.Model.extend({
+    schema: {
+        title:      { type: 'Select', options: ['Mr', 'Mrs', 'Ms'] },
+        name:       'Text',
+        email:      { validators: ['required', 'email'] },
+        birthday:   'Date',
+        password:   'Password',
+        address:    { type: 'NestedModel', model: Address },
+        notes:      { type: 'List', itemType: 'Text' }
+    }
+});
+
+var user = new User();
+
+var form = new Backbone.Form({
+    model: user
+}).render();
+
+$('body').append(form.el);
+
+====== Nível 2: BACKBONE MODEL ======
+
+
+
+====== CRUD ======
+
+* Será Criado um CRUD para Integrar os dois componentes

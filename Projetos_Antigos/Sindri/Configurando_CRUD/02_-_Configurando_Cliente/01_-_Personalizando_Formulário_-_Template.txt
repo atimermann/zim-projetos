@@ -1,0 +1,243 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-15T17:10:33-02:00
+
+====== 01 - Personalizando Formulário - Template ======
+Created domingo 15 fevereiro 2015
+
+
+Existem duas formas de personalizar o template de um formulário: automático e manual
+
+===== Automático (Interno) =====
+
+Internamente o Backbone.form tem um conjunto de templates e subtemplate padrão que gera o formulário automaticamente baseado nos parâmetros passado.
+Podemos utilizar a versão padrão definido internamente, escolher um outro template pré-definido ou especificar nosso próprio
+
+É mais complexo, mas permite mais personalização de layout / css / stilo
+
+É Representado uma função que manipula a classe Form
+
+Não permite muitas manipulações individuais de cada campo, é como uma regra geral para todos
+
+===== Manual =====
+
+No template manual, podemos configurar cada campo individualmente, como posição na tela, efeitos etc...
+
+É representado por um arquivo de template (pode ser mustache ou qualquer outro que quiser)
+
+O lado ruim é que não permite alterar algumas css com tanta facilidade quando o Automomático
+
+
+**NOTA: **É possível combinar os dois métodos para obter o resultado desejado
+
+Pense assim: O Manual manipula o template Automática, logo, você primeiro define o Automático (ou não define e usa padrão) e depois vc configura manualmente
+
+Principal uso é conseguir organizar a posição dos campos em formulários Grandes.
+
+
+====== Exemplos ======
+
+Por padrão o formulário terá o seguinte layout:
+
+{{./pasted_image.png}}
+
+Alterando o template automático, podemos obter um resultado como este: (horizontalForm):
+
+{{./pasted_image001.png}}
+
+E com o template manual podemos ter um resultado como este:
+
+{{./pasted_image002.png}}
+
+
+
+====== Configurando Template Automático ======
+
+Para especificar um template automático novo, use o parâmetro:
+	**formCustomTemplate**
+	
+Você pode definir uma string com o nome do template, já salvo em
+	**sindri-crud/lib/formCustomTemplate**
+	
+ou um objeto com o template novo
+
+{{{code: lang="js" linenumbers="true"
+/**
+ * Created by andre on 18/01/15.
+ */
+"use strict";
+
+var Crud = require('sindri-crud'),
+	UsuarioModel = require('../models/usuario'),
+	GridGenerator = require('sindri-crud/lib/gridGenerator'),
+	FormGenerator = require('sindri-crud/lib/formGenerator');
+
+module.exports = function (adminManager) {
+
+	//var template = require("../templates/usuarioForm.hjs");
+
+	return function () {
+
+		//////////////////////////////////////////
+		// Gerador de Formulário
+		//////////////////////////////////////////
+		var Form = FormGenerator.getGenerator({
+			formCustomTemplate: 'horizontalForm'
+		}, UsuarioModel);
+
+
+		//////////////////////////////////////////
+		// Gerador de Grid
+		//////////////////////////////////////////
+		var Grid = GridGenerator.getGenerator({}, UsuarioModel);
+
+
+		//////////////////////////////////////////
+		// Crud
+		//////////////////////////////////////////
+		var usuarioCrud = new Crud({
+			grid: Grid,
+			form: Form
+		});
+
+
+		adminManager.mainRegion.show(usuarioCrud.getView());
+
+
+	}
+
+}
+}}}
+
+Note na linha 21:
+	 **formCustomTemplate: 'horizontalForm'**
+	
+	
+Cada template pode ter um conjunto de parâmetros que pode ser passado, no caso do horizontalForm vocẽ pode definir o tamanho de cada campo:
+usando fieldAttrs.size
+{{{code: lang="js" linenumbers="true"
+	   //////////////////////////////////////////
+		// Gerador de Formulário
+		//////////////////////////////////////////
+		var Form = FormGenerator.getGenerator({
+			formCustomTemplate: 'horizontalForm',            
+			schema: {
+				login: {
+					fieldAttrs: {
+						size: 2
+					}
+				}
+			}
+		}, UsuarioModel);
+}}}
+
+
+====== Configurando template Manual ======
+
+Para configurar um template manual configure os parâmetros
+
+		**template e templateData**
+
+por exemplo
+{{{code: lang="js" linenumbers="true"
+	   
+	   var template = require("../templates/usuarioForm.hjs");
+	   
+		//////////////////////////////////////////
+		// Gerador de Formulário
+		//////////////////////////////////////////
+		var Form = FormGenerator.getGenerator({
+			template: template,
+			templateData: {heading1: 'Edit profile'}
+		}, UsuarioModel);
+}}}
+
+
+
+Abaixo um exemplo de como seria um template criado:
+
+Observe, que os campos são substituidos nas divs com o atributo:
+	<div data-fields="**[NOME_DO_CAMPO]**"></div>
+	
+Existem outras palavras chaves como:
+	**data-fieldsets, data-fields and data-editors.**
+
+Veja mais em:https://github.com/powmedia/backbone-forms#customising-templates
+{{{code: lang="html" linenumbers="true"
+<form class="form-horizontal">
+	<div class="widget-main">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-6">
+					<div data-fields="nome"></div>
+				</div>
+				<div class="col-md-3">
+					<div data-fields="cro"></div>
+				</div>
+				<div class="col-md-3">
+					<div data-fields="clm"></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-2">
+					<div data-fields="tipoCadastro"></div>
+				</div>
+				<div class="col-md-4">
+					<div data-fields="cpfCnpj"></div>
+				</div>
+				<div class="col-md-4">
+					<div data-fields="rg"></div>
+				</div>
+				<div class="col-md-2">
+					<div data-fields="sexo"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<div data-fields="dataNascimento"></div>
+				</div>
+				<div class="col-md-3">
+					<div data-fields="pais"></div>
+				</div>
+
+				<div class="col-md-3">
+					<div data-fields="estado"></div>
+				</div>
+
+				<div class="col-md-3">
+					<div data-fields="cidade"></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<div data-fields="bairro"></div>
+				</div>
+				<div class="col-md-3">
+					<div data-fields="cep"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-8">
+					<div data-fields="endereco"></div>
+				</div>
+				<div class="col-md-2">
+					<div data-fields="numero"></div>
+				</div>
+				<div class="col-md-2">
+					<div data-fields="complemento"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+}}}

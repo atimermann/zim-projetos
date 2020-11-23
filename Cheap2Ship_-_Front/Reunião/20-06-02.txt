@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-07-02T20:29:35-03:00
+
+====== 20-06-02 ======
+Created quinta 02 julho 2020
+
+====== Fornecedor ======
+
+Preparar o ambiente
+
+{
+	"accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTkxOSwidXNlcm5hbWUiOiJhbGxlc3NAY2hlYXAyc2hpcC5jb20iLCJpYXQiOjE1OTM3MTU1NTEsImV4cCI6MTU5MzcxOTE1MX0.1uSeXxrzaLjp-4V_63SA19kmXpTFUydKA_ZW7oFxpV3O6jQPmrVAksOYczDTDYoyst_OxcaX7eLmslw06l2v2g",
+	"decodedAccessToken": {
+		"id": 1919,
+		"username": "alless@cheap2ship.com",
+		"iat": 1593715551,
+		"exp": 1593719151,
+		"company": {
+			"id": 497,
+			"createdAt": "2019-08-02T22:02:11.000Z",
+			"updatedAt": "2019-08-08T15:54:10.000Z",
+			"deletedAt": null,
+			"companyName": "AERIS IND E COM DE EQUIP PARA GERACAO DE ENERGIA SA",
+			"tradingName": "AERIS ENERGY",
+			"code": "12528708000107",
+			"phoneNumber": "(85) 3457-2249",
+			"taxesSumRequired": true,
+			"blocked": false
+		},
+		"fullName": "Alessandro Andrade",
+		"roles": [
+			"company",
+			"admin"
+		]
+	}
+}
+
+roles - freighforwareder
+
+Abre outros menus
+
+/freight-forwader/ 
+
+**Aceitar convite**
+

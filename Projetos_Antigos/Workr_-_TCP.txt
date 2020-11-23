@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-01T20:39:42-03:00
+
+====== Workr - TCP ======
+Created segunda 01 agosto 2016
+
+* Exporte -DE:
+* Extrato de Despacho
+* Entrar com Despacho 2165299711/3
+* Marcar X em Informações Presença Carga
+* Em NRO. CONTAINER/LACRE: ('X' P/EXIBIR)
+* Carregar Conteiner / Lacre
+* ir Paginando até chegar na tela 
+
+Print em:
+**/home/andre/ownCloud/SmartTI/Prospects/TCP/Alteração TCP**

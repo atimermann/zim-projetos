@@ -1,0 +1,115 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-03-19T10:35:08-03:00
+
+====== Scanner ======
+Created quinta 19 março 2015
+
+====== STATUS  ATUAL ======
+
+* Falta configurar o Cron 
+
+
+
+===== Módulo que carrega dados do Scanner, verifica se existe versão nova =====
+
+Necessário desenvolver um novo script de importação de dados via FTP, que ficou pendente quando o Amauri estava na TCP.
+Fernando já tem a regra de geração de arquivo. Segue:
+YYYYMM / YYYYMMDD / YYYYMMDD002619AAAA
+ONDE YYYY é o ano
+MM é mês
+DD é o dia
+002619 é um valor fixo
+AAAA é uma sequência numérica na base 33(verificar) iniciando em 0001 e finalizando em ZZZZ
+
+
+====== Adiciona Retenção do Argos ======
+
+**Objetivo:**
+	* Adicionar retenção de Scanner do argos quando tipo de contêiner for DTA
+	* Remover Retenção do Argos 
+	
+
+A informação se é ou não DTA é obtida pelo automate através do site da RECEITA
+
+**DTA:  **Declaração de Transporte aduaneiro: Ocorre quando o contêiner não foi desembaraçado e o  cliente deseja desembaraçar em outra Posto Aduaneiro (por motivo de valor por exemplo)
+**DI: **Declaração de Importação
+
+Então é enviado um XML para o Argos
+
+
+
+
+
+
+
+
+----------------------------------
+Mensagem XML: 
+----------------------------------
+**CDTA**
+
+
+Enviar todos os conteineres que são DTA (Exportação e Importação) 
+	* **Exportação:** Vem da base do Automate (Consulta Lista DTA)
+	* **Importação:: **Vem de dados de Base do Argos (??Hermes??) Tipo de Documento = DTA
+
+
+	Envia DTA obtida do Siscomex (Via automate) e Hermes
+	**(Verificar formato do XML com Fernando)**
+	DI pode ter retenção de scanner, porém só é enviado via XML as DTI
+
+===================================
+**Tabelas de acesso**
+* Automate.dta.DTA_VEICULO
+* Tudo que tiver CONTẼINER ENVIA VIA XML
+=====================================
+
+	
+**ACK do CDTA**
+
+
+
+(Mais importante) **SCRT**
+	Enviar Solicitação de Retirada de retenção do Scanner
+	**(Verificar formato do XML com Fernando)**
+
+**ACK do SCRT**
+
+
+
+
+
+
+
+
+====== Entender Protocolo XML / Socket  com Argos ======
+
+
+====== Meta amanhã ======
+
+(Tentar fazer localmente)
+
+* Vamos ter q criar uma nova classe (o SCRT do Amauri está errada) vamos fazer uma consulta pegando os conteiner do automate **Automate.dta.DTA_VEICULO **(Quando existir CONTEINER)
+* Fazer os tests de comunicação
+
+* Criar e testar servidor de resposta
+
+
+* Não vai dar tempo de criar tudo do Zero, vamos usar oq já tem no caso o arquivo no amauri
+* scannerxml.class.php
+* Testar a comunicação  ACK SCRT do Amauri (Ver se o protoculo estar certo, verificar se existe retorno)
+* Criar um servidor e ouvir a comunicação de retorno e ver se funciona (entender cabeçalho)
+
+* Replicar  para o CDTA
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-01T09:22:42-03:00
+
+====== Monitoramento Servidor ======
+Created quarta 01 outubro 2014
+
+====== Servidor de Aplicação e Banco de Dados ======
+
+
+* Teste no Postgres
+	* Teste de ping
+	* Teste de UP/DOWN
+	* Teste de CREATE INSERT SELECT READ/WRITE
+	* EXIBIR LOG
+	* REALIZAR TAREFAS DE RECUPERAÇÃO
+* Teste no Pgpool
+	* Teste de ping
+	* Teste de UP/DOWN
+	* Teste 
+
+
+Está sendo Criado duas VM para testar e desenvolver os módulos localmente:
+
+Foi instalado dois ubuntu server
+Não habilitar LVM e nem a opção de expor recurso de hardware no processador, deixa padrão
+
+**Use o seguinte comando para iniciar as VM por linha de comando e acessar via SSH:**
+VBoxHeadless --startvm "Ubuntu REP 01"
+VBoxHeadless --startvm "Ubuntu REP 02"
+
+====== Modulo de Gerenciamento ======
+
+Teremos pelo menos 3 servidores:
+* DB1 -> Postgres 1 
+* DB2 -> Postgres 2
+* MANAGER: 
+	* Será outro servidor que ficará monitorando o DB1 e DB2
+	* Ele terá acesso especial aos dois servidores e através de script realizar as tarefas abaixo em cada servidor (via ssh) ver /etc/pgpool2/online-recovery.sh 
+	* Não usar o failolver.sh do pgpool (ele é executado quando o MASTER cai) requisitando pra o slave virar master (criar um)
+	* Online recovery é um script e reinicia a configuração dos servidores, verificar como seria feito em node
+		http://www.dzone.com/snippets/execute-unix-command-nodejs
+
+* E a questão do MANAGER 1 e MANAGER 2 quando um cai o outro assume? 
+	* Podemos deixar o MANAGER no próprio servidor de banco de dados, ficam se comunicando, quando algo der errado eles se entendem
+		* Porém pode ocorrer de um servidor ficar fora pro mundo externo mas conseguem se comunicar entre si
+
+* Criar dois MANAGER, q se comunicam, se perderem comunicação entre si o primeiro q tocar no db1/db2 o outro não mexe mais
+
+
+* Exibir relatório diversos, como relatório de dezempenho, cpu, memoria, consumo pelo postgres etc...
+* Envia email diario com relatório
+* Envia email quando houver problema grave
+* Exibe Log do postgres em realtime
+* Realiza teste de funcionamento:
+	* Conexão Master
+	* Conexão Slave
+	* Inserção Master
+	* Seleção Master
+	* Seleção Slave (talvez precise aguardar um pouco pela replicação
+	* Inserção Slave (Não deve permitir)
+* Recuperação
+	* Monitora servidor, caso verifique que o master está fora do ar, promove o SLAVE para NOVO MASTER
+	* Quando o ANTIGO MASTER voltar, inicia processo de configuração
+		* Cria backup do ANTIGO MASTER
+		* Limpa ANTIGO MASTER
+		* Realizaça replicação Do NOVO MASTER para ANTIGO MASTER
+		* Configura RECOVERY
+		* CONFIGURA ANTIGO MASTER em SLAVE
+* Backup: Realiza Backup periodico
+* Tarefas:
+	* Será possível realizar/recuperar backup
+	* SErá possível iniciar novo master
+	* Será possível reiniciar servidor

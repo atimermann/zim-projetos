@@ -1,0 +1,160 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-15T11:05:56-03:00
+
+====== Ordem Consultas Tradex à posteriore ======
+Created quarta 15 julho 2015
+
+===== Etapa 1 - Solicitado Ordem de Embarque Tradex à Posteriore na Extranet =====
+
+{{{code: lang="sql" linenumbers="True"
+-----------------------------------------------------------------------------
+-- Cria um NOVO PROTOCOLO
+-----------------------------------------------------------------------------
+
+  $sql = "INSERT INTO [$schema].[dbo].[PROC_SISCOMEX_PROTOCOLO]
+           ([NUMERO_PROTOCOLO]
+           ,[DATAHORA]
+           ,[EMPRESA_ID]
+           ,[USUARIO_ID]
+           ,[TIPO]
+           ,[NAVIO]
+           ,[VIAGEM])
+        VALUES
+            (
+            ''
+           ,GETDATE()
+           ,$empresaId
+           ,$usuarioId
+           ,'P'
+           ,'$navio'
+           ,'$viagem'
+           )
+           
+
+-----------------------------------------------------------------------------
+-- Carrega COnteiner
+-----------------------------------------------------------------------------           
+           
+SELECT EPBRT, SPIEP, SCONSG, NOENT FROM ARGYARBASF.CONTF WHERE (CONTA = '$conta' AND CONTN = $contn AND CONTD = '$contd')
+
+-----------------------------------------------------------------------------
+-- R.E. Vem daqui
+-----------------------------------------------------------------------------
+
+SELECT
+    ID, NUMERO_RE, IMPORTADOR, PAIS_DESTINO, PROGRAMACAO, PROTOCOLO_ID
+    FROM $schema.dbo.TRADEX
+    WHERE PROGRAMACAO LIKE '{$_GET['programacao_tradex']}%'
+        AND EXPORTADOR_CNPJ = '{$_GET['cnpj_tradex']}'
+        AND ESTAGIO = 'RECEPCIONADO'
+        AND STATUS_SRF = 'DEFERIDO'
+        AND TIPO = 'CONTAINER'
+        AND PROTOCOLO_ID IS NULL
+              
+
+-----------------------------------------------------------------------------
+-- Cadastra Conteiner e vincula com PROTOCOLO
+-----------------------------------------------------------------------------
+
+ $sql = "INSERT INTO [$schema].[dbo].[PROC_SISCOMEX_CONTEINERES]
+           ([PROC_ID]
+           ,[CONTEINER]
+           ,[PARTE_LOTE]
+           ,[LACRE]
+           ,[PESO_BRUTO]
+           ,[ARMADOR]
+           ,[PORTO_DESCARGA]
+           ,[EXCLUIDO]
+           ,[LOCALIZACAO]
+           ,[DATA]
+           ,[STATUS_RETENCAO]
+           ,[DT_STATUS_RETENCAO]
+           ,[STATUS_LIBERACAO_CANCELADA]
+           ,[ID_PROTOCOLO])
+     VALUES
+     (
+            ''
+           ,'$conteiner'
+           ,'0'
+           ,'$lacre_argos'
+           ,'$epbrt'
+           ,'$sconsg'
+           ,'$spiep'
+           ,0
+           ,'D'
+           ,GETDATE()
+           ,'$noent'
+           ,NULL
+           ,'N'
+           ,$lastId
+        )";
+      
+-----------------------------------------------------------------------------
+-- Cadastra Conteiner e vincula com PROTOCOLO
+-----------------------------------------------------------------------------  
+        
+UPDATE [$schema].[dbo].[TRADEX]
+                        SET [PROTOCOLO_ID] = $lastId
+                        WHERE ID = '$re'";
+                        
+
+-----------------------------------------------------------------------------
+-- Adiciona na Fila do Automate para processamento
+-----------------------------------------------------------------------------  
+
+-- Carrega Informação daqui:
+ SELECT [ID],[ESTAGIO],[NUMERO_RE],[STATUS_SRF] FROM [extnet].[dbo].[TRADEX]  WHERE ID = $r
+
+"INSERT INTO [Automate].[dbo].[TB_TRADEX]
+               ([NUMERO_RE]
+               ,[NUMERO_ORDEM_EMBARQUE]
+               ,[OBSERVACAO]
+               ,[STATUS]
+               ,[DT_CADASTRO]
+               ,[ID_PROTOCOLO])
+            VALUES
+               ('{$reInfo->NUMERO_RE}'
+               ,'ID RA:{$reInfo->ID}'
+               ,'{$reInfo->ESTAGIO} - {$reInfo->STATUS_SRF}'
+               ,0
+               ,GETDATE()
+               ,$lastId)
+            "
+}}}
+
+
+===== Etapa 2: Script Automate - REALIZA LIBERAÇÃO NO TRADEX =====
+
+{{{code: lang="sql" linenumbers="True"
+
+  
+select * from tb_tradex where status = 0 or status is null
+
+-----------------------------------------------------------------------------
+-- Atualiza Contêiners processados
+-----------------------------------------------------------------------------  
+
+update tb_tradex  set status= '1',DT_STATUS = GETDATE(),DT_ORDEM = getdate() , numero_ordem_embarque = 'COPACOL', observacao = 'RECEPCIONADO - DEFERIDO' WHERE NUMERO_RE = '15/0721039-001'
+
+-----------------------------------------------------------------------------
+-- Consulta usado pelo automate para retirada de retenção 5  
+-----------------------------------------------------------------------------
+
+select distinct * from [extnet].[dbo].PROC_SISCOMEX_CONTEINERES 
+inner join [extnet].[dbo].PROC_SISCOMEX 
+        on [extnet].[dbo].PROC_SISCOMEX_CONTEINERES.proc_id = [extnet].[dbo].PROC_SISCOMEX.id 
+where ([extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 1 
+    or [extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 5)
+and [extnet].[dbo].PROC_SISCOMEX_CONTEINERES.STATUS_LIBERACAO_CANCELADA ='N' 
+and [extnet].[dbo].PROC_SISCOMEX.STATUS_ORDEM_EMBARQUE = 'A' 
+and [extnet].[dbo].PROC_SISCOMEX.STATUS_SOLICITACAO_LIBERACAO ='S'
+and [extnet].[dbo].PROC_SISCOMEX.dt_atualizacao>'2014-12-10 07:00:00'
+}}}
+
+
+
+Solicitar apenas quando todoas as re tiver status 1
+
+
+

@@ -1,0 +1,89 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-06-29T11:05:11-03:00
+
+====== 01 - Revisão ======
+Created segunda 29 junho 2015
+
+====== Discutir ======
+
+* Reenvio de SCRT caso de problema
+	* QUal problema?
+	* O Problema era com Transaction / conteiner (pois o sistema só trata por transaction)
+
+* Atividade que ficou pendente foi controle de reenvio em caso de problema, a cada 5minutos e problema de reenviar conteinere ou transação inteira
+	* talvez tenha q reestururar muita coisa
+
+====== Atividade ======
+
+
+* Script sendSCRT é executado a cada 10 segundos
+
+
+===== Atividades =====
+
+==== - Abre uma conexão Socket com o Argos ====
+
+==== - Gera um ID aleatório enter 0 e 999999 ====
+
+==== - Carrega Transação ====
+
+	SELECT **TRANSACTION_ID**
+	FROM INTERFACES.SCANNER_CONTROL
+	WHERE
+	   XML_ENVIADO = 'N'
+	   PROCESSADO = 'S'
+	  DATA_GRAVACAO >= 2015-04-10 0:0:0
+	 LIMIT 1 
+
+**Versão Pendente de alteração:**
+OR (
+	 XML_ENVIADO = ? AND
+	 XML_FILA_REENVIO = ? AND 
+	  XML_DATA_ULTIMO_ENVIO < (CURRENT TIMESTAMP - " . self::FILA_ESPARA . " minutes)))
+", array('N', 'S', 'S')
+
+Ou seja, controle de reenvio de Transação
+
+
+==== - Carrega Conteineres a partir das Transações ====
+
+Para cada transação, carrega todos os contêiner:
+
+**SELECT** 
+	SCAN_CONTEINER
+**FROM**
+	INTERFACES.SCANNER
+**WHERE**
+	TRANSACTION_ID = $transacao
+
+
+==== - Monta e Envia XML por Socket ====
+
+* **Monta XML**
+	* Percorre todos os conteineres e envia uma tag xml pra cada uma, independente da transação
+	* Transação fica no cabeçalho, é usado a versão gerada randomicamente
+* **MOnta Header**
+	* site / versao / messageid / tamaho
+
+==== - Para cada transação registra como enviado ====
+
+**UPDATE** 
+	INTERFACES.SCANNER_CONTROL 
+**SET** 
+	XML_ENVIADO = 'S', 
+	XML_DATA_ULTIMO_ENVIO = CURRENT TIMESTAMP  
+**WHERE**
+	 TRANSACTION_ID = '" . $transaction . "'";
+
+
+==== - Envia E-mail ====
+
+
+		$message = \Swift_Message::newInstance()
+			->setSubject("Contêiner(es) fora do Pátio")
+			->setFrom("info@tcp.com.br", 'Scanner')
+//            ->setTo(['fernando.mibach@tcp.com.br', 'lider.gate@tcp.com.br', 'luana.barros@tcp.com.br', 'juliana.esteves@tcp.com.br'])
+			->setTo(['fernando.mibach@tcp.com.br', 'andre@hweb.com.br', 'luana.barros@tcp.com.br', 'hcvp2619.paranagua@ebco.com.br'])
+			->setReplyTo(['fernando.mibach@tcp.com.br', 'lider.gate@tcp.com.br', 'luana.barros@tcp.com.br', 'juliana.esteves@tcp.com.br'])
+			->setBody($body, 'text/html', 'utf-8');

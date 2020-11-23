@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-03T18:52:57-03:00
+
+====== Módulo-Rota-Cliente ======
+Created domingo 03 maio 2015
+
+Apenas definir a aplicação baseada na rota não funciona, pois não é possível abrir a mesma rota 2x, precisamos de algo mais inteligente
+
+Idéias:
+
+
+* Pesquisar como deve ser feita a rota, tem alguns artigos q explicava, não lembro agora, mas dizia, a rota deve ser atualizada e não definida, exemplo, eu clico em usuairo, executo uma função e atualizo a rota, porém deve ser possível abrir usuário com a rota
+* **Acho q o manual esta no livro do marionette**
+
+* Deve ser defindo também:
+	* BreadCrump
+	* Titulo
+	* Subtitulo 
+
+
+
+adminManager.addRoute(nome_rota, url, aplicacao);
+	* Se url for null não cria url, executa comando apenas
+
+adminManager.setBreadCrump([
+	{
+		name: "rota", 
+		router: "rota"
+	}
+]);
+adminManager.setTitle(title, subTitle)
+
+===== Menu =====
+
+* Carregado de uma vez?
+	* Como relacionar menu com app:
+	* No menu dizemos nome da rota e o menu faz:
+		* **AdminManager.execRoute("nome_da_rota");**
+	* Podemos adicionar uma URL DIRETO e o target
+* Montado Dinamicamente
+
+Rota é no Javascript (definido no cliente)
+Mas nome da rota é salva na base de dados
+
+Menu não pode ser executado pelo link, pois o link só pode ser executado 1x sequencialmente.
+

@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-09T15:26:43-02:00
+
+====== Advisors ou Channel Program ======
+Created terça 09 fevereiro 2016
+
+Advisors são organizações com permissão de revender o BCP
+
+São Conselheiros
+
+Os advisors que cadastram alunos e compram créditos para usar o sistema
+
+Porém existe uma versão "Retail" onde os alunos compram créditos
+
+**Na base de dados é armazenado como Channel Program**
+
+

@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-14T14:24:08-03:00
+
+====== 001 - Revisão Padrões Layout ======
+Created terça 14 abril 2020
+
+Tarefa relacionado à padronização do layout para facil manutenção posterior
+
+
+* Definir padrões de padding e margem
+* Ver como configurar no css global os padrões
+* src/pages/quote/index.vue
+Verificar se é correto definir largura fixa:
+   style="width: 500px"
+   style="width: 350px"
+
+

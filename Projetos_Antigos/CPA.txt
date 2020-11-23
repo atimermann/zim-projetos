@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-16T21:23:35-02:00
+
+====== CPA ======
+Created quinta 16 fevereiro 2017
+
+André, abaixo ultimas considerações sobre o projeto (após reunião com o cliente e arquiteto) e em anexo os mapas+BPM, para sua validação e preparação para próxima reunião com a Trilobit.
+
+
+**O que mudou, após a nossa arquitetura com relação ao cenário sugerido por vocês (nosso BPM should be):**
+O fluxo das integrações, modelos de integrações e comunicação dos dados necessários para os crivos entre sistemas (novo levantamento de dados que transitam, conforme detalhamento no mapa mental enviado) , inclusive já havia sinalizado para vocês que, a integração será totalmente fornecida e desenhada por nós.
+
+
+Objetivo na reunião com Trilobit é entender as formas possíveis de integração com o sistema deles

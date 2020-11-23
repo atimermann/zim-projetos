@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-07-09T21:11:57-03:00
+
+====== Frase - erros ======
+Created segunda 09 julho 2018
+
+===== Erro 01 =====
+
+{{./pasted_image.png}}
+
+===== Erro 02 =====
+
+{{./pasted_image001.png}}
+
+===== Erro 03 =====
+{{./pasted_image002.png}}
+
+
+===== Erro 04 =====
+
+
+{{./pasted_image003.png}}
+
+====== Erro 05 ======
+
+{{./pasted_image004.png}}
+
+===== Erro 06 =====
+
+{{./pasted_image005.png}}

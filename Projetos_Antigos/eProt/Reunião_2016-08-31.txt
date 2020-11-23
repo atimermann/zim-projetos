@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-31T22:14:56-03:00
+
+====== Reunião 2016-08-31 ======
+Created quarta 31 agosto 2016
+
+* Definido protocolo de comunicação entre o servidor e o cliente
+* Nâo será usado o eval
+* Cada instrução deve ser implementada individualmente
+
+Modelo de json aprovado:
+{{{code: lang="js" linenumbers="True"
+{
+    "system_id": 1,
+    "statementsA": [
+        {
+            "type": "P001",
+            "arg1": 123,
+            "arg2": "xxx"
+        },
+        {
+            "type": "E002",
+            "arg1": 123,
+            "arg2": "xxx"
+        }
+    ],
+    "statementsB": [
+        [
+            "P001",
+            123,
+            "xxx"
+        ],
+        [
+            "E002",
+            123,
+            "xxx"
+        ],
+        [
+            "B003",
+            123,
+            "xxx"
+        ]
+    ]
+}
+}}}

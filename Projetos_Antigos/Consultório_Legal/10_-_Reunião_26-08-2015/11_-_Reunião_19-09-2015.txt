@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-09-19T12:55:39-03:00
+
+====== 11 - Reunião 19-09-2015 ======
+Created sábado 19 setembro 2015
+
+===== Permissões de Agenda =====
+
+
+Leandro Conta
+	* Leandro (Dentista)
+		* MIchel Clinica Dentaria
+			* [1000] Cadeira 1
+			* [1001] Cadeira 2
+
+
+
+Michel Conta
+	* Leandri( Dentista)
+	* Dentista 2
+	* Dentista 3
+	* Dentista 4
+	* Michel Clinica Dentaria
+		* [2000]Cadeira 1
+		* [2001]cadeira 2
+		* cadeira 3
+		* cadeira 4
+
+
+==== Cenario 1 ====
+DONO: Leandro
+Comparilhar: Michel
+Cadeiras; 1000, 1001
+Profissional Leandro(dentista)
+Permisão: Escrita
+
+==== Cenário 2 ====
+DONO: Michel
+Compartilhar: Leandro
+Cadeiras: NULL
+Profissional: Leandro(dentista)
+Permissão: Leituta
+
+

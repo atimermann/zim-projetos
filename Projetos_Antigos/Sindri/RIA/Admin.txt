@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-01T19:29:44-03:00
+
+====== Admin ======
+Created domingo 01 junho 2014
+
+Novo Módulo Admin desenvolvido em cima do Backbone.
+
+===== Dêpendencias Necessárias: =====
+
+
+* Módulo para CRUD
+* Módulo de Autorização & Autenticação (Perfil)
+	* http://clintberry.com/2012/backbone-js-apps-authentication-tutorial/
+* Módulo para Menu
+* ~~Módulo de Formulário - JeasyUI~~
+* ~~Módulo de Datagrid (Listagem) - JeasyUI~~
+* Teste Unitário
+
+* Sistema de Permissão baseado em nível: 
+	* Alto, Médio, Baixo. 
+	* Onde o nível só pode alterar perfis e permissões dos níveis abaixo e alterar as permissões de si próprio
+
+===== Outros projetos =====
+
+http://blog.pamelafox.org/2013/07/rewriting-django-admin-in-backbone.html

@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-06T14:42:49-03:00
+
+====== Site Smarti ======
+Created quinta 06 outubro 2016
+
+====== Layout ======
+* **Base:** index-corporate-4.html
+* **Efeito: **Zoom na imagme ( ref: index-corporate-1.html)
+* Remover Menu
+
+====== Body ======
+
+* Criar links que ao clicar navaga na mesma página para destino, usando efeito de arrastar
+
+====== Rodapé ======
+
+* Designer Selecionado Footer 3
+	* Diminuir 2 dedos antes do texto
+	* Remover rodapé do rodapé
+	* Imagem alterada do Footer 5
+	* Remover Coluna postagem recente e estender caixa de mensagem
+
+====== Procurar Fotos ======
+* Portos
+* Robóticas (IA)
+* Pessoas passando por controle de acesso
+
+====== Conteudo ======
+
+Será definido na próxima reunião
+
+
+====== SEO ======

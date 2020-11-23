@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-10-05T15:34:55-03:00
+
+====== Código Erros ======
+Created segunda 05 outubro 2015
+
+E001 -> Falha ao obter resposta do servidor
+E002 -> Não foi Possível conectar no Argos

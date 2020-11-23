@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-27T14:49:37-02:00
+
+====== Telas de relatório ======
+Created quarta 27 novembro 2013
+
+AGE_FERROVIA_CAB
+	AGE_FERROVIA_ID            (ID)
+	* AGE_DATA_AGEDAMENTO (data agendamento) $data_agendamento
+	* AGE_DATA_GRAVACAO      (data de gravacao) TODAY( )
+	* AGE_EMAIL_CONTATO       (email do contato)
+	* AGE_GRADE_ID		    ($grade_id)
+	* AGE_ID_EMP                     ($_SESSION['EMPRESA_ID'] )
+	* AGE_ID_MAQUINISTA         (relacionamento tabela AGE_MOTORISTA)
+	* AGE_ID_USER                   ({$_SESSION['EMPRESA_ID']}
+	* AGE_OPERACAO              ( 2) 
+	* AGE_QTDE                        ( Quantidade da tabela AGE_CONTROL)
+	* AGE_SERV_ID                      (10)
+	* AGE_TOKEN                        (Todem)
+
+AGE_FERROVIA_DET
+	* AGE_FERROVIA_DET_AGENDAMENTO_ID         (ID
+	* AGE_FERROVIA_DET_CAB_ID                            (relacionamento com AGE_FERROVIA_CAB)
+	* AGE_FERROVIA_DET_ID                                     (???)
+

@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-08-27T11:12:23-03:00
+
+====== Operadores ======
+Created terça 27 agosto 2013
+
+- Escala
+
+**Local: **
+
+* Escala de operador, só as máquinas
+
+* Criar tabela para salvar operadores no MSSQL
+
+
+* Criar na intranet uma tela importar a planilha de escala
+	* Criar modelo para ser preenchido
+
+Na tabela escala vou precisar:
+* escala com operador
+* Períodos trabalhados (Turnos)
+* Dias de trabalho4
+* TR -> Atestado
+* A -> Atestado
+* (Confirmar as legendas)
+
+
+* Na extranet criar um relatório , com acesso pela matricula
+
+====== Questionamentos iniciais ======
+
+Luiz Guilherme - 41 3420 3388 
+
+- Escalas que já trabalhou
+- Só proxima escala
+
+Ter log de registro de quem acesso o sistema para ver a escala

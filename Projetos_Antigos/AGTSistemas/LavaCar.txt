@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-07T13:24:52-02:00
+
+====== LavaCar ======
+Created sábado 07 fevereiro 2015
+
+===== Guilherme Pediu =====
+
+* Cadastro de Cliente
+* Frequencia de Lavagem
+* Fluxo de Caixa
+
+===== Usado em documentação =====
+
+
+
+
+===== Usado em Concorrentes =====
+
+* Cadastro de Serviço
+* Cadastro de Pagamento
+* Cadastro de Funcionário/Operador
+* Impressão
+
+* Novo Ordem de Serviço
+	* Pode escolher 1 ou mais
+
+* Pagamento de Ordem de Serviço (registro de comanda)
+	* Cortesia
+
+* Relatórios
+	* Movimento do dia Resumido
+
+===== Idéias =====
+
+* Cadastro de Automóvel
+* Autocompletar
+
+===== Aproveitavel em outros sistemas =====
+
+
+
+
+
+

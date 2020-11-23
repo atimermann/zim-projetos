@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-14T19:08:38-03:00
+
+====== 20160314 - New SAT on Standardized Tests ======
+Created segunda 14 março 2016
+
+
+ALTER TABLE athlete_tests MODIFY COLUMN test_type ENUM('explore','plan','act','satsubj','sat','psat','toefl', 'newsat') NOT NULL
+

@@ -1,0 +1,112 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-11-26T14:31:45-02:00
+
+====== Proposta Helmuth ======
+Created quinta 26 novembro 2015
+
+oa tarde Helmuth,
+ 
+Recebemos sua proposta e após analises chegamos a uma definição dos pacotes escolhidos conforme abaixo e também precisamos de alguns esclarecimentos sobre os pontos abaixo:
+ 
+·         1) EXTRATO RE TRADEX: Se trata da consulta do RE DEFERIDO NO TRADEX?
+·         2) CONSULTA/ENTREGA ICMS: No caso de SC o serviço é SAT. Esta ferramenta é coberta pela sua API?;
+·         3) A quantidade presente em cada pacote, se trata da quantidade de chamadas no método no Webservice?
+·         4) Essa quantidade está condicionada ao sucesso da operação? Ou em caso de erro ela será descontada da mesma forma?
+·         5) Em caso de queda do Webservice, qual a sua SLA para restabelecer o serviço? Você possuí servidor de backup?
+·         6) Há alguma questão legal que poderia nos impedir de utilizar os serviços? A Log comex possuí autorização da Receita para disponibilizar essas APIs?
+ 
+ 
+MOD
+PLANO
+WORKFLOW
+SISTEMA
+CUSTO POR 
+QTDA
+OBS
+Implementação 
+EXPO
+ 
+EXTRATO RE TRADEX 
+TRADEX 
+RE
+ 
+?
+EXPO
+1
+EXTRATO/HISTORICO DA DDE 
+SISCOMEX EXPORTAÇÃO 
+REQUISIÇÃO 
+0 até 5000
+ 
+OK
+EXPO
+1
+REGISTRO DE PRESENÇA DE CARGA 
+SISCOMEX EXPORTAÇÃO 
+REQUISIÇÃO 
+0 até 5000
+ 
+OK
+EXPO
+3
+REGISTRA ORDEM DE EMBARQUE 
+TRADEX 
+RE
+1001 até 3000
+ 
+OK
+MOD
+PLANO
+WORKFLOW
+SISTEMA
+CUSTO POR 
+QTDA
+OBS
+Implementação 
+IMPO
+1
+CONSULTA CE MERCANTE 
+SISCARGA 
+CE MERCANTE 
+0 até 3000
+ 
+OK
+IMPO
+1
+CONSULTA
+ICMS
+DI
+0 até 3000
+ 
+OK
+IMPO
+1
+ENTREGA DE CARGA 
+SISCARGA 
+DI/DSI
+0 até 3000
+ 
+OK
+IMPO
+1
+ENTREGA
+ICMS
+DI
+0 até 3000
+ 
+OK
+IMPO
+1
+EXTRATO DI
+SISCOMEX IMPORTAÇÃO 
+DI
+0 até 3000
+ 
+OK
+IMPO
+1
+FLUXO DTA
+TRANSITO ADUANEIRO 
+DTA
+0 até 1000

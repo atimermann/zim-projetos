@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-12T01:08:01-02:00
+
+====== Admin Student registration ======
+Created sexta 12 fevereiro 2016
+
+
+====== Query para criação de Consulta ======
+
+ALTER TABLE bcp_account.account_product ADD is_demo TINYINT(1) DEFAULT 0 NOT NULL

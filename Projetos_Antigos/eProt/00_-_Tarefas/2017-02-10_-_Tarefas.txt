@@ -1,0 +1,65 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-02-10T15:11:03-02:00
+
+====== 2017-02-10 - Tarefas ======
+Created sexta 10 fevereiro 2017
+
+[*] Criar projeto Privado na loja
+[*] **BUG:** Modo Manutenção
+
+[*] **4.** Descobri hoje que o Eprot possui 2 telas para anexar. Você trabalhou na tela de anexação de prazo:  
+Mas esta tela requer a anexação de só um documento e o Eprot tem pouca serventia. 
+https://eproc.jfpr.jus.br/eprocV2/controlador.php?acao=processo_cadastrar_4&hash=38e3dd34ad0fca22a26a695fd0961fda
+
+https://www.youtube.com/watch?v=SPVziVu6r7E
+
+[*] **5.** No processo PROJUDI, o sistema pede ao advogado assinar os arquivos antes de anexar. Contudo, o Eprot faz o download do .pdf e não do .p7s 
+Fui utilizar o eprot no projudi:
+	Fui utilizar o eprot no projudi: 
+	**1)** add os arquivos sem assinar, mas o projudi não me permitiu assinar o documento posteriormente 
+	**2)** tentei add o arquivo já assinado pelo eprot, mas ele não localiza o arquivo .p7s, então não foi possível 
+	**3)** Tive que add os arquivos da maneira antiga, ou seja, sem utilizar o programa.
+
+[*] **2.** No Eproc, o tamanho máximo de arquivo não é 1.5Mb, mas 5.0Mb. Ele segmentou arquivos em múltiplos de 1.5 
+ 
+[ ] **6.** Melhoria - muitos advogados trabalham com 2  monitores. Quero poder arrastar os arquivos   para o Eprot ao invés de abrir aquela caixa de seleção. 
+
+[*] **1.** A extensão instala na versão 43, mas não mostra o ícone do Eprot.  Já a 47 instala e mostra corretamente o ícone no toolbar.
+
+[x] ~~3. Na tabela tasks não sei qual task corresponde ao quê. Criei um campo label. Documento e o Eprot tem pouca serventia.~~ 
+
+==== Outros Bugs ====
+
+[ ] Ontem (08.02) eu estava uilizando o eprot no eproc e acabei clicando errado em iniciar. Abriu a tela de add arquivos e eu apertei em cancelar. O programa travou e tive que fechar o navegador.
+
+[*] Utilizei o eprot agora para cumprir um prazo com 3 pdfs no eproc. O programa demorou um pouco para carregar os arquivos e errou todos os nomes dos documentos. Na hora que voltou a tela para o eproc e mandei confirmar a seleção de documentos, os nomes se perderam, ele pede para eu nomear novamente (como se antes não estivesse nomeado). Caso queira, posso fazer um vídeo na próxima vez para você entender o que acontece. Se quiser, meu whatss é 41 9501 9697 (Luciana Beltrão)
+
+[ ] Quando eu escolho a classificação opção “OUTRO” … o cliente espera começar a escrever imediatamente o nome do arquivo. 
+Sua primeira ação é usar o backspace. Contudo, ao usar o backspace antes de ter o focus no campo de edição, o browser interpreta como voltar. 
+Ou seja, na demonstração ao vivo ele se bateu para conseguir usar … a impressão na hora era que qualquer backspace mesmo com o foco no texto voltava a tela. 
+Enfim, no meu browser está normal, mas ao apertar “OUTRO” o foco não vai automático para edição do texto e eu cometi o mesmo erro dele. 
+
+[ ] Quando acaba espaço em disco dá erro Sem nenhuma viso ao usuário:
+	console.log: eprot-addon-pre: |Paginas: 768
+	console.log: eprot-addon-pre: |Tamanho Comprimido: 61788295
+	console.log: eprot-addon-pre: |Limite:  11534336
+	console.log: eprot-addon-pre: ----------------------------
+	console.log: eprot-addon-pre: Arquivo maior que o Limite, dividindo dois arquivos de 384 páginas.
+	console.log: eprot-addon-pre: Executando c:\cygwin64\tmp\eprotExtension\bin\cpdf.exe Array ["-split","c:\\cygwin64\\tmp\\eprotExtension\\tmp\\Leva30minNumMAC_SSD.pdf","-chunk","384","-o","c:\\cygwin64\\tmp\\eprotExtension\\tmp\\@F%.pdf"]
+	console.log: eprot-addon-pre: sendLog: Error
+	console.log: eprot-addon-pre: Falha ao segmentar PDF
+
+[ ] **NO Eproc quanto tem muitas janelas sistema se perde, abre painel de upload e já fecha, trava painel não é possível cancelar**
+
+[ ] **comportamento estranho, não se consegue cancelar depois de envio concluido, se fecha com x não acontece, se cancela reabre, pisca a tela varias vezes**
+	[ ] **Em um dos testes Botão ficou desativado, não é possível remover painel de jeito nenhum**
+
+[ ] Porcentagem não está funcionando para os segmentos
+
+
+[*] Uma das clientes tentou usar o Eproc hoje na movimentação da petição. 
+O Eprot registrou os protocolos id 106 e 108 como concluídos, mas ela reportou que no primeiro ela anexou 7 e só foram submetidos 5. Já na segunda tentativa ela tentou 12 arquivos, e apareceram 12 quadrados para selecionar arquivo conforme as fotos abaixo. Você pode investigar estes erros? Ela está usando Firefox 51 versão Windows. 
+
+
+

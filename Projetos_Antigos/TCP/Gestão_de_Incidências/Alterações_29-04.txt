@@ -1,0 +1,221 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-04-29T10:46:23-03:00
+
+====== Alterações 29-04 ======
+Created terça 29 abril 2014
+
+====== Abordagem da Análise das Incidências ======
+
+* Análise de incidência deixa de ser feita para cada incidência e deverá ser feita por Ordem de Serviço
+
+===== Impacto =====
+
+**Modelo**
+* Alteração no modelo de dados, as colunas de controle da incidencia ficará no Ordem de serviço
+* Tipo de Incidência: Operacional / Manutenção. Será feito por OS, então não será possível criar os com as duas incidências, será criado uma OS para cada tipo de incidência
+* Tabela Histórico de incidencia será removida e no lugar teremo Histórico de Ordem de Serviço
+
+**Prazo**: 4 horas
+
+**Tela 04: Painel de Eletricista**
+* O botão Analisar Incidência será por OS e não mais por incidências
+* Só serão visualisado OS do tipo Manutenção (Operacional ficará visivel apenas para o monitor)
+
+**Prazo**: 6 horas
+
+**Tela 05: Análise de Incidência eletricista (Manutenção) ou Monitor (operacional)**
+* Será exibido informações da OS e uma listagem com todas as incidências registrada para aquela OS
+* Análise será salva para cada OS
+
+**Prazo**: 2 hora
+
+**Tela 06: Monitoramento Incidência**
+* Será removida
+
+**Prazo**: 0,5 horas
+
+**Tela 09: Monitoramento de Ordem de Serviço**
+* Será renomeada para monitoramento de Incidência
+* Os botões de controle serão alterados para ficar compatível a nova abordagem
+
+**Prazo**: 6 horas
+
+**Tela 08: Detalhamento de Ordem de Serviço (Histórico)**
+* Será removido
+
+**Prazo**: 0,5 horas
+
+**Tela 10: Detalhamento de Incidência (Histórico)**
+* Teremos listado todas as incidências presentes na ordem de serviço com a descrição da Ordem de serviço e histórico
+
+**Prazo**: 4 horas
+
+===== Prazo Para alteração =====
+
+**23 horas**
+
+====== Prestador de serviço ======
+
+* O Prestador de serviço estará vinculado a Ordem de Serviço e não a incidência
+
+===== Impacto =====
+
+**Modelo**
+* No modelo o relacionamento do prestador de serviço mudará da incidencia para ordem de serviço
+
+**Prazo**: 0,5 horas
+
+**Tela 09: Monitoramento de Ordem de Serviço**
+* Será criado botão de controle terceirizar para vincular o terceiro com a ordem de serviço
+* Será criado botão para aceite do serviço realizado pelo prestador de serviço
+
+**Prazo**: 1 hora
+
+**Tela 06: Monitoramento Incidência**
+* Será removida
+
+**Prazo**: 0,5 horas
+
+===== Prazo Para alteração =====
+
+**2 horas**
+
+====== Armador ======
+
+Atualmente armador estava relacionado com o prestador de serviço.  A partir da alteração o armador estará vinculado ao contêiner
+* Sistema deverá mapear as siglas do armador com o armador
+* Sistema deverá enviar emails para o Armador sempre que a ordem de serviço for terceirizado
+
+===== Impacto =====
+
+**Modelo**
+* Será criado duas tabelas armador e siglas com a lista de armadores e suas siglas
+* Ao cadastrar um contêiner no sistema, o sistema irá consultar a tabela armador, converter a sigla para o armador e relacionar o conteiner ao armador
+
+**Prazo**: 2 horas
+
+**Telas**
+* Será criado uma tela de cadastro de armador e siglas
+
+**Prazo**: 2 horas
+
+===== Prazo Para alteração =====
+
+**4 horas**
+
+====== Envio de email ======
+
+O Envio de email será feito ao executar a ação terceirizar
+
+**Quando for OS de manutenção**
+* Envia email para reparador (PRestador de serviço) 
+* Envia email para o armador
+* Usa o template da incidencia da reparação (padrao_solicitacao_reparo.docx)
+* Deverá ser montado email
+
+
+
+**Quando for OS  operacional**
+* Envia email para o armador
+* Envia email para o cliente
+* Usa template da  (padrao_solicitacao_temperatura.docx)
+	* Se delta (Diferença) de tempratura for maior de 5 alterar váriavel para DESLIGADA (vermelho)
+	* Parametrizar essa configuração
+
+
+
+===== Impacto =====
+	* Será criado script para consultar webservice do helmuth para consultar email do cliente **Prazo**: 2 hora
+	* Será criado script para enviar email, além de criar os templates para envio do email **Prazo**: 8 horas
+	* Será necessário configurar o servidor para ter suporte a envio de email **Prazo**: 8 horas
+
+===== Prazo Para alteração =====
+
+**18 horas**
+
+====== Cliente ======
+
+Cliente está vinculado ao contêiner
+Será usado ao enviar email quando serviço for terceirizado
+
+Para obter o email do cliente será criado um Webservice pelo Helmuth, o sistema irá consultar o webservice passando o código do cliente salvo na tabela conteiner
+
+===== Impacto =====
+
+* Apenas criação do script que consulta o webservice e carrega os emails ao enviar email
+
+**Prazo**: 0 horas
+
+====== Booking ======
+
+Trazer o campo bookin ao conteiner
+
+===== Impacto =====
+
+- Adicionar um campo ao modelo
+- Alterar o script que copia o conteiner do argos para o sistema, adicionando o campo booking
+
+===== Prazo Para alteração =====
+
+**Prazo**: 1 hora
+
+====== Adaptação para Tablet ======
+
+Com a chegada dos tablet é possível testar as telas para adaptação
+
+===== Impacto =====
+
+
+Telas Vincular eletricista e Painel do eletricista deversão ser adaptadas para o tables
+	* SErá reduzido a quantidade de colunas
+	* Os botões serão aumentados para o tamanho do toque no tablet
+
+===== Prazo Para alteração =====
+
+**Prazo**: 8 horas
+
+====== Perfil de eletricista ======
+
+Para vincular eletricista, o eletricista pode vincular
+	* O eletricista pode vincular apenas sigo mesmo a qualquer OS aberta
+	* SUpervisor eletricista pode vincular qualquer um
+
+* Será criado dois perfis
+
+**Impacto**
+* Alteração no controle de acesso das telas
+
+
+===== Prazo Para alteração =====
+
+**Prazo**: 1 hora
+
+====== Solicitação OS ======
+
+Ao requisitar uma nova OS, será verificado se já existe uma OS com:
+* Mesmo conteiner
+* Mesma data de entrada
+* Se a OS já tem eletricista vinculado
+
+Caso positivo a incidencia será VINCULADO a OS existente em vez de criar uma nova
+
+**Impacto**
+* Alteração do script que solicita OS para fazer a verificação
+
+
+===== Prazo Para alteração =====
+
+**Prazo**: 4 horas
+
+====== Prazo total ======
+
+Abordagem da Análise das Incidências  	23 horas
+Prestador de Serviço				 	2 horas
+Armador					 		4 horas
+Envio de email com templates			18 horas
+Booking				       			1 horas
+Adaptação para Tablet			 	8 horas
+Solicitaço OS                            	4 horas
+
+**TOTAL:**  **60 horas  (7,5 dias úteis - um pouco menos de 2 semanas)**

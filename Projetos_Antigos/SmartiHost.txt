@@ -1,0 +1,94 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-12-24T01:45:43-02:00
+
+====== SmartiHost ======
+Created sábado 24 dezembro 2016
+
+====== Correções ======
+
+* Ocultar termo de uso através de link para não assustar potencial cliente
+* Revisar e arrumar formulário de cadastro
+* Verificar pq não funciona no safari para mobile
+* Arrumar validações CNPJ
+* Revisar Campos do formulário
+* Enviar email para suporte@smartihost.com.br (ou vendas@smartihost.com.br) com dados da nova conta
+* Criar E-mails de boas vindas
+* Criar Vídeo de configuração para Jacq
+* Pedir Usuário e Senha para acesso, usar senha para acesso aos sistemas (Testar força de senha)
+* Configurar Banco de dados para os campos corretos
+* Enviar E-mail de Boas Vindas
+* Revisar configuração Segunda Tela
+* Configurar Adwords para calculo de Conversão
+* Confirmação de E-mail
+* Divulgar Período Gratís para atrir cliente
+* Configurar Certificado SSL
+* Criar Campanha Facebook
+
+====== Site ======
+
+* Realizar Testes A/B
+* Perguntar para visitante, oq falta para finalizar a contratação e oferecer algum prêmio
+
+
+===== Página para Instalação de Aplicativos =====
+
+[01:43, 24/12/2016] +55 41 8401-4923: de vai pra lita de tarefa                        
+[01:43, 24/12/2016] +55 41 8401-4923: *lista                        
+[01:43, 24/12/2016] +55 41 8401-4923: oq acha                        
+[01:43, 24/12/2016] +55 41 8401-4923: colocar em destaque                        
+[01:43, 24/12/2016] +55 41 8401-4923: os principais                        
+[01:44, 24/12/2016] +55 41 8401-4923: WordPRess                        
+[01:44, 24/12/2016] +55 41 8401-4923: Magento                        
+[01:44, 24/12/2016] +55 41 8401-4923: etc..                        
+[01:44, 24/12/2016] +55 41 8401-4923: e colocar categorias                        
+[01:44, 24/12/2016] +55 41 8401-4923: e cada categoria abre uma listagem                        
+[01:44, 24/12/2016] +55 41 8401-4923: e também busca                        
+[01:44, 24/12/2016] +55 41 8401-4923: no começo                        
+[01:44, 24/12/2016] +55 41 8401-4923: só gera uma tarefa (ticket)                        
+[01:44, 24/12/2016] +55 41 8401-4923: mas depois                        
+[01:44, 24/12/2016] +55 41 8401-4923: automatizar                        
+[01:44, 24/12/2016] +55 41 8401-4923: vou anotar aqui
+Oferecer Domínio
+
+
+
+
+===== Sistama de Afiliados: Créditos =====
+
+* Adicionar Crédito para cada indicação, somar um ano
+	* Hospedagme de R$ 29,00 -> 29 pontos (ou 290 pontos)
+	* VPS de R$ 19,90 -> 238 pontos (ou 2380 pontos)
+
+===== Gerenciamento de Indicação =====
+
+Cada indicado (através de código de indicação) ganhará créditos de 5%, para cada amigo ativo, podendo melhorar o serviço ou ganhar desconto
+
+===== Outros =====
+
+
+* Ofercer CDN, para video
+	* http://www.cdnvideo.com/pricing/
+	* Pesquisar barato
+* Oferecer Espaço na Nuvem
+
+* Ao selecionar plano, escolher pacote de suporte
+
+* Oferecer Certificado
+
+* Promoçõesoo
+	* Aniversario
+
+
+
+* Mais pra frente oferecer servidor no Brasil, com baixo ping, pensar numa opção mais barata para baixar o preço no brasil como um cache, um hibrido Brasil-Canadá
+
+
+====== VPS ======
+
+* Adicionar mais textos com funcionalidades:
+	* Opção de instalar maquinas pré definidas como owncloud, servidor de email, revenda etc...
+	* Permitir instalação limpa ou com painel de controle ispconfig
+
+
+

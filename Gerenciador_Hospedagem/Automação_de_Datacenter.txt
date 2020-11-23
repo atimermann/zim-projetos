@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-09-11T22:36:21-03:00
+
+====== Automação de Datacenter ======
+Created domingo 11 setembro 2016
+
+Existem ferramentas que auxiliam automação de datacenter:
+
+* Puppet (gerenciamento de configuração)
+* ~~Foreman (Gerenciamento de Provisionamentl)~~
+* Intergrar com cobbler (pode ser usado koan no lugar do puppet(bem simples))
+	* https://fedorahosted.org/cobbler/wiki/CobblerXmlrpc
+	* Koan
+* oVirt 
+
+Foreman tem uma integração com o Virt, mas não é boa
+
+Usar o Foreman apenas para instalação através de API integrado com o SmartiHostManager

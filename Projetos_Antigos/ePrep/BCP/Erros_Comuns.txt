@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-20T14:57:33-02:00
+
+====== Erros Comuns ======
+Created sábado 20 fevereiro 2016
+
+an error occured
+**Usuário não cadastrado no mongo**
+	bcp/application/classes/model/submission.php
+
+
+{
+		if($find['grade'])
+		{
+			$this->grade = $find['grade'];
+			unset($find['grade']);
+		}
+		$this->mongo_db = new Mongo_DB;
+		$this->where = $find;
+		$this->data = $this->mongo_db->where($find)->get('submissions');
+
+
+
+		if(!$this->data)
+		{
+			throw new Exception('Submission not found');
+		}
+		else
+		{
+			$this->data = $this->data[0];
+			$this->data = array_merge($this->data, $this->data[$this->grade]);
+		}
+	}

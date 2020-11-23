@@ -1,0 +1,107 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-06-26T15:26:20-03:00
+
+====== Simulador Via Site ======
+Created quarta 26 junho 2013
+
+Este projeto consiste em permitir o cliente simular suas operações pelo TCP utilizando tabela de preços pública.
+
+===== 3.1) <RF001> Simulação de preços =====
+
+
+Status: Solicitado
+Complexidade: Média
+Prioridade: Alta
+Tipo: Original
+Versão: 1.00
+Descrição: 
+Cliente poderá simular preços da tabela pública através do site do TCP, informando:
+Serviços;
+Unidades.
+Ao final da simulação será sugerido que cliente entre em contato com comercial.
+Anotações: N/A
+
+
+===== 3.2) <RF002> Manter serviços =====
+
+
+Status: Solicitado
+Complexidade: Média
+Prioridade: Alta
+Tipo: Original
+Versão: 1.00
+Descrição:
+Analista do TCP terá acesso a uma tela onde poderá cadastrar ou remover serviços oferecidos pelo TCP.
+Anotações: N/A.
+
+
+===== 3.3) <RF003> Manter tabela de preços =====
+
+
+Status: Solicitado
+Complexidade: Média
+Prioridade: Alta
+Tipo: Original
+Versão: 1.00
+Descrição:
+Analista do TCP terá acesso a uma tela onde irá informar unidades, preços por unidade e vigência para cada um dos serviços ativos oferecidos.
+Anotações: N/A.
+
+===== 5) Escopo Negativo =====
+
+
+As seguintes funcionalidade e atividades não fazem parte deste projeto:
+1. Integração com tabela de serviços e preços de outros sistemas;
+2. Personalização de preços por contrato.
+
+
+===== Helmuth Descrição =====
+
+
+**Deverá ser basicamente assim:** 
+
+Tipo de operação (importação / exportação ) combo
+
+Numero de contêineres mês: Campo numerio
+
+Tipo de container: Normal / Reffer / IMO / Excesso
+
+Regime de liberação: Normal / Transito
+
+Numero de dias que o contêiner ficara no TCP : Campo inteiro onde o usuário informa o numero de dias.
+
+ 
+
+ 
+
+A ideia é combinar esses parâmetro de seleção para gerar um valor para o usuário, quando ele clicar em simular o sistema irá fazer algumas validações e ira buscar esses parâmetros de acordo com a tabela de custo padrão do sistema para o tipo de serviço solicitado.
+
+ 
+* Pegar lista de preços de:
+	* .../app/os/precos.php
+
+
+
+**podiamos criar uma tabela simples:**
+Serviço - valor - ativo
+DESC(30) - DECIMAL(2) - BOOLEAN()
+
+Criar a tabela no braço
+
+====== Tabela de serviços: ======
+
+http://200.195.158.100//extranet/TCP_TARIFARIO_2013.pdf
+
+* Taxa deve ser calculada pelo Simulador
+* Calcular o numero de dias que vai ficar no pátio
+* Apenas armazenagem vai ter taxa
+
+
+
+
+
+
+
+
+

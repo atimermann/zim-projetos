@@ -1,0 +1,122 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-06T15:36:17-02:00
+
+====== Visão de Negócio ======
+Created quarta 06 novembro 2013
+
+
+
+
+
+===== Gabarito =====
+
+**BRADO - **All é uma sociedade holding, que controla a Brado Logística, uma empresa criada pela ALL em sociedade com a Standard Logística que está desenvolvendo serviços de logística intermodal de contêineres, concentrando-se em serviços de transporte ferroviário, armazenagem, operação de terminais e outros serviços de logística.
+
+**GATE - **Portões da TCP
+
+**OCR - **Sistema de leitura optica automatica, lê o contêiner e abre a cancela automatica, inclui todos os equipamentos (hardware) e sistema (software). Para cada Gate existe um Sistema OCR
+
+**EDI -** Electronic Data Interchange (Intercâmbio Eletrônico de Dados) - EDI significa troca estruturada de dados através de uma rede de dados qualquer, podendo, por exemplo, via e-mail ou ftp. São rotinas que enviam e recebem arquivos txt em um formato pré- definido entre o fornecedor e o cliente.
+
+**CONHECIMENTO -** 
+
+**ARGOS -** 
+
+===== Objetivo =====
+
+Receber as informações de descarga de contêineres via ferrovia da Brado para que o sistema OCR verifique as informações e fazer automaticamente a atualização do Argos online com a entrada dos contêineres no terminal.
+
+
+====== Analise da ultima reunião ======
+
+
+
+Anotar: sempre pedir "desenhos" de processos pro helmuth
+Existe algum processo desenhado pré-existente
+
+**O agendamento será salvo na tabela:**
+tabela de AGE_Agenda
+
+* **Entender como funciona o processo de agendamento**
+
+Sistema de Agendamento está no SQL SERVER
+
+
+
+====== Por que o projeto é necessário? ======
+
+
+===== Como é hoje =====
+
+Não tem agendamento, manda uma lista de ocnteiner que vai entregar para o pessoal de operação, verifica se está no sistema se tá fora do sistema, blz vou mandar isso manda o que tá.
+
+Vê no site, pôe no site
+
+Prioridade conteiner já estar cadastrado
+Ver como é o cadastramento do contêiner
+ele checa manualmente
+sem cadastro retorna o contêiner, volta no trem
+
+
+
+===== Responsável pelo projeto =====
+
+Ronan
+
+===== Processo =====
+
+* Atendente vai enviar uma planilha com o numero do contêiner e do vagão, sistema ler o arquivo e vai checar o contêiner na CONTF, 
+	* Formato do arquivo pode ser "qualquer um"
+* Valida se o contêiner está no sistema
+* Fazer o agendamento
+
+* Criar uma janela especifica só para o horario
+* Janela de entrega de horario
+	* AGE_GRAD_ID
+
+* Controlar os horarios e as vagas
+* Na hora de escolher a data já valida
+* Pessoal já tem cadastrado
+* Mesmo sistema
+* Criar mais um serviço, agendamento, só vai validar, ver a janela
+* Aproveitar as tabelas do rodoviario
+
+
+* Gerar o arquivo
+* Importar no sistema
+* Validação
+	* checar se o contêiner está no sistema (CONTF)
+	* Checar se está fora do Pátio (EFALTA = 0), não entrou no patio ainda 
+		* Para entrada no patio, contêiner cheio
+	* checar o DEADLINE
+		* Cada contêiner pode ter um contêiner diferente
+	* Se aquele conteiner já tiver agendado e não finalizado 
+	* Controle de Janela
+	* Validar limite do pátio, limite de armazenagem
+	* No rodoviario tem que ter o documento de transporte - conhecimento (1 por vagão)
+	* Se o horario do deadline for no mesmo = hora de agora, se deadline > agora não deixa
+	* Validar se tem LAR
+	* Validar numero vagão no lugar da placa
+* Depois de gravar no agendamento já faz a verificação
+* Brado só retira em importação
+
+**Cabeçalho do arquivo** 
+Primeira linha: por o cpf do maquinista
+**Corpo do Arquivo**
+* Verificar Planilha da BRADO
+* Data de previsão de chegada usar data de agendamento
+
+
+LLL transporta, a BRADO faz a logística
+Marreta o motorista/maquinista
+
+===== Integração com OCR =====
+
+Integração com OCR é feita pelo sistema de agendamento
+Sistema de agendamento envia para o OCR um pacote via socket
+
+
+====== Quem será afetado pelo Projeto ======
+
+

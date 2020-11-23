@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-03-04T22:21:26-03:00
+
+====== Tarefas ======
+Created quarta 04 março 2020
+
+[*] Configurar ESLINT + Prettier https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+[*] Aplicar Prettier automaticamente no commit
+[*] Estudar se será usado a versão build mesmo, talvez o ideal seja generate
+
+
+[ ] Documentar uso do NPM registro da cheap2ship

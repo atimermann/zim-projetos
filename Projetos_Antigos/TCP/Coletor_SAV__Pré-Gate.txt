@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-07-28T13:56:17-03:00
+
+====== Coletor SAV  Pré-Gate ======
+Created terça 28 julho 2015
+
+**Servidor: **VQA-WIN-QA
+VDEV-WIN-DEV
+
+**C:\app\ProtocoloIPSX-1\agendamento\coletor_novo**
+
+**No HOMOL:**
+	__\\192.168.2.56\App\Protocolo\IPSX-1__
+
+Antes no protocolo não era autenticado
+
+Alterou a versão antiga do Helmuth
+
+**agendamento/coletor_nome/index.php**
+
+Login do Argos
+
+É pra rodar no Windws CE com IE6
+
+
+===== DEV =====
+
+**URL:** http://192.168.1.188:877/master/agendamento/coletor_novo/login.php
+**PATH:** \\VDEV-WIN-DEV\App\Protocolo\IPSX-1\agendamento\coletor_novo
+
+
+===== QA =====
+
+**URL:** http://192.168.2.56:866/agendamento/coletor_novo/index.php
+**PATH:** \\192.168.2.56\App\Protocolo\IPSX-1\agendamento\coletor_novo
+
+
+====== Issue 01 ======
+

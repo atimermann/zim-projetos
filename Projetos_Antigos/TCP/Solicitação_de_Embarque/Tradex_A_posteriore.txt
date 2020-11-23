@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-09T17:14:14-02:00
+
+====== Tradex A posteriore ======
+Created terça 09 dezembro 2014
+
+ABRIR NO IE EMULADO PARA IE5
+
+**tradex.org.br**
+"login=59010835987&password=878787"
+
+Clicar em : DW -> Pedido de EMbarque
+{{./pasted_image.png}}
+Se não encontrar buscar com BRF
+
+Testar com:
+http://appteste/tradex/get.php?cnpj=01.838.723/0001-27&programacao=40157

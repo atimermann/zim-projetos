@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-01T17:22:36-02:00
+
+====== Robo para Carregar Dados do Mantra ======
+Created domingo 01 fevereiro 2015
+
+
+* Será usado uma VM com um ambiente antigo (WINDOWS XP + IE 7 + JAVA 1.5) VM  **(To usando a VM IE8 - Win XP)**
+* Robo será desenvolvido usando o Autoit
+* Fontes estão na Área de Trabalho (organizar)
+* Será usado FTP para puxar os certificados
+* Será usado Json para comunicação web service para obter a lista de certificado http://www.autoitscript.com/forum/topic/148114-a-non-strict-json-udf-jsmn/
+
+
+==== Referencia de teclas para envio de comando ====
+https://www.autoitscript.com/autoit3/docs/functions/Send.htm

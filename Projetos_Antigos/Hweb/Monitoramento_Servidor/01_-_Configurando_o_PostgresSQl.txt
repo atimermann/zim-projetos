@@ -1,0 +1,243 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-02T22:02:59-03:00
+
+====== Configurando o PostgresSQL ======
+Created quinta 02 outubro 2014
+
+====== Instalando versão 9.3 ======
+
+se a versão do postgres não for 9.3, use o tutorial abaixo:
+
+http://technobytz.com/install-postgresql-9-3-ubuntu.html
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+lsb_release -c
+
+====== Acessando ======
+**na maquina local:**
+ssh-copy-id andre@REP01
+ssh-copy-id andre@REP02
+
+
+**Verifica se está instalado**
+sudo apt-get install postgresql postgresql-contrib postgresql-client
+
+====== Criando conexão entre os servidores ======
+
+
+Primeira coisa que precisamos fazer é criar uma conexão ssh direta sem senha entre os servidores para realizar a replicação
+
+**Altere a senha para o usuario postgres**
+# sudo -i
+# passwd postgres
+9a8n4d
+
+**Crie uma chave para cada servidor no usuário postgres**
+# su - postgres
+# ssh-keygen
+**NOTA:** Deixe a chave em branco.
+
+**Vamos copiar a chave para o outro servidor**
+Ainda como usuário postgres:
+ssh-copy-id <IP_REMOTO>
+
+**NOTA:** Faça o mesmo para os dois Servidores
+
+====== Configurando Usuário de Replicação ======
+
+Vamos configurar apenas em dos servidores que vamos chamar por enquanto de master (note que pode ter troca troca)
+
+Para cria o usuário de replicação, vamos usar o comando:
+	**psql -c "CREATE USER rep REPLICATION LOGIN CONNECTION LIMIT 2 ENCRYPTED PASSWORD '9a8n4d';"**
+
+Deixe o limite em 2 em vez de 1 para evitar problemas
+
+
+==== Para consultar os usuários cadastrados use: ====
+	**psql -c "SELECT * FROM pg_user;"**
+**NOTA:** Deve estar logado com usuário postgres
+
+==== Para alterar senha ====
+**psql -c "ALTER USER postgres WITH PASSWORD '9a8n4d'"**
+
+==== Para liberar acesso ao usuario externo use: ====
+	**host    replication     rep         192.168.56.102/32           md5**
+
+
+==== para todos os IPS: ====
+**postgres.sql:**
+listen_addresses = ‘*‘ # what IP address(es) to listen on
+**pg_hba.conf**
+host all all 0.0.0.0/0 md5
+
+**Para acesso sem senha:**
+host all all 0.0.0.0/0 trust
+
+**Para acesso de uma rede inteira:**
+host all all 192.168.0.0/32 md5
+
+
+
+http://www.postgresql.org/docs/8.0/static/sql-alteruser.html
+
+
+====== Configurando o Posgres ======
+
+No nosso exemplo o Primeiro servidor(MASTER) tem ip **192.168.56.101  **e o segundo tem ip **192.168.56.102(SLAVE)**
+
+No servidor MASTER
+
+Vamos para o diretório de configuração, que geralmente fica em:
+	**/etc/postgresql/9.3/main**
+	
+
+
+===== Configurando as Permissões de Acesso =====
+
+As configurações de acesso ficam em:
+	**/etc/postgresql/9.3/main/pg_hba.conf** 
+	
+Vamos adicionar a seguinte permissão para o usuário de replicação ser acessado do outro servidor (o slave por exemplo)
+	**host    replication     rep         192.168.56.102/32           md5**
+
+
+====== Configurando o Postgres no modo MASTER->SLAVE ======
+
+Edite o arquivo de configuração do postgres:
+	**/etc/postgressql/9.3/main/postgresql.conf** 
+	
+Vamos editar os seguintes parâmetros:
+
+	**listen_addresses = 'localhost,IP_address_of_THIS_host'**
+	**wal_level = 'hot_standby'**
+	**archive_mode = on**
+	**archive_command = 'cd .'**
+	**max_wal_senders = 2**
+	**hot_standby = on**
+	
+
+
+====== Configurando o SLAVE ======
+
+
+
+Desative o postgres
+	**service postgresql stop**
+	
+
+===== Configurando permissão =====
+
+Vá ao diretório de configuração
+	**cd /etc/postgresql/9.3/main**
+	
+Vamos dar permissão de acesso **AO MASTER** desta vez
+	**host    replication     rep         192.168.56.101/32           md5**
+ou seja vai ficar igual ao anterior
+
+
+===== Configurando o SLAVE =====
+
+edite o arquivo postgres.sql
+	**vim /etc/postgressql/9.3/main/postgresql.conf** 
+	
+	**listen_addresses = 'localhost,IP_address_of_THIS_host'**
+	**wal_level = 'hot_standby'**
+	**archive_mode = on**
+	**archive_command = 'cd .'**
+	**max_wal_senders = 2**
+	**hot_standby = on**
+
+
+====== REPLICANDO A BASE DO MASTER PARA O SLAVE ======
+
+**NOTA:** Não use o artigo do digital ocean que está obsoleto
+
+O Diretório onde fica armazenado os dados do banco de dados fica em:
+	**/var/lib/postgresql/9.3/main**
+	
+
+**No master:**
+psql -c "select pg_start_backup('initial_backup');"
+
+**no slave:**
+	rm -r /var/lib/postgresql/9.3/main/*
+	sudo -u postgres pg_basebackup -h 1.2.3.4 -D /var/lib/postgresql/9.3/main -U [username] -v -P --xlog-method=stream
+	Where 1.2.3.4 is the master IP, and username is the replication user. This will start a streaming WAL receiver in the background while the backup is copied. As soon as this finishes you should be able to start the slave.
+
+**no db1.cloudcomex.com.br:** pg_basebackup -h 107.170.19.70 -D /var/lib/postgresql/9.3/main -U rep -v -P --xlog-method=stream
+**no db2.cloudcomex.com.br:** pg_basebackup -h 192.241.200.194 -D /var/lib/postgresql/9.3/main -U rep -v -P --xlog-method=stream
+
+**No Master:**
+psql -c "select pg_stop_backup();"
+
+
+**Deve aparecer algo como:**
+ pg_start_backup 
+-----------------
+ 0/A000028
+(1 registro)
+
+psql -c "select pg_stop_backup();"
+NOTA:  pg_stop_backup concluído, todos os segmentos do WAL foram arquivados
+ pg_stop_backup 
+----------------
+ 0/C000050
+(1 registro)
+
+====== HABILITANDO RECOVERY ======
+
+Para que a replicação funcione é importante criar o arquivo **recovery.conf** no diretório
+	**/var/lib/postgresql/9.3/main**
+
+Desta forma:
+	**standby_mode = 'on'**
+	**primary_conninfo = 'host=192.168.56.101 port=5432 user=rep password=9a8n4d'**
+	**trigger_file = '/tmp/postgresql.trigger.5432'**
+
+O ip é do master
+
+ESTE ARQUIVO DEVE EXISTIR
+
+Caso vc crie o arquivo [[/tmp/postgressql.trigger.5432]] o servidor vira MASTER e a replicação é cancelada, é executado em caso de falha
+
+====== TESTANDO ======
+
+O Master será leitura/escrita porém o slave será apenas leitura
+
+No MASTER
+
+**# psql**
+**# CREATE TABLE rep_test (test varchar(40));**
+**# INSERT INTO rep_test VALUES ('some more words');**
+
+
+No Slave
+
+**# psql**
+**# postgres=# SELECT * FROM rep_test;**
+**      test       **
+**-----------------**
+** some more words**
+
+
+Caso a replicação não esteja funcionando sempre verifique o log:
+
+Deve aparecer algo assim:
+
+	**postgres@REP02:~/9.3/main$ tail -f /var/log/postgresql/postgresql-9.3-main.log **
+	**2014-10-02 22:07:57 BRT FATAL:  terminando processo walreceiver por causa de um comando do administrador**
+	**2014-10-02 22:07:57 BRT LOG:  desligando**
+	**2014-10-02 22:07:57 BRT LOG:  sistema de banco de dados está desligado**
+	**2014-10-02 22:07:58 BRT LOG:  sistema de banco de dados foi desligado durante recuperação em 2014-10-02 22:07:57 BRT**
+	**2014-10-02 22:07:58 BRT LOG:  entrando no modo em espera**
+	**2014-10-02 22:07:58 BRT LOG:  redo inicia em 0/1A000028**
+	**2014-10-02 22:07:58 BRT LOG:  estado de recuperação consistente alcançado em 0/1B000000**
+	**2014-10-02 22:07:58 BRT LOG:  sistema de banco de dados está pronto para aceitar conexões somente leitura**
+	**2014-10-02 22:07:58 BRT LOG:  iniciado fluxo de WAL do principal em 0/1B000000 na linha do tempo 1**
+	**2014-10-02 22:07:58 BRT LOG:  pacote de inicialização incompleto**
+
+Verifique se o slave aceita escrita:
+
+	**postgres=#  INSERT INTO rep_test VALUES ('some more words');**
+	**ERRO:  não pode executar INSERT em uma transação somente leitura**

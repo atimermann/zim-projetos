@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-01T11:59:35-02:00
+
+====== Permissões ======
+Created segunda 01 dezembro 2014
+
+* Cada aplicação terá internamente as configurações de permissões disponíveis

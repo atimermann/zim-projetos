@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-03T10:03:44-03:00
+
+====== 2014-06-02, Segunda-feira ======
+Created terça 03 junho 2014
+
+===== Prazos para realização das tarefas =====
+
+
+==== Gestão de Incidências ====
+
+* Alterações											4 horas
+* Envio de email								
+	* Instalação no Sistema (PHP MAILLER)						3 horas
+		* http://symfony.com/doc/current/cookbook/email/email.html
+	* Uso no Gestão de Incidência								4 horas
+	* Cadastro de Template na configuração			 			2 horas
+* Tela de Histórico de Incidência								     20 horas
+* Documentação de Usuário				
+
+
+==== Framework ====
+
+* Finalização Sistema de Perfil						     
+	* Cadastros									8 horas
+	* Autenticação, telas							      16 horas
+
+* Sistema de Menu Automátizado						24 horas
+* Exportação dados para Excel							
+	* Instalação no Sistema (PHPExcel)					3 horas
+		* http://knpbundles.com/liuggio/ExcelBundle		
+	* Criação de Plugin para exportação excel				16 horas
+* Criação Passo a Passo para cadastro de novos usuários		24 horas
+
+
+
+====== Apresentar ======
+
+
+
+==== Gestão de Incidências ====
+
+* **Alterações											4 horas**
+* **Envio de email**								
+	* Instalação no Sistema (PHP MAILLER)						3 horas
+		* http://symfony.com/doc/current/cookbook/email/email.html
+	* Uso no Gestão de Incidência								6 horas
+	* Cadastro de Template na configuração			 			2 horas
+
+**Requisitos:**
+* Dados de conexão SMTP para envio de email via PHP, para o email **reffer@tcp.com.br**
+* Verificar se o servidor interno da tcp: **192.168.1.33 **tem acesso para conexão SMTP
+
+==== Framework ====
+
+* Sistema de Menu Automátizado						30 horas
+* Exportação dados para Excel							
+	* Instalação no Sistema (PHPExcel)					3 horas
+		* http://knpbundles.com/liuggio/ExcelBundle		
+	* Criação de Plugin para exportação excel				24 horas
+* Criação Passo a Passo para cadastro de novos usuários		36 horas

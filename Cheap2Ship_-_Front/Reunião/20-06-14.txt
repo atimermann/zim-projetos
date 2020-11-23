@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-06-16T14:14:07-03:00
+
+====== 20-06-14 ======
+Created terça 16 junho 2020
+
+* Panorama Urgente
+* **"Não redireciona para login quando não autenticado no cliente"**
+* **[OK]** alterar alinhamento From content to content, usar grid alinhado esquerda 3 colunas e 4 de largura
+* **[ok] **definir max-width em todos os formulários
+* loader de todas as páginas (não deixar mostrar mensagem nenhuma cotação antes de carregar)
+* **[ok]** Renomear formulários mainForm para nome mais legivel
+* **[ok]** Renomear listForm

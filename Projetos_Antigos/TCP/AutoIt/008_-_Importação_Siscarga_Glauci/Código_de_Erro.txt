@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-12-27T19:37:50-02:00
+
+====== Código de Erro ======
+Created domingo 27 dezembro 2015
+
+F001: Falha ao Abrir o Glauci
+F002: Falha ao carregar Janela de Login
+F004: Falha ao carregar janela principal, pode ser problema de conexão
+F005: Falha ao abrir janela de Importar Arquivos
+
+E003: Usuário ou Senha Inválidos
+E006: Arquivo não disponível para Upload não encontrado ou já processado
+E007:Erro Ao realizar upload do arquivo (Descrição Disponível)
+E008:Tempo para upload esgotado
+E009:Tempo para upload esgotado

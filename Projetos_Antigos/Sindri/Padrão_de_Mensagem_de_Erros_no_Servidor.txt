@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-22T23:11:32-02:00
+
+====== Padrão de Mensagem de Erros no Servidor ======
+Created segunda 22 dezembro 2014
+
+Para sincronização de dados dentro do Sindre será usado o objeto dataSync que padroniza a comunicação de dados com tratamento de erro.
+
+Os erros seguirão o seguinte padrão:
+
+
+
+
+
+====== Erro Geral ======
+
+
+Neste caso será apenas um erro, podendo ser:
+
+===== String =====
+
+Texto simples, sem tratamento (na verdade para suportar os erros sem padrão)
+
+===== Json =====
+
+Deve retornar um json com as seguintes propriedades:
+
+**Obrigatório**
+--------------
+* **error:** true
+* **type: **Tipo do erro, (pode ser estendido como título do erro)
+* **message: **Mensagem do erro
+
+====== Lista de Erros ======
+
+Quanto existir mais de um erro usar uma lista de objeto:
+
+* **error:** true
+* **errors: [ LISTA DE OBJETO ]**
+
+onde cada objeto deve ter
+* **type:**
+* **message:**
+
+====== Lista de Ìtens (erros de um grupo de elementos, como formulário) ======
+
+Neste caso obrigatório ser um json no formato:
+
+* **error:** true
+* **itens: [ LISTA DE OBJETO ]**
+
+Cujo objeto deve conter:
+
+* **id (Obrigatório): **Identificador do item (exemplo: nome) 
+* **type: **Tipo do erro, (pode ser entendido como título do erro)
+* **message  (Obrigatório):** Mensagem do ero
+
+
+**NOTA: **type não é obrigatório, no cliente deve ser tratado caso não exista
+**NOTA: **É possível combinar os diferentes tipos de erro
+
+**IMPORTANTE: **Deve retornar com content-type como json, exemplo:
+{{./pasted_image.png}}
+
+====== TODO: MUDANÇA DO PADRÃO ======
+
+Em vez de ter duas propriedades
+
+errors e itens
+
+unificar em **errors**
+
+Para identificar quando é um erro de item, vamos verificar se existe a propriedade **"id"**
+
+Criar a classe de error 
+Corrigir documentação

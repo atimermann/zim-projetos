@@ -1,0 +1,70 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-03-07T11:54:15-03:00
+
+====== Refêrencia Modelos ======
+Created sábado 07 março 2015
+
+Para manipular e persistir, iremos utilizar os modelos de dados (models), ele representa uma entidade que pode (na maioria dos casos) estar na base de dados. 
+
+Existem dois tipos de modelos, os modelos Cliente e Servidor.
+
+**Servidor**
+* O modelo de dados no servidor, será utilizado basicamente para gerar web services REST.
+
+**Cliente**
+* Os modelos de dados do cliente, será utilizado principalmente parar criar CRUDS ou para serem usados diretamente na renderização da view
+
+**NOTA: **
+Os modelos de dados cliente e servidor estão separados pelos seguintes motivos:
+
+* Apesar de representar a mesma entidade na maioria esmagadora dos casos, eles são diferentes, por exemplo: dada do cadastro não será e nem deve ser conhecido no lado cliente, é um registro exclusivo do servidor.
+* Podemos ter várias representações diferente da mesma entidade no cliente. Um formulário de administrador tem acesso a edição de mais informações que um usuário comum
+* No futuro a idéia é criar uma interface que facilite a criação de modelos (seja gerando do banco de dados ou montando direto na interface) , poderemos utilizar:
+	* Interface Web
+	* Linha de Comando
+	* Aplicação desktop baseado no node
+
+
+BANCO DE DADOS => SERVER MODEL => CLIENTE MODEL => FORMULARIO/GRID/VIEW => USUÁRIO
+
+====== Referências ======
+
+===== Servidor =====
+
+TODO: Verificar o TIPO LISTA (relacionamento especial)
+
+==== Tipos ====
+Será mapeado para o tipo no banco de dados, exemplo: **string => CHAR, VARCHAR, TEXT**
+
+* numeric
+* string
+* bool
+* enum
+* datetime
+* date
+* time
+
+==== Propriedades (padrão) ====
+Note que nullable é diferente de required (required não é representado no banco de dados, enquanto nullable sim)
+
+* nullable (true)
+* unique (false)
+* size (null)
+* required (false)
+	* Se aplica apenas a campos do tipo string, outros usar nullable
+* enum (Lista de Atributos - Valor -> Descrição)
+	* Mais usado no cliente, evitar usar, pois causa mais consumo de dados na transfêrencia (apenas em caso que é necessário fazer transmissão de forma explicita)
+	* Normalmente se definido no cliente não é definido aqui
+* dafault (não implementado)
+
+**(Parâmetros para restify)**
+* insert
+* update
+
+
+
+
+
+
+

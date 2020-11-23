@@ -1,0 +1,252 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-06-28T16:05:51-03:00
+
+====== Análise de Projeto ======
+Created sexta 28 junho 2013
+
+====== 1. Introdução ======
+
+* Toda mercadoria transportado por container que passa pela tcp tem um valor, este valor é chamado de **"Valor CIF" **(Valor da Mercadoria em Nota)
+* A TCP cobra de acordo com as seguintes regras:
+	* **Valor CIF:** Os cálculos são feitos em cima deste valor;
+	* **Importação exportação:** Para cada tipo tem uma forma de cobrança;
+	* **Forma de Armazenamento: **Para cada tipo de armazenamento existe uma forma de cobrança;
+
+
+====== 2. Importação e Exportação ======
+
+===== Exportação =====
+
+* de 01 a 07 dias não terá nenhum custo para o cliente;
+* A partir de 08 dias será cobrado variando de acordo com o tipo de conêiner
+
+
+**Tipos de contêiner:**
+* DRY (Padrão (STD)): Valor de R$ 7,81 por dia
+* Reefer:			Valor de R$ 9,39 por dia
+* IMO:				Valor de R$ 11,73 por dia
+* OOG - Excesso		Valor de R$ 23,44 por dia
+
+* Contêineres OOG são contêineres com excesso de medidas que exigem equipamentos e cuidados especiais para 
+
+seu manuseio (fora de padrão) 
+
+• 01.4 -  Contêineres IMO são contêineres que transportam cargas perigosas que exigem manuseio e armazenagem 
+diferenciadas, classificados segundo as normas de segurança da Organização Marítima Internacional (IMO). 
+
+===== Importação =====
+
+No caso de importações será utilizada regra de armazenamento, descrito no próximo tópico.
+
+
+====== 3. Armazenamento ======
+
+Existem 3 formas de armazenamento oferecido pela tcp:
+
+* Pátio
+* Armazem
+* LCL
+
+E para cada tipo de armazenamento existe uma formula de cobrança;
+* A Cobrança é feita por container 
+
+===== A. Pátio =====
+
+* Existe uma taxa mínima no valor de R$ 377,00, ou seja mesmo que o valor calculado pelas regras a seguir fiquem abaixo de R$ 377,00 este será o valor cobrado;
+* Até 10 dias no pátio não será cobrado nenhum valor pelo armazenamento;
+* Caso o contêiner seja retirado do terminal em prazo superior a 10 (dez) dias, o preço da armazenagem incidirá também sobre os mesmos 10 (dez) dias iniciais.
+
+A cobrança é feita pelas seguintes regras:
+
+==== Tipo de Containers ====
+
+No caso de armazenamento em Pátio, existem 4 tipos de containers, cujo custo de armazenamento será cobrado de formas diferentes:
+* Normal (Comum)
+* Reffer
+* IMO
+* Excesso (OOG)
+
+Será aplicado a seguinte fórmula de cobrança:
+
+**Armazenagem até 10 dias:**
+Sem cobrança
+
+**Armazenagem de 11 a 30 dias:**
+Normal (Comum): 	[DIAS * CIF] * 0.0648
+Reffer:				[DIAS * CIF] * 0.0776
+IMO:				[DIAS * CIF] * 0.0970
+OOG:				[DIAS * CIFS] * 0.1943
+
+**Armazenagem de 31 a 120 dias:**
+Normal (Comum): 	[30 * CIF] * 0.0648 + ([DIAS - 30] * CIF) * 0.1553
+Reffer:				[30 * CIF] * 0.0776 + ([DIAS - 30] * CIF) * 0.1864
+IMO:				[30 * CIF] * 0.0970 + ([DIAS - 30] * CIF) * 0.2331
+OOG:				[30 * CIF] * 0.1943 + ([DIAS - 30] * CIF) * 0.4661
+
+**Armazenagem por mais de 120 dias:**
+Normal (Comum): 	[30 * CIF] * 0.0648 + ([90 * CIF]) * 0.1553 + ([DIAS - 120] * CIF) * 0.2914
+Reffer:				[30 * CIF] * 0.0776 + ([90 * CIF]) * 0.1864 + ([DIAS - 120] * CIF) * 0.3497
+IMO:				[30 * CIF] * 0.0970 + ([90 * CIF]) * 0.2331 + ([DIAS - 120] * CIF) * 0.4372
+IMO:				[30 * CIF] * 0.1943 + ([90 * CIF]) * 0.4661 + ([DIAS - 120] * CIF) * 0.8741
+
+==== Exemplo: ====
+Um contêiner com CIF no valor de R$ 100,00 custará:
+
+**Armazenagem de 15 dias: **
+Normal (Comum): 	R$ 97,20
+Reffer:				R$ 116,40
+IMO:				R$ 145,00
+OOG:				R$ 291,45
+
+**Armazenagem de 100 dias**
+Normal (Comum): 	
+**Primeios 30 dias:** R$ 194,40
+**70 dias restantes:** R$ 1087,10
+**Total: **R$ 1281,40
+
+Reffer:				
+**Primeios 30 dias:** R$ 232,80
+**70 dias restantes:** R$ 1304,80
+**Total: **R$ 1537,60
+
+IMO:				
+**Primeios 30 dias:** R$ 291,00
+**70 dias restantes:** R$ 1631,70
+**Total: **R$ 1922,70
+
+OOG:				
+**Primeios 30 dias:** R$ 582,00
+**70 dias restantes:** R$ 3262,60
+**Total: **R$ 3.844,60
+
+**Armazenagem de 150 dias:**
+Normal (Comum): 	[30 * CIF] * 0.0648 + ([90 * CIF]) * 0.1553 + ([DIAS - 120] * CIF) * 0.2914
+**Primeios 30 dias:** R$ 194,40
+**Entre 31 e 120 dias: **R$ 1.397,70
+**Entre 121 e 150 dias:**  R$ 874,20
+**Total: **R$ 2.466,3
+
+
+Além do armazenamento em si, serão cobrados as seguintes taxas:
+
+==== Regime de Liberação ====
+
+Pode ser de dois tipos:
+
+* Normal (Sem custo adicional)
+* Transito (DTA) - Custo adicional de R$ 93,76
+
+==== Excesso de Peso: ====
+
+Caso o peso do container seja superior a 2500kg, será cobrado uma taxa utilizando a seguinte fórmula
+
+TAXA = R$ 50,00 * ((Peso - 2500) / 500)
+
+O valor final ainda será arredondado para cima.
+
+===== B. LCL =====
+
+* Nesta forma de armazenamento, a cobrança será feito por tonelada
+* O valor CIF é o valor total
+* Existe uma taxa mínima no valor de R$ 360,00, ou seja mesmo que o valor calculado pelas regras a seguir fiquem abaixo de R$ 360,00 este será o valor cobrado;
+
+Além do armazenamento em si, serão cobrados as seguintes taxas:
+
+==== Ad Valore ====
+
+Será cobrado usando a seguinte fórmula:
+
+TAXA = VALOR_CIFS * (0.175 / 100)
+
+==== Valores Fixos: ====
+
+Valores fixos que sempre serão cobrados:
+
+Carregamento = R$ 390,00
+Desmembramento = R$ 80.00;
+Presenca_carga = R$ 35.00;
+Cadastro = R$ 50.00;
+pesagem_lote_lcl = R$ 20.00;
+
+==== Excesso de Peso: ====
+
+Caso o peso do container seja superior a 2500kg, será cobrado uma taxa utilizando a seguinte fórmula:
+
+TAXA = R$ 50,00 * ((Peso - 2500) / 500)
+
+O valor final ainda será arredondado para cima.
+
+===== C. Armazem =====
+
+* O valor CIF é o valor total
+* Existe uma taxa mínima no valor de R$ 377,00, ou seja mesmo que o valor calculado pelas regras a seguir fiquem abaixo de R$ 377,00 este será o valor cobrado;
+
+O Valor de armazenagem será cobrando usando a seguinte fórmula:
+
+**Entre 01 e 30 dias:**  (DIAS * CIF) * 0.0770
+**Entre 31 e 60 dias:**  (30 * CIF) * 0.0770 + ([DIAS - 30] * CIF) * 0.1532
+**Entre 61 e 90 dias:**  [30 * CIF] * 0.0770 + (30 * CIF) * 0.1532 + ([DIAS - 60] * CIF) * 0.3063
+**A partir de 90 dias:** [30 * CIF] * 0.0770 + (30 * CIF) * 0.1532 + (30 * CIF) * 0.3063 + ([DIAS - 90] * CIF) * 0.6126
+
+==== Exemplo ====
+
+Uma mercadoria com valor CIF de  R$ 100,00 e armazanado por 200 dias custará:
+
+**Entre 01 e 30 dias:**  R$ 231,00
+**Entre 31 e 60 dias:**  R$ 459,60
+**Entre 61 e 90 dias:** R$ 918,90
+**Entre 90 e 200 dias:** R$ 6738,60
+**Total:** R$ 8.348,10
+
+
+
+====== Requisitos Funcionais do Software a ser desenvolvido ======
+
+
+===== Simulação de preços =====
+
+* Cliente poderá simular preços da tabela pública através do site do TCP, informando:
+	* Tipo de Serviço
+	* Tipo de Operação
+	* Quantidade de Contêiner
+	* Tipo de Conêiner
+	* Regime de Liberação
+	* Número de dias que o contêiner ficará na TCP
+	* Valor CIF
+Ao final da simulação será sugerido que cliente entre em contato com comercial.
+
+===== Manter serviços =====
+* CANCELADO
+* ~~Analista do TCP terá acesso a uma tela onde poderá cadastrar ou remover serviços oferecidos pelo TCP.~~
+
+===== Manter tabela de preços  =====
+* CANCELADO
+* ~~Analista do TCP terá acesso a uma tela onde irá informar unidades, preços por unidade e vigência para cada um dos serviços ativos oferecidos.~~
+
+===== Layout =====
+
+* Será usado como base o Twitter Bootstrap para layout: 
+	* http://twitter.github.io/bootstrap/
+
+
+====== Base de dados ======
+
+Como o sistema atual está sendo modificado (Argus), os valores ficaram fixo no código, em php, alterações devem ser feitas diretamente com o analista ou desenvolvedor (Helmuth)
+O arquivo onde ficará armazenado as informações sobre taxas será 
+
+	**os/precos.php**
+
+
+Tabelas no Argus que não serão mais usadas:
+* ARGBASEF.TARIFAF 
+* ARGFACTCP.CONCEPF 
+
+
+====== Protótipo ======
+
+
+{{./pasted_image.png}}
+
+
+{{./pasted_image001.png}}

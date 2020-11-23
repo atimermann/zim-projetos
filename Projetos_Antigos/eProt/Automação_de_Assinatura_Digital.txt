@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-09-14T20:40:30-03:00
+
+====== Automação de Assinatura Digital ======
+Created quarta 14 setembro 2016
+
+http://jsignpdf.sourceforge.net/ls -

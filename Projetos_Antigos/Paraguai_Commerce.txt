@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-01-03T13:11:52-02:00
+
+====== Paraguai Commerce ======
+Created quinta 03 janeiro 2013
+
+====== Recursos necessários ======
+
+
+* urllib
+* urllib2
+* Crowle (beatifulsoap)
+* Scrapy

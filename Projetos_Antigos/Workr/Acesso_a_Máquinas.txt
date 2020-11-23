@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-25T19:48:13-03:00
+
+====== Acesso a Máquinas ======
+Created quinta 25 fevereiro 2016
+
+====== Máquinas Windows (Workers) ======
+
+**Acesso via vpn:**
+sudo openvpn --config [[~/openvpn/andre/andre.ovpn]]
+
+
+**Samba**
+**Dica: **Usar smb4k (Não precisa de senha)
+
+==== Autoit 01 ====
+ssvnc --viewer autoit01 -quality 1 -compresslevel 1
+**senha:** autoit01
+
+
+
+==== Autoit 02 ====
+ssvnc --viewer autoit02 -quality 1 -compresslevel 1
+**senha:** autoit02
+{{./pasted_image.png}}
+
+====== Manager (autoitmanager) ======
+
+**Acesso via vpn:**
+sudo openvpn --config ~/openvpn/andre/andre.ovpn
+
+192.168.100.200
+**usuario:** root
+**senha: **9a8n4d
+
+===== Mysql =====
+
+===== Itajai =====
+**User:** autoitmanager
+**Password:** 16OMg6Ffpejxufls
+**Database**: autoitmanager
+
+
+===== Embraport =====
+**API_KEY:** 71ddcf2a39be67cefee4dbdab7d7a0b2
+**CERT_KEY: ** ed6de1b43fe5a1556561c7ee7d1d939c
+**Database:** autoitmanager_embraport
+**Password:** 16OMg6Ffpejxufls
+

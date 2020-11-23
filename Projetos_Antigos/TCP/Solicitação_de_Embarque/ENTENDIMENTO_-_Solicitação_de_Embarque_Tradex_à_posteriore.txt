@@ -1,0 +1,318 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-25T16:27:19-03:00
+
+====== ENTENDIMENTO - Solicitação de Embarque Tradex à posteriore ======
+Created segunda 25 maio 2015
+
+Centralizar Aqui análise e entendimento do processo de liberação tradex e retenção 5 no Argos
+
+Objetivos:
+* entender o PROCESSO completo do TRADEX
+* Entender o funcionamento do sistema (Fluxo de Dados, processos e armazenamento)
+
+===== Documentos =====
+
+**ESPECIFICAÇÃO TÉCNICA DE DESENVOLVIMENTO (ETD)**
+**TERMO DE ABERTURA DO PROJETO (TAP)**
+
+
+[[~/projetos/tcp/Automate/EF_Automatização Conferência Aduaneira Tradex Release II_v0.8.doc]]
+[[~/projetos/tcp/Automate/ETD_17-14_TCP_Informar ordem embarque tradex.pdf]]
+[[~/projetos/tcp/Automate/ETD_17-14_3_TCP_Retira_Retenção 5 ARGOS.pdf]]
+
+====== Glossário ======
+
+
+===== Tradex =====
+* Regime Especial de desembaraço, onde algumas empresas com regime especial podem utilizar
+* **Apenas para Exportação**
+
+* Pela legislação, um recinto alfangegado (TCP) não pode estufar contêiner, contẽiner já deve vir estufado
+* **Estudar: **Ato de colocar uma carga dentro do contêiner
+
+==== Tradex trânsito ====
+	* Contêiner já vem Liberado de outro terminal, TCP apenas conclui o processo
+
+==== Tradex à posteriore ====
+	* A TCP Libera no Tradex
+
+===== Pré-Staking =====
+* Cadastro do Contêiner na TCP
+* LInk para Pré staking:
+	* http://extranet.tcp.com.br/extranet/agendamento/?t=combo_pre_stacking
+	* http://extranet.tcp.com.br/PreStackingExportacao/
+
+* Seleciona Notas Fiscais
+* Dados de Exportação
+
+====== Processo ======
+
+* Contêiner é estufado em um Armazém de Terceiro; (Não é permitido fazer na TCP)
+* AZ dá entrada no TRADEX com todas as informações necessárias - Destino = TCP
+* Cliente realiza Pré-Staking
+
+
+===== Como é feito Atualmente =====
+
+==== Para Despacho Comum ====
+	* Despachante apresenta um print da tela do siscomex com número do despacho e contêineres vinculado ao mesmo
+	* Equipe Siscomex valida/compara todos os contêineres no sistema Argos (1 por 1), confere:
+		* Contêineres
+		* Lacre
+		* Navio
+		* Realiza Batimento da orgem de embarque x sistema Argos e Status Liberação Embarque - L
+	* Se hover qualquer divergencia cliente é avisado por email
+	* Se OK, Equipe Siscomex :
+		* Emite a minuta (rascunho inicial do documento)
+		* Carimba documento como "TRADEX" e entraga para despachante
+	* Equipe Siscomex retira a retenção 5 dos contêineres no Argos
+		* Neste momento vincula o numero do despacho com o contêiner)
+
+==== Para "Á Posteriore" ====
+	* Cliente disponibiliza listas separadas contendo as informações:
+		* Lista de Ordem de Embarque
+			* Lista de COntêineres
+			* Lacre
+		* Lista de **Registro de Exportação** para Vinculação
+			* Programação
+			* Terminal
+			* Navio
+			* QUantidade de Volume (para receita não importa conteiner, errado na EF)
+			* Exportador
+	* Equipe Siscomex acessa o **Sistema Tradex**, para inclusão do CNPJ do exportador
+		* Informação Disponível na Ordem de Embarque)
+		* Procedimento conforme documento em Anex **(Documento 8.1)**
+	* Seleciona Opção Recepcionado/Deferido
+	* Inclui a programação (Informações na Ordem de Embarque)
+	* Pesquisa a Lista de REs (Registro de Exportação)
+	* Realiza o Batimento da Lista de RE apresentada no Site Tradex com a ordem de embarque
+		* Se identificado que a RE está divergente da lista Recepsionado/Deferido apresentado pelo Site, informa ao cliente via E-mail/Telefone a inconsistência das informações
+	* Seleciona todos o RES, clica em informar Ordem de Embarque
+		* Procedimento se finromações estiverem deferidas
+	* incluir o primeiro nome do exportador no vampo numero de ordem de embarque e clica em OK"
+	* Equipe Siscomex retira a retenção 5 dos contêienres no Sistema Argos
+
+
+===== Como o Sistema vai executar =====
+
+==== Tradex - Despacho Comum ====
+
+
+==== Tradex - Á posteriore ====
+
+* Cliente insere as informações da liberação
+* Site realiza as validações
+* Sistema disponibiliza mensagens de agendamento liberado com o protocolo da solicitação
+* NO sistema Tradex da receita só é informado as RE, conteiner é usado apenas para retirar retenção
+
+* **SEGUIR A <RF 004>**
+
+===== Fluxo de Status =====
+
+{{./pasted_image.png}}
+
+
+====== RFs ======
+
+
+===== <RF001> =====
+Solicitação de ordem de Embarque
+	* Feito em PHP
+
+===== <RF002> =====
+Validação das informações aplicadas ao Despacho Tradex (Comum e Posteriore)
+	* Validações Feita no Sistema em PHP (Contêiner e DEspacho)
+
+===== <RF003> =====
+** Site TCP Extranet - Solicitação de Embarque Tradex Comum**
+
+===== <RF004> =====
+**Validações das informações aplicadas aso Despacho Tradex Á Posteriore**
+
+**Descrição da Aplicação:**
+
+
+	* Na verdade não é a validação, é o procesos em si no SITE
+	* Cliente Seleciona "Tradex Á posteriore"
+	* Cliente deve informar os campos:
+		* Exportador TCP
+		* Navio
+		* Programação Tradex
+	* __O Site TCP deve disponibilizar a mensagem informativa “Para realizar o embarque, o CNPJ do Exportador deve estar cadastrado no TCP e vinculado ao grupo de Empresas do usuário logado”.__
+	* Sistema Valida Informações de acordo com a **RF002**
+	* Sistema Exibe uma lista de Navio/Viagem selecionado na CONTF (Late Runnder ou retenção 5)
+__[TODO: ADICIONAR AQUI AS CONSULTAS PARA OBTER ESSAS INFORMAÇÔES]__
+
+	* Realiza algumas validações nos contêineres selecionados
+	* O site da TCP acesso o Sistema Tradex (cadastro/Pedido de Embarque) e obtém a lista de RE (Registro de Embarque) para programação / CNPJ / Recepcionado / Deferido preenchido pelo cliente
+__[TODO: ADICIONAR AQUI AS CONSULTAS PARA OBTER ESSAS INFORMAÇÔES]__
+
+
+	* Cliente Seleciona RE para vinculado ao contêiner
+__[TODO: ADICIONAR AQUI AS CONSULTAS PARA OBTER ESSAS INFORMAÇÔES]__
+
+
+	* Se todas já tiverem selecionado valida
+	* se nenhuma for selecionada valida
+	* O site TCP gera um numero de protocolo
+* __[TODO: ADICIONAR AQUI AS CONSULTAS PARA OBTER ESSAS INFORMAÇÔES__
+
+
+	* Comanda o Automate  para liberar embarque no Sistema Tradex	
+		* [[~/projetos/tcp/Automate/ETD_17-14_TCP_Informar ordem embarque tradex.pdf]]
+		* Para cada RE armazena um registro na tabela 
+			* **AUTOMATE.DBO.TB_TRADEX**
+				* **Número_RE;**
+				* **Número_Ordem_Embarque;**
+				* **DT_cadastro;**
+				* **ID_protocolo (vinculado a tabela TB.SISCOMEX_protocolo);**
+		* Para cada Contêiner selecionado gravar um registro na tabela:
+			* **AUTOMATE.DBO.TB_TRADEX_CONTEINERES**
+				* **ID;**
+				* **Conteiner;**
+				* **ID_protocolo vinculado a tabela TB.SISCOMEX_protocolo);**
+				* **Lacre;**
+				* **Status_retencao;**
+	* Para as solicitações consistidas, Processo Automate realiza a retirada da retenção 05 do contêiner no Argos;
+
+01 – Somente usuário devidamente cadastrado poderá realizar a solicitação de embarque.
+
+===== <RF005> =====
+** Automate – Consultar Liberação Embarque Tradex**
+
+* Automate informa ordem de embarque no Tradex
+	* [[~/projetos/tcp/Automate/ETD_17-14_TCP_Informar ordem embarque tradex.pdf]]
+
+Status Disponibilizados pelo Automate:
+
+
+Códigos usados na consulta entrega permitida e no Registro de Carga:
+	* 0 - Documento na fila aguardando registro
+	* 1 - Ordem de embarque realizada
+	* 2 - Documento já encontrado com Ordem de embarque
+	* 3 - Falha na Consulta ou no registro devido às críticas no número do documento
+	* 4 - Falha no site do TRADEX durante a Consulta ou Registro
+
+Atualização do Status é feito executando a seguinte consulta no Automate:
+	 **update tb_tradex				**
+	**  set status= '2',DT_STATUS = GETDATE(),DT_ORDEM = NULL, observacao = 'COM ORDEM DE EMBARQUE - DEFERIDO' **
+	**WHERE NUMERO_RE = '14/1226673-001'**
+
+* Nota: 
+	* **AUTOMATE.DBO.TB_TRADEX_CONTEINERES **não é alterado pelo Automate
+
+
+
+===== <RF006> =====
+** Automate – Retirar Retenção 5 do Argos**
+
+* Automate – Retirar Retenção 5 do Argos
+	* [[~/projetos/tcp/Automate/ETD_17-14_3_TCP_Retira_Retenção 5 ARGOS.pdf]]
+
+select distinct * from extnet.dbo.PROC_SISCOMEX_CONTEINERES 
+inner join extnet.dbo.PROC_SISCOMEX 
+on extnet.dbo.PROC_SISCOMEX_CONTEINERES.proc_id = extnet.dbo.PROC_SISCOMEX.id 
+where (extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 1 
+or extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 5)
+and extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_LIBERACAO_CANCELADA ='N' 
+and extnet.dbo.PROC_SISCOMEX.STATUS_ORDEM_EMBARQUE = 'A' 
+and extnet.dbo.PROC_SISCOMEX.STATUS_SOLICITACAO_LIBERACAO ='S'
+and extnet.dbo.PROC_SISCOMEX.dt_atualizacao>'2014-12-10 07:00:00'
+
+
+SELECT * FROM extnet.dbo.PROC_SISCOMEX_CONTEINERES 
+WHERE PROC_ID = ''
+
+AND (extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 1 
+or extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 5)
+and extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_LIBERACAO_CANCELADA ='N'
+
+**NOVA CONSULTA**
+
+
+select distinct 
+	CAST(NUMERO_DESPACHO AS char) AS BL, 
+	CONTEINER,
+	'S' AS TIPO
+FROM extnet.dbo.PROC_SISCOMEX_CONTEINERES 
+INNER JOIN extnet.dbo.PROC_SISCOMEX ON extnet.dbo.PROC_SISCOMEX_CONTEINERES.proc_id = extnet.dbo.PROC_SISCOMEX.id 
+WHERE (extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 1 OR extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_RETENCAO = 5)
+	AND extnet.dbo.PROC_SISCOMEX_CONTEINERES.STATUS_LIBERACAO_CANCELADA ='N' 
+	AND extnet.dbo.PROC_SISCOMEX.STATUS_ORDEM_EMBARQUE = 'A' 
+	AND extnet.dbo.PROC_SISCOMEX.STATUS_SOLICITACAO_LIBERACAO ='S'
+	AND extnet.dbo.PROC_SISCOMEX.dt_atualizacao>'2014-12-10 07:00:00'
+	
+UNION
+
+SELECT 
+	(
+	SELECT TOP 1 NUMERO_RE FROM extnet.dbo.TRADEX AS TRA
+	WHERE TRA.PROTOCOLO_ID = PSC.ID_PROTOCOLO
+	) AS BL,
+	CONTEINER,
+	'A' AS TIPO
+FROM extnet.dbo.PROC_SISCOMEX_CONTEINERES AS PSC
+WHERE PROC_ID = ''
+	AND (PSC.STATUS_RETENCAO = 1 OR PSC.STATUS_RETENCAO = 5)
+	AND PSC.STATUS_LIBERACAO_CANCELADA ='N'
+	AND DATA > '2015-06-10 0:0:0'
+
+
+
+===== <RF007> =====
+Site TCP – Gerar Protocolo de Ordem de Embarque
+
+Deverá ser desenvolvida uma nova funcionalidade para geração de protocolo para as solicitações de embarque. O site deverá gerar um número de protocolo para as solicitações de embarque efetivadas e disponibilizar o número para o cliente na tela. 
+ Após a efetivação da solicitação, o Site deve gravar as informações em sua base de dados, realizar as validações e disponibilizar mensagem para o cliente da confirmação do embarque informando o número do protocolo para consultas posteriores;
+
+$sql= "INSERT INTO [extnet].[dbo].[PROC_SISCOMEX_PROTOCOLO]
+		  [NUMERO_PROTOCOLO]
+		  [DATAHORA]
+		  [EMPRESA_ID]
+		  [USUARIO_ID]
+		  [TIPO]
+		  [NAVIO]
+		  [VIAGEM]
+				  VALUES
+		   <NUMERO_PROTOCOLO>
+		   <DATAHORA>
+		   <EMPRESA_ID>
+		   <USUARIO_ID>
+		   <TIPO>
+		   <NAVIO>
+		   <VIAGEM>);
+
+
+**Protocolo DEVE SER VINCULADO AO CONTEINER**
+
+===== <RF008> =====
+Site TCP Extranet – Consulta das Solicitações de Ordem de Embarque (via protocolo)
+
+Link: http://200.195.158.100//extranet/agendamento/?t=solicitacao_de_embarque/consulta_protocolo
+
+
+
+
+
+
+
+
+3 Frango
+7 Carne
+2 queijo
+2 calabre+mussarela
+
+
+
+
+
+ 3 frango + 3 carne
+
+ 2 carne + 2 queijo
+
+2 carne
+2 calabreza + muzzarela
+
+
+

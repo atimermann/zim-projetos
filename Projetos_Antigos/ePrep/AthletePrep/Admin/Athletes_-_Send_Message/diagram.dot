@@ -1,0 +1,4 @@
+digraph A {
+  "admin/athlete/messages" -> "View/messages"
+  "View/messages" -> "admin/athlete/save-message"  
+}

@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-27T18:43:01-02:00
+
+====== 07 - Próxima Reunião ======
+Created segunda 27 outubro 2014
+
+* Alinhas tipos de usuários no sistema, a principio consegui identificar os seguintes usuarios:
+	* Usuário com faz uso de uma cadeira (independente de uma conta)
+	* Usuário comum que pertence a uma conta (secretária)
+	* Fornecedor (outra fase)
+
+	* **E os assistentes de saúde bucal?**
+	* **QUais outros podem ter?**
+
+
+* Discutir Campos obrigatórios

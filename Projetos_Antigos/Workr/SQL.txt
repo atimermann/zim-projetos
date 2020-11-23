@@ -1,0 +1,129 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-11-26T13:10:27-02:00
+
+====== SQL ======
+Created quinta 26 novembro 2015
+
+====== Autoit Manager ======
+Created terça 20 outubro 2015
+
+{{{code: lang="sql" linenumbers="True"
+CREATE TABLE Autoit.dbo.TASKQUEUE (
+	TASKQUEUE_ID int IDENTITY(1,1) NOT NULL,
+	WORKFLOW varchar(355) NOT NULL,
+	WORKFLOWCOD int NOT NULL,
+	DATA varchar(max) NOT NULL,
+	CREATED datetime DEFAULT (getdate()) NOT NULL,
+	EXECUTED datetime,
+	COMPLETED datetime,
+	WORKER int,
+	STATUS char(1) DEFAULT ('0') NOT NULL,
+	INFO varchar(max),
+	FLOWORD int,
+	PRIMARY KEY (TASKQUEUE_ID)
+);
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE Autoit.dbo.WORKFLOW (
+	WORKFLOW_ID int IDENTITY(1,1) NOT NULL,
+	NAME varchar(255) DEFAULT ('') NOT NULL, -- Nome do workflow
+	COD int NOT NULL,-- Código do Workflow
+	INTERVAL int NOT NULL,
+	STATUS char(1) DEFAULT ((1)) NOT NULL,-- Intervalo de Execução em segundos
+	PRIMARY KEY (WORKFLOW_ID)
+);
+
+CREATE UNIQUE INDEX idx_workflow ON Autoit.dbo.WORKFLOW (COD)
+CREATE UNIQUE INDEX idx_workflow_name ON Autoit.dbo.WORKFLOW (NAME)
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE Autoit.dbo.FLOW
+(
+   FLOW_ID int IDENTITY(1,1) NOT NULL,
+   WORKFLOW_ID int NOT NULL,
+   ORD int NOT NULL,
+   EXECUTION int NOT NULL,
+   STATEMENT int NOT NULL,
+   PRIMARY KEY (FLOW_ID)
+)
+
+ALTER TABLE  Autoit.dbo.FLOW
+ADD CONSTRAINT FK_flow_workflow FOREIGN KEY (WORKFLOW_ID) 
+REFERENCES Autoit.dbo.WORKFLOW (WORKFLOW_ID) 
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE Autoit.dbo.PARAM (
+	PARAM_ID int IDENTITY(1,1) NOT NULL,
+	FLOW_ID int NOT NULL
+	ID int NOT NULL,
+	VALUE varchar(max),
+	PRIMARY KEY (PARAM_ID)
+);
+
+CREATE UNIQUE INDEX idx_param_flow
+	ON Autoit.dbo.PARAM (FLOW_ID, ID)
+	
+ALTER TABLE  Autoit.dbo.PARAM
+	ADD CONSTRAINT FK_param_flow FOREIGN KEY (FLOW_ID) 
+	REFERENCES Autoit.dbo.FLOW (FLOW_ID) 
+	ON DELETE NO ACTION
+	ON UPDATE NO ACTION
+	
+}}}
+
+
+{{{code: lang="sql" linenumbers="True"
+------------------------------------------------
+
+INSERT INTO Autoit.dbo.WORKFLOW
+	(NAME, COD)
+VALUES 
+	('informarOrdemEmbarqueTradex', 6);
+	
+	
+SELECT	* FROM Autoit.dbo.WORKFLOW;
+
+------------------------------------------------
+
+INSERT INTO Autoit.dbo.FLOW
+	(WORKFLOW_ID, ORD, EXECUTION, STATEMENT)
+VALUES 
+	(1, 0, 0, 100);
+	
+INSERT INTO Autoit.dbo.FLOW
+	(WORKFLOW_ID, ORD, EXECUTION, STATEMENT)
+VALUES 
+	(1, 0, 0, 10);
+
+SELECT	* FROM Autoit.dbo.FLOW;
+------------------------------------------------
+
+
+INSERT INTO Autoit.dbo.PARAM(FLOW_ID, ID, VALUE) VALUES (3, 0, N'SELECT TOP 100 NUMERO_RE, E.EMP_CNPJ  FROM automate.dbo.tb_tradex AS T  LEFT JOIN extnet.dbo.PROC_SISCOMEX_PROTOCOLO AS P ON T.ID_PROTOCOLO = P.ID LEFT JOIN extnet.dbo.CAD_EMPRESASX AS E ON E.EMP_ID = P.EMPRESA_ID ORDER BY EMP_CNPJ, DT_CADASTRO DESC')
+INSERT INTO Autoit.dbo.PARAM(FLOW_ID, ID, VALUE) VALUES (3, 1, N'tcp_mssql')
+
+	
+SELECT	* FROM Autoit.dbo.PARAM;
+
+------------------------------------------------
+
+
+INSERT INTO Autoit.dbo.STEP_PARAM
+	(FLOW_ID, PARAM_ID)
+VALUES 
+	(3, 1);
+	
+INSERT INTO Autoit.dbo.STEP_PARAM
+	(FLOW_ID, PARAM_ID)
+VALUES 
+	(3, 2);	
+	
+
+
+}}}

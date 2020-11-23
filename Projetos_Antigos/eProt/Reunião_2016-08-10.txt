@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-10T14:05:17-03:00
+
+====== Reunião 2016-08-10 ======
+Created quarta 10 agosto 2016
+
+
+====== Pauta ======
+* Discussão sobre os endpoints:
+	* Vamos carregar todas as instruções de uma vez em vez de carregar toda vez q o usuario for realizar upload
+	* Será armazenado internamente
+	* Endpoint para log 
+
+
+====== Ata ======
+* Adicionar um prompt de confirmação
+* Vai existir dois tipos de créditos:
+	* Temporário
+		* Relacionado com pagamento recorrente (Se o plano for mensal, o crédito dura o mes) e a medida q paga mensalidade vai renovanto
+			* Ex: 60 por mes, usou 30, mes seguinte volta pra 60 e perde (não acumula)
+			* End Point para 
+	* Permanente
+		* Créditos avulsos, sem validade
+
+* Os dois tipos de créditos devem ser exibidos na barra lateral
+
+* Deve gravar caso ocorra falha pra não consumir crédito indevidamente
+
+* EndPoint
+	* autenticação
+	* status/info
+	* task
+	* log

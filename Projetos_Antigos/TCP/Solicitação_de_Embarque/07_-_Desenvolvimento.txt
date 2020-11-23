@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-23T11:38:29-02:00
+
+====== 07 - Desenvolvimento ======
+Created quinta 23 outubro 2014
+
+* ~~a) CLIENTE.CNPJ = SISCOMEX.CNPJ_Exportador~~
+* ~~b) CLIENTE.Exportador = SISCOMEX.Nome_ Exportador~~
+* ~~c) CLIENTE.Navio = SISCOMEX.IDENTIF.VEICULO~~
+* ~~d) SISCOMEX.Data_Validade_Embarque >= Data Atual~~
+
+
+* ~~e) CLIENTE.Conteiner = SISCOMEX.Nro_Conteiner~~
+
+* f) CLIENTE.Lacre = SISCOMEX.Lacre_Conteiner
+
+* g) ARGOS.Situação_Atual_Conteiner (actual ) > Deve ser igual a HH
+
+
+* h) ARGOS_Status_do_Conteiner(E/S) > Deve ser igual a C
+* i) ARGOS.Posição_no_Pátio(Situación) > Deve ser diferente de vazio, ou seja, deve possuir posição no pátio
+* j) ARGOS.CNPJ_Cliente = CLIENTE.CNPJ (Cliente Argos deve ser igual ao digitado no site e Siscomex)
+* k) ARGOS.Retenção (Ret.: ) > deve ser igual a 5
+* ~~l) ARGOS.Buque = CLIENTE.Navio REMOVER~~
+* ~~m) ARGOS.Viaje = CLIENTE.Viagem~~
+* n) ARGOS.PreLinea = CLIENTE.Lacre
+
+* o) DEADLINE
+
+
+* Colocar CPF ao desistir da avaria

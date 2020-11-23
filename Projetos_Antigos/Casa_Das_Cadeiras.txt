@@ -1,0 +1,83 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-17T16:45:29-03:00
+
+====== Casa Das Cadeiras ======
+Created sexta 17 junho 2016
+
+* Configuração de Servidor no Local
+
+* Cadastro de Cliente
+* Cadastro de Arquiteto
+* Cadastro de Usuário (PRONTO)
+* Cadastro de Produto
+
+* Sistema de Orçamento
+	* Numero do Orçamento
+	* Cliente
+	* Seleção de Produtos
+		* Qtde
+		* Valor
+		* Total
+	* Forma de Pagamento
+	* Anotação
+
+* Sistema de Pedido
+	* Cliente
+	* Endereço de Entrega
+	* Arquiteto
+	* Seleção de produtos
+
+* Sistema de Ticket(Assistência)
+	* cliente
+	* arquiteto
+	* Data Envio Fábrica
+	* Recebimento
+
+* Sistema de E-mail Marketing
+	* Instalar PHPList
+
+* Sistema de Relatórios
+
+* Oferecer Gerenciamento de Hospedagem, Email e Site
+
+
+====== 26/06/2016 ======
+
+* Criar cadastro de cliente direto na tela de pedido
+* Comissão do arquiteto (Só tem o nome)
+
+
+* Nota fiscal fora do escopo, nota fiscal não precisa emitir
+* Controle de estoque não é prioridade, mais pra frente
+* Nota de Entrada pelo fornecedor
+* Apenas no pedido, deve ter descrito quais peças veio de quais fornecedores
+* Orçamento tem validade de 30 dias
+* Orçamento tem todas as formas de pagamento
+* pedido apenas oq vai fazer de verdade
+* Gostaria que abrisse no tablet
+* Atualmente não tem como saber (na loja não tem estoque)
+* Não tem estoque, só vende mostruario, se num tiver fazer pedido para fornecedor
+* Sofa é vendido por modulos:  complicado 
+	* 12 tipo de revestimento (tecido)
+	* almofaça
+	* modulo lateral, intermediario
+
+* Relatórios, fora do escopo inicial
+* Cada pedido é enviado email para o fornecedor (dentro do escopo)
+* Cada item do pedido tem q ter status se foi entreque ou não
+	* Não confirma (foi feito pedido para fornecedor q não respondeu ainda)
+	* Confirmado e não recebido (Receberam o pedido e tá aguardando chegada na loja) 
+	* Entregue na Loja ( Recebido)
+	* Entregue ao cliente
+* São duas entregas até a loja e até o pedido 
+	* eles conferem antes de mandar para o cliente (defeito, sujeira etc...)
+* Anotações
+No pedido cada item tem um status (item podem vir do mesmo fornecedor uo de fornecedores diferentes)
+* Quando tiver entregue ao cliente o pedido é fechado
+
+* Notificaçõs não está pronto, mas é importante ter pelo menos um relatorio no sistema para saber quais pedidos estão abertos
+
+
+
+

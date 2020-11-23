@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-17T16:28:05-03:00
+
+====== DataGrid ======
+Created sexta 17 outubro 2014
+
+http://backgridjs.com/
+
+http://blogs.telerik.com/kendoui/posts/12-11-26/backbone_and_kendo_ui_a_beautiful_combination
+
+https://github.com/kendo-labs/kendo-backbone
+
+
+
+http://jsfiddle.net/bdetchison/PZ9Uj/
+
+* ~~DataTables -> Dizem q é lento~~
+* ~~SlickGrid -> Suporte a Backbone e Bootstrap (Não tem paginação) Suporta milhões de Registros~~
+* ~~jqGrid~~
+* ~~jTable -> RUIM~~
+* ~~jui_datagrid~~
+* ~~ParamQuery~~
+* ~~Ember Table~~
+* Backgrid.js
+* ~~dgrid~~
+
+http://www.jqueryrock.com/2014/07/datatable-vs-slickgrid.html
+http://www.jqueryrock.com/2014/07/jqgrid-vs-slickgrid.html
+
+

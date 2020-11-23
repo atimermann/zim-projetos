@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-17T19:47:52-03:00
+
+====== REST + Silex ======
+Created terça 17 junho 2014
+
+http://sleep-er.co.uk/blog/2013/Creating-a-simple-REST-application-with-Silex/
+
+Using HTTP Methods for RESTful Services
+http://www.restapitutorial.com/lessons/httpmethods.html

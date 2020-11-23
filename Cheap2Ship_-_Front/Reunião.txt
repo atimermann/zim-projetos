@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-09T15:33:19-03:00
+
+====== Reunião ======
+Created quinta 09 abril 2020
+
+Gestão de Embarque não vai entrar
+Calendario depois
+
+BID -> Agrupamento de cotações 
+bid e um subbid
+
+
+**webengine **uma maquina

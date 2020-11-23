@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-06-12T22:20:17-03:00
+
+====== Conexão Workers ======
+Created domingo 12 junho 2016
+
+Pago:
+https://www.starnet.com/
+
+NoVnc:
+https://kanaka.github.io/noVNC/
+https://www.infoq.com/br/news/2010/07/html5-novnc
+
+NoVnc usa uma aplicação websockify, para linkar o servidor VNC com um servidor WEB, 
+será necessario levantar um servidor sempre q for conectar, estudar esse websockify

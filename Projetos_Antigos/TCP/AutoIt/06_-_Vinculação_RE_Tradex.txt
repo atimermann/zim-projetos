@@ -1,0 +1,152 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-10-07T14:36:20-03:00
+
+====== 006 - Vinculação RE Tradex ======
+Created quarta 07 outubro 2015
+
+====== Documentação ======
+
+
+
+====== 3. Telas (Passos) ======
+
+====== Master ======
+
+
+
+====== Worker ======
+
+
+===== Caminho Feliz =====
+
+===== Passos: =====
+
+1. Abrir Internet Explorer
+2. Login Tradex
+3. Entrar no Menu CADASTRO - PEDIDO DE EMBARQUE
+— LOOP
+4. Entrar com Numero RE
+5. Verificar STATUS
+6. Clicar em Informa Ordem de Embarque
+
+
+————————————————————————————————————————————————————————
+
+====== Etapa 02: Levantar Coleta de Dados ======
+
+===== Consulta para obter Dados =====
+
+SELECT TOP 100 NUMERO_RE, E.EMP_CNPJ  FROM automate.dbo.tb_tradex AS T 
+LEFT JOIN extnet.dbo.PROC_SISCOMEX_PROTOCOLO AS P ON T.ID_PROTOCOLO = P.ID
+LEFT JOIN extnet.dbo.CAD_EMPRESASX AS E ON E.EMP_ID = P.EMPRESA_ID
+ORDER BY EMP_CNPJ, DT_CADASTRO DESC
+
+SELECT TOP 100 NUMERO_RE, E.EMP_CNPJ  FROM automate.dbo.tb_tradex AS T LEFT JOIN extnet.dbo.PROC_SISCOMEX_PROTOCOLO AS P ON T.ID_PROTOCOLO = P.ID LEFT JOIN extnet.dbo.CAD_EMPRESASX AS E ON E.EMP_ID = P.EMPRESA_ID ORDER BY EMP_CNPJ,  DT_CADASTRO DESC
+
+ select * from tb_tradex where (status = 0 or status is null) and DT_CADASTRO>'2015-06-17 12:00:00'
+
+==== Consulta De teste ====
+
+SELECT TOP 100 NUMERO_RE, E.EMP_CNPJ  FROM automate.dbo.tb_tradex AS T  LEFT JOIN extnet.dbo.PROC_SISCOMEX_PROTOCOLO AS P ON T.ID_PROTOCOLO = P.ID LEFT JOIN extnet.dbo.CAD_EMPRESASX AS E ON E.EMP_ID = P.EMPRESA_ID ORDER BY EMP_CNPJ, DT_CADASTRO DESC
+
+==== Consulta Final ====
+
+SELECT TOP 100 NUMERO_RE, E.EMP_CNPJ  FROM automate.dbo.tb_tradex AS T  LEFT JOIN extnet.dbo.PROC_SISCOMEX_PROTOCOLO AS P ON T.ID_PROTOCOLO = P.ID LEFT JOIN extnet.dbo.CAD_EMPRESASX AS E ON E.EMP_ID = P.EMPRESA_ID WHERE (status = 0 or status is null) AND DT_CADASTRO > '2015-06-17 12:00:00' ORDER BY EMP_CNPJ, DT_CADASTRO DESC
+
+===== Usuario e Senha para Logar no Tradex =====
+
+**Robson**
+**CPF: **59010835987
+**SENHA: **878787
+
+**Marcio**
+**CPF: **02393206973
+**SENHA: **mshiv9
+
+**Jorge**
+**CPF:** 01733409971
+**SENHA:** TCPNOVA2015
+
+
+====== Etapa 03: RETORNO, GRAVAÇÃO DE STATUS ======
+
+
+<BUTTON onclick="javascript:if (QueryPEEForm.result) { var chklist=checklist_to_array(QueryPEEForm.result);postMethod(top.frmController,'https://www.tradex.org.br/tradex/InformarOEPEEQuery.do','id',chklist);}" onmouseover="this.className='orange_plain_hover';" onmouseout="this.className='orange_plain';" class=orange_plain>Informa Ordem<BR>de Embarque</BUTTON>
+
+Case RECEPCIONADO - DEFERIDO
+Set status = 1
+
+#############
+
+Case Com Despacho - Deferido
+Set status = 3
+
+###################
+
+Case Com Despacho - Em Analise
+Set Status = 3
+
+#####################
+
+Case COm Despacho - COm RE Substituto
+Set Status = 4
+
+##################
+
+Case Recepcionado - Em Analise
+Set Status = 3
+
+##################
+
+Case Repcionado - Com RE Substituto
+Set Status = 4
+
+###########################################
+
+Default Case - INDEFERIDO
+Set Status = 4
+
+##############################################
+
+Default Case - cancelado pelo sistema
+set status= 4
+
+##############################
+
+Default Case - cancelado pelo exportador
+Set Status = 4
+
+################################
+
+Default Case - com ordem de embarque
+set status = 2
+
+#########################################################
+
+RE não se enquadrou em nenhum dos casos de status do site
+Set Status = 4
+
+####################################################
+
+Tabela nao contem nenhum item como resultado da busca
+Set Status = 5
+
+
+====== --------------------------------- CONSULTA DE PROD -------------- CUIDADO ======
+
+__CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO -__ 
+UPDATE Automate.dbo.TB_TRADEX set status= '?{STATUS}',DT_STATUS = GETDATE(),DT_ORDEM = getdate() , numero_ordem_embarque = '?{NUMERO_ORDEM_EMBARQUE}', observacao = '?{OBSERVACAO}' WHERE NUMERO_RE = '?{NUMERO_RE}'
+__CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO - CUIDADO -__ 
+
+ 
+
+
+
+
+
+
+
+
+
+

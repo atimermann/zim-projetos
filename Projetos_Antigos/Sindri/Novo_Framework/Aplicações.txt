@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-03T11:34:54-03:00
+
+====== Aplicações ======
+Created sexta 03 outubro 2014
+
+Vamos jogar o framework codinome Sindra, para o npm, e vamos armazenas as aplicações no diretório app
+
+Podemoremos fazer duas coisas:
+- Ativar o app no nosso projeto
+- Copiar o app para nosso diretório app
+- TUdo que ficar no diretório app será carregado automaticamente
+
+

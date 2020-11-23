@@ -1,0 +1,67 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-09T16:05:54-03:00
+
+====== API ======
+Created terça 09 agosto 2016
+
+
+
+===== API eProt =====
+Olá André,
+
+Segue documento com as instruções da API do eProt. Qualquer dúvida estamos à disposição.
+
+https://drive.google.com/open?id=1hL2r4uXVSh61ZIMDfjTXr5cpiWd37kKEmpZ6LYv0tyQ
+
+———————————————————————————————
+	URL Sandbox: http://sheltered-falls-28324.herokuapp.com/
+	
+	Usuário com créditos: 
+		Email: a@a.com
+		Senha: 123456
+	
+	Usuário sem créditos:
+		Email: b@b.com
+		Senha: 123456
+	
+	# POST /users/sign_in
+	
+	Autentica usuário, recebendo email e senha. Caso corretos, recebe JSON com dados do usuário, de onde pode se obter o token atual. Caso incorretos, retorna status 401.
+	
+	+ Request
+	  {
+		"user": {
+	  	"email": 'a@a.com',
+	  	"password": '123456'
+		}
+	  }
+	
+	+ Response 200 (application/JSON)
+	  {
+		"user": {
+	  	"id":4,
+	  	"created_at":"2016-08-02T19:01:46.714Z",
+	  	"updated_at":"2016-08-04T19:37:53.537Z",
+	  	"credits":"0.0",
+	  	"temporary_credits":"0.0",
+	  	"credits_expiration":null,
+	  	"subscription_id":null,
+	  	"email":"y@y.com",
+	  	"authentication_token":"y7j25jTA3Yjmxctv__pK",
+	  	"paid_next_installment":null
+		}
+	  }
+	
+	+ Response 401
+	
+	Exemplo: curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://sheltered-falls-28324.herokuapp.com/users/sign_in -d '{"user": {"email": "a@a.com", "password": "123456"}}'
+	
+	# GET /tasks/:id
+	
+	Busca o JSON de uma tarefa.
+	Email e token devem estar inclusos no header do request, conforme exemplo.
+	Caso ela exista retorna o JSON das instruções. Caso não exista retorna 404. Caso o usuário não esteja autenticado corretamente, retorna 401. Caso o usuário não tenha créditos, retorna 403. O formato do JSON com as instruções será definido pela Smartio.
+	
+	Exemplo: curl -H 'Content-Type: application/json' --header "X-User-Email: a@a.com" --header "X-User-Token: d6yc6WEDcmwBm2bHre1N" -H 'Accept: application/json' http://sheltered-falls-28324.herokuapp.com/tasks/1
+———————————————————————————————

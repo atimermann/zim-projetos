@@ -1,0 +1,142 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-30T14:08:49-03:00
+
+====== Consulta DSE ======
+Created quarta 30 março 2016
+
+                                                                                
+  SISCOMEX - EXPORTACAO - DSE                                  30/03/2016  14:07
+						 CONSULTA NRO. DSE: 2160036880/6                        
+  ------------------------------------------------------------------------------
+  SITUACAO DSE: AVERBACAO AUTOMATICA                                            
+  U.L. DESPACHO: 092.7800                                U.L. EMBARQUE: 092.7800
+  RECINTO: 910.1401  SETOR: 001          USUARIO RESPONSAVEL DSE: 018.321.459-56
+  17.910.477/0001-07 - PRIME IMPORTACAO EXPORTACAO E COMERCIO LTDA - EPP        
+                                                                                
+                                                                                
+  NATUREZA DE OPERACAO   : PESSOA JURIDICA COM COBERTURA CAMBIAL                
+                                                                                
+  VIA: 01  MARITIMA             VEICULO TRANSPORTADOR: MAERSK LABERINTO         
+  VALOR TOTAL NA MOEDA TRANSACAO :              88.854,90                       
+  VALOR TOTAL DA MERCADORIA EM US:              24.211,14                       
+  PESO LIQUIDO TOTAL (KG)              2.140,00000                              
+  PESO BRUTO   TOTAL(KG):              2.140,00000                              
+  QTDE. TOTAL VOLUME:        2 ('X' PARA EXIBIR ESPECIE/QTDE.MARCACAO):  _      
+  DOCUMENTOS INSTRUTIVOS    : ('X' PARA EXIBIR): _                              
+  INFORMACOES COMPLEMENTARES: ('X' PARA EXIBIR): _                              
+  DADOS EMBARQUE CARGA: ('X' PARA EXIBIR): _                                    
+  NCM:  ('X' PARA EXIBIR): _   INFORMACOES PRESENCA CARGA: ('X' PARA EXIBIR): _ 
+  ------------------------------------------------------------------------------
+  PF3 - MENU ANTERIOR      ENTER - CONTINUA       ? - AJUDA                     
+
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————
+
+                                                                                
+  SISCOMEX - EXPORTACAO - DSE                                  30/03/2016  14:09
+						 CONSULTA NRO. DSE: 2160036880/6                        
+  ------------------------------------------------------------------------------
+                                                                                
+                                                                                
+  VOLUMES POR ESPECIE/QTDE/MARCACAO:                                            
+  99 OUTROS                        2     PRIME                                  
+                                                                                
+  DOCUMENTOS INSTRUTIVOS:                                                       
+  NF148/S2                                                                      
+                                                                                
+  INFORMACOES COMPLEMENTARES:                                                   
+  VEICULOS                                                                      
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+																	  (CONTINUA)
+  ------------------------------------------------------------------------------
+  PF3 - MENU ANTERIOR      ENTER - CONTINUA       ? - AJUDA                     
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————
+                                                                                
+  SISCOMEX - EXPORTACAO - DSE                                  30/03/2016  14:09
+						 CONSULTA NRO. DSE: 2160036880/6                        
+  ------------------------------------------------------------------------------
+  INFORMACOES DADOS DE EMBARQUE                                                 
+  CNPJ/CPF TRANSPORTADOR: 30.259.220/0001-03       DATA EMBARQUE: 18/03/2016    
+  MAERSK BRASIL BRASMAR LTDA                                                    
+												   NACIONALIDADE DO VEICULO: 232
+  NOME DO NAVIO          :  MAERSK LABERINTO                                    
+                                                                                
+										 DATA EMISSAO MANIFESTO   : 18/03/2016  
+  NRO. CONHECIMENTO    : 1816            DATA EMISSAO CONHECIMENTO: 18/03/2016  
+  NRO. FILHOTE         : 07046696435                                            
+  QTDE. VOLUMES CONHEC.: 2               QTDE. VOLUMES EMBARCADOS : 2           
+  MOEDA FRETE          : 220                                                    
+  FRETE PAGTO. BRASIL  : 1098,34                                                
+  FRETE PAGTO. EXTERIOR:                                                        
+  PESO BRUTO TOTAL(KG) :           2140 , 00000     TIPO UNITIZACAO: CONTAINER  
+  QTDE. UNIDADE CARGA  : 1                                                      
+  JUSTIFICATIVA        :                                                        
+                                                                                
+                                                                                
+  ------------------------------------------------------------------------------
+  PF3 - MENU ANTERIOR      ENTER - CONTINUA       ? - AJUDA                     
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————
+
+                                                                                
+  SISCOMEX - EXPORTACAO - DSE                                  30/03/2016  14:10
+						 CONSULTA NRO. DSE: 2160036880/6                        
+  ------------------------------------------------------------------------------
+                                                                                
+						 MERCADORIA(NCM) INFORMADA NA DSE                       
+                                                                                
+	CODIGO NCM: 87032390  - AUTOMS.C/MOT.EXPL.,C>1500<=3000CM3,SUP.6 PAS.       
+	DESTAQUE NCM: 99                                                            
+	UNIDADE MEDIDA NA NCM: 11  - UNIDADE                                        
+                                                                                
+	QUANTIDADE NA UNIDADE DE MEDIDA:            2 , 00000 (UNID.ESTATISTICA NCM)
+	UNIDADE COMERCIALIZACAO        : UNIDADE                                    
+	QUANTIDADE NA UNID.COMERC.     :            2 , 00000                       
+	PESO LIQUIDO (KG)              :         2140 , 00000                       
+	CODIGO MOEDA TRANSACAO         : 790  - REAL/BRASIL                         
+	VALOR NA MOEDA TRANSACAO       :           88854 , 90                       
+	DESCRICAO:                                                                  
+	   KOMBI VOLKSWAGEN COR BEGE CHASSI-BH391300 MOTOR-0.52CV - GASOLINA        
+	___KOMBI VOLKSWAGEN COR BRANCO CHASSI-B190318 MOTOR-0.52CV - GASOLINA       
+                                                                                
+																	  (CONTINUA)
+  ------------------------------------------------------------------------------
+  PF3 - MENU ANTERIOR      ENTER - CONTINUA       ? - AJUDA                     
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+                                                                                
+  SISCOMEX - EXPORTACAO - DSE                                  30/03/2016  14:10
+						 CONSULTA NRO. DSE: 2160036880/6                        
+  ------------------------------------------------------------------------------
+  INFORMACOES DE PRESENCA CARGA                                                 
+                                                                                
+  CNPJ DO DEPOSITARIO:   04.700.714/0001-63                                     
+  APM TERMINALS ITAJAI S.A.                                                     
+                                                                                
+                                                                                
+  LOCALIZACAO DA CARGA:                                                         
+	PATIO APMT                                                                  
+                                                                                
+                                                                                
+  PESO BRUTO TOTAL(KG):               0,00000                                   
+  TIPO DE UNITIZACAO  : CONTAINER      NRO. CONTAINER/LACRE:('X' P/ EXIBIR) _   
+  QTDE. UNIDADE CARGA : 00001                                                   
+  CARGA COM AVARIA    : N                                                       
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  ------------------------------------------------------------------------------
+  PF3 - MENU ANTERIOR      ENTER - CONTINUA       ? - AJUDA                     
+
+

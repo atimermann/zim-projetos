@@ -1,0 +1,103 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-24T23:03:51-03:00
+
+====== 100 extratoDespacho ======
+Created quarta 24 fevereiro 2016
+
+===== Códigos de Falta =====
+
+F001: Falha ao Abrir Internet Explorer
+F002: Não foi possível conectar no site da receita
+F003: Não foi possível acessar o Ibm Web Terminal
+F004: Não foi possível entrar na Receita
+
+F005: Falha ao navegar até o menu inicial
+F006: Não foi possível entrar no Menu EXPORTACAO-PERFIL DEPOSITARIO
+F007: Não foi possível entrar no tela Extrado de Declaração de Despacho
+F010: Não foi possível entrar com numero do despacho
+F012: Não foi possível entrar no Menu EXPORTACAO-PERFIL DEPOSITARIO
+F013: Não foi possível entrar no tela Consulta HIstórico Despacho
+F015: Não foi possível entrar com numero do despacho para consulta de historico
+F016: EX0079 - INFORME NUMERO DO DESPACHO
+
+
+F017: Não foi possível entrar no menu Despacho SImplificado Export
+F018: Não foi possível entrar no menu Consultas DSE
+F019: Não foi possível entrar no tela Extrato de Declaração de Despac20
+F020: SE1540 - INFORME DSE
+F021: Não foi possível entrar com numero do despacho
+
+
+===== Códigos de Erro =====
+
+E008: DSE Não disponível
+E009: Tipo inválido, deve ser DDE ou DSE
+E010: Erros Diversos
+E011: Erro variados, ao entrar com numero do despacho 
+E014: Erros Diversos
+
+E022: Erros Diversos
+E023: Falha ao configurar Relatório 
+
+
+
+
+
+
+
+
+
+====== Melhorias ======
+
+* ~~QUando dá erro de permissão, ele tenta todos os inumeros registros por 30 segundos, chega a demora 1h, testar se entrou no terminal antes de entrar nos itens~~
+* ~~Diminuir timeout de 30 p/ 10~~
+* ~~Terminal trava, será necessário fazer alguma verificação~~
+	* ~~Ao digitar o numero do despacho o cursor fica abaixo da linha, verificar pq>~~
+* Erro ao parsear total de volume, necessário validar
+
+
+ERRO:
+* ERRO NA CHAMADA DO PROGRAMA
+
+* Proteger ou desativar botão Reinicia Automação
+* CUIDADO NO TERMINAL AO DEFINIR ERRO, AS VEZES O TERMINAL Q TRAVOU, USAR ERRO COM ALGUMA VERIFICAÇÃO NA TELA, não emitr erro quando algum eventão não acontece, e sim quando algum evento acontece
+
+
+debug: --- OPÇÕES DEFINIDAS: ---
+debug:  uri=https://api.logcomex.com.br/v2/post_dde_consulta_response/?api_key=68686e1459183a6d5e6facf02e3e3a27&cert_key=24c716e277a039baac2c0927f9b4342b, method=POST, json=[status_consulta=S, historico=[data_hora_envio=2016-04-12 17:51:143, evento=LIBERADO S/CONF.ADUANEIRA, usuario_evento=null, data_hora_envio=2016-04-12 11:57:024, evento=DE CONCLUIDA, usuario_evento=004121309-20, data_hora_envio=2016-04-12 15:37:262, evento=INCLUSAO PRESENCA CARGA, usuario_evento=071783549-92, data_hora_envio=2016-04-12 17:32:045, evento=DECLARACAO ENVIADA PARA DESPACHO, usuario_evento=004121309-20, data_hora_envio=2016-04-12 17:51:140, evento=DISPENSA DE RECEPCAO, usuario_evento=null], situacao_despacho=LIBERADO S/CONF.ADUANEIRA, cnpj_exportador=06.100.307/0001-40, nome_exportador=ELLIOTTIIS DO BRASIL INDUSTRIA MOVELEIRA LTDA, modal_despacho=01 (MARITIMA), data_validade_embarque=2016-06-06, regime_aduaneiro=DRAWBACK SUSPENSAO , valor_total_condicao_venda=43428.45, valor_total_moeda_negociada=30672, peso_liquido_total=17157.35, peso_bruto_total=18531.93, qtde_re=null, qtde_nf=null, qtde_total_volumes=null, id=57, numero_dde=2165124862/1]
+debug: --------- RESPONSE RAW: --------
+{ status: 'ok',
+  time_request: 0.075,
+  data: 
+   [ { numero_dde: '2165124862/1',
+	   status: 'error',
+	   error_message: 'Nao foi possivel gravar as informacoes, verifique os dados enviados ' } ] }
+debug: --------- RESPONSE PARSED: --------
+debug:  status=ok, time_request=0.075, data=[numero_dde=2165124862/1, status=error, error_message=Nao foi possivel gravar as informacoes, verifique os dados enviados ]
+
+
+
+
+
+
+
+
+
+
+
+
+debug: --- OPÇÕES DEFINIDAS: ---
+debug:  uri=https://api.logcomex.com.br/v2/post_dde_consulta_response/?api_key=68686e1459183a6d5e6facf02e3e3a27&cert_key=24c716e277a039baac2c0927f9b4342b, method=POST, json=[status_consulta=S, historico=[data_hora_envio=2016-04-12 17:11:151, evento=LIBERADO S/CONF.ADUANEIRA, usuario_evento=null, data_hora_envio=2016-04-11 10:53:011, evento=DE CONCLUIDA, usuario_evento=004121309-20, data_hora_envio=2016-04-12 15:25:381, evento=INCLUSAO PRESENCA CARGA, usuario_evento=071783549-92, data_hora_envio=2016-04-12 16:41:173, evento=DECLARACAO ENVIADA PARA DESPACHO, usuario_evento=004121309-20, data_hora_envio=2016-04-12 17:11:148, evento=DISPENSA DE RECEPCAO, usuario_evento=null], situacao_despacho=LIBERADO S/CONF.ADUANEIRA, cnpj_exportador=06.100.307/0001-40, nome_exportador=ELLIOTTIIS DO BRASIL INDUSTRIA MOVELEIRA LTDA, modal_despacho=01 (MARITIMA), data_validade_embarque=2016-06-07, regime_aduaneiro=DRAWBACK SUSPENSAO , valor_total_condicao_venda=17981.77, valor_total_moeda_negociada=12592.22, peso_liquido_total=9609.4, peso_bruto_total=10773.2, qtde_re=null, qtde_nf=null, qtde_total_volumes=null, id=109, numero_dde=2165124850/8]
+debug: --------- RESPONSE RAW: --------
+{ status: 'ok',
+  time_request: 0.106,
+  data: 
+   [ { numero_dde: '2165124850/8',
+	   status: 'error',
+	   error_message: 'Nao foi possivel gravar as informacoes, verifique os dados enviados ' } ] }
+
+
+
+5,29% IOF 1393 6,32%  110%
+

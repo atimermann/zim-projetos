@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-06-29T17:45:17-03:00
+
+====== Alvaro - Admnistrativo ======
+Created segunda 29 junho 2020
+
+* Criar um aplicativo registrar os Gastos e ver quanto ele ganha
+* Classificação de contas, 
+	* ex: copel, é destino, --->
+	* oq é conta profissional e pessoal

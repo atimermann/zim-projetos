@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-09T14:35:33-02:00
+
+====== Registro de Créditos ======
+Created terça 09 fevereiro 2016
+
+Os créditos ficam armazenados em:
+
+	**SELECT * FROM	bcp_account.channel_point**
+	
+Cada crédito é representado por um registor na tabela, então para verificar os creditos usar:
+
+	**SELECT COUNT(id) FROM bcp_account.channel_point GROUP BY (program_id) WHERE is_used = 0**
+	
+* id int(10) NOT NULL auto_increment,
+* **create_orgid int(10)**,
+* **program_id int(10),**
+* order_id int(10),
+* trans_id int(10),
+* dt_trans datetime,
+* dt_create datetime,
+* dt_transfer datetime,
+* **is_used tinyint(3) DEFAULT 0,**
+

@@ -1,0 +1,79 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-11T23:17:00-02:00
+
+====== 01 - Template ======
+Created quarta 11 dezembro 2013
+
+O Aplicativo Template é um dos componentes do núcleo do arrakis, ou seja, um dos pontos chaves do framework. Baseado no sistema de Template do django, herdando todas as suas capacidades, este aplicativo vai oferecer as seguintes funcionalidades, voltadas a produtividade:
+
+* Sistema de busca de template, possibilidade de carregar o template de diversos diretórios diferentes, desde de dentro dos aplicativos quanto de um diretório especifico, fora do servidor
+* Também permite busca de template em outros aplicativos, facilitando a criação de aplicativos plugins que fornecem novos templates
+* Facil incorporação de javascript e css, contém metodos que permite adição de código javascript e css facilmente no template, já faz uso das melhores práticas, como carregar css no começo do HTML e javascript no final
+* Funções para processamento de HTML, como sanatize e verbatim
+* Foi desenvolvido pensando na sistematização dos templates, ou seja, você pode alterar o template da sua aplicação através de um painel de controle, formulário, contém função que retorna lista de templates disponível recurso[[(]]template:list)
+* Permite carregar templates de qualquer diretórios no servidor
+* Suporte a carregamento de multiplos dominios (usado em modo Multi-site do Arrakis)
+* Suporte a Filtros
+* Concatenação de templates
+
+Podemos utilizar este sistema de template em dois modos:
+
+* Modo Local, onde nosso aplicativo simplesmente carrega um template dele próprio, como no django, modo simples
+* Modo Completo, onde podemos oferecer uma sistema mais completo, com interface de seleção de template pelo usuário, temas etc...
+
+====== Estrutura de Diretório dos templates ======
+
+O Aplicativo de templates permite armazenas os templates em três lugares diferentes:
+
+* No diretório raiz do projeto na pasta
+	__templates__
+
+* Nos aplicativos na pasta
+	__templates__
+
+* Nos aplicativos na pasta
+	__templates_export__
+
+Além disso os templates estão divididos em temas
+
+====== Como organizar os templates nos diretórios ======
+
+
+
+====== Como usar ======
+
+
+O Aplicativo template disponibiliza dois recursos:
+
+===== template =====
+
+Podemos carregar um template de duas maneiras diferente:
+
+**AUTOMATICA: ** Para aplicações simples, onde vamos carregar um template da própria aplicação, basta passar o nome do template
+
+
+**MANUAL: ** Precisamos carregar um template especifica que se encontra em outro aplicativo, ou em outro diretório no sistema, usado em casos que o usuário pode selecionar o template desejado a partir de um painel adminsitrativo
+
+
+===== template:list =====
+
+
+
+===== include e extend =====
+
+Ao usar um include ou um extends, deve ser usado no seguinte formato:
+
+Carregar o template localmente::
+    {% include "(TestApp)includes/inc.html" %}
+
+Carregar o template default (pai, templates localizado no app no arrakis)::
+    {% include "(:TestApp)includes/inc.html" %}
+
+Carregar Template em um app onde (appProvided:appRequested)
+ou seja /arrakis/app/appProvided/template_export/appRequested::
+    {% include "(TestApp:TestApp)includes/inc.html" %}
+
+====== Detalhes de implementação ======
+
+

@@ -1,0 +1,219 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-02-18T13:39:30-03:00
+
+====== ActiveRecord - Driver DB2 ======
+Created terça 18 fevereiro 2014
+
+* **Os adaptadores de banco de dados se encontram no diretório: lib/adapters/**
+* Estende a classe Connection
+* Deve usar a classe PDO do php
+* **PROBLEMA COM OS NOMES**
+	* Nome da tabela deve ser em maiusculo
+	* Nome da chave deve ser especificado em minusculo
+
+* Sem suporte a getLastInsertId, ver como adicionar suporte:
+	* IDENTITY_VAL_LOCAL();
+	* http://publib.boulder.ibm.com/infocenter/db2luw/v8/index.jsp?topic=/com.ibm.db2.udb.doc/admin/r0004231.htm
+* Verificar também o gerador de sequencia se necessário (a principio não)
+
+Com os seguintes Métodos:
+
+====== TABLE ======
+
+Aqui onde o acesso ao adaptador inicia:
+
+em
+	**table.__construct**
+
+	ele chama diversos métodos:
+	
+	Primeiro acesso ao Adaptador é obter o objeto COLUMNS do adaptador, a requisição é feita em:
+		**table.get_meta_data()  **(Que chama o método columns do adaptador)
+		
+
+
+
+====== CRIANDO UMA TABELA ======
+
+Primeiro método a ser chamado é create();
+
+===== create($attributes, $validate) =====
+
+chama **get_called_class()**
+Gets the name of the class the static method is called in.
+ou seja retorna o nome da classe que está sendo chamado
+
+instancia essa classe, passando os atributos
+
+Finalmente chama save(), pra salvar
+
+		**$class_name = get_called_class();**
+**		$model = new $class_name($attributes);**
+**		$model->save($validate);**
+**		return $model;**
+
+Retorna o modelo
+
+
+
+====== ADAPTADOR ======
+
+
+===== protected __construct($info) =====
+
+A classe connection é um singleton então deve ser acessada pela classe instance
+
+Deve RETORNAR uma CONNECTION **PDO**
+
+Deve Conectar usando os valores de **$info,**
+Essa $info tem:
+* protocol ex: odbc, mysql
+* host: host
+* db: banco de dados
+* user: 
+* pass
+* port
+
+
+É chamada pelo **load_adapter_class** que é chamado pelo **instance**
+
+
+
+===== instance($connection_string_or_connection_name) =====
+
+Gera uma Conexão PDO de acordo com a DSN (Data Base Connection String) passada 
+
+
+Faz algumas verificações
+Processa (Parser) a DSN através do método **parse_connection_url**
+Instancia uma classe do adaptador através do **load_adapter_class**
+
+Configura essa instancia:
+	* Define protocolo
+	* Define log
+	* define logger
+
+retorna essa instancia
+
+**ESTE MÉTODO É O PONTO DE INICIO**
+É chamado por
+	 **ConnectionManager.get_connection**
+que é chamado por:
+	**Table.__contruct**
+	
+
+
+
+===== load_adapter_class =====
+
+Instancia uma classe de adaptador de acordo com a string passada
+ex: odbc://... vai instanciar [[/lib/adaptor/odbc.php]]
+
+é chamado pelo instance e chama o contrutor da classe configurada
+
+===== parse_connection_url =====
+
+Pega uma DSN e cria um $info com todas as informações da conexão
+
+Essa $info é uma instancia de uma classe do tipo stdClass **(conceito interessante, quando desejamos criar uma instancia generica, só com valores)**
+
+Essa $info tem:
+* protocol ex: odbc, mysql
+* host: host
+* db: banco de dados
+* user: 
+* pass
+* port
+
+===== columns($table) =====
+
+Retorna informações das colunas de uma determinada tabela
+
+chama 
+	**query_column_info()**
+para obter informações das colunas, depois percorre todas as colunas e para cada um chama:
+	**create_column()**
+	
+Retorna um array de objeto column
+
+Tanto **query_column_info** quanto **create_column()** devem ser implementados para cada adaptador
+
+
+===== create_columns($column) =====
+
+Esta classe não foi definida como abstrata, mas deveria, é chamada internamente pela classe pai
+
+Este método deve retornar a instancia de uma classe **Column**
+
+
+Recebe um objeto column , com informações das colunas	
+
+
+===== query_column_info($table) =====
+
+Chamado pelo método coluns, aqui vamos retornar os dados com informações sobre uma tabela em particular, para isso normalmente realizamos uma consulta no banco de dados em tabela de metainformação.
+
+Para isso usaremos o método **query()**
+
+
+===== query =====
+
+Executa uma consulta sql bruta, 
+
+
+===== escape =====
+
+===== insert_id =====
+
+
+
+
+
+===== query_and_fetch_one =====
+
+
+===== query_and_fetch =====
+
+
+===== tables =====
+
+
+===== transaction =====
+
+
+===== commit =====
+
+
+===== rollback =====
+
+
+===== supports_sequences =====
+
+
+===== get_sequence_name =====
+
+
+===== next_sequence_value =====
+
+
+===== quote_name =====
+
+
+===== date_to_string =====
+
+
+===== datetime_to_string =====
+
+
+===== string_to_datetime =====
+
+
+===== limit =====
+
+
+
+
+
+===== query_for_tables =====
+

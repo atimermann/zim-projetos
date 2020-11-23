@@ -1,0 +1,124 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-11-03T22:39:55-02:00
+
+====== Curso PHP ======
+Created quinta 03 novembro 2011
+
+
+Como funciona um programa na web, ou seja, explicaria a diferenca entre um programa na web e um programa desktop... explicaria que na web existe o conceito cliente x servidor... o browser é o cliente e os programas que rodam no servidor
+
+
+ explicaria primeiro os conceitos entende
+[22h18min02s BRST] GILSON ALVES DE OLIVEIRA: depois voce poderia mostrar um programa bem simples para deixar claro o que voce explicou anteriormente, ou seja, mostrar o que é um programa cliente ou seja mostre uma telinha de um cadastro de cliente rodando no browser e mostre que programas estariam rodando no server para fazer esse cadastro de cliente funcionar
+
+
+explique como funciona para transitar os dados da tela (browser) para o programa que encontra-se no server, explique como fazer com que o programa server retorne dados para a tela (browser) enfim so para explicar estes conceitos ja vai algumas video aulas
+
+====== Ementa ======
+
+===== 1. Conceitos =====
+
+* Como Funciona um Site 
+	* Seu Site está em algum lugar Fisico, ele existe, não é mágica
+	* Conceito de Cliente x Servidor
+	* Requisições Web, Navegador (Browser)
+	* Endereço (IP, DNS)
+	* Protocolos, Protocolo HTTP (WWW)
+	* Programa Desktop vc Programa Web
+	* Servidor WEb (APACHE)
+	* O inicio CGI, Evolução: PHP
+(Apresentar a idéia de Banco de Dados depois?)
+
+===== 2. Mão na massa =====
+
+* Instalando um Servidor WEB (Ver qual usar, WAMP, XAMP, ou outro, não sei oq é melhor hoje em dia)
+	* Configurando, APACHE, 
+* Criar uma página extremamente básica estilo "Alo Mundo" sem nem HTML, só pra ilustrar  idéia de Cliente x Servidor (Usar Bloco de Notas nesta Etapa)
+	* Mostrar no Logs essas requisições sendo feita
+* HTML Ultra básico (http://pt.wikipedia.org/wiki/HTML)
+	* Layout Minimo (HTML/HEAD/BODY)
+	* DIV/PARAGRAFO
+	* Formulário 
+	* Comentar Sobre a existencia de CSS com exemplos simples (Propaganda do nosso curso de CSS)
+	* Comentar sobre a existencia de JAVASCRIPT com exemplos simples (Propaganda do nosso CUrso de JQUERY :P)
+	* Propaganda do nosso curso de HTML
+	* Apresentar outros Editores como notepad++ e outros simples
+	* PHP.NET, PHPCLASSES
+
+===== 3. PHP - Introdução =====
+
+	* Delimitadores <?php
+	* Extenções (.php)
+	* Comentários
+	* Output
+	* Variaveis
+	* Tipos de Váriaveis
+		* Boolean/Integer/Double/String/Array(mais importante e usado dos tipos)
+		* Tipo mais complexos (object/resource/NULL)
+		* Tipo Callback (só comentar q existe, explicar depois)
+		* Constantes
+	* Operadores (Aritimetico/Relacional/Lógicos)
+	* Estruturas de Controles (if/else/while etc...)
+	* Foreach (Mais importante de todos no php)
+	* Inclusão de arquivos (Include/require/include_once/require_once)
+	* Funções
+	* Variaveis Globais/Estática
+	* Parâmetros de função (copia, referencia)
+	* Recursão
+	* Manipulação de Arquivos
+	* Manipulação de String
+	* Manipulação de Array
+		* Array Associativos
+		* Iterações (FOREACH)
+		* Array Multidimensional
+
+===== 4. PHP - Orientação a Objeto =====
+
+===== 6. PHP - Manipulação de Dados (SQL) =====
+
+====== PHP  - FRAMEWORKS ======
+
+===== 5. Introdução sobre frameworks =====
+
+===== 6. ORM =====
+
+===== 7. MVC =====
+
+===== 8. Designer Patterns, Criando uma aplicação Completa =====
+
+====== PHP - Bônus Track ou (PHP Avançado) ======
+
+===== 9. Formulários Orientado a Objeto =====
+
+===== 10. Web Service =====
+
+===== 11.Mobile =====
+
+===== 12. Ajax (só intrudução, fazer propaganda do nosso curso de AJAX) =====
+(PESQUISAR MAIS)
+
+===== 13. Programando no Linux =====
+
+
+====== PHP - Profissional - Usando um Framework: Symfony ======
+
+===== 14. Introdução, falar dos framework existente =====
+
+....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

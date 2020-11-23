@@ -1,0 +1,65 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-04-06T21:41:37-03:00
+
+====== 101 Presença Carga Exportação ======
+Created quarta 06 abril 2016
+
+===== Códigos de Falha =====
+
+
+F001: Falha ao Abrir Internet Explorer
+F002: Não foi possível conectar no site da receita
+F003: Não foi possível acessar o Ibm Web Terminal
+F004: Não foi possível entrar na Receita
+
+F005: Falha ao navegar até o menu inicial
+F006: Não foi possível entrar no Menu EXPORTACAO-PERFIL DEPOSITARIO
+F007: Não foi possível entrar no Menu INCLUSAO DE PRESENCA DA CARGA PELO DEPOSITARIO
+F008: Não foi possível entrar no menu Despacho SImplificado Export
+F009: SISCOMEX,DSE,DSE2 ( INFORMAR PRESENCA DE CARGA )
+F010: Não foi possível entrar no Menu INCLUSAO DE PRESENCA DA CARGA PELO DEPOSITARIO (DSE)
+F013: Não foi possível entrar na segunda tela de presença de carga 
+F014: Falha ao Confirmar Tipo Unitização
+F015: Falha ao Confirmar Carga Avaria
+F016: Falha ao confirmar Quantidade de Volume
+F017: Falha ao Confirmar Tipo Unitização
+F019: Não foi possível entrar na Tela de conteiner e despacho
+F021: 
+
+
+~~F002: Não foi possível conectar no site da receita~~
+~~F003: Não foi possível entrar na Receita~~
+~~F020: Não foi possível acessar o Ibm Web Terminal~~
+
+~~F004: Falha ao voltar para o menu inicial~~
+~~F005: Não foi possível entrar no Menu EXPORTACAO-PERFIL DEPOSITARIO ~~
+~~F006: Não foi possível entrar no Menu INCLUSAO DE PRESENCA DA CARGA PELO DEPOSITARIO((DDE) ~~
+~~F007: Não foi possível entrar na segunda tela de presença de carga ~~
+~~F008: Falha ao confirmar Quantidade de Volume~~
+~~F009: Falha ao Confirmar Tipo Utilização~~
+~~F010: Não foi possível entrar na Tela de conteiner e despacho ~~
+~~F016: Não foi possível entrar no menu Despacho SImplificado Export~~
+~~F017: SISCOMEX,DSE,DSE2 ( INFORMAR PRESENCA DE CARGA )~~
+~~F018: Não foi possível entrar no Menu INCLUSAO DE PRESENCA DA CARGA PELO DEPOSITARIO(DSE) ~~
+
+~~F020: Falha ao confirmar carga Avaria~~
+
+===== Códigos de Erro =====
+
+E011: Tipo inválido, deve ser DDE ou DSE 
+E012: Erros Variados
+E018: Erros Variados
+E020: Erros Variados
+
+
+E011: Permitido até 10 contêineres
+E012: Erro ao entrar com despacho
+E013: Erro ao entrar com dados da presença de carga
+E014: Erro ao finalizar presenã de carga
+E015; Tipo inválido, deve ser DDE ou DSE
+
+
+
+====== DSE ======
+

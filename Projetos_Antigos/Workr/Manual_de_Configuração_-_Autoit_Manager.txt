@@ -1,0 +1,218 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-06T17:27:37-03:00
+
+====== Manual de Configuração - Autoit Manager ======
+Created sexta 06 maio 2016
+
+Na versão atual do Autoit Manager, não está disponível uma interface para configuração e criação dos Workflow, deve ser criado diretamente na base de dados.
+
+**IMPORTANTE: **Como as alterações devem ser feitas diretamente na base de dados é necessário atenção redobrada, pois qualquer erro pode parar ou executar o workflows de forma errado.
+
+O AutoitManager está utilizando o SQLServer, o acesso pode ser feito utilizando os seguintes dados:
+
+**IP:** 192.168.1.9
+**login:** autoit
+**Senha:** 2c#auto8a9
+
+
+
+O Manager utiliza 4 tabelas para gerenciar as tarefas:
+
+====== workflow ======
+
+
+{{./pasted_image.png}}
+
+**Name:**
+	Nome utilizado para identificar o workflow
+**Cod:**
+	Código utilizado para identificar o workflow
+	Este código não pode ser alterado, pois está vinculado aos nomes das funções no autoit
+	
+	Por exemplo, a função executada do retiraRetencao5, dentro do autoit, lá no ambiente windows, se chama:
+		**001_main()**
+		
+**Interval:**
+	Intervalo de execução em segundos.
+	Por exemplo, retira retenção5 é executado a cada 1 minuto
+	
+**status**
+	1 -> Executa workflow
+	0 ou outros valores -> Não executa workflow
+	
+
+
+====== flow ======
+
+Lista de instruções do workflow
+
+{{./pasted_image001.png}}
+
+
+**workflow_id:**
+	Chave estrangeira, relaciona com workflow
+	
+**ord:**
+	Ordem de execução, cada workflow é criado com uma sequencia de instruções, elas são executadas em ordem e sequencialmente
+	
+	Ou seja, ao criar um workflow deve ser criar instruções com ordem sequencial: 0, 1, 2, 3 ,4 ,5
+	
+**execution:**
+	Não é usado
+	
+**statement**
+	Código da instrução (ver mais abaixo)
+	
+
+===== Notas =====
+
+* Cada instrução tem um conjunto de parâmetros, este parâmetros devem ser definidos na tabela param
+* -99 foi usado devido a permissão (quando criei o workflow não tinha acesso de remoção)
+* Instruções com código 100 normalmente são executada no retorno dos Robôs, pois no autoit, existem comando onde é possível indicar qual a próxima instrução  a ser executada (ex: 100)
+	* No exemplo, a instrução 107 significa, enviar dados para uma API
+
+====== param ======
+
+Lista de paramêtros para cada instrução.
+
+Cada instrução tem um conjunto próprio de parâmetros que devem ser executadas, por exemplo:
+a instrução para execução de consulta SQL deve ter definido, a consulta que será executada e a base de dados
+
+{{./pasted_image002.png}}
+
+
+**flow_id**
+	chave estrangeira, relacionada com flow
+	
+**id**
+	Ordem do parâmetro, comenado por 0
+	
+**value**
+	Valor do parâmetro, cada instrução tem sua própria sequencia
+	
+	
+
+====== Fila de Tarefas (taskqueue) ======
+
+{{./pasted_image004.png}}
+
+**workflow**
+	Nome de workflow
+
+**workflowcod**
+	Código do Workflow (definido na tabela workflow).
+	No worker, o nome do workflow será a concatenação do workflowcod com workflow
+	**Exemplo:** 001_retiraRetencao5
+	
+**data**
+	Dados da tarefa que será enviada para o autoit processar
+	
+**created**
+	Data que a tarefa entrou na fila
+
+**executed**
+	Data que de inicio da execução da tarefa
+
+**completed**
+	Data em que a tarefa foi completada
+	
+**worker**
+	Código do worker que executou ou está executando a tarefa
+	
+**status**
+	Status atual da tarefa, podendo ser:
+		'A': "Aguardando",
+		'X': "Em Execução",
+		
+		'C': "Erro Crítico",
+		'F': "Falha Processo",
+		'E': "Erro Processo",
+		'P': "Falha parcial",
+		
+		'S': "Concluído"
+		
+**info**
+	Informações extra sobre a execução da tarefa, exemplo: descrição de erro
+	
+**floword**
+	Indica a próxima instrução a ser executada (usado intermanete pelo manager)
+	
+	
+
+
+====== Instruções (statement) ======
+
+Segue a lista de instruções disponíveis para criação do workflow:
+
+===== 100 =====
+Executa consulta SQL 
+Retorna o resultado em json
+
+**Param1: **
+	Consulta
+	
+**Param2:**
+	Nome da conexão
+	
+
+===== 101 =====
+Cria uma nova task para ser enviado para o worker processar
+
+===== 102 =====
+Retorna o primeiro elemento de um array
+Os dados são enviados para os workers em um array, onde cada elemento do array representa uma tarefa. 
+
+===== 103 =====
+Para execução da tarefa se nenhum existir nenhum dado (ex: consulta SQL retornou vazio)
+
+===== 104 =====
+Faz um "join" no resultado e salva em um objeto, exemplo:
+ 
+ [ {primeiro = 'a', segundo = 'b', terceiro = 'c'}, {primeiro = 'a', segundo = 'b', terceiro = 'c'}]
+  Cria: 
+  {
+  primeiro = 'a,a',
+  segundo = 'b,b',
+  terceiro = 'c,c' 
+  }
+
+===== 105 =====
+Executa um novo processo. 
+Normalmente um script externo que realiza um processamento nos dados.
+
+**Param1: **
+	Path do script
+
+
+===== 106 =====
+http-request
+Realiza uma requisição a uma API REST externa
+
+ **Param1: **
+	URI: Endereço do API
+
+**Param2: **
+	Método: 
+		get, put, delete, post
+
+
+===== 107 =====
+Executa script externo e com resultado cria uma nova task para ser enviada para os workes processarem
+
+
+====== Visualização geral dos workflows ======
+
+Com a consulta abaixo é possível ter uma visão gerão dos workflows
+
+SELECT W.WORKFLOW_ID AS W_ID, W.NAME, W.COD, W.INTERVAL,F.FLOW_ID AS F_ID, W.STATUS, F.ORD, F.EXECUTION, F.STATEMENT, P.ID, P.VALUE   
+FROM AUTOIT.DBO.WORKFLOW AS W 
+LEFT JOIN AUTOIT.DBO.FLOW AS F ON W.WORKFLOW_ID = F.WORKFLOW_ID 
+LEFT JOIN AUTOIT.DBO.PARAM AS P ON F.FLOW_ID = P.FLOW_ID 
+ORDER BY COD, ORD, ID
+
+{{./pasted_image003.png}}
+
+
+Formato invalido, implementar para menos digito
+(data)

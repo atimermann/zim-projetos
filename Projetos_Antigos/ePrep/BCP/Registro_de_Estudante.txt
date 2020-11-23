@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-05T12:04:57-02:00
+
+====== Registro de Estudante ======
+Created sexta 05 fevereiro 2016
+
+
+
+==== Acesso ====
+	http://bcp.app/admin/students/create
+
+
+====== Criar modo Demo para o BCP ======
+
+
+**Lista Impactos**
+* A principio, apenas não irá executar cobrança
+* Tarefa:
+	* Entender como funciona cadastro de estudante
+	* Entender como funciona a cobrança (Desconto de Crédito)
+
+
+
+====== Dados inseridos no mysql: ======
+
+Ver no mindmap
+
+==== Cadastra conta ====
+INSERT INTO `account` (`full_name`, `email`, `username`, `dt_register`, `register_ip`, `pw_text`, `pw`, `change_pw`, `createby_uid`) VALUES ('', 'teste5@gmail.com', 'teste5@gmail.com', '2016-02-09 13:24:04', '3232238081', 'bcppcwzt', 'af7068f5e9cd43aa534018029c1e2284', '1', '1')
+
+	* Exibe quem criou o usuario (no caso 1)
+	* Usuario (1) tem ecomm_uid
+	* channel 0
+	* **TODO: Senha foi gerada automaticamente, descobrir como**
+
+==== Cadastra Produto ====
+INSERT INTO `account_product` (`uid`, `product_id`, `product_type`, `edition_id`, `edition_sku`, `dt_register`, `dt_expire`, `is_primary`, `is_limited`) VALUES ('2713', '300', 'BCP', '30001', 'peak', '2016-02-09 13:24:04', '2017-02-08 00:00:00', '1', '0')
+update account_product set is_primary=0 where uid='2713'
+update account_product set is_primary=1 where id='1926' AND uid='2713'
+
+Tabela de relacionamento, relaciona o usuario com algo mais
+	* uuid é o id do usuário
+
+==== Registra Transação ====
+INSERT INTO `account_transaction` (`uid`, `admin_uid`, `program_id`, `dt`, `ref_id1`, `cost`, `desc`, `type`, `commission`, `revenue`) VALUES ('2713', '1', '1', '2016-02-09 13:24:04', '1926', '1', 'Peak Period Peak Period Registration', 'new', '5', '0')
+
+==== Adiciona Crédito para Channel e armazena como usado ====
+INSERT INTO `channel_credits` (`admin_uid`, `program_id`, `course_edition`, `course_type`, `course_id`, `dt_register`, `student_uid`, `student_cid`, `is_used`, `ct_points`) VALUES ('1', '1', 'Peak Period', 'BCP', '300', '2016-02-09 13:24:04', '2713', '1926', '1', '1')
+
+* student_uid = 2713 (Código do Estudante)
+* steudent_cid = 1926 (Código do Produto)
+
+**No sistema é usado nos seguintes locais:**
+	* bcp/application/models/m_account.php
+		* newCourse
+	* bcp/application/libraries/api.php
+		* program_credit
+	* bcp/application/models/api/m_channel_user.php
+		* ext_course_credit **(Não usado em nenhum lugar)**
+		* ext_credits_process **(Não usado em nenhum lugar)**
+		* **ext_inventory (Não usado em nenhum lugar)**
+
+==== Marca Crédito como usado (channel_point) ====
+	**Aqui que é armazenado os créditos da conta**
+UPDATE `channel_point` SET `is_used` = '1', `dt_trans` = '2016-02-09 13:24:04', `trans_id` = '2066' WHERE id = '3'
+
+==== Atualiza Conta/Transação ====
+UPDATE `account_transaction` SET `type` = 'credit', `revenue` = '0', `commission` = '0', `cost` = '0' WHERE id = 2067
+
+===== Edições =====
+
+Edições são os tipo de planos de contratação
+
+peak
+prep-plan
+get-start
+look-ahead
+
+
+**Produto deve ser a edição que o estudante tem disponível**
+

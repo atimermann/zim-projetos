@@ -1,0 +1,47 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-07T14:28:23-03:00
+
+====== Gerenciador Hospedagem ======
+Created segunda 07 março 2016
+
+Usar Template:
+	http://byrushan.com/projects/ma/1-5-2/angular/index.html#/form/form-validations
+
+
+====== Host ======
+
+* Gerenciador de resposta dmarc com gráficos
+* Gerenciador de Dominio
+
+
+===== VMs =====
+
+* No Linux criar script e deixar disponível em bin para atualizar sistema:
+	* Atualizar
+	* Configurar ou recuperar configuração placa de rede
+	* Definir nameserver
+	* Atlerar senha
+
+* Script no template para atualizar sistema
+
+* Gerenciamento de dominios com alerta por email/sms de quando vai expirar
+
+
+
+
+
+====== Gerencia oVirt ======
+
+* Acessa API do Ovirt,
+* Criar relatórios melhores
+* Criar area de usuário melhorado, unificado
+* Houve uma queda no servidor, porém nem todas as vms subiram, criar script que verifica periodicamente subindo vms que continuarem parada
+* Gerenciamento de performance das maquinas e do host, para identificar problemas (Com histórico)
+* Criar agent para exibir performance
+* Agendar Benchmark regular nas vms e host para monitorar performance
+* Executar o agente da aplicação nodejs standalone
+	* http://stackoverflow.com/questions/13388108/standalone-node-js-application
+
+
+====== Gerenciar Cobbler ======

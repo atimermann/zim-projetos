@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-10-31T21:17:11-02:00
+
+====== Reunião 2016-11-01 ======
+Created segunda 31 outubro 2016
+
+====== Itens que ficaram pendente no contrato ======
+
+[*] **1 -** Caso o sistema do judiciário caía, a tarefa deve continuar de onde ela parou. Ou seja, o andamento do processo de anexação deve ser salvo para este poder continuar do ponto que parou. A continuação do processo deve ser autorizada pelo usuário;
+
+[x] **2-** Solicita classificação por parte do usuário, e esta classificação deve ser rápida e simples. ~~Preferencialmente classificando múltiplos arquivos ao mesmo tempo~~
+[*] **3-** Sugerir classificações com dicas do nome do arquivo. 
+[*] **4-** Caso a classificação seja “outro” ... o usuário pode inserir um texto, mas o default é o próprio nome do arquivo.
+
+**5** - **Rodar em background quando o browser iniciar. Ele irá monitorar:**
+[*] Se o usuário entrou em algum site do tribunal (mostrar o botão da extensão com nosso logo);
+[*] Se o usuário entrou na página de upload (mostrar barra lateral com informações);
+
+[x] Há vários sistemas em que múltiplos arquivos podem ser carregados/selecionados  ao mesmo tempo. É preciso dar suporte a isso monitorando quais arquivos já foram incorporados e quais ainda faltam. Essa leitura da página em execução é importante para recuperar trabalhos deixados pela metade caso haja algum problema de conexão. Um humano iria verificar qual o último arquivo anexado e continuar de onde parou. Nossa ferramenta precisa fazer a mesma coisa;
+
+[x] O sistema precisa detectar se o cliente está trabalhando com o mesmo processo. (Cada detector da página deve ser capaz de recuperar o número do processo);
+
+[x] Sistema deve estar preparado para criações de novos módulos no futuro. Criar flag de estado, ex: sistema está realizando upload.
+
+
+[x] Toda operação de upload irá descontar créditos, caso chegue a zero o usuário não terá permissão para realizar uploads;
+[x] Haverá uma função de recuperação de senha, ao clicar em esqueci minha senha, será enviada uma requisição ao backend para enviar instruções de recuperação por e-mail;
+
+[x] Valida compatibilidade das versões do browser e inclusive se o tribunal aceitar estas versões.
+ 
+
+[x] Acesso a configuração será feito através de um botão com ícone engrenagem na barra
+lateral ou na tela principal;
+
+
+[x] Configuração será salva no Servidor; Os arquivos anexados são de fato salvos quando o usuário faz upload e aperta salvar. Quando aperta salvar a página atualiza e pode até sair para a home. Caso o sistema caia, os arquivos salvos até o botão salvar estar pressionados estarão garantidos. Por isso, quando a conexão estiver muito instável, a frequência com que o sistema aperta o salvar deverá aumentar para ir forçando arquivos para dentro.
+
+[x] Será exibido uma barra lateral com estatística de uso do aplicativo; Esta informação será enviada e já processada pelo Backend.
+
+[*] Disponível para download na loja virtual do Mozilla;
+[ ] Válido na Loja da Mozilla
+
+====== Bugs ======
+
+[*] Desbloquear popup ou verificar exibindo alerta
+
+====== Reunião ======
+
+
+ f80***************************3a@*******..
+ 

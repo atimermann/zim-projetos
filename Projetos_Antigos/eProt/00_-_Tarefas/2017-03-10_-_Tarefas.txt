@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-03-10T16:39:45-03:00
+
+====== 2017-03-10 - Tarefas ======
+Created sexta 10 março 2017
+
+[ ] No Eproc, mesmo q dê falha de upload o script continua, melhorar a validação para verificar se o upload realmente foi concluido com sucesso e retornar erro para o usuário
+[*] A tela de enviar sugestão pergunta se eu quero apagar um dos arquivos?
+{{./pasted_image.png}}
+
+
+[ ] O botão CANCELAR não funciona?
+{{./pasted_image001.png}}
+
+
+[ ] "Olá, acho essa extensão super funcional, mas toda vez que uso, tenho que fechar essa janelinha aqui e abrir de novo.”

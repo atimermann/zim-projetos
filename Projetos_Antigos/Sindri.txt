@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-11T23:09:12-02:00
+
+====== Sindri ======
+Created terça 11 novembro 2014
+
+
+
+
+- Carregar App da base e do local
+- Como vamos gerenciar os dados? por app ou geral (Geral mais fácil)
+	* Permitir q aplicações gerem seus próprios dados? como transportar? como fazer instalação?
+
+

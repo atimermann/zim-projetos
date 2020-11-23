@@ -1,0 +1,156 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-06-23T15:13:01-03:00
+
+====== 03 - V3 ======
+Created sexta 23 junho 2017
+
+Em __Amarelo __ comentários que não devem ir para proposta
+
+====== Premissas Específicas ======
+
+* Deve haver uma estação (Máquina Virtual) na CPA dedicada para o Workr atuar;
+* Workr deve ter acesso exclusivo a esta estação, sem acesso por humanos;
+* Estação deve ter todas as softwares que serão automatizados, cem porcento funcionais:
+	* Integração com Corporate e Guardian: Os sistemas Corporate e Guardian devem estar disponíveis para integração com as soluções Smarti, caso não esteja, poderá haver impacto no custo e prazo do projeto
+* Ambiente de Testes Corporate deve estar disponível para etapa de desenvolvimento totalmente funcional.
+* É necessário que a Smarti possua acesso aos sistemas, usuários e corpo técnico para suporte e soluções de dúvida no levantamento e análise do cenário atual da CPA.
+* Suporte Remoto, caso seja necessário suporte local, será cobrado à parte 
+
+
+====== Premissas Genéricas ======
+
+* Quaisquer impactos para a Smarti que venham a ser gerados pela CPA através da introdução por este de outras empresas ou entidades organizacionais no contexto deste serviço, para realização de quaisquer atividades que interfiram nas atividades da Smarti, serão objeto de análise de impacto pela Smarti com consequente apresentação de esforço, prazo ou custos adicionais ao cliente.
+
+* O Product Backlog previsto para atendimento é composto pelas funcionalidades descritas na seção “Entendimento da Necessidade”.
+
+* Qualquer evento que impacte no plano do projeto inicial, como: sistema fora do ar, não cumprimento de prazos por parte da Smarti, falta de energia elétrica e quaisquer outras ocorrências, implicará em uma renegociação de prazo e custos do projeto, em função da quantidade de dias em que a equipe da Smarti estiver paralisada ou com impactos em suas atividades.
+
+* É de responsabilidade da CPA, o auxílio na coordenação com empresas envolvidas no projeto para a resolução de possíveis dúvidas e necessidades técnicas, como Toledo, Unisolution e outras envolvidas.
+
+* A responsabilidade pela transferência do produto do ambiente de homologação para o ambiente de produção é da Smarti. A Smarti fará o acompanhamento, orientação e documentação visando o bom andamento do serviço.
+
+* A Smarti permitirá acesso aos seus ambientes de desenvolvimento, testes e/ou homologação à Smarti para o bom andamento dos trabalhos aqui propostos.
+
+====== Itens Fora do Escopo ======
+
+**Nota:** Muitos destes itens poderão ser oferecidos pela Smarti mediante cotação adicional. Porém para maior equalização entre fornecedores, não compõem o escopo desta proposta inicial;
+
+* Atividades não descritas explicitamente no escopo desta proposta.
+* Manutenções corretivas e/ou evolutivas nos sistemas internos e/ou base de dados internas da CPA, não explicitamente mencionados no escopo desta proposta.
+* Mascaramento de dados para qualquer finalidade.
+* Disponibilização de um Datacenter.
+* Aquisição, instalação, configuração e desenvolvimento em uma ferramenta não citada no escopo desta proposta técnica.
+* Normalização, reengenharia e/ou otimização de bancos de dados transacionais internos da CPA.
+* Elaboração e confecção de qualquer produto e/ou entregáveis que não esteja descrito nesta proposta.
+* Custos com passagens aéreas, deslocamentos, estadia e refeições da equipe Smarti, fora da cidade de Curitiba/PR.
+* Gerenciamento de equipes de outros fornecedores para desenvolvimento de produtos e respectivo controle de prazos e custos.
+
+====== Análise Inicial de Riscos ======
+
+
+====== Configuração Ambiente e Infraestrutura ======
+
+* Implantação de  infraestrutura de Virtualização (Vmware) 
+* Instalação de Template com Windows 2008 R2 ou acima para instalação dos Agentes (Workr)
+* Criação de Máquina Virtual com Linux (Centos ou Ubuntu) para instalação do Manager (Workr)
+	* Instalação e Configuração Banco de Dados
+	* Instalação Aplicação Smarti
+
+* Criação dos Agentes com base do template Windows 2008 R2 
+	* Instalação das ferramentas necessárias para execução dos Agentes (Workr)
+	* Instalação e Configuração dos Agentes (Workr) 
+
+
+**Estimativa: 30 **__Horas + (TODO: Tempo para instalação da plataforma de virtualização VMWARE, LEVANTAR COM A ANA)__
+
+
+===== Premissas =====
+* Servidores Físicos com memória de pelo menos 32GB
+* __TODO: Levantar mais requisitos com a Ana__
+* Windows deve ser compatível com os softwares que serão automatizados (Guardian, Corporate e Winspector)
+* Memória de 1.5GB para cada agente instalado, recomendável pelo menos **6GB** para 4 agentes
+
+====== Contratação e implantação do ambiente de desenvolvimento e Teste do Guardian ======
+
+* Será responsabilidade de Smarti contratar e implantar ambiente de desenvolvimento e teste do Guardian
+
+**Estimativa: Será terceirizado**
+
+====== Levantamento e Análise do Cenário atual da CPA ======
+
+Este item compreende, acessar, analisar, desenhar como funciona atualmente os sistemas atuais, incluindo entender API, testar sistemas atuais, desenhar o processo para automação.
+Tarefa com maior risco são os testes de integração com o Guardian
+
+**Estimativa: 100 horas**
+
+====== Desenvolvimento RPA ======
+
+* Automação de 10 tarefas
+* Integração com 3 sistemas:
+	Winspector
+	Guardian
+	Corporate
+
+* Inclui desenvolvimento de robô (RPA) ou criação de script (JOBS) para comunicação via API entre os sistemas. Será determinado de acordo com análise na etapa anterior
+
+**Estimativa: 400 horas**
+
+====== Adaptação do Workr para cenário da CPA ======
+
+__NOTA: Aqui estou alterando a descrição para não dar a entender que vamos desenvolver o produto para eles__
+
+Desenvolvimenteo de Melhorias e adaptações no Workr para que atenda da melhor forma possível a solução a ser apresentada para CPA
+
+* Interface Web
+* Api
+* Melhor suporte a gerenciamento de Jobs
+* Analise de Desenho de outras melhorias
+* Logs
+* Relatórios e Alertas por email
+
+__Estimativa: 160 horas para desenvolvimento do workr, mas preciso da opinião de vocês como podemos justificar estas horas na proposta sem dar a entender que vamos desenvolver o workr?__
+
+====== Licenças ======
+
+* Licença do Windows para execução dos agentes (workr)
+* Licença para criação de ambiente de Desenvolvimento do Guardian
+
+__TODO: Levantar com a Ana__
+
+====== Treinamento ======
+
+* Preparar treinamento (Material, roteiro, etc...)
+* Realizar treinamento presencial
+* Deslocamento, alimentação, estadia se necessário
+
+(__não tenho expêriencia com isso, peço ajuda de vocês, mas imagino que 1 dia é suficiente)__
+
+====== Suporte e Sustentação ======
+
+* Três meses de suporte com 40 horas não cumulativas, para acompanhamento mais próximo
+* Após o período de três meses, será criado uma nova proposta de suporte com número de horas mais compatível com a necessidade detectada.
+* Incluir melhorias no desevolvimento do Workr e da automação
+* Suporte remoto incluido, suporte local será cobrado um valor à parte referente a deslocamento
+
+**Estimativa: 40 horas / mês **
+
+====== Manual e Documentação ======
+
+* Manual de uso do sistema
+
+**Estimativa: 24 horas **__(É um chute meu, não tenho expêriencia com isso, peço ajuda de vocês)__
+
+====== Acompanhamneto na Fase de Implantação ======
+
+* Custo de Viagem, deslocamento, almoço, estadia.
+
+**Estimativa:** **3 dias (30 horas)  **__Aqui também peço uma sugestão de vocês__
+
+====== Garantia ======
+
+Smarti garante todos os programas que desenvolve contra problemas ("bugs") de desenvolvimento, por 90 dias depois da aceitação da solução da pelo cliente.
+* A correção dos problemas, identificados durante a garantia, se fará nos códigos fontes em poder da Smarti.
+* Não existirá garantia com relação dos problemas originados por mudanças de regras de negócio.
+* Passado o período de garantia, se houver interesse por parte de cliente, poderemos elaborar um contrato de suporte e manutenção do sistema para manutenções corretivas e/ou evolutivas.
+

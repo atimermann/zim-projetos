@@ -1,0 +1,60 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-03-04T20:25:34-03:00
+
+====== Cheap2Ship - Front ======
+Created quarta 04 março 2020
+
+====== Info ======
+
+Projeto Front para Cheap2Ship
+
+**Localização no Jira:** https://cheap2ship.atlassian.net/jira/your-work
+**Localização no BitBucket: **https://bitbucket.org/cheap-2-ship/frontend-bid/src/master/
+**Localização Local: **~/projetos/cheap2ship
+
+**Informações sobre o projeto e links comuns em:**
+https://bitbucket.org/cheap-2-ship/frontend-bid/src/develop/README.md
+
+--------------------
+
+====== Informações importantes, leia antes de (re)iniciar - Ambientação ======
+
+* Estou usando como modelo o projeto 
+**/home/andre/projetos/estudo/nuxt-material-admin**
+
+* Layout do zero utilizando **Vuetify 2**, basear no projeto acima, mas utilizar layout acima.
+
+* Leia o Git log pra lembrar oq estava fazendo
+* Olhe as tarefas no bitbucket
+* Releia documentação tecnologias utilizadas:
+	* NuxtJs
+	* Vuejs
+	* Vuetify
+	* Typescript
+* Reveja os TODOs do projeto
+
+* Necessário iniciar o servidor backend api
+
+* Necessário Estudar e Documentar Vuetify
+
+
+===== Links relevantes: =====
+
+**CSS**
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+**Exemplo Login com Vuetify:**
+https://vuetifyjs.com/en/examples/layouts/centered
+
+**Vuetify**
+https://vuetifyjs.com/en/getting-started/pre-made-layouts
+
+**Vue Property Decorator**
+https://github.com/kaorun343/vue-property-decorator
+
+**Nuxt TypeScript**
+https://typescript.nuxtjs.org/cookbook/components/#script
+
+**Bootstrap Grid (Usado pelo Vuetify)**
+https://getbootstrap.com/docs/4.4/layout/overview/

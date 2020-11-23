@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-08-30T16:16:54-03:00
+
+====== 16 - Reunião 30-08-2016 ======
+Created terça 30 agosto 2016
+
+* Vamos mudar o foco da agenda para o modulo financeiro
+* Aproveitar para usar na Smarti
+* Verificar como usar em outros sistemas
+* Pensar em facilmente mudar label para cada sistema (labels para consultorio, hospedagem)
+* Verificar modulo do Myagui
+* Ideias q eu tenho anotado em algum lugar (AGTCONTAS)
+:Projetos:Projetos Antigos:16 - Reunião 30-08-2016:04 Projetos:AGTSistemas:AGTContas:NovaVersao
+* Template/Gabarito de contas ex; conta de luz (lembrar se esqueceu unificar nome)
+* Gerenciar muros e juros (para relatorios de gastos perdidos)
+
+* Criar conector para outros modulos chamado fonte de receita, fonde de despesa
+	* cadastro de coluna personalizado (exemplo particular/convenio)
+
+

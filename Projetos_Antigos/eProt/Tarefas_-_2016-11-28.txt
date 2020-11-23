@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-11-28T12:03:22-02:00
+
+====== Tarefas - 2016-11-28 ======
+Created segunda 28 novembro 2016
+
+
+Leonardo pediu que em caso de erro na automação do processo de upload, seja tomada as seguintes ações:
+- Caso o erro possa ser resolvido com uma ação do usuário, basta apenas indicar com uma mensagem na tela
+- Caso o erro não possa ser resolvido com uma ação do usuário, então a extensão deverá enviar a seguinte mensagem de erro:
+		 "Eprot não está disponível para este sistema, entre em contato com o suporte"
+   **Em seguida bloquear a extensão para o usuário (bloqueio não está definido no escopo do projeto)**
+
+
+- Leonardo pediu também uma lista com todas as mensagens de erro e quando elas ocorrem, em especial para mensagem exibida quando o usuário se desconecta
+
+====== Email Final ======
+
+Boa tarde Leonardo, conforme acordado em reuniões os seguintes itens pendentes foram concluído, estamos no aguardo da aceitação do termo de aceite para continuar com o desenvolvimento:
+
+* Se o usuário entrou em algum site do tribunal (mostrar o botão da extensão com nosso logo);
+* Se o usuário entrou na página de upload (mostrar barra lateral com informações);
+* O sistema precisa detectar se o cliente está trabalhando com o mesmo processo. (Cada detector da página deve ser capaz de recuperar o número do processo);
+* Validação de Assinatura Inválida no Escritório Digital. (Exibe alerta para o usuário)
+* Exibe alerta para usuário avisando que o popup está bloqueado
+* Alerta e instalação de nova versão da extensão eProt
+* Disponível para download na loja virtual do Mozilla. Estamos aguardando análise da Mozilla, atualmente está na posíção **54 da fila**
+

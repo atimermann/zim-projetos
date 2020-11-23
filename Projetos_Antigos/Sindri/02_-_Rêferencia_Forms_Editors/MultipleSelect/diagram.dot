@@ -1,0 +1,39 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Propriedade</td>
+	<td BGCOLOR="gray">Descrição</td>	
+	<td BGCOLOR="gray">Tipo</td>	
+	<td BGCOLOR="gray">Valor Padrão</td>
+	<td BGCOLOR="gray">Valores</td>
+</tr>
+
+<tr>
+	<td>type</td>
+	<td></td>
+	<td>string</td>
+	<td></td>
+	<td>multiSelect</td>		
+</tr>
+
+<tr>
+	<td>options</td>
+	<td>Options do Select</td>
+	<td>Object</td>
+	<td>[Obrigatório]</td>
+	<td>ver em options:Valores</td>		
+</tr>
+
+<tr>
+	<td>config</td>
+	<td>Propriedade do widget jquery.multiple-select</td>
+	<td>object</td>
+	<td>Ver em config:valor padrão</td>
+	<td>Refêrencia em: http://wenzhixin.net.cn/p/multiple-select/docs/</td>		
+</tr>
+</TABLE>
+>];
+}

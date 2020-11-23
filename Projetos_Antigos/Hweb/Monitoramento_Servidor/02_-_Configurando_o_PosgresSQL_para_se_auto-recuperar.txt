@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-02T23:48:22-03:00
+
+====== 02 - Configurando o PosgresSQL para se auto-recuperar ======
+Created quinta 02 outubro 2014
+

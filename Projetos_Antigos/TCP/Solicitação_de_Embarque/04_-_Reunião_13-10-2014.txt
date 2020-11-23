@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-10-13T10:17:47-03:00
+
+====== 04 - Reunião 13-10-2014 ======
+Created segunda 13 outubro 2014
+
+====== Tela de consulta no sistemas internos ======
+
+
+* Navio / VIagem
+
+
+* Navio (Navio Argos)
+* Nome do Exportador
+* CNPJ
+* Veiculo ( Navio)
+* cif dolar (Valor Mercadoria)
+* status_ordem_embarque (ver as siglas)
+* status_presenca_carga (ver as siglas)
+* cod Argos
+* numero_despacho ( ver pq não aparece)
+* data_atualização
+
+===== condição =====
+
+tipo_transacao = N
+
+===== filtros =====
+
+* navio
+* viagem
+* exportador
+* despacho
+* FILTRAR POR CONTEINER
+
+===== Ordenar =====
+
+ID
+
+====== Lista de Contêineres ======
+
+* numero do conteiner
+* lacre
+* peso bruto
+* parte_lote
+* localização
+* STATUS_RETENCAO (CONFIRMAR se é atualizado)
+* STATUS_CANCELADO

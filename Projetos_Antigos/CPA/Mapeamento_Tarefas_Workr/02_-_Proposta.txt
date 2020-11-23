@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-06-22T21:23:05-03:00
+
+====== 02 - Proposta ======
+Created quinta 22 junho 2017
+
+Rever os ítens da proposta
+
+__TODO:__** Criar um padrão de processo da Smarti para desenvolvimento de proposta**
+* Toda promosta antes de ir paro o cliente deve ser revisada com a equipe técnica (desenvolvimento de produto)
+* Criar uma base de premissar, itens fora do escopo, como um checklist com varios itens para revisar em toda promosta
+
+__TODO:__ Verificar premissas do itens foro do escopo 
+
+**Premissa Levantamento e Análise**
+
+**Premissas Servidor**
+* Windows 2008 Instalado com os softwares Winspector, Guardian ou Corportate com acesso total e excluviso ou seja acesso apenas pelo servidor
+* 1GB de Ram cada Máquina Virtual
+
+**40horas não cumulativas**
+* 3 primeiros meses é uma adesão
+* Suporte primáriamente Remoto, se precisar local, pagar por fora
+
+* Treinamento não faz parte escopo
+
+====== Apresentar ======
+
+Preparar uma apresentação sobre as tecnologias envilvida no Workr 1.0
+* 45min de apresentação
+* 15min de quis
+* Tira dúvida no meio
+* Criar um QUIS
+* Sessões de uma hora
+
+
+* Conversar sobre Integração Continua
+* Conversar sobre Testes Unitários
+
+====== Próximos Passos ======
+
+* Entender a proposta do Guilherme
+* Colocar os pontos acima
+* Abrir o mapa mental e verificar os ítens de fora do escopo, premissas genéricas, garantia etc...
+* Revisar proposta stefanini
+
+

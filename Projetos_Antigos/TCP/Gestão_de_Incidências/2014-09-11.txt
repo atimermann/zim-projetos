@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-11T09:34:58-03:00
+
+====== 2014-09-11 ======
+Created quinta 11 setembro 2014
+
+MSWU9105150
+Conteiner
+
+MWSU9105150
+
+Ramal: 3415
+
+
+* Filtro não funciona do aguardando
+
+
+40 (MNBU3391427)
+
+
+* ~~As vezes o cadastro de Ordem de serviço, não sai da lista, então é feito uma nova tentativa a os é duplicada e as incidências são vinculados ao nova os~~
+	* ~~Criar uma validação para não vincular incidencia a uma OS já cadastrada~~
+	* ~~Não deve exibir na lista~~
+
+
+* Atualizar PROD -> DEV
+Antes de jogar produção fazer uma SIMULAÇÃO
+
+Tentar recuperar:
+
+
+* Erros de cadastro já existe está gerando erro em vez de alertar

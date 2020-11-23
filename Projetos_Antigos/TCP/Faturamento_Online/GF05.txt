@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-12-14T10:12:19-02:00
+
+====== GF05 ======
+Created segunda 14 dezembro 2015
+
+Còdigo Argos -> Alterar cliente
+Titulo/Numero da proposta
+
+Vencimento Nota FIsca de Impo (dias)
+Vencimento Nota FIsca de Expo (dias)
+
+Remove Còdigo Hermes
+
+Dias Livres Armazenagem Impo
+
+Dias LIvres Armazenagem Expo
+
+————————————————————————————————————————————————
+
+contrato => Contrato/Proposta
+tarifa => Serviço
+Informação Adicional do serviço (Não obrigatório)
+
+cadastro de 3 campos:
+
+TIPO_COBRANÇA
+	1 - VALOR FIXO,
+	2 - % VALOR CIF
+	3 - VALOR FIXO POR DIA
+	
+	
+---------------------------------------------
+Se tarifa for especial = s
+abre dois campos
+
+INICIO_PERIODO_DIAS
+FIM_PERIODOS_DIAS
+
+validar data inicio > fim 
+maximo 999 dias
+
+
+valor 5 casas decimais

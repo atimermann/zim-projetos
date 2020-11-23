@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-05-26T15:12:06-03:00
+
+====== RF004 - Código ======
+Created terça 26 maio 2015
+
+* A aplicação em foi desenvolvida em Javascript com backend em PHP
+* Está localizado na extranet:
+	* http://200.195.158.100//extranet/agendamento/?t=solicitacao_de_embarque/solicitacao_de_embarque2
+
+* A aplicação está localizada em:
+	* **solicitacao_de_embarque/solicitacao_de_embarque2.php**
+		* Este chama **app/solicitacao_de_embarque/js/solicitacao_embarque.js"**
+
+{{{code: lang="js" linenumbers="true"
+		var urlsistema = "<?php echo $urlsistema ?>";
+		solicitacaoEmbarque.load(urlsistema);
+}}}
+
+
+* Temos Vários Objetos:
+
+===== solicitacaoEmbarque =====
+	É um gerenciador de View, ele abre as views e faz as chamadas
+	
+	* Inicialmente carrega o buscaDespachoBox
+
+===== buscaDespachoBox =====
+
+	Carrega a view abaixo:
+{{./pasted_image.png}}
+Carrega CNPJ usando a requisição: (Carregado Inicialmente)
+	**$.getJSON("app/solicitacao_de_embarque/solicitacao_de_embarque_ajax.php", {action: "GET_CNPJ" }, **
+
+Carrega Clientes com esta requisição (Exportador TCP):
+	**.load("app/solicitacao_de_embarque/solicitacao_de_embarque_ajax.php", { action: "GET_COMBO_CLIENTE"}, **
+
+Carrega Navios com:
+	**'app/presenca_carga/combo_navios_homol.php?json=1',**
+
+
+
+
+

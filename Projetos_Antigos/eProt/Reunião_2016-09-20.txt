@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-09-20T14:06:03-03:00
+
+====== Reunião 2016-09-20 ======
+Created terça 20 setembro 2016
+
+====== ATA da Reunião ======
+* Leonardo achou o template muito escuro vai passar para o designer deles realizar as alterações;
+	* Fiquei de enviar o o fonte enviado pelo miyagui  para eles darem uma olhada
+* Leonardo pediu para remover o botão assinar. Nas páginas onde haverá necessidade de assinatura o pedido de assinatura será feita automaticamente ao iniciar processo de upload
+* Leonardo pediu para utilizar substituir o prompt de comando do sistema operacional, por um modal internamente evitando assim quebrar o layout
+* Será desenvolvido nas próximas semanas e testado o robô para os sites:
+	* produji
+	* eproc
+	* Escritório Digital
+* Foi pedido pelo Leonardo alteração do sistema de log para registrar mais informações do processo:
+	* Quantidade de arquivos para envio e quantidade de segmentos gerados
+	* Tempo de duração do processo
+* Prazo foi estendido mais uma semana até Segunda-feira 20/09 para finalizar essas alterações
+* Desenvolvimento do código usando dll do sistema ficará para próxima semana
+

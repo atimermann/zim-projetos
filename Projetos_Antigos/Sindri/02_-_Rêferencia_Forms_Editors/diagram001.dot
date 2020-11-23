@@ -1,0 +1,19 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Editor</td>
+	<td BGCOLOR="gray">Descrição</td>
+	
+</tr>
+
+<tr>
+	<td>MultipleSelect</td>
+	<td>Permite selecionar vários itens de uma vez, normalmente usado em relacionamentos para Muitos.</td>			
+</tr>
+
+</TABLE>
+>];
+}

@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-03-26T11:11:44-03:00
+
+====== Presença de Carga ======
+Created quinta 26 março 2015
+
+* Precença de carga ela pode ser feita antes ou depois
+
+O Exportador Solicita a presença de Carga
+
+
+====== Sistema ======
+
+
+===== Normal =====
+
+* Contêiner precisa estar posicionado no Pátion Deve estar na:
+	* CONTF (Está no Pátio)
+	* EFALTA != 0 (Data de entrada)
+	* ES = C 
+
+* Quantidade de Volume
+* Salva na Tabela PROC_SISCOMEX
+* Em seguida vai pro Automate:
+	* Realiza presença de Carga na Receita
+
+* Sistema realiza diveras Validações
+
+* Parte lote falar com o faturamento para entender como eles fazem o processo
+	* Só pode dar presença quando o lote estiver completo
+
+* Presença de Carga por despacho
+
+===== Posteriore =====
+
+* Alguns exportadores especiais tem o direito de dar presença de carga depois de embarcar (Grandes exportadores como BRF e KLABIN)
+* Dae presença de carga depois q o contêiner já foi pro navio (saiu do patio)
+* Consulta do contêiner é feito na **CON01F** ou HD01F (Histórico da CONTF) (Melhor usar a CON01F)

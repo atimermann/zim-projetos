@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-11-02T15:22:06-02:00
+
+====== Código Erro ======
+Created segunda 02 novembro 2015
+
+E -> Erro (Não recoloca na fila)
+F -> Falha (Recoloca na fila)
+
+Não repetir ID
+
+* **F001** - Erro ao Obter Captcha do Servidor
+* **F002** - Tentantivas de quebrar captcha excedido
+* **F003 **- ID Captcha Inválido
+* **F005** - Recebido - Porém não disponível, Aguardar
+* **F006** - Em processamento.- Porém não disponível, Aguardar
+* **F007** - Processada- Porém não disponível, Aguardar
+* **F008:** Falha ao Abrir Internet Explorer
+* **F009**: Falha ao conectar no Manager para avisar que requisição de arquivo foi realizada
+
+* **E004 - **Arquivo Vazio
+* **E008 **- Status inválido ou Desconhecido
+* **E020 - **Periodo inválido, deve ser: ATRACADOS ou ESPERADOS
+
+
+
+
+- Carregando Internet Explorer
+
+
+**F010 - **Erro ao abrir janela de certificado
+**F011** - Erro ao abrir Página
+**F012 -** Não foi possível entrar no Siscarga
+**F013**: -  CPF Desconectado
+**F014 -** Não foi possível abrir página Extrair CE-Mercante para Intervenientes
+**F015 -** Não foi possível abrir página Extrair CE-Mercante para Intervenientes
+**F016 -** Não foi possível abrir página Extrair CE-Mercante para Intervenientes
+**F017**: Falha ao carregar janela de lista de arquivos
+**F018:** Falha ao Recuperar Nome do Arquivo
+**F019:** Falha ao realizar download do arquivo
+
+
+				

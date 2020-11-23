@@ -1,0 +1,107 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-09-01T23:29:01-03:00
+
+====== Histórico de Desempenho ======
+Created segunda 01 setembro 2014
+
+Aqui vou registrar todas as quedas de desempenho na medida que o framework é desenvolvido
+
+===== Teste Inicial =====
+
+Requests per second:    2604.45 [#/sec] (mean)
+Time per request:       383.958 [ms] (mean)
+Time per request:       0.384 [ms] (mean, across all concurrent requests)
+Transfer rate:          590.07 [Kbytes/sec] received
+
+===== Ativação do Cluster =====
+
+
+Requests per second:    8695.09 [#/sec] (mean)
+Time per request:       115.007 [ms] (mean)
+Time per request:       0.115 [ms] (mean, across all concurrent requests)
+Transfer rate:          1969.98 [Kbytes/sec] received
+
+===== Suporte a Sessão =====
+
+Requests per second:    6654.86 [#/sec] (mean)
+Time per request:       150.266 [ms] (mean)
+Time per request:       0.150 [ms] (mean, across all concurrent requests)
+Transfer rate:          1507.74 [Kbytes/sec] received
+
+===== Criação de um servidor de SEssão REST para permitir a replicação entre servidores =====
+
+Requests per second:    533.23 [#/sec] (mean)
+Time per request:       1875.365 [ms] (mean)
+Time per request:       1.875 [ms] (mean, across all concurrent requests)
+Transfer rate:          136.23 [Kbytes/sec] received
+
+**Grande queda de desempenho aqui**
+
+**NOTA: não testei com cookie, ou seja para cada requisição é recriado a sessão**
+
+Outro problema é q ele SETA a sessão mesmo se não tiver alteração
+
+===== Mesmo teste acima com cookie ativado =====
+ab -n 10000 -c 1000 -C "connect.sid=s%3AaTWmfrn8IyKplFi3hvYlJNCctQhbasO_.xMmKPpMfunzyZi0OvmbZlf%2F3JwlRsszWqu6LMikAbZE" http://localhost:3001/session
+
+Requests per second:    473.39 [#/sec] (mean)
+Time per request:       2112.430 [ms] (mean)
+Time per request:       2.112 [ms] (mean, across all concurrent requests)
+Transfer rate:          120.97 [Kbytes/sec] received
+
+====== Em vez de chamar o servidor REST, fiz a requisição direto na aplicação ======
+
+Requests per second:    5932.66 [#/sec] (mean)
+Time per request:       168.559 [ms] (mean)
+Time per request:       0.169 [ms] (mean, across all concurrent requests)
+Transfer rate:          1515.97 [Kbytes/sec] received
+
+só a replicação vai pro servidor REST
+
+
+====== Servidor de Sessão ======
+
+s%3AaTWmfrn8IyKplFi3hvYlJNCctQhbasO_.xMmKPpMfunzyZi0OvmbZlf%2F3JwlRsszWqu6LMikAbZE
+
+===== GET =====
+Requests per second:    9347.50 [#/sec] (mean)
+Time per request:       106.980 [ms] (mean)
+Time per request:       0.107 [ms] (mean, across all concurrent requests)
+Transfer rate:          1533.57 [Kbytes/sec] received
+
+====== SET ======
+REF: http://nickdenardis.com/2007/06/27/stress_testing_a_site_with/
+
+Requests per second:    6808.25 [#/sec] (mean)
+Time per request:       146.881 [ms] (mean)
+Time per request:       0.147 [ms] (mean, across all concurrent requests)
+Transfer rate:          950.76 [Kbytes/sec] received
+                        1170.17 kb/s sent
+                        2120.93 kb/s total
+
+
+
+====== Teste Remoto ======
+
+
+**Da minha maquina consegui miseros:**
+
+Requests per second:    102.46 [#/sec] (mean)
+Time per request:       9759.931 [ms] (mean)
+Time per request:       9.760 [ms] (mean, across all concurrent requests)
+Transfer rate:          16.81 [Kbytes/sec] received
+
+**Quando testado localmente ficou em:**
+
+Requests per second:    2292.59 [#/sec] (mean)
+Time per request:       436.188 [ms] (mean)
+Time per request:       0.436 [ms] (mean, across all concurrent requests)
+Transfer rate:          376.13 [Kbytes/sec] received
+
+**E na mesma rede:**
+
+Requests per second:    963.15 [#/sec] (mean)
+Time per request:       1038.255 [ms] (mean)
+Time per request:       1.038 [ms] (mean, across all concurrent requests)
+Transfer rate:          158.02 [Kbytes/sec] received

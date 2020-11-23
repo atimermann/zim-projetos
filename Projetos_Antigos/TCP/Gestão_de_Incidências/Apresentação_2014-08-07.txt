@@ -1,0 +1,187 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-08-07T13:49:04-03:00
+
+====== Apresentação 2014-08-07 ======
+Created quinta 07 agosto 2014
+
+* ~~Criar perfil Programador com acesso ao menu MENU e Permissões~~
+
+
+* ~~Código de erro com 1 digito está dando problema, não aparece~~
+
+* ~~Todas os campos de temperatura devem ter 2 casas depois da virgula (BD)~~
+
+* ~~Colocar todas as análises na observação~~
+
+* ~~Colocar quebra de linha em todos os históricos revisar, colocar tudo~~
+
+* ~~AGUARDANDO ELETRICISTA  APARECE MESMO DEPOIS DO ELETRICISTA VINCULADO (Método usado não funciona)~~
+	* ~~src/TCP/Application/GestaoIncidenciasBundle/Models/OrdemServico.php:209~~
+
+
+
+* ~~Ao aprovar a  Análise com Terceiro, aparece SIM mesmo quando foi cancelado e foi colocado como NÃO~~
+
+* ~~Colocar o status aguardando no banco de dados(BD)~~
+
+* ~~Ao análisar por no histórico se o prazo estourou ou não~~
+
+* ~~No e-mail anotar Descrição detalhada do problema no Pendência/Motivo~~
+
+* ~~Não permitir analise caso não tem email cadastrado~~
+
+* ~~Envio de Email pra o cliente~~
+	* ~~BLOQUEIO~~
+
+* ~~Adicionar Set Point Físico na coleta novamente (Não Obrigatório) (javascript, se OPERACIONAL)~~
+	* ~~NÃO É POSSÍVEL, POIS O SET POINT É DEFINIDO POR ORDEM DE SERVIÇO E NÃO POR INCIDÊNCIA~~
+	* ~~Cadastrar por incidência, ao criar OS, copiar o mais recente para OS~~
+
+
+====== Barra de Status ======
+
+* Ordem de Serviço Análisado
+* Novas Ordem de Serviço
+
+
+====== Indicadores ======
+
+* Ordem de Serviço com Incidência estourada (ALERTA VERMELHO)
+
+
+ 
+ 
+ 
+
+====== Novo BUG ======
+
+A consulta está retornando decimal no formato brasileiro ex: 19,45
+O Active Record está se confundindo.
+
+Estudar, veja em: 
+	**src/TCP/System/ActiveRecordBundle/lib/Table.php**
+	linha: 286: $row
+	
+Correção por PHP:
+	src/TCP/System/ActiveRecordBundle/lib/Column.php:168
+	**case self::DECIMAL:**
+	
+	**                if (strpos($value, ",")){**
+	**                    $value = str_replace(",", ".", $value);**
+	**                }**
+	
+
+* Falta configurar o , no lugar do ponto nos campos decimais
+
+* ~~Criar permissão Ser vinculado como eletricista~~
+
+
+====== Sistema de Autenticação ======
+
+
+* Copiar dados do LDAP
+
+
+[*] // "cn" => "nome completo"
+[ ] // "sn" => "sobrenome"
+[ ] // "c" => "Pais"
+[ ] // "l" => "Cidade"
+[ ] // "st" => "Estado"
+[*] // "title" =>  "cargo"
+[*] // "description" => "Analita de TI"
+[ ] // "postalcode" => "cep"
+[*] // "physicaldeliveryofficename" => Setor
+[ ] // "memberof => Grupos
+[ ] company
+[ ] mailnickname => email 
+[*] samaccountname > NOME DA CONTA?
+[*] mail
+
+* ~~Autenticação~~
+* Cadastro
+
+====== Tarefa 01 ======
+
+~~·         Set point físico em incidência operacional~~
+
+~~Deve ser criado o campo set point físico vinculado com o tipo de incidência (sempre considerar a ultima incidência criada)~~
+
+~~Somente incidência operacional deve aparecer o campo~~
+
+ {{./pasted_image.png}}
+
+ 
+
+·         ~~Criar validação para verificar se todos os dados de e-mail estão ok antes do envio do e-mail~~
+
+~~Manutenção – E-mail para armador e prestador~~
+
+~~Operacional – E-mail para armador e cliente~~
+
+~~·         Criar tabela para vincular cliente ao e-mail~~
+
+·         Fazer o disparo do e-mail (servidor TCP)
+
+====== Tarefa 02 ======
+
+~~om dia,~~
+
+ 
+
+~~Segue mais um detalhe a ser corrigido:~~
+
+ 
+
+~~RESPONSABILDIADE (CINQ):~~
+
+ 
+
+~~·         Informar Supply, Retorno, Pendência Motivo, de acordo com a analise do eletricista.~~
+
+ 
+{{./pasted_image001.png}}
+Att,
+ 
+
+====== Tarefa 03 ======
+
+~~Cliente deve ter mesmo comportamento do Armador~~
+
+
+
+
+====== OQ FAZER NA TCP ======
+
+===== LDAP =====
+
+~~/home/andre/projetos/tcp/tcp.git/src/TCP/System/AuthenticationBundle/Crud/UsuarioInterno2Crud.php~~
+* ~~Finalizar cadastro de novos usuarios a partir de dados do LDAP~~
+* ~~Teste autenticação:~~
+	* ~~/home/andre/projetos/tcp/tcp.git/src/TCP/System/AuthenticationBundle/Crud/UsuarioInternoCrud.php~~
+	* ~~/home/andre/projetos/tcp/tcp.git/src/TCP/System/AuthenticationBundle/Security/User/TcpAuthenticator.php~~
+
+===== Cliente =====
+
+~~Teste modelo cliente /home/andre/projetos/tcp/tcp.git/src/TCP/Application/ArgosBundle/Models/Cliente.php~~
+~~Copiar tabela 'ARGBASEF'.'CLIENTF' p/ local para testes~~
+
+~~/home/andre/projetos/tcp/tcp.git/src/TCP/Application/GestaoIncidenciasBundle/Models/Conteiner.php:229~~
+
+~~Finalizar copia de dados dos novos clientes para o contêiner:~~
+	~~$conteinerArgos->free02; copiar da CONTF~~
+	
+	
+====== Validação de e-mail ======
+
+~~Validar cliente e cliente com e-mail~~
+
+~~Alterar Remetente dos envios:   ->setFrom("info@tcp.com.br", 'REFFER');~~
+
+~~Teste evio de email para cliente~~
+
+
+
+
+
+

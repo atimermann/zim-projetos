@@ -1,0 +1,89 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-09-28T12:50:36-03:00
+
+====== 01 - Reunião 28-09-2013 ======
+Created sábado 28 setembro 2013
+
+====== Pauta ======
+
+* Começar a especificar os detalhes do projeto
+* Ordenar os módulos por importância
+* Deixar os módulos de autenticação pro futuro
+* Verificar possibilidade de entrevista com usuários
+* Programar reuniões, pelo menos 2 por mes, ideal 1 por semana
+* Marcar próxima reunião previamente, se possível
+* Acrônicos
+
+===== Técnicas para elicitar requisitos =====
+
+* Mapeamento de processo com fluxograma
+	* Entrevistas, questionários, reuniões e workshop
+	* Obeservações de campo
+	* Análise de documentação existent;
+	* Análise de sistemas legados
+	* Coleta de evidências
+
+* Etnografia (acompanhar o usuário trabalhando)
+* Workshop (brainstorm)
+* Protótipos
+* Entrevistas (Tirar dúvidas)
+* Questionários
+
+
+HIstórias de usuários, preencher o cartão abaixo
+{{./pasted_image.png}}
+
+
+===== Definir escopo =====
+
+
+
+
+Inicio reunião: 14h11
+Fim de reunião:
+
+
+Ver riscos como obrigar a internet
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== Modulos Ordem de Importancia =====
+
+* Paciente
+* Plano de Tratamento
+* Orçamento
+* Procedimentos
+* Especialidade
+* Contas 
+	* Agua, luz, telefoje
+* Usuario & Grupo (Apenas o básico relacionado a login e coisas do sistema)
+* Cadeiras
+* Clinica
+* Funcionarios e Prestadores de Serviço (Prestadores de serviço como dentista que trabalha na clinica)
+* Serviços (Laboratórios de prótese, clinica de radiologia, lavanderia)
+* Financeiro
+* Estoque
+* Agenda
+
+
+====== 01. Paciente ======
+
+Manter Paciente
+
+===== Dados Pessoais =====
+* Nome e sobrenome
+* Sexo
+* Cor
+* Estado Civil
+
+
+====== Analisar ======
+
+* Analisar: Dental Office
+* Connectodonto
+
+
+

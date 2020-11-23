@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-11-11T14:25:38-02:00
+
+====== Siscomex ======
+Created terça 11 novembro 2014
+
+Consulta para carregar siscomex
+
+* **1)** **Como é o processo de Presença de Carga (Diagramação completa)?**
+	* Processamento no site Siscomex feito pelo Automate
+
+* **2) Come é o processo de Liberação de Embarque**
+	* Processamento Liberação de EMbarque feito pelo Automate
+
+* **3) Processar automaticamente a retirada da retenção 5 no Argos para os contêineres liberados;**
+

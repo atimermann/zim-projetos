@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-10-05T15:34:51-03:00
+
+====== 005-processamentoReefer ======
+Created segunda 05 outubro 2015
+
+7h59m54s
+error:  Error: connect ECONNREFUSED 192.168.3.8:8080
+	at Object.exports._errnoException (util.js:837:11)
+	at exports._exceptionWithHostPort (util.js:860:20)
+	at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1060:14)
+/var/www/autoit-test/source/apps/autoitManager/workflows/005_processamentoReefer.js:51
+				logger.error("StatusCode:" + response.statusCode);
+													 ^
+
+TypeError: Cannot read property 'statusCode' of undefined
+	at Request._callback (/var/www/autoit-test/source/apps/autoitManager/workflows/005_processamentoReefer.js:51:54)
+	at self.callback (/var/www/autoit-test/source/node_modules/request/request.js:198:22)
+	at emitOne (events.js:77:13)
+	at Request.emit (events.js:169:7)
+	at Request.onRequestError (/var/www/autoit-test/source/node_modules/request/request.js:867:8)
+	at emitOne (events.js:77:13)
+	at ClientRequest.emit (events.js:169:7)
+	at Socket.socketErrorListener (_http_client.js:259:9)
+	at emitOne (events.js:77:13)
+
+Parou
+2015-10-19 08:26:43 

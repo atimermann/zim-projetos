@@ -1,0 +1,48 @@
+digraph structs {
+node [shape=plaintext]
+struct1 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+
+<tr>
+	<td BGCOLOR="gray">Propriedade</td>
+	<td BGCOLOR="gray">Descrição</td>	
+	<td BGCOLOR="gray">Tipo</td>	
+	<td BGCOLOR="gray">Valor Padrão</td>
+	<td BGCOLOR="gray">Valores</td>
+</tr>
+
+<tr>
+	<td>connection</td>
+	<td>Conexão usada por este modelo</td>
+	<td>string</td>
+	<td>'default'</td>
+	<td>Lista De Conexões configuada no diretório de CONFIGURAÇÃO</td>		
+</tr>
+
+<tr>
+	<td>tableName</td>
+	<td>Nome da Tabela relacionado à este Modelo</td>
+	<td>string</td>
+	<td>[OBRIGATÓRIO]</td>
+	<td>Deve ser definida para usar a maioria das funções do SindriModel</td>		
+</tr>
+
+<tr>
+	<td>primary</td>
+	<td>Nome da Chave Primária</td>
+	<td>string</td>
+	<td>Undefined</td>
+	<td>Deve ser definida para usar a maioria das funções do SindriModel</td>		
+</tr>
+
+<tr>
+	<td>database</td>
+	<td>Database usada por este modelo, normalmente definido implicitamente na váriavel Connection</td>
+	<td>string</td>
+	<td>default</td>
+	<td></td>		
+</tr>
+
+</TABLE>
+>];
+}

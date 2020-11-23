@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-12-19T23:09:27-02:00
+
+====== Estrutura de Diretório ======
+Created sexta 19 dezembro 2014
+
+====== Colocar tudo no Módulo ou no Apps ======
+
+Temos um conjunto de vantagens e desvantagens para cada caso que devem ser analisadas
+
+
+===== Móduos no app =====
+
+**Vantagens**
+* Facilita desenvolvimento, ao criar referência a arquivos de outros módulos
+
+**Desvantagens**
+* Necessário usar Link Simbólico
+* (Ao usar link simbólico) Dependencia do módulo, precisam ser instalado no projeto principal. Ou seja necessário instalar dependências mais de uma vez.
+
+===== Módulos em node_modules =====
+
+**Vantagens**
+
+**Desvantagens**
+* ~~Dificuldade ao compilar  usando webpack, pelo require ter q apontar para node_modules ( ou não, desde q sejam instalado corretamente)~~
+* Dificuldade de relacionar arquivos estáticos entre entre apps e node_modules/apps
+

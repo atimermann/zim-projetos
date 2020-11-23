@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-03-15T18:04:05-03:00
+
+====== 20160315 - Update Coaches database ======
+Created terça 15 março 2016
+
+Criar um script para automatizar o processo de atualização do treinadores (um CSV será enviado e estará em formato padrão)
+
+
+Arquivo em:
+[[/home/andre/projetos/eprep/arquivos/AthletePrep030116.csv]]
+
+Percorrer todos os registros
+e para cada registro
+
+se for lacrosse, icehockey ou soccer
+**pergar apenas os sporte relacionado** 
+
+
+Se for hssstuntend prep
+**carregar todos**
+
+Para cada registro preencher a tabela:
+
+content_college
+**onde**
+
+divisions deve ser convertido assim:
+**Division 1 = 1**
+**Division 2 = 2**
+**Division 3 = 3**
+**Junior College = JUCO**
+**NAIA = NAIA**
+
+
+sport_id é o id do sport na tabela sports (bater gender e name)
+
+sport é 1 para men, 2 para woman
+
+
+
+**tables:**
+select from content_college; - all data
+select from sports; - match with sport name (men and women)
+
+
+

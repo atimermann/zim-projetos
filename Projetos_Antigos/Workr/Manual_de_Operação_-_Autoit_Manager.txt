@@ -1,0 +1,86 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-05-06T16:51:19-03:00
+
+====== Manual de Operação - Autoit Manager ======
+Created sexta 06 maio 2016
+
+===== Acesso ao Servidor =====
+
+O Manager é um job que está instalado em um servidor Linux, acesso deve ser feito via ssh com os seguintes dados:
+
+**IP:**  
+	192.168.3.106
+**Usuário:**  
+	root
+**Senha (é a ultima que tenho anotada, se não funcionar entrar com contato com pessoal da infra):  **
+	passw0rd
+
+**ex:** ssh root@192.168.3.106
+
+**Nota:** No windows pode ser usado putty ou cygwin
+
+===== Localização do Manager =====
+
+Os fontes e executáveis do Manager estão localizado na seguinte pasta:
+	**/var/www**
+
+
+===== Gerenciando o Serviço AutoitManager =====
+
+Autoit manager foi desenvolvido utilizando nodejs (Javascript), que tem uma execução assíncrona, e já vem com servidor web embutido (WebService Rest no caso do Autoit Manager)
+Com esta característica não é necessário o uso de outros servidores como: Apache, Nginx ou IIS. 
+Para gerenciar a execução da aplicação é usado uma ferramente para gerenciamento de jobs chamado PS2
+
+Caso o job morra (kill) o PM2 o reinicia automaticamente.
+
+Segue os principais comandos para gerenciar o autoitmanager:
+
+==== Verificar Status do Job: ====
+
+{{./pasted_image.png}}
+
+Verifique que estamos com 3 aplicações online:
+* **AutoitManager V2 Prod**
+	* Autoitmanager
+* **captcha-server**
+	* Servidor que era usado para quebrar o captcha da receita
+* **autoitmanager-test**
+	* Versão antiga do manager usado pelo robô que o Jefferson
+
+==== Status detalhado de um serviço ====
+{{./pasted_image001.png}}
+
+Com o comando acima obtemos mais detalhe da aplicação em execução, inclusive com localização do log
+
+==== Acompanhamento do Log ====
+{{./pasted_image002.png}}
+
+Com o comando acima podemos acompanhar a execução em tempo real e assim verificar algum problema
+
+**Nota: **infelizmente o log de todos os robos estão sendo exibido no mesmo log, na nova versão é possível monitor o log individualmente e pela nossa interface web
+
+==== Iniciando, Reiniciando e Parando um Jobs ====
+
+Pode ser feito usando os seguintes comandos:
+**pm2 stop 0**
+**pm2 restart 0**
+**pm2 star t 0**
+
+onde 0 é o numero do job que pode ser obtido com o comando
+**pm2 status**
+
+Também é possível usar o nome do job, neste caso;
+**pm2 restart autoitmanagerV2-prod**
+
+
+===== Recuperação do Job em caso de perda de configuração =====
+
+É possível que depois de reiniciar um servidor, a pm2 não carregue nenhum serviço, então deverá ser feito manualmente.
+
+Para iniciar um job na lista do PM2, executar o comando:
+	**pm2 start /var/www/autoitV2-prod/autoit-processes.json**
+	
+		**pm2 start /var/www/autoit-test/autoit-processes.json**
+
+

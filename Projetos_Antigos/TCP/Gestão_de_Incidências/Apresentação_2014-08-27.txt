@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-08-27T18:40:26-03:00
+
+====== Apresentação 2014-08-27 ======
+Created quarta 27 agosto 2014
+
+* Aumentar select box da tela de vincular eletricista
+
+* Testar a tela de carregando

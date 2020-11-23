@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-06-04T22:33:58-03:00
+
+====== 02 - Rêferencia Forms Editors ======
+Created quinta 04 junho 2015
+
+Rêferencia de Atributos para os Formulários
+
+{{./diagram001.png?type=diagram}}
+
+====== select2Editor ======
+
+editorClass: "",
+			type: "select2",
+			pageSize: 24,
+			width: '230px',
+			allowClear: false,
+			placeholder: "Selecione um Usuário",
+
+			model: UsuarioModel,
+
+			templateResult: function (repo) {
+
+				if (repo.id) {
+
+					// TODO: Criar um Template Bonito. Ver em Ace-admin Typography
+					return repo.login + " #" + repo.id; // + '<br>' + repo.email;
+
+				} else {
+					return '';
+				}
+
+
+			},
+			templateSelection: function (repo) {
+
+				if (repo.id) {
+					return '#' + repo.id + ' ' + repo.login;
+				} else {
+					return repo.text;
+				}
+			},
+			inlineForm: usuarioFormFactory
+
+
+
+

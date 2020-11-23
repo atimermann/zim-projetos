@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-02-15T16:43:35-02:00
+
+====== Configurando CRUD ======
+Created domingo 15 fevereiro 2015
+

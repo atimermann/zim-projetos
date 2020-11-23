@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-07T20:58:32-02:00
+
+====== M apibase ======
+Created domingo 07 fevereiro 2016
+
+
+====== Método Extend ======
+
+
+{{{code: lang="d" linenumbers="True"
+	function extend($call, $vars=false){
+		$method = 'ext_'.$call;
+		if (method_exists($this,$method)){
+			$this->$method($vars);
+		}
+	}
+}}}
+
+Executa Método
+ext___$call__
+passando como argumento $vars

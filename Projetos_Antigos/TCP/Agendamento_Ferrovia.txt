@@ -1,0 +1,104 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-10-02T09:41:10-03:00
+
+====== Agendamento Ferrovia ======
+Created quarta 02 outubro 2013
+
+Exportação
+
+* Importar arquvo Texto ou XML com relação dos contêiners por trem (Ferrovia)
+* Faz algumas validações
+* Cadastrar a data (janela) que vai entregar na TCP
+* Vai validar se está no dead line
+* Vai agendar (gravar um agendamento para cada contêiner)
+* Mensagem que os contêiners foram agendados com sucesso
+
+
+* Tem agendamento de caminhão
+* Pessoal da Brado que faz o agendamento (Divisão da ALL)
+
+Envia para o Argos
+
+Extranet > Agendamento > *   (refere a caminhão)
+
+
+ http://200.195.158.100//extranet/agendamento/guia_agendamento.php?token=00212501d92cf4effe253be24e57bd2ff04149384d4e25afe8dad6f3dd10622306648fc7290fbe06c84472e18b56282aebded991d564344ba184444739264809
+
+Exemplo de agendamento:
+http://200.195.158.100//extranet/agendamento/index.php?t=novo_agend_export
+
+Falta validação do Luiz e as validações, 
+
+tabela
+da agenda ferroviária
+
+
+
+
+**Aprovador: **
+
+===== Processo =====
+
+
+* Atendente envia um arquivo com o numero do contêiner e numero do vagão/plataforma
+	* Esse arquivo pode ser em qualquer formato, pois vamos pedir para o Brado desenvolver, como são apenas 2 valores, o melhor é Arquivo Texto, CSV
+* Sistema vai ler o arquivo  e fazer validações
+* Fazer Agendamento
+* FIM
+
+
+* Através dos dados no arquivo será feito uma consulta e apartir dessa consulta será feito o processo.
+
+
+===== Formato do arquivo =====
+
+Criar um cabeçalho
+com dados do maquinista
+
+e outros dados com os contêiners
+
+**CABEÇALHO**
+CPF DO MAQUINISTA
+
+**CORPO**
+
+
+===== Tabelas para fazer o Agendamento =====
+
+Tabela para fazer agendanto: extnet.dbo.AGE_AGEND
+
+AGE_GRADE -> Janelas disponíveis
+
+Verificar as validações e cadastro de agendamento, vai funciona da mesma forma
+http://200.195.158.100//extranet/agendamento/index.php?t=novo_agend_export_new
+
+AS tabelas a serem usada serão exatamente a mesma do ferroviario,.
+Apenas algumas informações não serão mais necessárias
+Em vez de ser por formulário vai puxar do arquivo
+no lugar da placa, salvar o vagão
+
+* Janela Padrão 200
+* Tem que ter controle de Maquinistas (igual motorista)
+
+* Cadastro do Maquinista vai ser feito na tabela do cadastro do motorista:
+CADASTRO_MOTORISTA
+
+TODO: Verificar cada campo do motorista individualmente com Helmuth para ver como vai ser no ferrovia
+
+===== Validações necessárias =====
+
+* Validar se Exportação
+* Checar se o contêiner está no sistema
+	* Tabela CONF
+* Chegar se está fora do Pátio, EFALTA = 0
+* Validar DEADLINE
+* Validar se Tem LAR
+* Verificar se o Contêiner já não está agendado, para não criar dois agendamento
+* Controle de Janela
+* Validação do Documento de Transporte
+
+
+Compensação Automática
+
+

@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-10-15T15:56:17-03:00
+
+====== Passos ======
+Created quinta 15 outubro 2015
+
+====== Tela de Busca ======
+
+Vamos usar o link:
+https://www.tradex.org.br/tradex/BasicQueryPEE.do
+
+====== Armadilhas ======
+
+- Erro de Certificado
+
+
+====== Levantamento ======
+
+
+PEDIDO DE EMBARQUE
+- Exportador
+- Programação
+- Estágio
+- Status SRF
+
+(CNPJ)
+COPACOL -> 0007-86
+
+Programação -> Código -> 50574
+
+Em vez de código selecionar o navio se tiverr mais PEGAR SEMPRE O ULTIMO
+
+Estágio -> Recepcionado
+
+DEFERIDO
+
+STATUS SRF -> DEFERIDO
+
+<PESQUISAR>
+
+SELECIONA RE
+
+INFORMA ORDEM DE EMBARQUE
+
+<Seleciona RE>
+
+<Informar Ordem de EMbarque
+
+- Colocar nome COPACOL
+
+====== Projeto ======
+
+Carregar todas as RES agrupado por Exportador (e programação se possível)

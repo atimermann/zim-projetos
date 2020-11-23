@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-08-14T13:53:24-03:00
+
+====== Reunião 2014-08-14 ======
+Created quinta 14 agosto 2014
+
+* Falta Sistema de Perfil: 
+* Necessário perfis: Planejamento, execução;
+* Não deve deixar planejar quando a data já tiver passado
+* No Registro de Demanda Carga, campo armadores, puxar apenas os armadores ativos (está puxando todos)
+* Remover * da Execução
+* Atraso Operação
+* AO salvar a execução, não mais como voltar
+
+* Falta Análise
+* Necessário entendimento do sistema
+
+====== Fluxo ======
+
+* Abre a CONTF e Gera uma planilha , baseado nos filtros:
+	* (Tem um conjunto de Filtro para saber quais são os estoques disponíveis)
+		* Tudo que é vazio; (Status: EMT)
+		* Pode vir do DEPOT
+* Com isso, será gerado Inventário de contêiner vazio disponíveis para ferrovia que será enviado para empresa de logística (transportadora)
+* Transportadora devolve ,uma demanda de carga (para o dia seguinta) D+1
+
+* Agora será criado um Planejamento de Carga, vou relacionar o contêiner com demanda, por exemplo, foi craiado 10 demandas, então eu indico os 10 contêiners desta demanda
+	* Faz um conjunto de validação (Crítica)
+
+* É feita  a Execução, agora será feita a execução do planejamento, Pode ser realizada a execução de qualquer contêiner planejado independente do dia, 
+	* Ex: Ele pode ter sido planejado no dia 10, mas foi executado dia 11, o sistema vai fazer uma crítica, porém permite o processo
+
+* Posicionados: QUando necessário alterar um conteiner de posição, antes deve ser enviado pra uma "posicionado" para ser validado antes de ir para nova posição da carga
+
+* Lista de Remoção: uma lista com os contêiner são removidos de posição para que outros sistemas saibal da alteração de posição (Movimentação)
+

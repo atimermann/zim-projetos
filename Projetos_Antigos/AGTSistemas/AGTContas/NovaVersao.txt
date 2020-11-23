@@ -1,0 +1,155 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-20T00:10:28-03:00
+
+====== NovaVersao ======
+Created sexta 20 junho 2014
+
+Nova Versão usando novo framework em Javascript:
+
+====== Esboço Inicial ======
+
+===== Funcionalidades =====
+
+* Arquitetura: SOA (Arquitetura Orientada a Serviço)
+* Suporte a Plugins
+* Suporte a Multiplos usuários (Já vou disponibilizar online e tentar um retorno)
+* Suporte a Cartão de Crédito
+	* Opção de cancelar cartão
+* **Objetivo 1: Facilitar a verificação de contas pagas: Consolidação (conciliacao-bancaria)**
+
+* Categoria/Subcategoria de Gastos (Autocomplete)
+	* **Objetivo 2: Importação de dados de cartão de crédito, debito e outros. Muitos plugins pra cada formato (Automatico)**
+* **Objetivo 3: Facilitação de Categorização**
+* Segurança
+* Sistema Aproveitavel, desenvolvimento do framework / Modular / SOA
+* Gráficos
+* Despesas recorrentes (Usar Gerador de despesa, em vez controlar pelo banco de dados como no sistema antigo)
+* **Objetivo 4: Projeção Financeira, poder saber quanto vai ter no futuro em qualquer data**
+* **Objetivo 5: Relatórios e Exportações, focar nisso, pois falta em outros sistemas**
+
+* ~~Cache para agilizar calculos, pois para obter o saldo é necessário fazer uma busca em toodo o histório~~
+	* ~~Cache com trigger, quando alterado o banco o cache precisa ser refeito~~
+* Backup, importante, não queremos perder usuários
+
+* Lista de Contatos (Agenda) - pensar em como trabalhar em conjunto com pessoas
+* Avisos por e-mail
+
+* Suporte empresarial
+
+* Velocidade: RIA, usar banco de dados do navegador, fazer sincronização
+	* Opção de buffer, carregar todos os dados no navegador e apenas sincronizar com o servidor em segundo plano
+	* Gravação instantanea, mas leitura com buffer
+	* Usar indexeddb**:** http://caniuse.com/indexeddb
+
+**Pagamentos**
+	* Diversos tipos de conciliação, um débito na conta corrente paga um crédito
+	* M-N, ou seja, Muitos débitos podem conciliar com 1 crédito, muitos créditos podem conciliar um com débito
+
+**Conciliação**
+	* Bate os valores, se tiver algo errado, avisa alerta, exemplo pagou menos que deveria
+	* No caso anterior permite correção de diferença (acontece principalmente no cartão de crédito)
+	* Botão "Criar Lançamento" quando é um registro de conta ou cartão de crédito não marcado
+	* Lembre que Lançamento deve bater com Cartão de Crédito + Conta + Pessoas
+	* Transfêrencia
+
+**Relatórios & Telas**
+	* Contas não conciliadas (quitadas)
+	* Contas não categorizadas
+
+
+
+===== Modelos =====
+
+* conta
+* usuario
+
+
+* categoria
+
+**CONTAS REAIS (Conta corrente no banco, cartão de crédito etc)**
+
+* conta_bancaria
+	* conta_bancaria_registro
+		* **#B1** **CADA REGISTRO DEVE SER CONCILIADO COM UMA FONTE DE LANÇAMENTO (Pode ser:)**
+			* cartao_credito_fatura
+			* lancamento
+			* pessoa_lancamento
+		* Opção de criar lançamento já conciliado a partir do débito (antigo débito crédito)
+
+* caixa (dinheiro em nenhuma conta)
+	* Opção de criar lançamento já conciliado a partir do débito (antigo débito crédito)
+
+
+**CONTAS PREVISTAS**
+
+* gerador_lancamento (contas a pagar e contas a receber)
+	* (apenas para despesa recorrente sem tempo para finalizar)
+	* Opção de valor váriavel (pergunta na data)
+	* Contas com parcela fixa deve ser jogado na tabela lançamento diretamente
+	* Também lança em cartão de crédito e em caixa
+
+
+* lancamento (fluxo de caixa)
+	* **#A1** **CADA REGISTRO DEVE SER CONCILIADO COM UMA FONTE PAGADORA (Pode ser:)**
+		* Caixa
+		* conta_bancaria_registro
+		* cartao_de_credito_lancamento
+
+* cartao_de_credito
+	* cartao_credito_fatura
+		* **#A2** **CADA REGISTRO DEVE SER CONCILIADO COM UMA FONTE PAGADORA (Pode ser:)**
+				* Caixa
+				* conta_bancaria_registro
+				* cartao_de_credito_lancamento
+		
+	* cartao_de_credito_lancamento
+
+
+* pessoas (Dívidas com pessoas)
+	* pessoas_lancamento
+		* vencimento **(Pode não ter vencimento)**
+
+
+**Contas Reais devem ser conciliada com conta prevista**
+
+* conciliacao
+	* dataconciliacao (datetime)
+
+	* previsto_lancamento_id
+	* previsto_cartao_credito_fatura_id
+	* previsto_pessoa_lancamento_id
+
+	* real_caixa_id
+	* real_conta_bancaria_registro_id
+	* real_cartao_credito_lancamento_id
+
+	* Pode ocorrer de conciliação dupla, ou seja termos 1 pagamento para varios lançamentos
+
+* transferencia (saque e depósito)
+	* credito_conta_bancaria_registro_id
+	* debito_conta_bancaria_registro_id
+	* credito_caixa_id
+	* debito_caixa_id
+
+
+===== Sistemas Dependentes =====
+
+* Autorização
+* Crud
+	* Listagem
+	* Formulário
+* Janela
+* Exportação
+* Importação
+
+
+====== Idéias ======
+
+* Gráfico de Linha de Gastos, mostrar gráficos comparativos de gastos no cartão de crédito no decorrer do dia, podendo comparar com outros meses, por exemplo, no mes 1 no dia 30 tinha gasto 400, no mês dois 500 então a linha via subir mais e vc vai poder saber oq tem gasto a mais 
+
+
+====== Refêrencia ======
+
+http://vhsys.com.br/como-funciona/
+http://vhsys.com.br/blog/o-sistema-certo-para-o-seu-lava-car/

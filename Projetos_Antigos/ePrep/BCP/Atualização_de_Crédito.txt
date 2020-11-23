@@ -1,0 +1,57 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2016-02-09T21:08:32-02:00
+
+====== Atualização de Crédito ======
+Created terça 09 fevereiro 2016
+
+===== Locais onde são atualizados os créditos: =====
+
+bcp/application/classes/api/product.php
+	->userTransaction
+{{{code: lang="d" linenumbers="True"
+				$upd['is_used'] = 1;
+				$upd['dt_trans'] = NOW;
+				$upd['trans_id'] = $trans_id;
+				
+				foreach($points AS $pt){
+					$this->db->tbl_update('channel_point', $upd, array('id' => $pt));
+				}
+}}}
+
+	
+	->transferPoint
+	
+{{{code: lang="d" linenumbers="True"
+public function transferPoints($ct, $fromOrg, $toOrg){
+
+		$set['program_id'] = $toOrg;
+		$set['dt_transfer'] = NOW;
+
+		$where['is_used'] = 0;
+		$where['program_id'] = $fromOrg;
+	
+		$sql = $this->db->update_string('channel_point', $set, $where);
+		$sql .= " LIMIT ".intval($ct);
+
+		return $this->db->query($sql);		
+	}
+}}}
+
+	
+	->addPoints
+	
+{{{code: lang="d" linenumbers="True"
+	public function addPoints($ct, $pid=false){
+		if (!$pid) $pid = CHANNEL_PROGRAM_ID;
+		$set['program_id'] = $pid;
+		$set['is_used'] = 0;
+		$set['dt_create'] = NOW;
+	
+		for($i=0;$i<$ct;$i++){
+			$this->db->tbl_insert('channel_point', $set);
+		}
+	}
+}}}
+
+

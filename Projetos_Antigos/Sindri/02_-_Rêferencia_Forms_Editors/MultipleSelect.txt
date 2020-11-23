@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2015-06-12T00:10:56-03:00
+
+====== MultipleSelect ======
+Created sexta 12 junho 2015
+
+
+{{./diagram.png?type=diagram}}
+
+===== options:valores =====
+Além dos tipos herdados pelo Backbone.Form.Select:
+https://github.com/powmedia/backbone-forms#editor-select
+
+	* String of HTML <option>s
+	* Array of strings/numbers
+	* An array of option groups in the form [{group: 'Option Group Label', options: <any of the forms from this list (except the option groups)>}]
+	* Array of objects in the form { val: 123, label: 'Text' }
+	* A Backbone collection
+	* A function that calls back with one of the above
+	* An object e.g. { y: 'Yes', n: 'No' }
+
+Um Novo Tipo foi adicionado pelo Editor:
+
+Objeto no formato:
+{{{code: lang="js" linenumbers="true"
+options: {
+	data: new PerfilCollection(), // Uma Instancia de uma Coleção
+	label: 'nome',  // [OBRIGATÓRIO] Nome do campo na coleção que servirá como label
+	value: 'id',    // [OBRIGATÓRIO] Nome do Campo na coleção que servirá como value
+	group: 'tipo'   // [OPCIONAL]    Nome do Campo na coleção que irá agrupar os elementos
+},
+}}}
+
+
+
+===== config:Valor padrão =====
+
+{{{code: lang="js" linenumbers="true"
+var configBase = {
+	width: 460,
+	multipleWidth: 200,
+	multiple: true,
+	selectAllText: 'Selecionar Todos',
+	allSelected: 'Todos Selecionados',
+	countSelected: 'Selecionado # de %',
+	noMatchesFound: 'Não Encontrado',
+	filter: true,
+	position: 'top'
+};
+}}}
+
+REF: http://wenzhixin.net.cn/p/multiple-select/docs/#the-styler
+
