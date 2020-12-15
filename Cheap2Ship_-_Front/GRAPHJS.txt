@@ -20,15 +20,54 @@ O interessante é criar um unico arquivo para o gráfico, é possível criar arq
 
 
 
+====== Importante ======
+
+* Não funciona com Flex, tem comportamento aleratório e não funciona corretamente em redimensionamento
+* Crie arquivos vue para cada gráfico separadamente e depois importe onde for utilizar
+* Sempre utilizar esta sintaxe:
+
+{{{code: lang="html" linenumbers="True"
+<auction-group-completed-chart 
+	style="position: relative; height:300px;" 
+/>            
+            
+}}}
+
+
+Sem isso o gráfico não carrega se estiver em divs ocultas entre outros problemas de layout, também é possivel usar width, mas height é importante para definir uma altura
+
+
+===== Reatividade =====
+
+Chartjs não é reativo por padrão, necessário criar watchers, exemplo:
+importante colocar um time de 500ms antes de renderizar caso contrário não funcionar (descobrir pq)
+
+{{{code: lang="js" linenumbers="True"
+  @Watch('chartData')
+  watchChartData () {
+    this.updateChart()
+  }
+  
+  async mounted (): Promise<void> {
+    this.updateChart()
+  }
+
+  async updateChart (): Promise<void> {
+    // Neessário aguardar para carregar o gráfico (TODO: verificar porque)
+    await this.$sleep(500)
+    this.renderChart(this.chartData, this.options)
+  }
+}}}
+
+
+**DICA:** Criar uma classe base com esse metodos e só importar em cada gráfico
+
+Existe plugin com whatcher automatico:
+https://vue-chartjs.org/guide/#updating-charts
+mas resolvi não utilizar, pois fica restrito a variavel chartTada
 
 
 
 
 
 
-
-
-
-- instalado plugin chartjs datalabels
-- Criado gráficos de progresso
-- Correção grãfico que não era exibido

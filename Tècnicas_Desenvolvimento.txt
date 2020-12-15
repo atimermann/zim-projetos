@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-12-01T03:17:01-03:00
+
+====== Tècnicas Desenvolvimento ======
+Created terça 01 dezembro 2020
+
+====== Vue ======
+
+**Problema:** 
+As vezes é necessário atualizar os dados do **vue.component**, algumas vezes em vez de simplesmente imprimir os dados
+chamamos um metodo e passamo esse valor q é processado recebendo outro valor
+
+O problema é que chamar função não é reativo, ou seja, se o dado atualizar a função não é chamado e o valor processado não é atualizado
+Com isso é necessário na verdade criar um GETTER que processa todos os dados
+e as vezes criamos componentes complexo q exigiria o refactoring completo, para transformar em getter
+
+**Solução:**
+Em vez de revisar tudo e criar um getter grande q tras tudo
+podemos simplesmente atualizar o dado e mandar atualizar com 
+	**this.$forceUpdate**
+	
+Mais simples e rápido
+

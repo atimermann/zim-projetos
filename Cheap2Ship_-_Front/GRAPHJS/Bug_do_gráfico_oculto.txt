@@ -5,3 +5,10 @@ Creation-Date: 2020-11-23T02:57:28-03:00
 ====== Bug do gráfico oculto ======
 Created segunda 23 novembro 2020
 
+Sempre utilizar a sintaxe abaixo:
+
+**<auction-group-completed-chart **
+**	style="position: relative; height:300px;" **
+**/>**            
+
+caso contrário será necessário criar um controle manual para renderização

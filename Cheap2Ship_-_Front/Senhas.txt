@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-12-01T18:18:04-03:00
+
+====== Senhas ======
+Created terça 01 dezembro 2020
+
+{
+	"username": "agente1@gmail.com",
+	"password": "Cubs3562rb"
+}
+
+{
+	"username": "agente2@gmail.com",
+	"password": "Cubs3562rb"
+}
+
+{
+	"username": "alless@cheap2ship.com",
+	"password": "Cubs3562rb"
+}
+
+**Cliente:**
+alless@cheap2ship.com
+Cubs3562rb
+
+
+**Fornecedor:**
+agente-bid-2@cheap2ship.com
+Cubs3562rb

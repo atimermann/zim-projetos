@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-12-01T20:00:03-03:00
+
+====== 003 - 4ª Fechamento ======
+Created terça 01 dezembro 2020
+
+Na tela:
+https://cheap2ship-199518.appspot.com/company/auction-group/auction/bid/36315122-b4d2-4d50-9e54-a602338f9122
+
+Colocar botão
+**Contratar fornecedor**
+sem porcentagem
+
+
+
+Mutation:
+
+selectWinner(auction: AuctionUrlKeyAndBidInput!) 
+
+input AuctionUrlKeyAndBidInput {
+  urlKey: String! (auction)
+  bid: BidIdInput!
+}
+
+Auction.group.bids.winner

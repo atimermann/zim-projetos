@@ -11,7 +11,6 @@ Created quinta 23 abril 2020
 
 ====== 01 - Snackbar ======
 Para as mensagens, tanto de erro de formulário como de sucesso, snackbar: https://vuetifyjs.com/en/components/snackbars/#usage
-
 Já estamos usando, embaixo
 
 ====== 02 - Menu Lateral ======
