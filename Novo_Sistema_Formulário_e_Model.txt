@@ -25,7 +25,7 @@ Created sexta 06 novembro 2020
 * Loading
 * Envio do token automaticamente na requisição
 * Suporte blur, ao perder foco validar novamentem ou quando digitar, deixar opcional
-
+* Campos complexos podem implementar validações complexas internamente
 
 **Discussão:**
 
@@ -33,7 +33,7 @@ Created sexta 06 novembro 2020
 * Estudar como criar plugins
 
 * Criar um modulo que englobe form e model????
-	* dataHandlernão
+	* dataHandler
 	* dataManager
 
 * Typescript (apenas comentários)

@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-12-15T18:35:43-03:00
+
+====== 004 - Alterações ======
+Created terça 15 dezembro 2020
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Corrigir Breadcrump
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+Colocar resumo do bid na cotação
+(http://localhost:3030/company/auction-group/auction/bid/36315122-b4d2-4d50-9e54-a602338f9122)
+
+{{./pasted_image.png}}
+
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+No detalhamento da cotação na listagem usar mesmo componente para resumo:
+
+{{./pasted_image001.png}}
+
+daqui:
+http://localhost:3030/company/auction-group/auction/list/729eb243-4e24-41ff-8ca2-e666a8e16375
+
+paraca:
+http://localhost:3030/company/auction-group/auction/bid/c537fe8a-a870-43da-b42d-a8eeadbfaa11
+
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+Adicionar o Commodities embaixo
+{{./pasted_image002.png}}
