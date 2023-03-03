@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-01T18:00:21-03:00
+
+====== 02 - Problema com DPI ======
+Criado quarta 01 março 2023
+
+O DPI - Dots (pixels) Per Inch - é uma relação entre o tamanho da imagem do documento e o tamanho real do documento físico. Portanto, para que o Paperless possa validar o DPI de um documento submetido, vai ser necessário que, além da imagem, seja fornecida alguma informação sobre as dimensões reais deste documento. Vejo dois jeitos de fazermos isso: 
+
+1. Inserindo manualmente o tamanho da folha de papel (e.g. A3, A4, etc.) ou 
+2. Fazendo com que a foto sempre contenha algum elemento de tamanho (físico) conhecido (por exemplo, uma régua, ou um padrão de quadrados como um tabuleiro de xadrez) e fazendo com que o Paperless reconheça esse elemento e calcule o DPI a partir do tamanho deste na imagem e do tamanho físico. 
+ 
+A primeira abordagem tem a vantagem de poder ser utilizada tanto com scanners quanto com câmeras, além de ser bem mais simples de implementar. Por outro lado, seria necessário assumir que a área do documento foi recortada corretamente pelo app/usuário antes de submeter a foto, o que poderia gerar imprecisões. Já a segunda abordagem seria viável apenas para a digitalização com câmera de celular, mas permitiria o cálculo do DPI com bastante precisão, o que tornaria a validação bem robusta.
+
+Uma outra ideia que tive para reduzir a chance de erro no DPI seria, considerando que utilizemos um suporte como o do fileee para digitalizar com o celular, fazer com que o app mantenha a câmera bloqueada e só desbloqueie quando o aparelho estiver próximo do chip NFC. Desta forma, o usuário só conseguiria tirar e submeter fotos que fossem tiradas de cima do suporte, cuja altura, e por consequência a distância entre a câmera e o documento, são conhecidas. Isso não seria uma validação do DPI pelo sistema, mas sim um mecanismo do próprio app para evitar que o usuário fotografe sem o suporte.

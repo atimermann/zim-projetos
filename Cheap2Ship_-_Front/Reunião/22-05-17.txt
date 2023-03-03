@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-17T10:30:32-03:00
+
+====== 22-05-17 ======
+Criado terça 17 maio 2022
+
+* Criar sempre uma branch por Story
+* Cara história é uma versão
+* Vamos tagear para teste: (Tudo inglês)
+	* Categoria
+	* Ação
+	* modal
+	* ex: company-new-aereal
+
+
+* Vamos criar Mocks
+* Então montar o template
+* Então integração [[GraphQl]]
+
+
+* Instruir devs que toda tarefa pronta deve ser atualizadas
+* Instruir que o será usado um time-tracker automatico q calcula o tempo de tarefa 
+* Necessário manter autalizado pois vamos usar essas métricas para futuros calculos de prazo
+
+
+Testes devem salvar Artefato
+
+====== Criar tarefa do componente ======
+
+
+
+====== CRIAR A TAREFA PARA GUILHERME: Mudanças no Menu (Apenas FCL) ======
+https://cheap2ship.atlassian.net/jira/software/projects/FB/boards/14/roadmap?selectedIssue=FB-342
+
+Novos submenus:
+
+SPOT
+	* FCL
+		* Nova cotação
+		* Em andamento
+		* Finalizado
+		* Arquivado
+		* Rascunho
+	* LCL
+		* Nova cotação
+		* Em andamento
+		* Finalizado
+		* Arquivado
+		* Rascunho
+	* Aéreo
+		* Nova cotação
+		* Em andamento
+		* Finalizado
+		* Arquivado
+		* Rascunho

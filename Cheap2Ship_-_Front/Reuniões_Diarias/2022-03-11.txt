@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2022-03-11T09:05:16-03:00
+
+====== 2022-03-11 ======
+Criado sexta 11 março 2022
+
+- Problema no Readme
+
+
+- Sugestão: Criar um hook
+- Diversas melhorias nvm
+
+

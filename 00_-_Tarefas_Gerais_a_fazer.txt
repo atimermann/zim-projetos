@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-08T00:19:31-03:00
+
+====== 00 - Tarefas Gerais a fazer ======
+Criado domingo 08 maio 2022
+
+* Estudar a fundo Typescript
+https://www.typescriptlang.org/docs/handbook/utility-types.html

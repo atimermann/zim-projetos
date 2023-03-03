@@ -1,0 +1,114 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-18T00:15:19-03:00
+
+====== Gestão Interna ======
+Criado sábado 18 fevereiro 2023
+
+====== Proximas melhorias ======
+
+===== Alteração de campos =====
+ 
+[*] (**2h29)** Padronizar nomes:  
+[*] Adicionar campo imposto
+[*] Origem (districompo, aliexpess)
+[*] Adicionar código de rastreio
+[*] Nova coluna marca
+[ ] Adicionar Coluna Status (com status pré definido)
+[ ] Tags
+
+* Correção:
+	[*] Marca é na tabela Produto
+	[*] carregar rastreio (no back para evitar muitas consultas, deixar salvo com atualização por periodo)
+	[*] Tracking não é unico
+	[ ] Tags converter objeto no back e mandar pro front orientado a objeto e vice-versa
+	[ ] faltou status relacionado
+	[ ] Formatar tags
+	
+
+===== Módulo Orçamento e vendas =====
+
+==== 1) Orçamento ====
+* Criar tabela de cetegorias obigatório
+* Valida categoria obrigatórioa (Placa mãe) e recomendável (teclado, placa wifi)
+* opção de marcar se orçamento vai ser parcial (desativa validação)
+* Titulo na listagem bem relevante que exemplifique a peça
+* Campo Margem de lucro ou valor do lucro fixo
+* Garantia (meses)
+* Gastos fixos rateado e estimado
+* Imposto fixo e rateado por categoria ou produto (marcar na tabela produto se ele deve ser usado como rateio de imposto, se não será usado categoria)
+* Dois orçamento, com imposto real ou imposto rateado
+* Se é um orçamento especial (fixo, usado como modelo, usado para linha de produtos pra divulgação) 
+* Não pode ser removido, apenas marcado como removido
+* data do orçamento
+* se for orçamento modelo, ao gerar venda duplicar
+* **Necessário tabela de preço para produtos fora do estoque ou campo customizado (Campo customizado no começo, mas no futuro automação)**
+
+=== 1.1) Venda ===
+* Processador e placa de video precisa vir com pontuação (coluna especial) (adicionar cadastro de categoria de produto, não se aplica boolean, e na tabela produto valor da pontuação, importante)
+* Orçamento que virou venda
+* marcador Se é uma venda fechada
+* Data venda
+* data entrega
+* Custo é o real e não estimado aqui
+* valores de benchmark
+* Nome cliente ( por enquanto não tem tabela relacionada, apenas campo de texto)
+* CPF Cliente
+* Nome da Venda, seria como id, porém configuravel, ex: PC1, PC2, PC3, não vinculado ao id pois a mesma tabela orçamento
+
+
+==== 2) Orçamento => Item ====
+* validação se todas as peças de uma montagem foi colocado
+* Link com a tabela estoque (cada item deve existir lá)
+* Mostrar quando falta uma peça
+* Exibir na listagem de estoque quantos orçamento com esse produto (não item de estoque)
+
+
+==== 3) Autenticação para modo online ====
+
+* Sistema de autenticação simples (minimo)
+
+
+
+
+====== TODO ======
+
+[*] Migrar o Model da cheap pra cá, integrando com a reatividade com instanciação atuomatica e tipagem
+
+[ ] Dashboard com relatórios
+	[ ] financeiro, vendas, estoque, total estoque etc...
+[ ] Módulo financeiro
+[ ] Categoria alerta de baixo estoque (colocar quantidade minima)
+-  Módulo de debug:
+  - Debugbar,
+  - Projeto separado
+  - Ver outros projetos existentes
+  - Poder acompanhar e gerenciar conexões no banco, performance, instancias, logs 
+- [ ] Novo projeto nuxt-form ou vue-form
+
+- [ ] Mais urgente Estruturar o fetch pra deixar configuração no .env
+  - Já existe uma configuração BASE_URL, só definir 
+- [ ] Reestruturar paginas e menu
+- [ ] ESTUDAR, DOCUMENTAR E TESTAR mais o data fetching do nuxt 3, como atualizar dados etc...
+
+- [ ] Migrar nuxt-form (ou vue-form)
+- [ ] Criar um nuxt-crud (ou vue-crud)
+- [ ] Deixar o util consoleLog em um module em vez composable
+- [ ] Tradução 
+
+
+- [ ] Scripts para backup do banco de dados
+- [ ] Separar model em projeto separado, pode ser substituto do sindri-model
+- [ ] Criar um app de gestão de banco de dados, listar consulta, monitorar pool etc...
+- [ ] Ver se consegue validar as migrações do Knex, exemplo: caso esqueça de retornar, aborta migração, 
+  atualmente avança mesmo sem realizar modificação.
+- [ ] Adicionar atributo aos produtos para melhor busca: campo json
+- [ ] Tabela de configuração, exemplo configurar a margem padrão de venda
+- [ ] Adicionar margem padrão em cada produto e categoria de produto
+- [ ] Permitir configurar o basePath das rotas no .env (Implementar no sindri-framework)
+  - Exemplo: em vez de fazer
+	- path = `${process.env.BASE_API_URL}/product`
+	- basePath = '/product'
+- [ ] Autenticação com https://www.luiztools.com.br/post/autenticacao-json-web-token-jwt-em-nodejs/
+
+

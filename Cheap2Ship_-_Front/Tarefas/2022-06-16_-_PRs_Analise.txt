@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-16T23:59:57-03:00
+
+====== 2022-06-16 - PRs Analise ======
+Criado quinta 16 junho 2022
+
+- Erro ao abrir lançar/editar proposta no FCL:
+	http://localhost:3030/freight-forwarder/spot/auction/fcl/completed?page=1
+	
+{{./pasted_image.png}}
+
+    
+ - Ocultar botão lançar proposta para cotações finalizadas ????
+
+
+- verificar pq esses campso são nulls:
+{{./pasted_image001.png}}

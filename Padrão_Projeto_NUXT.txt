@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-02-23T18:23:41-03:00
+
+====== Padrão Projeto NUXT ======
+Criado terça 23 fevereiro 2021
+
+Descrever aqui padrões para melhor desenvolvimento de projetos com Nuxt
+
+* Manter pages sempre limpo, pensar nele como roteador, como um controller, que não tem nenhum regra de negócio
+* Criar pasta apps onde pode-se criar aplicativos, aplicações do projeto. : exemplo login, alterar senha, porém não por aqui modelos de dados
+* Criar pasta models ou modulos para armazenar modelos de dados, exemplo: Usuario/usuario.model.js.
+	* Componentes básicos que podem ser usado por varias aplicações mas que pertencem ao dominio do modelo de dados pode ficar aqui em componentes. exemplos:
+		* Um card que exibe informações do usuário
+		* formulários , listagem etc...
+	* Funções de consulta ao backend também podem ficar aqui (no caso do GraphQL: Mutations e Queries)
+	* App representa aplicações q podem acessar 1 ou mais modulos (modelos de dados) e Modulos representam um Model e seus componentes e funções associadas.
+* Colocar formularios em um componentes exclusivo ex: login.form.vue, fazer o mesmo pra outras funcionalidades
+
+* Usar as seguintes subextensões padrões:
+	* ~~.app.vue~~ O Webstorm não consegue interpretar corretamente subextension
+	* ~~.form.vue~~
+	* .model.(ts/js)
+	* .interface.ts
+	* .dialog.ts
+
+* Import VS Injeção de dependência (this.$)
+	* a vantagem de injeção de dependencia que fica disponível para o template, exemplo, filtro de CNPJ, não sendo necessário importar e configurar no setor script
+	* acho q é melhor usar this.$filter em vez de this.$f - Explicito melhor que implicito
+	* Classes que serão instanciada de qualquer forma melhor usar import (exemplo: sistema de models)
+	* Evitar scripts complexos no template, preferir criar função, então neste caso lodash é melhor importar
+	* Em uma classe por exemplo é melhor fazer import moment que this.__context.$moment, fica mais simples e claro

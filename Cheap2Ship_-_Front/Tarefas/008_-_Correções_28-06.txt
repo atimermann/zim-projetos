@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-06-28T13:03:32-03:00
+
+====== 008 - Correções 28-06 ======
+Criado segunda 28 junho 2021
+
+* Listagem de propostas: ajustar para 1366x768
+* Aceitar convite: comportamento errado com contas existentes
+	* https://cheap2ship.atlassian.net/jira/software/projects/FB/boards/14/roadmap?selectedIssue=FB-246
+* Correções diversas formulário
+
+====== Facil ======
+
+* Criar nova instrução não está funcionando:
+	* https://app-v2.cheap2ship.com/company/shipping-instruction/new
+* Editar Bid: bloquear campos na edição
+* Migrar seleção de linguagens para dentro de configurações
+* Resetar senha: title is undefined
+* Resetar senha: check your email title is undefined
+* Aplicar formatação de moedas ao estilo "accounting"

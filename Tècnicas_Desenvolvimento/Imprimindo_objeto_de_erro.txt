@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2022-01-07T15:34:33-03:00
+
+====== Imprimindo objeto de erro ======
+Criado sexta 07 janeiro 2022
+
+var str = '{"test": 1, }';
+
+try {
+	JSON.parse(str);
+} catch(e) {
+
+	console.log("error object:");
+	console.log(e);
+	console.log();
+
+	console.log("error object toString():");
+	console.log("\t" + e.toString());
+
+	console.log();
+	console.log("error object attributes: ");
+	console.log('\tname: ' + e.name + ' message: ' + e.message + ' at: ' + e.at + ' text: ' + e.text);
+
+	console.log();
+	console.log("error object stack: ");
+	console.log(e.stack);
+}

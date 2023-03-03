@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-01-27T15:34:16-03:00
+
+====== Entrevista ======
+Created quarta 27 janeiro 2021
+
+
+Boa tarde, aqui é André da Cheap2ship, você se candidatou à nossa vaga de X.  Tudo Bom?
+
+———
+Antes, queria dar um panorama sobre a nossa empresa, somos considerados uma das startups mais inovadoras do setor logístico Brasileiro, atendemos grandes clientes no Brasil e na América Latina como  Havan, Souza Cruz e Mondelez (dona da Lacta, Halls, Trident). Temos presença na Argentina, Chile, Colômbia, entre outros.
+———
+Aqui você encontrará um lugar para se desafiar e amadurecer profissionalmente. Temos muitos desafios pela frente, desafios que exigirão criatividade e aprendizado constante.
+———
+Utilizamos metodologia ágil, trabalhamos com framework Nuxt (VueJS), no frontend e NestJS no backend, somado ao GraphQL.
+———
+Lembrando que VueJs é bem similar ao React, porém mais simples, com uma curva de aprendizado menor e daremos todo o suporte para que esse aprendizado ocorra da maneira mais fluida possível.
+
+
+
+===== Programação em Geral =====
+
+[conversa inicial]
+* Qual sua expêriencia com Programação, a quantos anos vc trabalha com programação, em quais projetos participou?
+
+
+===== Linguagens =====
+
+* Quais linguagens você já programou por quanto tempo?
+* ~~Qual diferença de nodejs pra uma linguagem como PHP~~
+* ~~DIferença de compilação, transpilação~~
+* ~~Já trabalhou com typescript? qual diferença pro Javascript~~
+* ~~Já trabalhou com Linux (curiosidade)~~
+
+===== Técnicas de Programação =====
+
+* Sabe diferença de paradigmas, imperativa, OO, funcional
+* Tá conhece bem expressões regulares
+* Já trabalhou com testes unitarios? oq é como funciona
+* Já usou GIT? pra q serve?
+* Oque é/ como funciona Integração continua?
+* Quais Designer Pattern você conhece e como ele funciona
+
+
+===== FrontEnd e Vue.Js Nuxt =====
+
+* Quanto tempo trabalha com vuejs / react
+* quais frameworks web já mexeu?
+* O que é webpack?
+* Como funciona um arquivo .Vue? 
+* Conhece lint? pra q serve?
+* DIferença de XML, JSON e YAML
+
+
+* Já trabalhou com Vuex? Pra que ele serve? Qual maior vantagem em relação a props e eventos?
+	* Qual diferença de uma mutation e actions
+[R: gerenciador de estado, serve como store)
+
+* No Nuxt pra que serve a pasta layout
+* Como funciona Pages
+—

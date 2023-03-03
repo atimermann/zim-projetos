@@ -1,0 +1,149 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-10-27T15:24:11-03:00
+
+====== 010 - Alterações Diversas ======
+Criado quarta 27 outubro 2021
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+**CONSULTA NÃO FUNCIONOU**
+
+create or replace view auction_group_chart_fcl_view(id, freight_forwarder_id, freight_forwarder, tax, freight, transit_time, free_time_destination, detention, spread, completed) as
+	SELECT auction_group.id,
+	   freight_forwarder.id                                        AS freight_forwarder_id,
+	   freight_forwarder.trading_name                              AS freight_forwarder,
+	   COALESCE(sum(bid_tax.value / bid_tax_currency_exchange.sale_rate * (bid.spread / 100::numeric)) +
+				sum(bid_tax.value / bid_tax_currency_exchange.sale_rate) / count(auction.id)::numeric,
+				0::numeric)::numeric(10, 0)                        AS tax,
+	   (sum(freight_container_bid.value / bid_currency_exchange.sale_rate * (bid.spread / 100::numeric)) +
+		sum(freight_container_bid.value / bid_currency_exchange.sale_rate) /
+		count(auction.id)::numeric)::numeric(10, 0)                AS freight,
+	   sum(bid.transit_time) / count(auction.id)                   AS transit_time,
+	   sum(bid.free_time_destination) / count(auction.id)          AS free_time_destination,
+	   sum(bid.detention) / count(auction.id)                      AS detention,
+	   sum(bid.spread) / count(auction.id)::numeric                AS spread,
+	   trunc((((SELECT count(_bid.id) AS count
+				FROM auction_group _auction_group
+						 LEFT JOIN auction _auction ON _auction_group.id = _auction.auction_group_id
+						 LEFT JOIN bid _bid ON _auction.id = _bid.auction_id
+						 LEFT JOIN freight_forwarder _freight_forwarder
+								   ON _bid.freight_forwarder_id = freight_forwarder.id
+				WHERE _auction_group.id = auction_group.id
+				  AND _bid.valid IS TRUE
+				GROUP BY _freight_forwarder.id
+				LIMIT 1)) * 100 / ((SELECT count(_auction.id) AS count
+									FROM auction_group _auction_group
+											 LEFT JOIN auction _auction ON _auction_group.id = _auction.auction_group_id
+									WHERE _auction_group.id = auction_group.id
+									  AND _auction.deleted_at IS NULL
+									LIMIT 1)))::numeric(10, 0), 2) AS completed
+FROM auction_group
+		 LEFT JOIN auction ON auction_group.id = auction.auction_group_id
+		 LEFT JOIN bid ON auction.id = bid.auction_id
+		 INNER JOIN freight_container_bid ON bid.id = freight_container_bid.bid_id
+		 LEFT JOIN currency bid_currency ON bid.currency_id = bid_currency.id
+		 LEFT JOIN exchange_view bid_currency_exchange ON bid_currency.id = bid_currency_exchange.currency_id
+		 LEFT JOIN bid_tax ON bid.id = bid_tax.bid_id
+		 LEFT JOIN currency bid_tax_currency ON bid_tax.currency_id = bid_tax_currency.id
+		 LEFT JOIN exchange_view bid_tax_currency_exchange
+				   ON bid_tax_currency_exchange.currency_id = bid_tax_currency.id
+		 LEFT JOIN freight_forwarder ON bid.freight_forwarder_id = freight_forwarder.id
+WHERE auction_group.id = auction.auction_group_id
+  AND bid.valid IS TRUE
+  AND freight_container_bid.value IS NOT NULL
+  AND freight_container_bid.value > 0::numeric
+GROUP BY freight_forwarder.id, auction_group.id;
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+Remover gráfco adicionado a tarefa
+{{./pasted_image.png}}
+
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+{
+  filteredInProgressAuctionGroups(auctionGroup: {}) {
+	id
+	clientReference
+	uuid
+	fromContinent {
+	  id
+	  translations {
+		name
+		locale
+		__typename
+	  }
+	  __typename
+	}
+	toContinent {
+	  id
+	  translations {
+		name
+		locale
+		__typename
+	  }
+	  __typename
+	}
+	company {
+	  tradingName
+	  code
+	  __typename
+	}
+	operation
+	negotiationType
+	contractType
+	type
+	startsAt
+	endsAt
+	validFrom
+	validUntil
+	deletedAt
+	createdAt
+	updatedAt
+	__typename
+  }
+}
+
+[17:02, 25/10/2021] Alessandro: Listagem de bids para fornecedor
+[17:02, 25/10/2021] Alessandro: Usar essa query
+[17:02, 25/10/2021] Alessandro: Vou mexer no back para otimizar, também
+[17:35, 25/10/2021] Alessandro: Consegue mudar e já subir?
+[17:35, 25/10/2021] Alessandro: Mexi no back, mas se o front estiver errado, vai continuar lento / dando estouro de memória
+[17:36, 25/10/2021] André Timermann: Ok, vou trocar
+[17:36, 25/10/2021] Alessandro: Beleza
+[17:36, 25/10/2021] Alessandro: Criar assim
+[17:36, 25/10/2021] Alessandro: Uma query para cada evento... filteredInProgressAuctionGroups vai em um arquivo
+[17:36, 25/10/2021] Alessandro: Cada evento em um arquivo
+[17:37, 25/10/2021] Alessandro: Nesse caso, essa vai para um arquivo com o evento e o role
+[17:37, 25/10/2021] Alessandro: filteredInProgressAuctionGroupsForFreightForwards
+[17:37, 25/10/2021] Alessandro: Algo assim
+[17:37, 25/10/2021] Alessandro: Faz sentido?
+
+Existe a -inprogress e a completed entender melhor
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+====== Correção Sistema de Autenticação ======
+
+https://cheap2ship.atlassian.net/browse/FB-267
+
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+====== Revisão tarefas que estão em develop pra ver oq foi e oq não foi ======
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+====== Exportar para excel ======
+
+
+
+{{./pasted_image002.png}}
+
+Buscar por palavra chave
+
+

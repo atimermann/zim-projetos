@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2022-02-22T15:14:43-03:00
+
+====== Luiz Henrique Lima Roupinha ======
+Criado terça 22 fevereiro 2022
+
+* Já trabalhou com VueJS
+* Vai se preparar pra sair da outra empresa (OK)
+
+Salário mensal mínimo que aceito receber
+**Entre R$6.000 e R$7.000**
+

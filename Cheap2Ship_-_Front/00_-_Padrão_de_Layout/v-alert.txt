@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-11-09T16:33:59-03:00
+
+====== v-alert ======
+Criado quarta 09 novembro 2022
+
+{{./pasted_image.png}}
+Usar esse padrão e só mudar o type, quando necessário
+
+<v-alert
+  border="bottom"
+  prominent
+  text
+  type="success"
+></v-alert>

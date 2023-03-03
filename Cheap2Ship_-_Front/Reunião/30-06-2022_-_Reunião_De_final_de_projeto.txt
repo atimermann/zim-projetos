@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-30T14:43:22-03:00
+
+====== 30-06-2022 - Reunião De final de projeto ======
+Criado quinta 30 junho 2022
+
+* Foi criado teste unitário e teste E2E em metadee do projeto (company) - Muito teste unitário e E2E foi feito 
+* Reestruturação das pastas e diretórios separando FCL, LCL e Aéreo
+* Migração de estutura de arquivos do para nova pasta view (Fornecedor quase tudo já migrado)
+* Formulários migrados para nova versão (valmisson fez) um deles deu problema, teve q ser revertido
+* Dificuldade integração [[GraphQL]] em alguns casos
+* Analise de PR
+* Acompanhamento/suporte devs
+* implementação novo componente para cadastro multiplo para pacote (complexo)
+* Guilherme misturou muitas branchs e não marcava corretamente qual tarefa em progresso, isso casou uma perda de tempo para por tudo no lugar
+* Quanto Guilherme ficava com duvida ele ficava na dele, só perguntava se eu respondesse "e ai tudo certo, precisa de ajuda"
+* Depois q o projeto finalizou, foi relaxado e feito pequenas correções, mas deveria já ter passado imediatamente pro QA e dito q tava pronto, ficamos esperando enquanto fazia correções, por azar no final da primeira semana apareceu uns bugs mais graves. 
+
+* Correções mais complexas como problema no sistema de validação que parou de funcionar 
+* Foi realizado otimizações de consulta, revisão completa removendo queries e mutation repetidas
+* Criação de mocks para cada tela para não depender do Back
+* Atualização no sistema necessário, quebra de dependencia, npm Hell, 
+
+* Tempo médio montagem de tela/formulário: 7 horas
+

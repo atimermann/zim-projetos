@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T16:18:00-03:00
+
+====== 01 - Instalação ======
+Criado quinta 02 março 2023
+
+A melhor maneira de configurar o Paperless-ngx é usando o Docker, pois ele configura automaticamente todas as configurações necessárias e usa opções de configuração sensíveis por padrão. 
+
+Ele também fornece um **"cheat-sheet"** para iniciantes do Docker, que contém informações básicas sobre como usar o Docker através da linha de comando (CLI).
+
+===== Docker usando script de instalação =====
+
+o Paperless fornece um script de instalação interativo que torna a instalação do Paperless-ngx mais fácil e eficiente. 
+
+O script solicita algumas opções de configuração, baixa e cria os arquivos de configuração necessários, puxa a imagem do Docker, inicia o Paperless-ngx e cria a conta do usuário. 
+
+Este script essencialmente automatiza todos os passos descritos na configuração do Docker. Com o script de instalação, os usuários podem configurar o Paperless-ngx de forma rápida e fácil sem precisar conhecer todas as opções de configuração e configurações de contêiner do Docker.
+
+====== Bare Metal ======
+(Expicação detalhada)
+
+===== 1. Dependencias =====
+
+
+* python3 3.8, 3.9: linguagem de programação Python, versões 3.8 e 3.9
+* python3-pip: ferramenta de linha de comando para instalar pacotes Python
+* python3-dev: pacote de desenvolvimento Python
+* default-libmysqlclient-dev: biblioteca de desenvolvimento do MySQL para MariaDB
+* fonts-liberation: fontes necessárias para gerar miniaturas de arquivos de texto simples
+* imagemagick >= 6: biblioteca para conversão de PDF
+* gnupg: programa para manipular documentos criptografados
+* libpq-dev: biblioteca de desenvolvimento do PostgreSQL
+* libmagic-dev: biblioteca de desenvolvimento para detecção de tipo MIME
+* mariadb-client: cliente de banco de dados MariaDB
+* mime-support: pacote de suporte para tipo MIME
+* libzbar0: biblioteca para detecção de código de barras
+* poppler-utils: ferramentas de linha de comando para trabalhar com documentos PDF
+
+=== OCRmyPDF ===
+Essas dependências são necessárias para OCRmyPDF, que é usado para reconhecimento de texto.
+
+* unpaper: programa para remover bordas e ruído de imagens digitalizadas
+* ghostscript: interpretador de PostScript e PDF
+* icc-profiles-free: perfis de cores para gerenciamento de cores
+* qpdf: ferramenta para trabalhar com arquivos PDF
+* liblept5: biblioteca para processamento de imagens
+* libxml2: biblioteca para processamento de XML
+* pngquant: ferramenta para otimizar imagens PNG
+* zlib1g: biblioteca de compressão
+* tesseract-ocr >= 4.0.0: mecanismo de reconhecimento óptico de caracteres (OCR)
+* pacotes de idiomas do tesseract-ocr: pacotes de idiomas usados pelo tesseract-ocr
+
+Você também vai precisar do pacote build-essential, python3-setuptools e python3-wheel para instalar algumas das dependências do Python necessárias para o Paperless.
+
+===== 2. Redis =====
+Instale o Redis versão 6.0 ou superior e configure para que ele inicie automaticamente.
+
+===== 3. Postgres =====
+
+
+

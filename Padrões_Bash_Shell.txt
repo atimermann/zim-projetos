@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-04-10T19:36:08-03:00
+
+====== Padrões Bash Shell ======
+Criado sábado 10 abril 2021
+
+====== Prompts ======
+
+REF: https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+
+Prompts:
+read -n 1 -p "Inicializar Git (Y/n)? " answer
+case ${answer:0:1} in
+y | Y | '')
+
+  if [[ ! -x "$(command -v git)" ]]; then
+	echo "Git não instalado"
+  elif [ ]; then
+	git init
+  fi
+
+  ;;
+*)
+  ;;
+esac

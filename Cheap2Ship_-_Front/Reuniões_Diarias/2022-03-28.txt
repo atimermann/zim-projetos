@@ -1,0 +1,75 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-28T15:35:12-03:00
+
+====== 2022-03-28 ======
+Criado segunda 28 março 2022
+
+Epico é um aglomerado de história
+
+====== Tipos de contratação ======
+
+GRUPO DE EMPRESA
+       
+
+	- FILTRO DE PERMISSÃO
+	- FILTRO DE EMPRESA
+	- Criar perfil
+	- Sobrescrever perfil por usuário
+
+
+**BID: **Contrato antecipado garantido, com exceção de Bunker, pois o bunker muda a cada 3 meses ao contrário do SPOT q é pontual.
+
+**Custo Aberto = ** (Tem feedback quantos % tá acima ou não)
+**Custo fechou** = fornecedor manda proposta e não tem negociação para o fornecedor
+
+====== Tipo de Contratação ======
+
+===== Em Aberto (Instruir embarque) =====
+ 
+* Valor do target: Se não bater o target até a data especifcada, exibe a mensagem valor "minimo não alcançado" (Valor maximo q o cliente aceita EU) 
+* Não tem fechamento
+* **Transit Time:** tempo de carregamento, de porto a porto
+* **Demourrage: **Tempo que o cliente tem para devolver o container depois de buscar no porto
+* **Detention: **inverso do demourrage porém na origem
+
+* **Banker: **Valor minimo para o armador não ficar no prejuizo (como se fosse combustivel do navio) exemplo se frete baixar 
+
+**Tempo de tomada livre: **Tempo de tomada disponivel para cliente garantido pelo armador sem taxas para container Reffer
+**Frenquencia de saída:** Qual freência os navios costumam sair da região
+**Puma razo de pagamento: **Tempo para pagar de carga p/ armador ou agente de carga
+
+===== Contratar um Fornecedor por continente =====
+
+É possivel neste modo de fechamento, selecionar um fornecedor para atender TODOS os clientes de um determinado continente
+
+**commodity: **Titulo do produto
+
+
+===== Contratar Multiplos Fornecedor por continente =====
+(NOVO)
+Você pode selecionar multiplos fornecedores para cada continente, definindo uma portentagem
+
+* **No futuro vamos ter um pós fechamento, por enquanto é só pros caras tem idéia de valores de fechamento**
+
+===== Contratar um Fornecedor por rota =====
+Posso fechar uma rota com cada fornecedor
+
+
+===== Contratar multiplos Fornecedores por rota =====
+Posso contratar com vários fornecedores para cada rota
+
+
+
+
+
+
+* **No futuro vamos ter um pós fechamento, por enquanto é só pros caras tem idéia de valores de fechamento**
+
+
+
+===== Tipos de transpor =====
+
+LCL = Carga fracionada
+
+

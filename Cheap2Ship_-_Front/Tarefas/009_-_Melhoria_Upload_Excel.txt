@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-10-02T02:10:12-03:00
+
+====== 009 - Melhoria Upload Excel ======
+Criado sábado 02 outubro 2021
+
+==> CRIAR HOTFIX
+
+~~- Alterar fechar para cinza~~
+~~- Enviar manter primario~~
+- ao tentar enviar arquivo upload não autenticado retorna erro
+- Remover hardcoded colocar o ENV, o upload estava enviando prod
+	import-excel-dialog.vue linha 93
+~~- Colocar loading~~
+
+
+ - não vai ter dialogo, mandar para outra rota
+ 
+ - Criar Rota
+ http://localhost:3030/freight-forwarder/auction-group/export/uuid_da_company/
+ 
+ - remove botão adicionar
+ 
+ - Card com informações
+	- nome do cliente
+	- cnpj
+	- enviar arquivo (botão de anexar) [faz upload automaticamente]
+	- 
+- embaixo ao fazer upload exibir alerta
+	- https://vuetifyjs.com/en/components/alerts/#usage
+	- sucesso parabens
+	- se houver erro
+    
+novo layout
+ - Linha
+ - Celula
+ - Valor
+ - Valor esperado
+ https://vuetifyjs.com/en/components/data-tables/#filterable
+
+
+ 

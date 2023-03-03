@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2022-02-22T14:42:13-03:00
+
+====== X - Devair Augusto da Silva ======
+Criado terça 22 fevereiro 2022
+
+Nâo tem interesse trabalhar com VueJS

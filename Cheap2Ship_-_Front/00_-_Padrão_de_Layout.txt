@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-11-08T02:27:59-03:00
+
+====== 00 - Padrão de Layout ======
+Criado terça 08 novembro 2022
+
+
+
+
+====== = ======

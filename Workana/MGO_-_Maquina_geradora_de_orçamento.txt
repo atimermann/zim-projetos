@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-13T19:08:27-03:00
+
+====== MGO - Maquina geradora de orçamento ======
+Criado segunda 13 fevereiro 2023
+
+===== MGO - MÁQUINA GERADORA DE ORÇAMENTOS =====
+
+**Proposta:**
+
+Sou André, um programador Full-Stack altamente especializado em desenvolvimento de sistemas web responsivos com áreas administrativas de alta performance. Para atingir esse objetivo, divido meus projetos em backend e frontend, aproveitando minha base de código ágil.
+
+No backend, utilizo Nodejs, ORM e uma API leve e ultra-rápida que responde em milissegundos, garantindo uma solução tecnológica eficiente e econômica na infraestrutura.
+
+Já no frontend, opto por trabalhar com NUXT3 e VUE3, bem como com templates prontos, para garantir um desenvolvimento rápido e responsivo. Além disso, tenho ampla experiência em projetos de sistemas, modelagem de bancos de dados, implantação em nuvem (AWS, Google Cloud) ou em servidores VPS Linux, bem como gestão de projetos com Jira, Git e outras ferramentas.
+
+Eu estou sempre em busca de novos desafios e projetos empolgantes na área de tecnologia da informação, e tenho certeza de que posso ajudar a elevar o sucesso do seu projeto.
+
+Estarei sempre disponível para dúvidas e acompanhamento
+
+Importante, que esta proposta é baseado no detalhamento do escopo e não compreende integração com API externas, ou implantação do sistema.
+
+Disponibilizarei:
+ - Códigos fontes Frontend e backend
+ - Modelo do banco de dados
+
+Etapas de desenvolvimento:
+- Detalhamento de funcionalidades 
+- Modelagem banco de dados 
+- Desenvolvimento das telas utilizando template padrão ou outro template a combinar
+
+Tecnologia utilizada (à combinar):
+- Frontend: Nuxt3, Vue3, PrimeFaces, Template pronto
+- Backend: NodeJS, ExpressJs, Mysql, 
+Opcional: Configuração docker para implantação facilitada
+

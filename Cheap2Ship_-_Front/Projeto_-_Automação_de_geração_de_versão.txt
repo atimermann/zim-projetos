@@ -1,0 +1,151 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-04-30T00:59:19-03:00
+
+====== Projeto - Automação de geração de versão ======
+Criado sábado 30 abril 2022
+
+
+====== Links ======
+https://circleci.com/docs/2.0/configuration-reference/#workflows
+https://circleci.com/docs/2.0/workflows/
+https://github.com/halfer/cd-demo-container/blob/master/.circleci/config.yml
+https://circleci.com/blog/how-to-build-a-docker-image-on-circleci-2-0/
+https://circleci.com/developer/orbs/orb/circleci/gcp-cli
+https://circleci.com/blog/circleci-for-google-cloud-platform-scalable-flexible-and-efficient/
+https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+https://circleci.com/blog/gcp-cloudrun-orb/
+https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build
+https://stackoverflow.com/questions/71527668/how-to-get-source-branch-from-google-cloud-build-trigger-on-push-when-merging
+https://discuss.circleci.com/t/only-build-pull-requests-not-every-branch/200
+https://ruarfff.com/circleci-pr-only/
+https://glebbahmutov.com/blog/circle-ram-disk/
+https://softwareengineering.stackexchange.com/questions/405537/deployment-release-strategy-for-separated-frontend-backend-web-app
+
+Objetivo: Criar versões entre FRONT e BACK compatíveis entre si:
+
+* Todo commit que gerar uma quebra de compatibilidade deve ser tageado com código da tarefa prefixado com R (requred/requerido)
+
+R386
+
+
+* Para obter uma lista de todos os com
+git tag -l --contains TAG01
+
+* Obter lista de tags q não contém
+git tag -l --no-contains TAG05
+
+
+- O FRONT só vai puxar branchs versionadas
+
+Pegar todas as tags do front e todas as tags do back
+
+git tag | grep TAG (ou t, definir uma letra)
+
+Se tiver uma tag que tem no front mas não tem no BACK (BLOQUEIA)
+
+para cada tag não encontrada procurar as revisões que não tem a TAG com o comando no back:
+
+git tag -l --no-contains TAG05
+
+pegar a menor revisão disponivel e puxar para fazer o teste
+
+== ===================================================================== ==
+
+
+Tá, criei  um processo aqui que resolve nosso problema, usando a sua idéia de tags
+
+Primeiro estudei aquele git descbribe q vc passou, não achei utilidade nenhuma nele, vc passa um commit ele mostra a tag mais proxima e a distancia.  Demorei pra entender pra descobrir  q n serve pra nada.
+
+Mas o processo q bolei é o seguinte:
+
+Nossa idéia é criar um teste combinando uma versão do FRONT e do BACK
+
+===== Algumas premissas: =====
+
+* Primeiramente vamos sempre utilizar o famoso GIT FLOW, que é o processo q passei
+* Segundo o FRONT sempre vai estar atrás do BACK
+* Vamos precisar versionar tudo, o front só vai carregar uma commit do back versionado
+* Vamos criar dois tipos de tags: 
+	* de versão: ex: v0.0.1
+	* de requisito: ex: r385, onde esse numero é o numero da tarefa relacionada 
+
+* Toda vez q um programador do back criar um tarefa que vai quebrar o front, exemplo, remover uma coluna no banco de dados, é obrigatório tagear a com o numero da tarefa prefixado com r, ex: r390
+* Toda vez que o programador do front implementar uma funcionalidade que atualize o front com essa dependencia do back deve tagear com o mesmo numero: r390
+
+===== Processo: =====
+
+* Quando o FRONT Abrir o PR, irá disparar um script para criação de um teste q combina FRONT e back
+* a primeira coisa q o script vai fazer é listar todas as tags do tipo r no front e no back e criar um DIFF entre eles
+* Se existir TAG no front que não tem no BACK, já para por ai dando erro que o back não está atualizado (front sempre atrás do back)
+* caso exista tags no back mas não exista no front faremos o seguinte:
+	* Para cada TAG não encontrada executaremos o comando: 
+
+git tag  --no-contains r385  | grep v
+
+* Este comando vai retornar todas as versões do back que ainda não implementa o r385
+* Pegamos a MAIOR revisão
+* no final vamos ter uma lista de revisões, para cada requisito, vamos pegar a MENOR revisão 
+
+Com isso faço checkout dessa revisão e mando testar
+
+===== Processo no back: =====
+
+* toda vez que aprovar um PR no back com requisito gerar uma branch de release, tagear, ex: git tag v2.2 e subir pra master ( nesse caso, master não significa que vai pra prod)
+* Ou podemos tagear direatamente no branch develop/staging, permitindo que o front puxe dai e só mandar pra master depois do teste e for pra produção
+
+
+== ============================ ==
+
+Fornecedor / TEU  / % TEU ->
+
+Gráfico de Barras
+
+- Criar um Simulador
+- COmo funciona os rounds (rodadas de cotação?)
+- Simulador ou Análise?
+- Verifica os concorrentes?
+
+559087
+
+
+Tá, criei  um processo aqui que resolve nosso problema, usando a sua idéia de tags
+
+Primeiro estudei aquele git descbribe q vc passou, não achei utilidade nenhuma nele, vc passa um commit ele mostra a tag mais proxima e a distancia.  Demorei pra entender pra descobrir  q n serve pra nada.
+
+Mas o processo q bolei é o seguinte:
+
+Nossa idéia é criar um teste combinando uma versão do FRONT e do BACK
+
+Algumas premissas:
+
+* Primeiramente vamos sempre utilizar o famoso GIT FLOW, que é o processo q passei
+* Segundo o FRONT sempre vai estar atrás do BACK
+* Vamos precisar versionar tudo, o front só vai carregar uma commit do back versionado
+* Vamos criar dois tipos de tags: 
+	* de versão: ex: v0.0.1
+	* de requisito: ex: r385, onde esse numero é o numero da tarefa relacionada 
+
+* Toda vez q um programador do back criar um tarefa que vai quebrar o front, exemplo, remover uma coluna no banco de dados, é obrigatório tagear a com o numero da tarefa prefixado com r, ex: r390
+* Toda vez que o programador do front implementar uma funcionalidade que atualize o front com essa dependencia do back deve tagear com o mesmo numero: r390
+
+Processo:
+
+* Quando o FRONT Abrir o PR, irá disparar um script para criação de um teste q combina FRONT e back
+* a primeira coisa q o script vai fazer é listar todas as tags do tipo r no front e no back e criar um DIFF entre eles
+* Se existir TAG no front que não tem no BACK, já para por ai dando erro que o back não está atualizado (front sempre atrás do back)
+* caso exista tags no back mas não exista no front faremos o seguinte:
+	* Para cada TAG não encontrada executaremos o comando: 
+
+git tag  --no-contains r385  | grep v
+
+* Este comando vai retornar todas as versões do back que ainda não implementa o r385
+* Pegamos a MAIOR revisão
+* no final vamos ter uma lista de revisões, para cada requisito, vamos pegar a MENOR revisão 
+
+Com isso faço checkout dessa revisão e mando testar
+
+Processo no back:
+
+* toda vez que aprovar um PR no back com requisito gerar uma branch de release, tagear, ex: git tag v2.2 e subir pra master ( nesse caso, master não significa que vai pra prod)
+* Ou podemos tagear direatamente no branch develop/staging, permitindo que o front puxe dai e só mandar pra master depois do teste e for pra produção

@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-12-10T13:34:37-03:00
+
+====== 22-12-10 ======
+Criado sábado 10 dezembro 2022
+
+Reunião sobre novos Modais
+
+**Terrestre** **Dedicado =>**
+
+* 6 Módulos
+
+Modulo de container FCL (Lançar FCL -> 
+
+===== Parte 1: Módulo de cadastro =====
+
+* land-carrier
+
+FreightForwarder -> LandCarrier
+freightForwarder -> landCarrier
+freight-forwarder -> land-carrier
+freight_forwarder -> land_carrier
+
+createUserAndFreightForwarder(user: UserAndFreightForwarderInput!): User 
+**===>** createUserAndLandCarrier(user: UserAndLandCarrierInput!): Use
+
+
+
+**Terrestre Fracionado =>**
+

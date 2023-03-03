@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-07-21T13:03:01-03:00
+
+====== Ritmo e Martini ======
+Criado quarta 21 julho 2021
+
+====== Martini ======
+
+Usuário: timermann
+Senha: martini@2021
+
+
+Bom dia, André.
+Segue certificado e abaixo as informações para acessar o servidor do site da Martini:
+
+IP Atual: 172.25.1.85                                                                                                                                       
+
+
+Usuário: administrator
+Senha: workcentre.1573
+Acesso via RDP porta 3389
+
+
+(Acessível apenas na própria máquina)
+Acesso wordpress: http://www.martinimeat.com.br/wp-login.php
+Usuário: angela.fagundes@ritmolog.com.br
+Senha: 123mudar
+
+Pode desativar o plugin de currículos.
+
+
+Obs: Após o site estar seguro, me avise e alteramos o IP dele para o que está publicado.
+
+
+At.te,
+
+====== Ritmo ======
+
+https://www.ritmolog.com.br/wp-login.php
+andre.timermann
+F%k&A!f7PdxkclldlNuCdSMH

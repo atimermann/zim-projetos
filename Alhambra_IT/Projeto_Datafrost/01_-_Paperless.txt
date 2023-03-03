@@ -1,0 +1,69 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-01T17:44:17-03:00
+
+====== 01 - Paperless ======
+Criado quarta 01 março 2023
+**Trello:** https://trello.com/c/emxZvKK5/15-instalar-paperless-em-uma-vm-alhambra-e-realizar-testes-do-app-scanner-photos-da-ferramenta-funcionalidades-produtividade-e-expe
+
+**NEGRITO:** Minhas pontuações
+
+* **Lucas pensa em utilizar o paperless diretamente alterando (Fork) em vez de aproveitar a estrutura local**
+* **Verificar se tem API**
+* **verificar se não compensa utilizarmos nossa interfadce**
+
+===== Requisitos: =====
+
+* Definição antes do ingresso se PDF mono ou multi-páginas, 
+* riscos de compressão/formatos do arquivo de imagem criado, 
+* possibilidade de validação de DPIs antes do efetivo ingresso da imagem ao flow)
+
+===== Modificações necessárias =====
+
+* Modificar o aspect ratio da câmera para 4:3
+* Pré-preencher os metadados via API antes de requisitar o preenchimento manual
+* Implementar leitura de código de barras para identificar a caixa/pasta onde o documento é armazenado, e associar tags correspondentes a esses códigos para as páginas digitalizadas
+* Implementar comunicação com o chip NFC para controle da câmera, luzes, e automação do processo de digitalização com câmera
+* Fazer com que o app verifique as permissões do usuário logado via API e mostre apenas as ações para as quais ele tem permissão
+* Traduzir o app para português
+* 
+
+===== Paperless Mobile =====
+
+* Existe uma versão Mobile: https://play.google.com/store/apps/details?id=de.astubenbord.paperless_mobile&pli=1
+* **Verificar possibilidade de criar o nosso**
+
+* Aparentemente todas as funcionalidades de pesquisa, ordenamento, filtros e visualizações que existem na versão web também foram implementadas no app
+* Existe inclusive uma aba Inbox que é bastante útil, que não está presente na versão web.
+* Por outro lado, a parte de digitalizar com a câmera é um pouco limitada. Por algum motivo, o aspect ratio é fixado em 16:9, e não há opção para mudar. Isso faz com que a imagem fique abaixo da resolução máxima da câmera (que é obtida com aspect ratio 4:3), além de mais estreita, de forma que não é possível enquadrar, por exemplo, o documento inteiro mais o código de barras da caixa
+* Além disso, são necessárias muitas ações para digitalizar uma única página: 
+	* Primeiro, o usuário aperta o botão para tirar a foto, o que o leva a uma outra tela mostrando uma preview das bordas detectadas automaticamente. 
+	* Após corrigir essa seleção (se necessário), o usuário então confirma o recorte, 
+	* o que o leva para uma terceira tela mostrando as thumbnails das páginas já digitalizadas, aonde ele pode então escolher entre digitalizar uma nova página ou submeter o documento digitalizado. 
+	* Ao final do processo, uma quarta tela aparece, com dados como título, data, etc. em branco, que o usuário pode optar por preencher ou deixar que o sistema os preencha de forma automática. 
+	* Isso faz com que o processo de digitalização seja bem mais lento do que o do fileee, em que o app detecta as bordas, fotografa, e recorta a página de forma totalmente automática, enquanto o usuário apenas coloca as páginas no suporte, uma a uma. 
+* Quando o documento está completo, o usuário aperta um botão para confirmar, e é exibida uma preview das páginas, além de opções como a de corrigir o recorte. Após uma segunda confirmação, o app faz o upload do documento imediatamente, e os dados, já preenchidos automaticamente só podem ser editados de forma manual numa etapa posterior.
+* Aparentemente não há suporte para IOS (embora esteja planejado)
+
+* **E se o app fosse apenas o minimo pra enviar o scanner bruto para uma aplicação web q deve ser analisado no desktop?**
+
+
+
+===== PDF/A =====
+
+Para gerar PDF/As multi-páginas com OCR, o próprio OCRmyPDF recomenda gerar PDFs normais a partir das imagens com o img2pdf e depois fazer o OCR convertê-los para PDF/A com o OCRmyPDF. Testei este método e funciona bem, sem perda de qualidade (o img2pdf é sempre lossless).
+
+===== OCRmyPDF =====
+
+O OCRmyPDF realmente comprime as imagens de forma "lossy" por padrão, mas tem uma opção para comprimi-las de forma "lossless":
+
+	--pdfa-image-compression {auto,jpeg,lossless} 
+
+	Specify how to compress images in the output PDF/A. 'auto' lets OCRmyPDF decide. 'jpeg' changes all grayscale and color images to JPEG compression. 'lossless' uses PNG-style lossless compression for all images. Monochrome images are always compressed using a lossless codec.
+
+E é possível configurar o Paperless para gerar os PDF/As dessa forma. Fiz o teste e o arquivo fica um pouco maior do que o original por conta do overhead do container PDF/A + OCR, como esperado.
+
+https://ocrmypdf.readthedocs.io/en/latest/optimizer.html#optimizations-that-always-occurs
+
+A compressão parece ter a ver com um parâmetro do OCRmyPDF, estou investigando como configurar isso
+

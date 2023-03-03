@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-02-02T15:19:55-03:00
+
+====== 2021-02-02 - 1 ======
+Criado terça 02 fevereiro 2021
+
+[14:58, 23/01/2021] Alessandro: https://app-v2.cheap2ship.com/company/shipping-instruction/list aqui não tá rodando, né?
+[14:58, 23/01/2021] Alessandro: 72562af8c963e2256309.js:2 TypeError: Cannot read property 'freightForwarder' of null
+	at 2bc88bc0b3a336e4d534.js:1
+	at Array.map (<anonymous>)
+	at f.get (2bc88bc0b3a336e4d534.js:1)
+	at _n.get (72562af8c963e2256309.js:2)
+	at _n.evaluate (72562af8c963e2256309.js:2)
+	at f.freightFowarderData (72562af8c963e2256309.js:2)
+	at fn (2bc88bc0b3a336e4d534.js:1)
+	at Object.r [as content] (72562af8c963e2256309.js:2)
+	at f.r (89d5506787a2a7fa0e21.js:1)
+	at f.t._render (72562af8c963e2256309.js:2)
+
+Acho que é aquele esquema quando o bid_id está null no DB

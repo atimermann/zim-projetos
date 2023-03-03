@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-11T10:41:42-03:00
+
+====== 00 - FILA DE TAREFAS RÁPIDAS ======
+Criado sexta 11 março 2022
+
+{{./pasted_image001.png}}
+
+não mostra o erro no campo, mostra global
+
+================================================================
+
+* Adicionar o confluence documentação de usar o amend
+oa tarde, vamos fazer um commit por sub-tarefa finalizada.
+
+quando der o commit pode por no comentário o nome da sub-tarefa
+
+exemplo
+
+git commit -m "fs-41 - Criar Rota" 
+git push
+
+Se terminar o dia e não finalizar a tarefa só fazer o commit e quando finalizar utilizar o amend 
+https://www.educative.io/edpresso/how-to-change-a-git-commit-message-after-a-push
+
+[15:38] André Timermann: Assim que finalizar usar o comando:
+
+git push --force-with-lease repository-name branch-name
+
+———————————————————————————————————————————————————————————————————————————————————————
+
+
+* Criar novas tarefas com fluxo de trabalho já configurado
+	* [10:21, 11/03/2022] Alessandro: Cria um novo e configura já amarrado
+		[10:21, 11/03/2022] Alessandro: Movemos as tasks para lá
+		[10:22, 11/03/2022] Alessandro: Já cria, em paralelo, para a API, também
+		[10:22, 11/03/2022] Alessandro: Para ficarem iguais
+* Atualizar Documentação Confluence
+* Testar melhorias sugerida pelo Vamisson
+
+———————————————————————————————————————————————————————————————————————————————————————
+
+* Tarefas tem muito pouca descrição (Alessandro)
+* Remover arquivo .env.prod do repositório e atualizar script
+
+———————————————————————————————————————————————————————————————————————————————————————
+
+
+* Testar PNPN
+* ViteJs
+
+* Estudar e configurar CircleCi
+
+
+===== Implementando testes no Front =====
+
+**No Desenvolvimento Ágil, testar é parte da nossa rotina como pessoas desenvolvedoras**
+
+{{./pasted_image.png}}
+
+* **Testes de integração**
+* **Testes E2E (end 2 end) puppeter**
+* **Testes de SnapShot**
+* **Adotar o TDD**
+
+====== Estudo TDD (Testes) ======
+
+**Auxilio Jest**
+https://www.npmjs.com/package/jest-nuxt-helper
+
+**Curso Vedovelle - Testes**
+https://classes.vedovelli.com.br/?class=testar-aplicacoes-javascript-criacao-projeto-instalacao-jest
+
+
+https://medium.com/@silvanavlima/cypress-vue-e2e-vuecli-16a9228855f2
+https://liftcodeplay.com/2020/08/19/adding-cypress-to-nuxt/

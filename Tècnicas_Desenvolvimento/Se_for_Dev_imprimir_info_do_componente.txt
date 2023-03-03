@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-03-05T11:24:57-03:00
+
+====== Se for Dev imprimir info do componente ======
+Criado sexta 05 março 2021
+
+Criar um componente base onde se for dev imprimir informação do componente, como nome do arquivo e caminho pra facil encontrar

@@ -1,0 +1,53 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-08T15:21:57-03:00
+
+====== 22-06-08 ======
+Criado quarta 08 junho 2022
+
+Adicionar idioma espanhol
+
+LCL e AREO mudam para o FCL
+
+**Campo novo:**
+	freightPackage
+
+
+
+* Mudar menu para 2 níveis
+
+Nova ordem do menu;
+
+BID
+SPOT - AEREO
+SPOT -  FCL
+SPOT - LCL
+
+- Instrução de Embarque
+- Freight Forwarwder em ingles
+- Configuração
+- Sair
+
+
+====== Mudança layout: ======
+
+https://vuetifyjs.com/en/examples/wireframes/three-column/
+
+===== 1366 vai usar toda extensão e menu vai pra cima =====
+
+https://default-homolog-dot-cheap2ship-199518.appspot.com/freight-forwarder/auction-group/in-progress
+sai barra lateral
+
+some a barra de cima (Cheap2ship)
+{{./pasted_image.png}}
+
+
+
+
+{{./pasted_image001.png}}
+
+
+xs-12
+md-10
+
+

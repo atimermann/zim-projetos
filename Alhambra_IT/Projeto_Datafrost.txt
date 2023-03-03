@@ -1,0 +1,156 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-27T10:17:55-03:00
+
+====== Projeto Datafrost ======
+Criado segunda 27 fevereiro 2023
+
+nome provisorio datafrost
+
+===== Objetivo =====
+
+**Fluxo**
+https://app.diagrams.net/#G1y7EzFUdBIYw46pRTvc4NLpnqBOvSef6p
+ 
+===== Aplicações =====
+
+* Fork do Paperless (Django)
+* Verificar prototipos prontos
+* [[https://git.alhambrait.com.br/data-frost/earqify|Earqify]]
+* Mobile (paperless)
+
+
+===== Equipamentos =====
+
+* Celular
+* Scanner
+	* Requisito scanear muitas paginas ao mesmo
+	* Suporte driver **TWAIN** 
+		* Driver universal para comunicação de scanner
+		* Um dos drivers com mais suporte
+		* Atende os requisitos do decreto
+		* Suporta PNG
+		* [[WebTwain]]
+		* Como vai ser a implantação no cliente
+
+===== Aplicações Similares =====
+
+https://en.fileee.com/fileeebox-business 
+	* Ver ideias e o equipamento deles
+
+
+===== Senhas =====
+
+==== Paperless ====
+paperless
+@lham2022
+
+
+===== Pilares =====
+
+* Validade Juridica
+* Automatico e agil possivel
+* Decreto que reculamenta digitaliação:
+	* https://www.in.gov.br/en/web/dou/-/decreto-n-10.278-de-18-de-marco-de-2020-248810105
+
+===== GED =====
+* Gestão Eletronica de Documentos
+
+==== SIGAD ====
+Responsável por digitalizar o documento, 
+* Modelo de sistema (Conceito)
+* Recomendação (E-ARC)
+
+===== Curso Gestão Documentos =====
+
+	* Estudar (109 paginas, Rêferencia)
+	* Código de classificação (**classe**) de acordo com a importância
+	* **Tabela de temporalidade** 
+	* **Prazo de guarda** (São 2)
+	* **Tipos:**
+		* Arquivo Corrente
+		* Arquivo Intermediario 
+		* Arquivo Permanente 
+		* Eliminação fisico e digital
+	* Aprender sobre gestão de documentos 
+
+
+====== Metadados ======
+* Analisar todos os metadados
+* Tem mapeado como aparece no decreto:
+	* Planilhas => Metadados
+		* Mapena metadados entre decreto, e-ARCH, outros padrões como Premis
+		* https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf
+		* Ver Descreto 10278
+		* Modelo E-Arch
+
+* Formato padrão: XML (XMP)
+	* Não parece ser obrigatório mas é o padrão usado
+	* Pesquisar
+
+* Earquify
+	* https://git.alhambrait.com.br/data-frost/earqify
+	* Utilidades para codificar metadados do modelo e-ARQ em XML	
+
+
+===== PDF/A =====
+
+* Manter os metadado dentro do PDF
+* Existe alternativa METS (parece não necessário)
+* Verificar o [[VeraPDF]] para validar se o pdf tá em conforme PDF/A
+	* https://www.pdfa.org/
+	* https://verapdf.org/
+
+===== PAdES =====
+* Padrão de assinatura digital qualificada
+* Criar um hash de um documento digital e cifrar esse hash com chave privada
+https://www.adobe.com/devnet-docs/acrobatetk/tools/DigSig/Acrobat_DigitalSignatures_in_PDF.pdf#page=12&zoom=100,112,88
+* Assinatura digital vs assinatura eletronica (Estudar)
+	* Assinatura eletronica ter referencia visual no pdf
+* Importante é ter assinatura digital no PDF 
+* Para documentos publicos precisa utilizar ICP-Brasil  (mas pode ser usado pra tudo, mas poderia usar outro padrão desde q as partes concordem)
+	* Comprar um certificado e assinar local
+	* ou usar API de uma certificadora
+	* Ver custo:
+		* BRY https://api-assinatura.bry.com.br/api-assinatura-digital#servico-assinatura-pdf
+		* https://pscsafeweb.safewebpss.com.br/Docs/ (Certificado na nuvem)
+
+===== Documentos: =====
+
+
+
+Decreto 10278
+.pdf
+Ações
+168 KB	há 5 meses
+	
+Diretrizes Digitalização 10278
+.pdf
+Ações
+1003 KB	há 5 meses
+	
+Diretrizes Presunção de Autenticidade
+.pdf
+Ações
+217 KB	há 5 meses
+	
+Diretrizes Repositório Arquivístico Digital
+.pdf
+Ações
+1,1 MB	há 5 meses
+	
+Modelo e-ARQ
+.pdf
+Ações
+1,5 MB	há 5 meses
+	
+Modelo e-ARQ - Modelo Entidade Relacionamento
+.pdf
+Ações
+182 KB	há 5 meses
+	
+Readme
+.md
+Ações
+< 1 KB	há 29 minutos
+9 arquivos

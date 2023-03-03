@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2022-01-04T13:36:13-03:00
+
+====== 01 - Fluxo Processo Teste Cheap2Ship ======
+Criado terça 04 janeiro 2022
+
+===== 01 - Logar como cliente =====
+
+Pré-registrar fornecedor:
+http://localhost:3030/company/provider/freight-forwarder/pre-register
+
+
+===== 02 - Obter código de convite =====
+
+Obter código de convite na tabela:
+
+	**invite_freight_forwarder**
+	
+Coluna
+	
+	**invite_code**
+	
+
+===== 03 - registrar forncedor: =====
+
+Deslogar usuário cliente e registrar forncecedor pela url a seguir com o código de convite
+
+http://localhost:3030/freight-forwarder/register/<CODIGO_DO_CONVITE>
+
+===== 04 - Registrar em um grupo: =====
+
+
+Locar novamente como cliente e entrar em Gerenciamento de grupo e cadastrar novo fornecedor em algum grupo ou criar grupo pra ele;
+
+http://localhost:3030/company/provider/freight-forwarder/group/list
+
+
+===== 05 - Criar novo Bid: =====
+
+http://localhost:3030/company/auction-group/new
+
+{{./pasted_image.png?width=462}}
+
+
+===== 06 - Alterar datas no banco de dados para ao bid valer imediatamente: =====
+
+
+Abrir a tabela auction_group, procurar pela bid que acabou de criar
+
+{{./pasted_image001.png}}
+
+**Note: **bid no banco de dados é auction_grupo e não bid (bid é outra coisa)
+
+

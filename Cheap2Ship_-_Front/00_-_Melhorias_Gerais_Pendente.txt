@@ -1,0 +1,73 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-04-01T01:18:12-03:00
+
+====== 00 - Melhorias Gerais Pendente ======
+Criado quinta 01 abril 2021
+
+[ ] Alterar $requestHandler.loading por $pageLoaded() em todo sistema
+	[ ] Corrigir $pageLoaded() para funcionar como getter, vai ter q usar tecnic alternativa ao inject()
+[ ] colocar todos <cs-skeleton-loader type="card" [[/>]] dentro do componente
+[ ] Colocar todas as consultas no created()
+[ ] Colocar formatação de cnpj no Model Company
+
+
+## Todo técnico para melhoria da plataforma
+
+- Implementar loading/disable nos forms do nuxt-form
+- Adicionar fake login em .env (habilitar apenas para dev) (Company e freigh FOrwareder)
+- Migrar para Nuxt MOdel
+- Migrar todos os forms para Nuxt Form
+
+- atualizar register-form para puxar dados do model como no pré-register 
+- mover e renomer registerForm para register-form-freight forwareder
+- Validação nos forms antigos, não exibe
+- Configurar validação nos forms novos com novo padrão para exibir erros do back (fcl principalmente)
+
+
+#
+
+Corrigir:
+http://localhost:3030/company/spot/auction/bid/fcbb42de-0d21-45e9-b879-b2d977d0b515
+Fonte BCB: Invalid date
+
+[ ] Automatizar netWork error para tentativa de reconectar automatica a cada 5 segundos por exemplo
+[ ] Revisar vuetify criar cheat cheat principais coisas como texto, alinhamento, flex etc...
+	* alinhamento horizontal/vertical
+	* d-flex
+	* grid system
+	* fonte
+	* Colo alinhar direita divs no d-flex
+
+[ ] Botão nova cotação em [[/company/spot/auction/in-progress]]
+
+
+
+[ ] src/apps/bid/components/company/bid-spot-info-dropdown-card.vue
+
+**replicar pra todos os graphql**
+**deve tratar todos os casos**
+
+	try {
+	  await this.$mutate(this, selectWinnerMutation, {
+		auction: {
+		  urlKey: this.$route.params.urlKey,
+		  bid: {
+			id: bid.id,
+			justification
+		  }
+		}
+	  })
+
+	  this.$notify.info('Proposta aceita com sucesso.')
+	} catch (error) {
+	  if (error?.graphQLErrors && error.graphQLErrors.length > 0) {
+		const errorParsed: ApolloErrorResponseParser = await new ApolloErrorResponseParser(error)
+		console.error(errorParsed)
+	  } else {
+		this.$notify.error('Erro ao aceitar a proposta. Atualize a página para verificar se operação foi realizada.')
+		console.error(error)
+	  }
+	}
+
+[ ] Refazer breadcrump

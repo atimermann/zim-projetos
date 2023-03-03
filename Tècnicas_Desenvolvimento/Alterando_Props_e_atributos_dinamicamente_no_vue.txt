@@ -20,7 +20,5 @@ children.$options.formHandler = this
   }
 
 
-
-
 Transformar o formHandler numa diretiva
 https://br.vuejs.org/v2/guide/custom-directive.html

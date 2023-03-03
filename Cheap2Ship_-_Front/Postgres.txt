@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-05-27T10:07:16-03:00
+
+====== Postgres ======
+Criado quinta 27 maio 2021
+
+**IMPORTANTE:** não esquecer de definir o banco de dados -d cheap2ship em todos os comandos
+**IMPORTANTE: **usar formato texto puro
+
+**RESTORE**
+No terminal
+sudo su postgres
+psql
+create user cheap2ship with encrypted password 'Cheap3562rb';
+create database cheap2ship;
+grant all privileges on database cheap2ship to cheap2ship;
+Saia do psql
+psql -U cheap2ship -d cheap2ship -f nome_do_arquivo.sql
+
+
+
+
+DB_USERNAME='postgres'
+DB_PASSWORD='Cheap3562rb'
+DB_DATABASE='cheap2ship'
+ 

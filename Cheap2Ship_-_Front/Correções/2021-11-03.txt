@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-11-03T17:05:27-03:00
+
+====== 2021-11-03 ======
+Criado quarta 03 novembro 2021
+
+{{./pasted_image.png}}
+
+https://app-v2.cheap2ship.com/freight-forwarder/auction-group/auction/list/8c70fae5-1c77-4b4e-b44a-b8afc16fbc60
+Erro acima ao abrir proposta

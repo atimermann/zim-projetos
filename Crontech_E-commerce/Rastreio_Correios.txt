@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-18T19:12:20-03:00
+
+====== Rastreio Correios ======
+Criado sábado 18 fevereiro 2023
+
+**Usar diretamente a biblioteca**
+https://github.com/FinotiLucas/Correios-Brasil/tree/e1f7edeefa7c37aba7e0561ba0088c9dd682006d
+
+
+====== Como funciona para entender ======
+
+
+Projeto que funciona até o momento:
+
+https://github.com/FinotiLucas/Correios-Brasil/
+
+Ver no Insominia
+
+API parece q é do
+https://www.linkcorreios.com.br/preco
+
+
+===== Gerar TOKEN =====
+
+Gerar TOKEN com 
+**GET** https://proxyapp.correios.com.br/v1/app-validation
+
+**Body JSON:**
+{
+	"requestToken": "YW5kcm9pZDtici5jb20uY29ycmVpb3MucHJlYXRlbmRpbWVudG87RjMyRTI5OTc2NzA5MzU5ODU5RTBCOTdGNkY4QTQ4M0I5Qjk1MzU3OA=="
+}
+
+**TOKEN FIXO, não sei se vai durar pra sempre, se parar de funcionar consultar código fonte do projeto acima**
+
+**Importante HEADER:**
+Content-Type: application/json
+user-agent: Dart/2.18 (dart:io)
+
+
+===== Consultar pacote com =====
+**POST** https://proxyapp.correios.com.br/v1/sro-rastro/<NOME_PACOTE>
+
+**HEADER:**
+app-check-token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJici5jb20uY29ycmVpb3MucHJlYXRlbmRpbWVudG8iLCJwbGF0YWZvcm1hIjoiYW5kcm9pZCIsImV4cCI6MTY3Njc2ODc3MSwiaWF0IjoxNjc2NzU3OTcxfQ.pJTLB_O5JGKuaZ07LbllHF3D7PuE06qjeihHetZvB7R5NGxXvV2KFPya7lVSpV1QtsbLccdQiZ2C_ur4i1e2rA
+user-agent: Dart/2.18 (dart:io)
+Content-Type: application/json
+
+
+====== SENHAS CORREIO ======
+
+AOk5qZBTY02374n
+
+VE^v1$E6!H*v
+
+**SENHA API: ( verificar e é essa mesma)**
+6jwu3FXC7Dbt2vN
+

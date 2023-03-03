@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-01T17:58:26-03:00
+
+====== 01 - Avaliar se serão necessárias modificações no sistema de permissões do paperless web ======
+Criado quarta 01 março 2023
+
+Precisaremos de pelo menos um usuário que deverá ser capaz de digitalizar e fazer upload de páginas, 
+e outro que deverá ser capaz de definir a sequência de páginas que irá compor um documento, editar tags e metadados e assinar o arquivo PDF/A.
+
+* Criei também um grupo "Supervisores" com permissão para visualizar, editar e remover (mas não adicionar) documentos e também editar tipos de documento, metadados e tags, e tirando também um detalhe de UI (seção para fazer upload de documentos não deveria aparecer), funcionou como esperado.
+
+* É bom acompanhar o desenvolvimento da feature lá no repositório original, pois alguns detalhes (principalmente de UI) ainda não estão 100% e devem ser corrigidos.
+
+* Subi um container com essa feature (ainda em desenvolvimento) e criei um grupo "Digitalizadores" que só tem permissão para adicionar novos documentos e visualizar documentos, tipos, metadados e tags, e funciona bem. 
+* Só precisaremos modificar o app para adaptar a UI às permissões do usuário, para que não haja, por exemplo, uma opção de editar documento para o digitalizador, que do jeito que está gera um erro por causa da falta de permissão.

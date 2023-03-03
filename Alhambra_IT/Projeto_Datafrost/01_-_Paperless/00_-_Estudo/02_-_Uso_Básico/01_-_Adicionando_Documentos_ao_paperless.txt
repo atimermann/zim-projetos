@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:42:13-03:00
+
+====== 01 - Adicionando Documentos ao paperless ======
+Criado quinta 02 março 2023
+
+Ao adicionar documentos ao Paperless, o software executará as seguintes operações nos seus documentos:
+
+1- Realizar OCR no documento, caso não possua texto. Documentos digitais geralmente possuem texto, então essa etapa será ignorada para esses documentos.
+
+2- O Paperless criará um documento PDF/A arquivável a partir do seu documento. Se este documento vier do seu scanner, ele terá um texto selecionável incorporado.
+
+3- O Paperless executa uma correspondência automática de tags, correspondentes e tipos no documento antes de armazená-lo no banco de dados.
+
+**IMPORTANTE:** Independentemente das opções que você escolher, o Paperless sempre armazenará o documento original encontrado no diretório de consumo ou no correio e nunca substituirá esse documento. As versões arquivadas são armazenadas junto com as versões originais
+
+Existem vários métodos de carregar documento no paperless:
+
+===== = =====
+
+
+===== = =====
+
+===== 3 - Upload pelo aplicativo mobile: =====
+
+O aplicativo mobile Paperless Share para Android permite que os usuários compartilhem documentos com o Paperless. 
+Isso pode ser combinado com qualquer um dos aplicativos de digitalização móveis disponíveis, como o Office Lens. 
+O aplicativo Paperless Mobile também oferece recursos de upload, digitalização, gerenciamento de rótulos e muito mais.
+
+===== 4 - IMAP (E-mail) =====
+
+O método IMAP permite que você configure o Paperless para consumir documentos diretamente das suas contas de e-mail. 
+Isso pode ser muito útil se você receber regularmente documentos por e-mail que precisam ser arquivados. 
+O consumidor de e-mail pode ser configurado através das configurações de frontend (/configurações/e-mail) da seguinte maneira:
+
+1. Defina suas contas de e-mail.
+2. Defina regras de e-mail para cada conta.
+
+**Essas regras executam as seguintes ações:**
+
+1. Conecta ao servidor de e-mail.
+2. Recupera todos os e-mails que correspondem às regras (definidas por pasta, idade máxima e filtros).
+3. Verifica se há anexos que possam ser consumidos.
+4. Se houver, instrui o Paperless a consumir os anexos e, opcionalmente, usar os metadados fornecidos na regra para o novo documento.
+5. Se os documentos foram consumidos de um e-mail, a ação da regra é executada nesse e-mail.
+
+O Paperless ignorará completamente os e-mails que não correspondem aos filtros definidos nas regras. Além disso, ele só executará a ação nas mensagens de e-mail das quais consumiu documentos.
+
+As ações garantem que o mesmo e-mail não seja consumido duas vezes por diferentes meios. São elas:
+
+* **Excluir:** exclui imediatamente o e-mail do servidor que o Paperless consumiu documentos. Use com cautela.
+* **Marcar como lido**: marca o e-mail consumido como lido. O Paperless não consumirá documentos de e-mails que já foram lidos. Se você ler um e-mail antes do Paperless ver, ele será ignorado.
+* **Sinalizar:** define a sinalização de "importante" nos e-mails com documentos consumidos. O Paperless não consumirá e-mails sinalizados.
+* **Mover para a pasta:** move os e-mails consumidos para uma pasta para que o Paperless não os consuma novamente.
+* **Adicionar etiqueta personalizada:** adiciona uma etiqueta personalizada aos e-mails com documentos consumidos (o padrão IMAP chama essas etiquetas de "palavras-chave"). O Paperless não consumirá e-mails que já tenham etiquetas. Nem todos os servidores de e-mail suportam essa funcionalidade!
+* **O suporte ao Apple Mail:** Os clientes Apple Mail permitem etiquetas de cores diferentes. Para que isso funcione, use apple:<cor> (por exemplo, apple:verde) como etiqueta personalizada. As cores disponíveis são vermelho, laranja, amarelo, azul, verde, violeta e cinza.
+

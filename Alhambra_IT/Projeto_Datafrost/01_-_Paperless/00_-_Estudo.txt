@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T16:02:57-03:00
+
+====== 00 - Estudo ======
+Criado quinta 02 março 2023
+
+* Paperless -> Menos papel
+
+O Paperless-ngx é um sistema de gerenciamento de documentos que ajuda as pessoas a manterem uma quantidade menor de papel ao transformar documentos físicos em arquivos online pesquisáveis.
+
+O software Paperless-ngx é projetado para tornar mais fácil a transição para uma vida sem papel. Ele permite que os usuários alimentem documentos diretamente do correio para o scanner e, em seguida, os destruam, sem se preocupar em perdê-los. 
+
+====== Historia ======
+
+O Paperless-ngx é uma evolução do paperless-ng, que foi bifurcado para continuar o trabalho e distribuir a responsabilidade de apoiar e avançar o projeto entre uma equipe de pessoas. A nova versão apresenta uma interface do usuário aprimorada, tag automático usando aprendizado de máquina, e-mails totalmente testados e prontos para produção, criação de documentos PDF/A pesquisáveis a partir de imagens, integração com filas de processamento de tarefas, criptografia GnuPG e outras melhorias.
+
+NG é uma abreviação que pode ter dois significados no contexto do Paperless-ngx: Angular e next-gen (próxima geração). 
+
+Angular é o framework usado para o frontend do aplicativo.
+
+ A escolha do nome Paperless-ngx para o projeto foi feita para evitar confusão com o projeto Paperless original e para indicar que o Paperless-ngx é uma versão atualizada e melhorada do software.

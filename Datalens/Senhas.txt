@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-17T00:07:13-03:00
+
+====== Senhas ======
+Criado sexta 17 fevereiro 2023
+
+**Senha emal**
+
+Username: ext.atimermann@datalens.com.br
+**Senha antiga**: Zal41961
+81!sS6j7EKz7
+
+
+===== Acesso SQL RPA =====
+datalens-rpa.database.windows.net
+USER: datalens
+ datalens-rpa
+PASS: 36tvv1at3sgvzzf9@
+

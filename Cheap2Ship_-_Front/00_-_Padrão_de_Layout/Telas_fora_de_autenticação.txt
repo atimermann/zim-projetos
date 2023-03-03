@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-11-09T16:34:48-03:00
+
+====== Telas fora de autenticação ======
+Criado quarta 09 novembro 2022
+
+
+Rêrefencia: https://default-homolog-dot-cheap2ship-199518.appspot.com/login
+
+{{./pasted_image.png}}
+
+__TODO: Criar print completo__
+
+* Adicionar atributo solo em todos os campos (sombra)
+* Header do card alinhado para esquerda
+* Cor primary no botão e alinhado para direito
+* Botão com a cor do texto
+* Cabeçalho na pagina com logo da cheap2ship (adicionar print quanto tiver tela pronta)

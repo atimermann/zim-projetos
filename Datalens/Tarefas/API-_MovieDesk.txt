@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-17T14:24:38-03:00
+
+====== API- MovieDesk ======
+Criado sexta 17 fevereiro 2023
+
+====== API - Moviedesks ======
+
+* link da api pelo whatsapp
+* tickets
+	* atualizar tabelas filhos baseado em data de alteração
+	* 3x por dia
+	* atualizar base
+	* ver como puxar ticket
+
+Basicamente sair da API do movie desk e jogar no banco de dados SQL Server da Datatens
+
+* Quando for feito uma atualização  do ticket atualizar no banco de dados
+* robo será executado em horarios fixos
+* lastUpdate: usar essa coluna com todas as alterações deste horario x
+* movie desk aceita 10 request na api por minuto (600 tickets(
+* 1 requisição para ter os ids
+* 1 requisição para cada id
+
+
+=============================================
+
+Exemplo de Requests Movidesk, podem ser testadas usando o Postman
+
+
+ **(Buscar todos os Tickets):**
+https://api.movidesk.com/public/v1/tickets?token=5dd36e8c-d70e-45ef-aa87-29dbc268b047&$select=id
+
+**(Buscar por tickets que vieram apos o periodo informado)**
+https://api.movidesk.com/public/v1/tickets?token=5dd36e8c-d70e-45ef-aa87-29dbc268b047&$select=id&$orderby=id desc&filter=lastUpdate gt 2023-02-15T00:00:00.00z
+
+**(Buscar Ticket Por ID):**
+https://api.movidesk.com/public/v1/tickets?token=5dd36e8c-d70e-45ef-aa87-29dbc268b047&id=13608 
+
+====== 1ª etapa - Carregar informaçõs da API ======
+

@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-03-15T14:31:05-03:00
+
+====== 0005 - Instrução de embarque fornecedor ======
+Criado segunda 15 março 2021
+
+[14:12, 11/03/2021] Alessandro: https://cheap2ship-199518.appspot.com/company/shipping-instruction/resume/378
+[14:12, 11/03/2021] Alessandro: Muda para "view" a rota, quando der
+
+[13:16, 12/03/2021] Alessandro: No lado fornecedor teremos a listagem de instruções de embarque
+[13:16, 12/03/2021] Alessandro: Assim como no lado cliente
+[13:16, 12/03/2021] Alessandro: Onde ele terá a listagem e a opção de detalhar
+[13:16, 12/03/2021] Alessandro: Vai fazendo as rotas e views que eu vou preparar o backend
+
+Sim, só sem o delete, apenas visualizar
+
+{{./pasted_image.png}}
+
+Mesma query, só precisa puxar o auction.company para acessar esses dados novos

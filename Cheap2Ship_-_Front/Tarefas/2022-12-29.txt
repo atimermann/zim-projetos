@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-12-29T16:09:47-03:00
+
+====== 2022-12-29 ======
+Criado quinta 29 dezembro 2022
+**Legenda:**
+[*] Concluído
+[>] Enviado para tarefa (Outros devs)
+
+
+**Tarefas:**
+
+[*] - Mudar campo extra data para select add
+[>] Configurar validação no extraData do campo antigo
+[ ] - Corrigir mutation updateUser ao carregar configuração do usuário
+[ ] - Corrigir tradução do cadastro de fornecedor
+[ ] - Corrigir plural nos menus usando menutitlepluram em vez de criar pluram na tradução
+[ ] - Deixar o FCL e LCL agrupado por group
+[ ] Remover console.log de debug do formulário bid-form2
+[ ] Verificar **TODO**s no bid-form2
+[ ] Depois de tudo testado remover bid-form e outros campos antigos
+[ ] Remover fild do extra-data (agora usa multiplo input padrão)
+[ ] Adicionar bugsnag no bid-form2
+[ ] Criar um controle de versão que force usuario recarregar a página
+[ ] Pedir pro alessandro passar mutation pra excluir grupo
+[ ] Versionar o Front, exibir em algum lugar na tela, enviar pro bugsnag
+[>] Configurar validação no extraData do campo antigo
+[ ] Documentar usuários e senhas padrões no confluence/google drive para demais devs no Formato passado pelo Alessandro
+
+[ ] Ordenar todos os botões para direita
+
+[ ] Descriptio tá duplicado:
+ {{./pasted_image.png}}
+

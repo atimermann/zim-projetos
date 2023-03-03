@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-05-03T13:56:07-03:00
+
+====== 006- Configuração Menus ======
+Criado segunda 03 maio 2021
+
+[18:40, 28/04/2021] Alessandro: Vai funcionar...
+[18:40, 28/04/2021] Alessandro: Por isso tá dando trampo
+[18:41, 28/04/2021] Alessandro: Vamos precisar de mais um menu
+[18:41, 28/04/2021] Alessandro: Mais uma rota
+
+[18:41, 28/04/2021] Alessandro: Menu: Baixar em excel
+[18:41, 28/04/2021] Alessandro: Deixa eu ver a rota
+[18:42, 28/04/2021] Alessandro: https://app-v2.cheap2ship.com/company/auction-group/export
+
+[18:43, 28/04/2021] Alessandro: Aí ficará a lista de clientes, nome e cnpj, e um botão "exporta bids em andamento"
+
+[18:43, 28/04/2021] Alessandro: Consegue ir montando isso?
+
+[18:43, 28/04/2021] Alessandro: Depois passo as queries / mutations
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+[12:01, 05/05/2021] Alessandro: Puxa a branch API-31-exportar-lista-de-bids-e-cotações
+[12:02, 05/05/2021] Alessandro: Query cliente
+[12:02, 05/05/2021] Alessandro: mutation {
+ generateAuctionGroupExcelFile(auctionGroup: {}) {
+	eTag
+	location
+	key
+	bucket
+ }
+}
+[12:02, 05/05/2021] Alessandro: Query fornecedor
+[12:02, 05/05/2021] Alessandro: mutation {
+ generateAuctionGroupExcelFile(auctionGroup: { company: { id: 100 }}}) {
+	eTag
+	location
+	key
+	bucket
+ }
+}
+[12:02, 05/05/2021] Alessandro: Resultado esperado
+[12:02, 05/05/2021] Alessandro: {
+	"data": {
+		"generateAuctionGroupExcelFile": {
+			"eTag": "\"d51c67f35cb98314cbf9afd920765357\"",
+			"location": "https://cheap2ship-website.s3.us-west-2.amazonaws.com/static/company/auctions/attachment/eea0d059-feb2-4b3f-b7f3-9ebd22acb744-f95c71d2-59a6-4e5a-a41a-2c69c6c5717f.xlsx",
+			"key": "static/company/auctions/attachment/eea0d059-feb2-4b3f-b7f3-9ebd22acb744-f95c71d2-59a6-4e5a-a41a-2c69c6c5717f.xlsx",
+			"bucket": "cheap2ship-website"
+		}
+	}
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+[13:12, 06/05/2021] Alessandro: S3Result
+[13:12, 06/05/2021] Alessandro: Leva alguns segundos
+[13:12, 06/05/2021] Alessandro: Pega a URL dele aqui
+[13:42, 06/05/2021] Alessandro: Ficou claro?
+[13:50, 06/05/2021] André Timermann: Sim
+[13:50, 06/05/2021] Alessandro: Tá
+[13:50, 06/05/2021] Alessandro: Vou deitar um pouco
+[13:50, 06/05/2021] Alessandro: Não tô legal
+[13:50, 06/05/2021] André Timermann: Qual query isso para puxar a listagem
+[13:50, 06/05/2021] André Timermann: Blz
+[13:50, 06/05/2021] Alessandro: Que listagem?
+[13:51, 06/05/2021] André Timermann: 👆
+[13:52, 06/05/2021] Alessandro: Ah, libero mais além, hoje
+[13:53, 06/05/2021] André Timermann: Aqui passo a uuid
+[13:53, 06/05/2021] André Timermann: Pra eu testar
+[13:54, 06/05/2021] Alessandro: Id mesmo
+[13:55, 06/05/2021] Alessandro: Mas testa com um cliente logado
+[13:55, 06/05/2021] Alessandro: Só precisa ter bids em andamento
+[13:55, 06/05/2021] André Timermann: Ta
+[13:55, 06/05/2021] Alessandro: Com cotações
+[13:55, 06/05/2021] Alessandro: Daqui a pouco eu volto
+[13:55, 06/05/2021] Alessandro: Eu acho
+[13:55, 06/05/2021] Alessandro: E alinhamos
+
+{{./pasted_image.png}}

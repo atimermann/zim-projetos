@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-02-13T19:23:00-03:00
+
+====== Gerenciamento de Pedido ======
+Criado segunda 13 fevereiro 2023
+
+Tenho grande experiência em sistemas web: Intranet em empesas de grande porte, plataforma de leilão de frete marítimo, plataforma de gestão de automação de processo,
+
+Desenvolvedor senior, com 20 anos de expêriencia no desenvolvimento de sistemas web, ultimos 5 anos trabalhando com VUEJS, NUXTJS e NODEJS

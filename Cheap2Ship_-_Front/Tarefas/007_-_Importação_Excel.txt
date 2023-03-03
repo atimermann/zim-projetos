@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-05-25T18:12:23-03:00
+
+====== 007 - Importação Excel ======
+Criado terça 25 maio 2021
+
+http://localhost:3000/auction-group/upload-excel-file
+
+
+{ status: 'error', cellsErrors: parseExcel.cellsErrors };
+cellsErrors =  cellsErrors.push({ line, address: cell.address, error });

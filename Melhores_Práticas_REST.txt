@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-04-11T17:46:06-03:00
+
+====== Melhores Práticas REST ======
+Criado domingo 11 abril 2021
+
+* Usar apenas substantivos para os recursos não ação ou verbo
+* Usar plural (Evite singular)
+* Usar HTTP STATUS Code
+	* 2xx – Success
+	* 4xx – Client Error
+	* 5xx – Server Error
+	* https://httpstatuses.com.
+* Versionamento
+	* /api/v1/**recurso**
+
+
+
+
+https://imasters.com.br/apis-microsservicos/restful-api-melhores-praticas#:~:text=%C3%89%20intuitivo%20usar%20substantivos%20no,a%20ser%20executada%20pelo%20recurso.

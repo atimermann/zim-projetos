@@ -1,33 +1,149 @@
 Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
+Wiki-Format: zim 0.6
 Creation-Date: 2020-12-01T18:18:04-03:00
 
 ====== Senhas ======
 Created terça 01 dezembro 2020
 
-{
-	"username": "agente1@gmail.com",
-	"password": "Cubs3562rb"
-}
+====== Hub de E-mail ======
+{{./pasted_image002.png}}
+GMAIL que recebe dos emails acima
 
-{
-	"username": "agente2@gmail.com",
-	"password": "Cubs3562rb"
-}
+dev-mailbox@cheap2ship.com
+umasenhabemlonga
 
-{
-	"username": "alless@cheap2ship.com",
-	"password": "Cubs3562rb"
-}
+====== Company ======
 
-**Cliente:**
-alless@cheap2ship.com
+**~~Deploy Prod:~~**
+~~RcXcJXK4cFuePzX3b3L8~~
+~~RcXcJXK4cFuePzX3b3L8~~
+~~RcXcJXK4cFuePzX3b3L8~~
+
+~~{~~
+	~~"username": "agente1@gmail.com",~~
+	~~"password": "Cubs3562rb"~~
+~~}~~
+
+~~{~~
+	~~"username": "agente2@gmail.com",~~
+	~~"password": "Cubs3562rb"~~
+~~}~~
+
+~~{~~
+	~~"username": "alless@cheap2ship.com",~~
+	~~"password": "Cubs3562rb"~~
+~~}~~
+
+==== Principal ====
+dev-company-any-1@cheap2ship.info
+umasenhabemlonga
+
+====== Fornecedor ======
+
+==== Freight-forwarder ====
+
+dev-provider-spot-2@cheap2ship.info
+umasenhabemlonga
+
+==== Land carrier ====
+dev-land-carrier-1@cheap2ship.info
+Senha: umasenhabemlonga
+
+fornecedor.c2s@gmail.com
 Cubs3562rb
 
+~~agente2@gmail.com~~
+~~Cubs3562rb~~
 
-**Fornecedor:**
 agente-bid-2@cheap2ship.com
 Cubs3562rb
 
+Forncedor Teste
+fornecedor@gmail.com
+Teste1234
+
+~~agentedemo2@cheap2ship.com~~
+~~Cubs3562rb~~
+
+**~~agentedemo1@cheap2ship.com~~**
+**~~onix2014~~**
+
+**~~agentedemo2@cheap2ship.com~~**
+**~~onix2014~~**
+
+agentedemo2@cheap2ship.com
+onix2014
+
+http://localhost:3030/freight-forwarder/spot/auction/bid/cf577948-0839-45dd-a4d5-e0af2b1311bb
 
 MODAL FCL / EXPORTAÇÃO
+
+colorcon.cheap2ship@gmail.com
+Onix2014!@
+
+
+
+
+====== Teste ======
+
+marfrig-teste.c2s@gmail.com
+Onix2014
+
+
+
+====== Teste Invite ======
+
+agente2@teste.com.br
+
+{{./pasted_image.png}}
+
+
+
+fiz um monta de rascunho aqui pra conseguir criar uma imagem do problema todo, então ficou assim:
+
+====== Problema 1 ======
+
+**Objetivos:** Realizar Testes Manuais: Permitir testes de versões diferentes tendo uma URL para cada release ou no diragrama novo QA 
+
+**Como o processo é disparado?**
+	Opção 1: Manualmente, sempre que o Front e o Back criar uma nova release
+	Opção 2: 1x por semana, toda sexta
+**Como fazer isso?**
+	- Montar no Google Cloud Run um container ou mais  pegando a ultima versão  do front/back/banco de dados
+	- Gera uma branch QA em todos os repositorios, e carrega na URL 
+	- As versões devem ser compátiveis, seguindo a regra FRONT versão 2.1.4 deve carregar BACK 2.1.X
+	- O Processo serão executados nos servidores do Google Cloud
+**Quem vai orquestrar esse processo?**
+	- [[CircleCi]] e scripts bash/shell
+	
+**Observações:**
+	- Isso não está relacionado com testes
+	- Os testes de cada ambiente (front/back/banco) já estarão testados separadamente
+
+
+====== Problema 2 ======
+
+**Objetivos:** Realizar testes de cada PR do front com a versão compativel do BACK e com uma URL própria de fácil acesso no Google Cloud RUN
+
+**Como o processo é disparado?**
+	- Toda vez que um PR for aberto
+**Como fazer isso?**
+	-  Váris vesões do back (de teste) deve estar implantada no google cloud Run
+	- O front simplesmente vai definir a URL da ultima versão do Back compatível
+	- O teste será realizado nos servidores do [[CircleCi]]
+	- Após os testes concluídos deve ser realizado implantação da versão no Google Cloud Run
+**Quem vai orquestrar esse processo?**
+	- [[CircleCi]] e scripts Shel
+
+**Observações:**
+	- Como vamos verificar a versão? vamos colocar em um arquivo VERSION?
+	- pode existir casos em que o front está desenvolvendo uma funcionalidade do back q ainda não está versionado, como trataremos isso?
+	- Para automação o Front deve ter uma mandeira de perguntar para alguém, qual ultima versão do back disponível?
+	- O Circle Ci vai precsiar de acesso ao api do google cloud Run
+	
+
+
+
+
+
+

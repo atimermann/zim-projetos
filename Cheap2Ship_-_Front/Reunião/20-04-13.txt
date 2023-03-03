@@ -18,3 +18,4 @@ BID -> agrupamento de cotação
 * Agente de carga são cadastrado pelo cliente de forma compulsória
 
 * refazer login
+

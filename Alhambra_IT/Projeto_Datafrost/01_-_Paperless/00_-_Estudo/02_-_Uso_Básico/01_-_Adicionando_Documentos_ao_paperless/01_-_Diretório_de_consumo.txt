@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:42:30-03:00
+
+====== 01 - Diretório de consumo ======
+Criado quinta 02 março 2023
+
+O método principal de adicionar documentos é colocá-los no diretório de consumo. 
+O consumidor do Paperless fica aguardando pacientemente por novos documentos neste diretório. 
+Quando encontra novos documentos, o consumidor faz a leitura óptica de caracteres (OCR), indexa o que encontra e armazena na pasta de mídia. 
+Você pode adicionar documentos arrastando e soltando-os no diretório de consumo, ou configurar algum tipo de serviço para enviar arquivos automaticamente para essa pasta (como um servidor FTP ou um compartilhamento de pasta do Windows com Samba).

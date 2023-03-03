@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-05-21T16:11:45-03:00
+
+====== Acesso SSH Servidor Homol e Prod ======
+Criado sexta 21 maio 2021
+
+**Homologação**
+gcloud beta compute ssh --zone "southamerica-east1-b" "bi-cron"  --project "cheap2ship-199518"
+
+**Produção**
+gcloud beta compute ssh --zone "southamerica-east1-b" "api" --project "cheap2ship-199518"

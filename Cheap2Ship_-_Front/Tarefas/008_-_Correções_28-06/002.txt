@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2021-06-28T13:06:09-03:00
+
+====== 002 ======
+Criado segunda 28 junho 2021
+
+Verificar o erro
+
+{{../../../Reunião/21-06-14/pasted_image001.png}}
