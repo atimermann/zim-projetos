@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-04-15T22:53:38-03:00
+
+====== Configuração VMs ======
+Criado sábado 15 abril 2023
+
+====== CENTOS ======
+yum install epel-release -y
+yum update
+yum upgrade
+yum install htop nodejs npm git -y
+
+===== Docker =====
+curl -fsSL https://get.docker.com -o get-docker.sh
+systemctl enable docker.service docker.socket
+systemctl start docker.service docker.socket
+
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+
+===== Segurança usuário =====
+Trocar senha
+
+ssh-keygen -t rsa -b 4096 -f keys/**[NOME_DA_MAQUINA]**
+ssh-copy-id -i  keys/**[NOME_DA_MAQUINA]** [[user@ip]]
+
+**Cria script:**
+connect_maquina.sh
+{{{code: lang="sh" linenumbers="True"
+#!/bin/bash
+ssh -i keys/docker-dev-1 dev.alhambra@10.254.60.82
+}}}
+
+===== Configuração stacks docker-compose =====
+
+criado pasta stacks
+Configurado chaves de implantação
+clonado git com ip 10.254.60.21
+
+
+
+
+
+

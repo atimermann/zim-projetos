@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-29T20:26:45-03:00
+
+====== 2023-08-29 ======
+Criado terça 29 agosto 2023
+
+Finalizar BRCAPTURA Até QUINTA
+Finalizar SANKYA até QUINTA
+Migrar Zendesk -> Moviedesk

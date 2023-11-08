@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-10-10T20:51:00-03:00
+
+====== 2023-10-10 ======
+Criado terça 10 outubro 2023
+
+- Liberar versão aplicação porta 443
+**- PRECISA ESTAR PRONTO NO SÀBADO 14/10**
+
+- Verificar no Sankya qual tem o usuário
+- Separar manutenção com projeto
+
+
+

@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:48:50-03:00
+
+====== 03 - Buscando ======
+Criado quinta 02 março 2023
+
+====== Resumo ======
+
+
+
+Em resumo, o Paperless oferece um mecanismo de busca que permite encontrar rapidamente um documento com base em seu conteúdo, título, correspondente, tipo e tags. 
+
+Ele retorna uma lista classificada de resultados com pontuação, para que os documentos que correspondem melhor à sua consulta apareçam mais acima nos resultados de pesquisa. 
+
+Além disso, ele oferece uma sintaxe de pesquisa avançada para refinar ainda mais os resultados da pesquisa, permitindo que você combine operadores lógicos, datas e termos de busca inexactos. 
+
+Toda a linguagem de consulta usada pelo Paperless é baseada na linguagem de consulta padrão do **Whoosh.**
+
+====== Detalhe ======
+
+O Paperless oferece um mecanismo de busca extensivo que é projetado para permitir que você encontre rapidamente um documento que está procurando (por exemplo, aquela coisa que acabou de quebrar e você comprou há alguns meses, aquele contrato que você assinou há 8 anos).
+
+Ao pesquisar no Paperless por um documento, ele tenta corresponder à sua consulta com seus documentos. O Paperless procurará documentos correspondentes, examinando seu conteúdo, título, correspondente, tipo e tags. O Paperless retorna uma lista de resultados classificados, para que os documentos que correspondem melhor à sua consulta apareçam mais acima nos resultados da pesquisa.
+
+Por padrão, o Paperless retorna apenas documentos que contêm todas as palavras digitadas na barra de pesquisa. 
+No entanto, o Paperless também oferece uma sintaxe de busca avançada se você quiser refinar ainda mais os resultados.
+
+Correspondendo documentos com expressões lógicas:
+	**nomedaloja AND (produto1 OU produto2)**
+
+Correspondendo a tags, correspondentes ou tipos específicos:
+   **tipo:fatura tag:pendente**
+   **correspondente:certificado universitário**
+
+Correspondendo a datas:
+	**criado:[2005 a 2009]**
+	**adicionado:ontem**
+	**modificado:hoje**
+
+Correspondendo a palavras inexatas:
+   **nomedoprodu*to**
+
+
+==== Observação ====
+Termos inexatos são difíceis para os índices de pesquisa. Essas consultas podem demorar um pouco para serem executadas. Por isso, o Paperless oferece auto preenchimento e correção de consulta.
+
+Todos esses construtos podem ser combinados como você achar melhor. 
+Se você quiser saber mais sobre a linguagem de consulta usada pelo Paperless, o Paperless usa a linguagem de consulta padrão do **Whoosh**.
+Confira a linguagem de consulta do Whoosh. Para detalhes sobre quais utilitários de análise de data estão disponíveis, consulte Análise de data.

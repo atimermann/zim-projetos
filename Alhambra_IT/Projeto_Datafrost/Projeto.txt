@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-06-14T00:17:13-03:00
+
+====== Projeto ======
+Criado quarta 14 junho 2023
+
+
+====== Etapa 01 digitalização e salvar no banco ======
+
+https://chat.openai.com/c/1af781f3-70c2-4d81-9ab7-852c5babbeea
+
+[ ] [WEB] - Digitalização  imagem
+	[ ] Identificar Scanner compatível, verificar
+	[ ] Configurar para 300DPI
+	[ ] Desenhar interface gráfica
+
+[ ] [WEB] - Upload Imagem para Core
+[ ] [CORE] - Recebe imagem
+[ ] [CORE] -> Salva imagem no [[MiniIo]]
+[ ] [CORE] -> Salva referência no banco de dados (MODELAR BANCO DE DADOS)
+[ ] [CORE] -> Coloca Tarefa na fila do [[RabbitMQ]]
+
+
+===== Interface Gráfica =====
+
+* Abrir um websocket de comunicação direta com CORE
+* Ao enviar imagem para o core, responder com miniatura para ser listada embaixo como lista de documentos
+* Botão Fechar documento
+
+

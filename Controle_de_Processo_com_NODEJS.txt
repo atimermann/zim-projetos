@@ -1,0 +1,158 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-10T00:13:02-03:00
+
+====== Controle de Processo com NODEJS ======
+Criado quarta 10 maio 2023
+
+
+====== CONTROLE DE PROCESSO ======
+
+
+Sim, você pode usar child.kill('SIGKILL') para enviar um sinal SIGKILL para o processo filho. O sinal SIGKILL, cujo valor é tipicamente 9, é um sinal não capturável que instrui o sistema a terminar o processo imediatamente.
+
+Aqui está um exemplo:
+
+javascript
+Copy code
+const { fork } = require('child_process');
+
+const child = fork('./child.js');
+
+// Envia uma mensagem para o processo filho
+child.send({ hello: 'world' });
+
+// Define um tempo limite para o processo filho
+const timeoutId = setTimeout(() => {
+  child.kill('SIGKILL'); // Envia o sinal SIGKILL para o processo filho após o tempo limite
+}, 5000);
+
+child.on('exit', () => {
+  clearTimeout(timeoutId); // Limpa o tempo limite quando o processo filho sai
+});
+
+child.on('message', (msg) => {
+  console.log('PARENT got message:', msg);
+});
+Mas cuidado, 'SIGKILL' deve ser usado como último recurso para terminar um processo. Isso é porque 'SIGKILL' termina o processo imediatamente e não dá ao processo a chance de limpar ou terminar qualquer operação pendente. Isso pode resultar em um estado inconsistente ou dados corrompidos. É geralmente melhor tentar 'SIGTERM' primeiro, que é um sinal capturável que pede ao processo para terminar de forma limpa. Se o processo não responder ao 'SIGTERM' depois de algum tempo, então você pode tentar 'SIGKILL'.
+
+
+
+
+
+User
+Blz, mas isso resolve meu problema? posso fazer um código q executa SIGTERM se demorar executa SIGKILL
+ChatGPT
+Sim, essa estratégia geralmente é uma boa prática quando se tenta terminar um processo que pode estar demorando demais ou travado. Primeiro, você envia um sinal SIGTERM, que solicita que o processo termine de maneira limpa. Se o processo não terminar após um certo período de tempo, você pode então enviar um sinal SIGKILL para forçar o término do processo. Aqui está um exemplo de como isso pode ser feito:
+
+javascript
+Copy code
+const { fork } = require('child_process');
+
+const child = fork('./child.js');
+
+// Envia uma mensagem para o processo filho
+child.send({ hello: 'world' });
+
+// Define um tempo limite para o processo filho
+let timeoutId = setTimeout(() => {
+  console.log('Child process taking too long - sending SIGTERM');
+  child.kill('SIGTERM'); // Envia o sinal SIGTERM para o processo filho após o tempo limite
+
+  // Define um segundo tempo limite para forçar a terminação se o SIGTERM não funcionar
+  timeoutId = setTimeout(() => {
+	console.log('Child process still not terminated - sending SIGKILL');
+	child.kill('SIGKILL'); // Envia o sinal SIGKILL para o processo filho após o segundo tempo limite
+  }, 5000);
+
+}, 5000);
+
+child.on('exit', () => {
+  clearTimeout(timeoutId); // Limpa o tempo limite quando o processo filho sai
+});
+
+child.on('message', (msg) => {
+  console.log('PARENT got message:', msg);
+});
+Por favor, note que este código pressupõe que o script child.js está configurado para lidar corretamente com o sinal SIGTERM. Se o seu script filho não está configurado para ouvir e agir de acordo com sinais SIGTERM, ele não vai terminar quando o sinal SIGTERM é enviado, e você vai acabar enviando um sinal SIGKILL depois do segundo tempo limite.
+
+
+
+
+
+User
+eu poderia usar o PM2 programaticamente pra fazer esse tipo de controle?
+
+Gostaria de criar uma aplicação em nodejs e gerencia execução de varios códigos agendado, exemplo 4x por dia
+
+porém caso o processo ainda esteja em execução depois de 6 horas então termina e executa novamente
+ChatGPT
+Sim, você pode usar o PM2 programaticamente para gerenciar processos em Node.js. O PM2 fornece uma maneira de iniciar, parar e monitorar processos, e pode ser particularmente útil em situações onde você precisa gerenciar vários processos ao mesmo tempo.
+
+No entanto, note que o PM2 não fornece um mecanismo de tempo limite embutido que irá automaticamente terminar um processo após um determinado período de tempo. Para conseguir isso, você precisará implementar seu próprio mecanismo de tempo limite, similar ao exemplo de código que forneci anteriormente.
+
+Dito isso, você poderia usar o PM2 juntamente com a biblioteca node-cron para agendar a execução de scripts em intervalos específicos. Por exemplo, você pode usar o node-cron para agendar a execução de um script que inicia um processo PM2, e então termina esse processo após 6 horas, caso ele ainda esteja em execução.
+
+Aqui está um exemplo básico de como isso poderia funcionar:
+
+javascript
+Copy code
+const cron = require('node-cron');
+const pm2 = require('pm2');
+
+// Inicia o PM2
+pm2.connect((err) => {
+  if (err) {
+	console.error(err);
+	process.exit(2);
+  }
+
+  // Agendar a execução do script 4 vezes por dia
+  cron.schedule('0 */6 * * *', () => {
+	// Inicia o processo
+	pm2.start({
+	  name: 'my-process',
+	  script: './my-script.js' // Caminho para o seu script
+	}, (err) => {
+	  if (err) {
+		console.error('Erro ao iniciar o processo:', err);
+	  }
+
+	  // Terminar o processo após 6 horas, se ainda estiver em execução
+	  setTimeout(() => {
+		pm2.stop('my-process', (err) => {
+		  if (err) {
+			console.error('Erro ao parar o processo:', err);
+		  }
+		});
+	  }, 6 * 60 * 60 * 1000); // 6 horas em milissegundos
+	});
+  });
+});
+Este é um exemplo simples e existem muitas outras opções disponíveis quando você está trabalhando com PM2 e node-cron, então eu recomendaria que você leia a documentação dessas bibliotecas para obter uma compreensão completa de como elas funcionam e o que você pode fazer com elas.
+
+Além disso, tenha em mente que este exemplo pressupõe que seu script pode ser parado de maneira segura a qualquer momento. Se seu script precisa limpar recursos ou completar tarefas antes de sair, você precisará implementar isso no próprio script.
+
+
+
+
+
+User
+qual é melhor? usar pm2 ou implementar com child_process?
+ChatGPT
+Ambos pm2 e child_process têm seus próprios usos e benefícios, e a melhor escolha depende das necessidades específicas do seu projeto.
+
+O pm2 é um gerenciador de processo de produção para aplicações Node.js que possui um conjunto de recursos avançados, incluindo:
+
+Gerenciamento de processos: iniciar, parar, reiniciar e listar processos em execução.
+Balanceamento de carga e clusterização: pode iniciar várias instâncias de um aplicativo e balancear a carga entre elas.
+Monitoramento: mantém o controle do uso de memória e CPU.
+Recuperação de falhas: reinicia automaticamente os processos que caíram.
+Logs: agrega logs de todos os processos.
+O pm2 é uma excelente escolha se você estiver implantando uma aplicação Node.js em produção, pois ele fornecerá uma série de ferramentas para ajudar a manter sua aplicação funcionando de forma suave e eficiente.
+
+Por outro lado, o módulo child_process do Node.js permite criar e gerenciar processos filhos de forma direta e é uma parte integrada do Node.js. Ele é mais simples que o pm2 e não vem com muitos dos recursos avançados que o pm2 oferece. No entanto, ele dá a você um controle mais direto e granular sobre os processos que você cria.
+
+Se você está simplesmente executando algumas tarefas em segundo plano e não precisa das características avançadas do pm2, child_process pode ser suficiente para suas necessidades. Mas se você está implantando uma aplicação em produção e precisa de recursos como balanceamento de carga, recuperação de falhas e monitoramento, pm2 provavelmente seria a melhor escolha.
+
+Finalmente, é importante notar que pm2 e child_process não são mutuamente exclusivos. Você pode usar pm2 para gerenciar sua aplicação em um nível alto, enquanto ainda usa child_process para criar processos filhos conforme necessário dentro de sua aplicação.

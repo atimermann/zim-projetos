@@ -1,0 +1,51 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:48:42-03:00
+
+====== 02 - Melhores Práticas ======
+Criado quinta 02 março 2023
+
+O Paperless oferece algumas ferramentas que ajudam a organizar sua coleção de documentos. 
+No entanto, cabe a você usá-las de maneira que ajude a organizar documentos e encontrar documentos específicos quando precisar deles. 
+Esta seção oferece algumas ideias para gerenciar sua coleção.
+
+Os tipos de documentos permitem classificar os documentos de acordo com o que eles são. 
+Você pode definir tipos como "Recibo", "Fatura" ou "Contrato". 
+Se você costumava coletar todos os seus recibos em um único fichário, pode recriar esse sistema no Paperless definindo um tipo de documento, atribuindo documentos a esse tipo e, em seguida, filtrando por esse tipo para ver apenas todos os recibos.
+
+Nem todos os documentos precisam de tipos de documentos. 
+
+Às vezes, é difícil determinar o tipo de um documento ou é difícil justificar a criação de um tipo de documento que você só precisa uma ou duas vezes. 
+Isso é normal. 
+Desde que os tipos que você define ajudem a organizar sua coleção da maneira que deseja, o Paperless está fazendo seu trabalho.
+
+As tags podem ser usadas de muitas maneiras diferentes. Pense em tags como pastas ou fichários mais versáteis. 
+Se você tiver um fichário para documentos relacionados à universidade / seu carro ou atendimento médico, poderá criar esses fichários no Paperless criando tags e atribuindo-as a documentos relevantes. 
+Assim como com documentos, você pode filtrar a lista de documentos por tags e ver apenas documentos de um determinado tópico.
+
+Com documentos físicos, muitas vezes você precisa decidir em qual pasta o documento pertence. 
+A vantagem das tags em relação a pastas e fichários é que um único documento pode ter várias tags. 
+Um documento físico não pode magicamente aparecer em duas pastas diferentes, mas com tags, isso é totalmente possível.
+
+===== Dica =====
+Isso pode ser usado de muitas maneiras diferentes. 
+**Um exemplo:** 
+	imagine que você está trabalhando em uma tarefa específica, como se inscrever na universidade. 
+	Geralmente, você precisará coletar vários documentos diferentes que já estão organizados em várias pastas. 
+	Com o sistema de tags do Paperless, você pode criar um novo grupo de documentos que são relevantes para essa tarefa sem destruir a organização já existente. 
+	Quando terminar a tarefa, você poderá excluir a tag novamente, o que seria igual a classificar os documentos de volta na pasta a que pertencem. 
+	Ou mantenha a tag, depende de você.
+
+Toda a lógica acima se aplica também a **correspondentes**. Anexe-os a documentos se sentir que eles ajudam a organizar sua coleção.
+
+Quando você começar a organizar seus documentos, crie algumas **visualizações** salvas para coleções de documentos que você acessa regularmente. 
+Isso é igual a ter pastas rotuladas fisicamente em sua mesa, exceto que essas visualizações salvas são dinâmicas e simplesmente se atualizam à medida que você adiciona documentos ao sistema.
+
+Estes são alguns exemplos de tags e tipos que você pode usar na sua coleção de documentos:
+
+Uma tag **"inbox"** para documentos recém-adicionados que ainda não foram editados manualmente.
+Uma tag **"carro"** para tudo relacionado ao carro (reparos, registro, seguro, etc.).
+Uma tag **"para fazer"** para documentos que ainda precisam de alguma ação, como responder ou realizar alguma tarefa online.
+Uma tag **"conta bancária X"** para todos os extratos bancários relacionados a essa conta.
+Uma tag **"e-mail"** para tudo que você adicionou ao paperless por meio da funcionalidade de processamento de e-mail.
+Uma tag **"metadados faltando"** quando você ainda precisa adicionar alguns metadados a um documento, mas não pode ou não quer fazer isso agora.

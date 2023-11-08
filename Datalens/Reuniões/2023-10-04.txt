@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-10-04T15:27:46-03:00
+
+====== 2023-10-04 ======
+Criado quarta 04 outubro 2023
+
+====== Atualizar ResourceController ======
+
+**Rodar ResourceController datalens**
+234 itens
+
+====== Menu Automação ======
+
+* **[SEGUNDO PASSO]** Adicionado Gráfico de dagradação
+* [SEGUNDO PASSO] Ao passar o mouse no Progresso detalhado
+
+* Focar no Sankia
+* Adicionar legenda
+* No futuro fazer administração de usuário do frontend Datalens
+* Botões de controle de execução
+* Vamos implantar um certificado let's encrypt

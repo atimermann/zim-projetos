@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:21:39-03:00
+
+====== 03 - Processamento de documentos no paperless ======
+Criado quinta 02 março 2023
+
+Processamento de documentos no Paperless
+
+Depois de escanear um documento, siga os seguintes passos no Paperless:
+
+1. Se o documento tiver um ASN, atribua o ASN ao documento.
+2. Atribua um correspondente ao documento (por exemplo, seu empregador, banco, etc). Isso não é estritamente necessário, mas ajuda a encontrar um documento quando você precisa dele.
+3. Atribua um tipo de documento (por exemplo, fatura, extrato bancário, etc.) ao documento. Isso não é estritamente necessário, mas ajuda a encontrar um documento quando você precisa dele.
+4. Atribua um título adequado ao documento (o nome de um item que você comprou, o assunto da carta, etc.)
+5. Verifique se a data do documento está correta. O Paperless tenta ler a data do conteúdo do documento, mas isso falha às vezes se o OCR estiver ruim ou se houver várias datas no documento.
+6. Remova as tags de caixa de entrada dos documentos.
+
+
+==== Dica ====
+
+Você pode configurar regras de correspondência manual para seus correspondentes e tags e o Paperless irá atribuí-los automaticamente. 
+Após consumir alguns documentos, você pode até mesmo pedir ao Paperless para aprender quando atribuir tags e correspondentes por si só. 
+Para mais detalhes sobre essa funcionalidade, consulte a correspondência avançada.

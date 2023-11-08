@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-17T01:10:17-03:00
+
+====== Projeto ======
+Criado sexta 17 março 2023
+
+Criar um projeto para automação de api rápida
+
+* Criar uma base de código parar criar novos projetos backend (Usar o sindri?)
+* ~~Usar Socket Cluster para rodar em paralelo (SocketCluster.io)~~
+	* ~~https://blog.appsignal.com/2021/02/03/improving-node-application-performance-with-clustering.html~~
+* Usar Prisma
+
+
+====== RD Stations - Marketing ======
+
+https://developers.rdstation.com/reference/autenticacao
+
+Primeiro token deverá ser feito manualmente. Documentar bem processo, para q seja rápido quando for necessário
+
+o resto é o padrão do TOKEN, obtém tokeon e envia no HEADER de cada requisição:
+
+**Authorization: Bearer access_token**
+**Content-Type: application/json**
+**authorization: Bearer <<TOKEN_AQUI>>**

@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:42:13-03:00
+
+====== 01 - Adicionando Documentos ao paperless ======
+Criado quinta 02 março 2023
+
+Ao adicionar documentos ao Paperless, o software executará as seguintes operações nos seus documentos:
+
+1- Realizar OCR no documento, caso não possua texto. Documentos digitais geralmente possuem texto, então essa etapa será ignorada para esses documentos.
+
+2- O Paperless criará um documento PDF/A arquivável a partir do seu documento. Se este documento vier do seu scanner, ele terá um texto selecionável incorporado.
+
+3- O Paperless executa uma correspondência automática de tags, correspondentes e tipos no documento antes de armazená-lo no banco de dados.
+
+**IMPORTANTE:** Independentemente das opções que você escolher, o Paperless sempre armazenará o documento original encontrado no diretório de consumo ou no correio e nunca substituirá esse documento. As versões arquivadas são armazenadas junto com as versões originais
+
+Existem vários métodos de carregar documento no paperless
+
+
+

@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:49:04-03:00
+
+====== 05 - Arquitetura ======
+Criado quinta 02 março 2023
+
+O Paperless-ngx consiste nos seguintes componentes:
+
+====== O servidor web ======
+
+Ele serve as páginas de administração, a API e a nova interface. Esta é a principal ferramenta que você usará para interagir com o Paperless. Você pode iniciar o servidor web diretamente com:
+
+	**$ cd /caminho/para/paperless/src/**
+	**$ gunicorn -c ../gunicorn.conf.py paperless.wsgi**
+
+ou por qualquer outro meio, como o módulo Apache mod_wsgi.
+
+====== O consumidor: ======
+
+É o que observa sua pasta de consumo de documentos. 
+No entanto, o consumidor em si não consome seus documentos. 
+Ele notifica um processador de tarefas de que um novo arquivo está pronto para ser consumido. 
+Supõe-se que ele deva ter um nome diferente. Isso também era usado para verificar seus e-mails, mas agora é feito em outro lugar.
+
+Inicie o consumidor com o comando de gerenciamento document_consumer:
+
+	**$ cd /caminho/para/paperless/src/**
+	**$ python3 manage.py document_consumer**
+
+====== O processador de tarefas: ======
+
+O Paperless depende do **Celery - Distributed Task Queue** para fazer a maior parte do trabalho pesado. 
+Esta é uma fila de tarefas que aceita tarefas de várias fontes e as processa em paralelo. 
+Ele também vem com um agendador que executa determinados comandos periodicamente.
+
+Este processador de tarefas é responsável por:
+
+* **Consumir documentos**. Quando o consumidor encontra novos documentos, ele notifica o processador de tarefas para iniciar uma tarefa de consumo.
+* O processador de tarefas também realiza o consumo de quaisquer documentos que você envia por meio da interface web.
+* **Consumir e-mails.** Ele verifica periodicamente suas contas configuradas em busca de novos e-mails e notifica o processador de tarefas para consumir o anexo de um e-mail.
+* **Manter o índice de pesquisa e o algoritmo de correspondência automática**. Estas são coisas que o paperless precisa fazer de vez em quando para operar corretamente.
+	* Isso permite que o Paperless processe vários documentos da sua pasta de consumo em paralelo! Em um sistema moderno de vários núcleos, isso torna o processo de consumo com OCR completo extremamente rápido.
+	* O processador de tarefas vem com uma interface de administração integrada que você pode usar para verificar se alguma das tarefas falhou e inspecionar os erros (ou seja, credenciais de e-mail incorretas, erros durante a ingestão de um arquivo específico, etc).
+
+* **Um corretor de mensagens Redis:**  este é um serviço muito leve que é responsável por obter as tarefas do servidor da web e do consumidor para o agendador de tarefas. Eles são executados em um processo diferente (talvez até em máquinas diferentes!), E, portanto, isso é necessário.
+
+* **Opcional:** um servidor de banco de dados. O Paperless suporta PostgreSQL, MariaDB e SQLite para armazenar seus dados.
+

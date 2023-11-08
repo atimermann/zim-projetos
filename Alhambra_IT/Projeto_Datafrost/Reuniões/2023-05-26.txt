@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-26T20:23:42-03:00
+
+====== 2023-05-26 ======
+Criado sexta 26 maio 2023
+
+* Pensar no GED
+	* Pensar em apresentar em uma API
+	* Ou disponibilizar interno 
+	* Pesquisar GEDs pronto
+
+* O cara que paga só quer buscar documento com facilidade
+* o digitalizador nao tem acesso ao documentos escaneado
+* 

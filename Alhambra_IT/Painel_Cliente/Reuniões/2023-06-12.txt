@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-06-12T15:36:01-03:00
+
+====== 2023-06-12 ======
+Criado segunda 12 junho 2023
+
+* Uma camada acima do AD para dar visibilidade para leigos
+* radious ???
+* Estudar autenticação via OPEN_ID
+* Radious apenas um intermediario
+* Permissão e autenticação fica no banco de dados
+* LDAP é um banco de dados
+
+como integrar LDAP de form clara para gestores entender
+
+
+* Ver o iTo**p**
+* ver ansible (instrução replicável)
+
+
+**OBJETIVO é dar visibilidade as empresas que contratam empresa de T.I. sobre os acessoe e tirar o poder da emrpesa de TI**
+**Criar uma ferramenta fácil para as empresas auditarem as permissões e autenticação**
+

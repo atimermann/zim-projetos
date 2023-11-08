@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:43:31-03:00
+
+====== 04 - IMAP (e-mail) ======
+Criado quinta 02 março 2023
+
+===== 4 - IMAP (E-mail) =====
+
+O método IMAP permite que você configure o Paperless para consumir documentos diretamente das suas contas de e-mail. 
+Isso pode ser muito útil se você receber regularmente documentos por e-mail que precisam ser arquivados. 
+O consumidor de e-mail pode ser configurado através das configurações de frontend (/configurações/e-mail) da seguinte maneira:
+
+1. Defina suas contas de e-mail.
+2. Defina regras de e-mail para cada conta.
+
+**Essas regras executam as seguintes ações:**
+
+1. Conecta ao servidor de e-mail.
+2. Recupera todos os e-mails que correspondem às regras (definidas por pasta, idade máxima e filtros).
+3. Verifica se há anexos que possam ser consumidos.
+4. Se houver, instrui o Paperless a consumir os anexos e, opcionalmente, usar os metadados fornecidos na regra para o novo documento.
+5. Se os documentos foram consumidos de um e-mail, a ação da regra é executada nesse e-mail.
+
+O Paperless ignorará completamente os e-mails que não correspondem aos filtros definidos nas regras. Além disso, ele só executará a ação nas mensagens de e-mail das quais consumiu documentos.
+
+As ações garantem que o mesmo e-mail não seja consumido duas vezes por diferentes meios. São elas:
+
+* **Excluir:** exclui imediatamente o e-mail do servidor que o Paperless consumiu documentos. Use com cautela.
+* **Marcar como lido**: marca o e-mail consumido como lido. O Paperless não consumirá documentos de e-mails que já foram lidos. Se você ler um e-mail antes do Paperless ver, ele será ignorado.
+* **Sinalizar:** define a sinalização de "importante" nos e-mails com documentos consumidos. O Paperless não consumirá e-mails sinalizados.
+* **Mover para a pasta:** move os e-mails consumidos para uma pasta para que o Paperless não os consuma novamente.
+* **Adicionar etiqueta personalizada:** adiciona uma etiqueta personalizada aos e-mails com documentos consumidos (o padrão IMAP chama essas etiquetas de "palavras-chave"). O Paperless não consumirá e-mails que já tenham etiquetas. Nem todos os servidores de e-mail suportam essa funcionalidade!
+* **O suporte ao Apple Mail:** Os clientes Apple Mail permitem etiquetas de cores diferentes. Para que isso funcione, use apple:<cor> (por exemplo, apple:verde) como etiqueta personalizada. As cores disponíveis são vermelho, laranja, amarelo, azul, verde, violeta e cinza.
+
+===== Aviso: =====
+O consumidor de e-mail executará essas ações em todos os e-mails dos quais consumir documentos. Tenha em mente que o processo de consumo real pode falhar por algum motivo, deixando você com documentos ausentes no Paperless.
+
+===== Observação =====
+Com o conjunto correto de regras, você pode automatizar completamente seus documentos de e-mail. Crie regras para cada correspondente de quem você recebe documentos digitais e o Paperless os lerá automaticamente. A ação padrão "marcar como lido" é bastante tranquila e não causará nenhum dano ou perda de dados.
+
+Você também pode configurar uma pasta especial em sua conta de e-mail para o Paperless e usar seu cliente de e-mail favorito para mover automaticamente ou manualmente os e-mails a serem consumidos para aquela pasta e dizer ao Paperless para movê-los para outra pasta após o consumo. Depende de você.
+
+===== Observação =====
+Ao definir uma regra de e-mail com uma pasta, você pode precisar experimentar caracteres diferentes para definir como as subpastas são separadas. Valores comuns incluem ".", "/", ou "|", mas isso varia de acordo com o servidor de e-mail. Verifique a documentação do seu servidor de e-mail. No caso de um erro ao buscar e-mails de uma determinada pasta, verifique os logs do Paperless. Quando uma pasta não é encontrada, o Paperless tentará listar todas as pastas encontradas na conta nos logs do Paperless.
+
+===== Observação =====
+O Paperless processará as regras na ordem definida na página de administração.
+
+Você pode definir regras de captura e tê-las executadas por último para consumir quaisquer documentos não correspondidos por regras anteriores. Essa regra pode atribuir uma tag "Documento de e-mail desconhecido" aos documentos consumidos para que você possa inspecioná-los mais detalhadamente.
+
+O Paperless é configurado para verificar seus e-mails a cada 10 minutos. Isso pode ser configurado por meio da variável PAPERLESS_EMAIL_TASK_CRON (consulte as personalizações de software).

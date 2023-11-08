@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:22:05-03:00
+
+====== 04 - Gerenciador de Tarefa ======
+Criado quinta 02 março 2023
+
+Alguns documentos exigem atenção e requerem que você aja sobre o documento. 
+Você pode adotar duas abordagens diferentes para lidar com esses documentos com base em quão regularmente você pretende digitalizar documentos e usar o Paperless.
+
+Se você digitaliza e processa seus documentos regularmente no Paperless, atribua uma tag TODO a todos os documentos digitalizados que você precisa processar. 
+Crie uma visualização salva no painel que mostra todos os documentos com essa tag.
+
+Se você não digitaliza documentos regularmente e usa o Paperless apenas para arquivar, crie uma caixa física de tarefas ao lado de sua caixa de entrada física e coloque os documentos que você precisa processar na caixa de tarefas. 
+
+Quando você realizar a tarefa associada ao documento, mova-o para a caixa de entrada.

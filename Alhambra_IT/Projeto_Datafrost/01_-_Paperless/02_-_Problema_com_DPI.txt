@@ -2,7 +2,7 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.6
 Creation-Date: 2023-03-01T18:00:21-03:00
 
-====== 02 - Problema com DPI ======
+====== 2 - Problema com DPI ======
 Criado quarta 01 março 2023
 
 O DPI - Dots (pixels) Per Inch - é uma relação entre o tamanho da imagem do documento e o tamanho real do documento físico. Portanto, para que o Paperless possa validar o DPI de um documento submetido, vai ser necessário que, além da imagem, seja fornecida alguma informação sobre as dimensões reais deste documento. Vejo dois jeitos de fazermos isso: 

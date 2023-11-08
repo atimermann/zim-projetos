@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:21:13-03:00
+
+====== 01 - Preparação ======
+Criado quinta 02 março 2023
+
+Crie uma tag "caixa de entrada" que será atribuída a todos os novos documentos.
+Crie uma tag "a fazer".

@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:45:49-03:00
+
+====== 05 - REST API ======
+Criado quinta 02 março 2023
+
+Você também pode enviar um documento usando a API REST, consulte POSTando documentos para obter detalhes.
+
+REF: https://docs.paperless-ngx.com/api/#file-uploads

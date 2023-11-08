@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-06-01T17:04:18-03:00
+
+====== 2023-06-01 ======
+Criado quinta 01 junho 2023
+
+===== Objetivo Painel: =====
+* Automatizar vms
+* foi feito Integração Zabbix
+* Avançou bastante, alguns devs q sairam desenvolveram
+* Continuar com proxmox (bastante dominio - mike)
+* Integração:
+	* PABX
+* Painel acessa o sistema de ticket
+* 2 via de fatura
+* produtos contratados
+	* pabx
+	* nuvens
+	* firewall
+* Controlar acesso e disponibilidade de serviços
+
+===== Cloudfile =====
+Cloudfile vai sair do portfólio de serviços
+
+
+====== Autenticador Biométrico ======
+
+https://www.keycloak.org/

@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-02T16:23:25-03:00
+
+====== Analytics ======
+Criado quarta 02 agosto 2023
+
+**ANALYTICS:**
+Link: https://analytics.google.com
+Login: marketing@datatem.com.br
+Senha: @Nova#marketing2022

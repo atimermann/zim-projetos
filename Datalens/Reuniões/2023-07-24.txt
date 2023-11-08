@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-07-24T19:32:46-03:00
+
+====== 2023-07-24 ======
+Criado segunda 24 julho 2023
+
+Entender plataforma atual.
+
+====== Fazer o Analytics ======
+
+**REUNIÃO GRAVADA**
+
+* Cliente: Eletrolux
+* Recebe um arquivo Texto CDR
+* Arquivo vem do FTP
+
+* Será feito no fechamento mensal
+* Irei receber um relatório por pessoa
+* Tirar um relatório por dia
+* Mandar por e-mail pro cara
+* Pegar o arquivo, separar por cliente e mandar por email
+* Ver como importar arquivos javascript dinamicamente, para não parar uma eventual automação no meio do caminho hot-swap
+* Ver no azure que tipo de ferramenta é possivel utilizar para gerenciar processo
+* Vai pegar de algum lugar onde os dados já estão processados
+
+* desenvolver pensando em criar serviço no futuro.
+
+* Plataforma foi desenvolvida em .NET

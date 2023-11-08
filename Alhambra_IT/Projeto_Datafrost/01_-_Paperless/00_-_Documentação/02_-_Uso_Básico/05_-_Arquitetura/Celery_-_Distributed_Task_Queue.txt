@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:24:31-03:00
+
+====== Celery - Distributed Task Queue ======
+Criado quinta 02 março 2023
+
+Celery é uma ferramenta em Python para gerenciamento de filas de tarefas assíncronas e distribuídas. 
+
+É utilizado para lidar com tarefas em segundo plano, que podem ser executadas de forma assíncrona em um servidor separado, permitindo que a aplicação principal se concentre em outras tarefas. 
+
+O Celery funciona com um sistema de troca de mensagens, onde a aplicação envia uma mensagem contendo uma tarefa para uma fila de mensagens, e o Celery, então, processa a tarefa em um ou mais trabalhadores. 
+
+O Celery é altamente configurável e pode ser usado em conjunto com outros frameworks e bibliotecas Python para tarefas específicas. 
+
+Ele também suporta escalabilidade horizontal, permitindo a adição de mais trabalhadores para processar tarefas em paralelo. 
+
+O Celery é amplamente utilizado em sistemas de produção para a execução de tarefas em segundo plano, como processamento de imagens, envio de e-mails, indexação de dados e muito mais.

@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-04-28T09:07:32-03:00
+
+====== Tarefa 04 - Google Analytics ======
+Criado sexta 28 abril 2023
+
+Saber oq foi pro RD Marketing pelo Google Analytics
+* Como originou 
+
+* Foi feito um trabalho no Google Analytics para poder classificar esse Leads
+* Foi feito trabalho de pontuação, quanto mais acessava, classificava o acesso, até ter pontuação suficiente para entrar no lead score, entrava numa curva ABC e se tiver em AB gerava um unbound
+* Acertividade na abordagem
+
+* saber oq gerou as tabelas do marketing
+
+====== Vinculo Google Analytics API ======
+https://insightwhale.com/how-to-set-up-google-analytics-api-step-by-step-guide/
+
+====== Tabela 01 ======
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}

@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-15T12:27:49-03:00
+
+====== 2023-08-15 ======
+Criado terça 15 agosto 2023
+
+====== Como puxar dados FIS ======
+
+===== Senha Temporária =====
+Seja bem-vindo (a)André Timermann,
+
+Segue abaixo seu login e senha temporária:
+Login: andre@datalens.com.br
+Senha: AWWTFJTH
+
+Autenticar para buscar o **Barear TOKEN**
+
+===== Link da documentação API =====
+https://datalens-erp-iam-api-prd.azurewebsites.net/swagger/index.html
+
+Obter o TOKEN e o REFRESH TOKEN
+
+{{./pasted_image.png}}
+
+Apenas uma tabela **87113 que é a** tabela Links
+
+{{./pasted_image001.png}}
+
+====== Acessar Datalens ======
+
+**http://app.datalens.com.br**
+
+Subscriition é o numero da assinatura, utilizar apenas a 21
+
+===== Para visualizar o resultado entrar em =====
+**Recurso => Links**
+
+
+====== Gravar em uma tabela ======
+* Criar uma tabela da FIS e salvar
+

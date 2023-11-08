@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-10-04T18:51:00-03:00
+
+====== 2023-10-04 ======
+Criado quarta 04 outubro 2023
+
+**Desenvolvimento de requisitos**
+https://app.clickup.com/t/8678qgava
+
+* Open Source Identity and Access Management com [[KeyCloak]]
+	* https://www.keycloak.org/

@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-28T15:23:31-03:00
+
+====== Infraestrutura ======
+Criado terça 28 março 2023
+
+* Como gerenciar imagens docker internamente? (GitLAB disponível)
+* Como criar configuração docker-compose ambiente DEV e PROD
+	* Configuração de imagem (Dockerfile) de cada serviço separadamente?
+
+

@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-03T01:30:41-03:00
+
+====== 00 - Duvidas ======
+Criado sexta 03 março 2023
+
+[ ] Entender como é a configuração da inteligencia por trás do scanner que o Lucas testou e como integrar com paperless
+[ ] Como é a infraestrutura por trás do do paperless, como escalar, separar em microserviço: Celery
+[ ] Verificar se não é mais simples criar uma camada acima usando nuxt com a regra de negocio do projeto e usar o paperless apenas para processando
+	* Argumentos para utilizar uma **WEB e APP** separados:
+		* Menos problema com licenças
+		* Podemos implementar nossa regra de negócio com mais tranquilidade, agora e no futuro
+			* Ex: Sistema de autenticação nosso, integrada com sistema de planos, limite de acesso, logs etc...
+			* Banco de dados próprio, uso de migration
+		* Risco de perder novas funcionalidades futuras: Exemplo, modificamos o código, nova versão chega e não podemos atualizar pois as mudanças impactam nas alterações, obrigado a refazer, adaptar ou demora para upgrade. Se tiver uma camara separada o impacto é menor
+		* Podemos utilizar nossas técnicas de desenvolvimento, sem depender do projeto palerless
+		* **OPÇÃO:** Refazer o sistema totalmente aos poucos copiando funcionalidades, ver se precisa manter scripts de inteligencia e distribuilçao de tarefa
+			* https://trello.com/c/n13fD0El/40-adaptar-o-fluxo-de-consumo-arquivamento-dos-documentos-do-paperless-back-end
+		* Muitas alterações no paperless, alto risco de gambiarra para atender a nossa demanda, dificultando manutenção, 
+			* Para não refazer tudo, tentar separar os serviços do paperless q não impacte mudanças.
+		* Ficamos muito a mercê da equipe do paperless como implementar uma feature de permissão (https://github.com/paperless-ngx/paperless-ngx/tree/feature-permissions)
+	* Verificar arquitetura para separar outros módulos: 
+		* Exemplo: Como funciona a distruibuição de tarefas com celery
+[ ] Entender esse desenvolvimento front-end
+
+[ ] Você conseguiu entender o projeto? é possível quebra-lo em pedaços ou funcionalidades para fazer as modificações necessárias 

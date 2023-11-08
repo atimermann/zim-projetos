@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:07:46-03:00
+
+====== Whoosh ======
+Criado quinta 02 março 2023
+
+Whoosh é uma biblioteca Python que ajuda a criar e pesquisar índices de texto completo. 
+Ela é usada pelo Paperless para criar e pesquisar índices de documentos digitalizados, permitindo que os usuários encontrem facilmente documentos por meio de pesquisa de texto completo. 
+Whoosh é uma biblioteca de código aberto e gratuita.

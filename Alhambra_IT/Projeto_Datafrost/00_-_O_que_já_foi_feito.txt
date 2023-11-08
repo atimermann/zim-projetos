@@ -5,3 +5,55 @@ Creation-Date: 2023-03-01T14:44:52-03:00
 ====== 00 - O que já foi feito ======
 Criado quarta 01 março 2023
 
+**Atualizar documento**
+
+====== Requisitos MVP ======
+
+* **Aplicativo mobile para digitalização de documento**
+	* Integração com as tags NFC da plataforma de digitalização do fileee (0% - falta adquirir mais plataformas, reprogramar as tags NFCs e integrá-las no app mobile)
+
+* Aplicação backend central 
+	* pode ser quebrado5
+	* **Armazenamento de documento**
+	* **Controle de acesso (acesso documentos)**
+	* comunicação com API externas
+	* **Gerenciamento de fila**
+		* gerencia Ciclo de vida do documento
+	* **Rastreabilidade, indexação e busca avançada dos documentos digitais (100%)**
+		* ElasticSearch
+	* **Integração com soluções de assinatura digital no padrão ICP-Brasil**
+
+* **Aplicação OCR**
+	* Tesseract
+
+* **Aplicação Inteligência de Documento**
+	* Processamento inteligente de texto
+	* Extração de informações:
+		* Tipo de documento
+		* Classe de documento (relacionado a legislação)
+		* Data
+		* Correspondente
+		* Metadadados em geral....
+
+* **Aplicação Gerador PDF (Apache PDF Box - Java)**
+	* Gera PDF/A
+	* Assinatura documento digital
+
+
+
+===== Analisar =====
+
+* Preenchimento semi-automático de metadados (automático com uma etapa de supervisão manual) (70% - os metadados/campos padrões do paperless já são preenchidos automaticamente, mas falta adaptar os metadados para as nossas necessidades e implementar um fluxo de digitalização no app que permita uma correção manual dos metadados após a classificação automática do back-end)
+* Integração com soluções de assinatura digital no padrão ICP-Brasil (0% - falta integrar de fato com alguma API para assinar os PDF/A já com os metadados)
+* Rastreabilidade e indexação dos documentos físicos (0% - falta adquirir/produzir as caixas a serem utilizadas, implementar um campo/metadado para a caixa de destino, e um leitor de código de barras para categorizar o documento em sua respectiva caixa de destino automaticamente)
+
+
+Requisitos Produto Final
+========================
+
+* Digitalização de documentos via scanner (0%)
+* Plataforma própria para digitalização via câmera de celular (0%)
+* Solução própria de KMS e assinatura digital (0%)
+* Separação semi-automática de documentos (0%)
+* Aplicação das tabelas de temporalidade (0%)
+* Integração com cofre eletrônico (0%)

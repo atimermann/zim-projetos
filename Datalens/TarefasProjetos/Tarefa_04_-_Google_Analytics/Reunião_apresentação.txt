@@ -1,0 +1,41 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-09T09:06:20-03:00
+
+====== Reunião apresentação ======
+Criado terça 09 maio 2023
+
+* **Priorizar GA4** - 
+
+* UA vai ser descontinuado
+* 
+
+**Precisamos dos** 
+
+dados dos usuários, 
+estatísticas de sessão, 
+geolocalização,
+ informações do dispositivo, 
+monitoramento de conversões, 
+detalhes dos produtos, entre outros..
+
+**O que é UTM ?**
+
+Automação apenas do GA4
+
+**PRINCIPAIS FUNÇÔES:**
+
+* Aquisição
+	* Aquisição de Usuário
+	* Aquisição de Tráfego
+	* Canais (busca paga, busca organiza etc...)
+* Engajamento
+* Retenção
+* Tecnologia
+* Informação demográfica
+* Monetização mais pra loja não usa 
+
+==================>
+
+* Tentar puxar tudo de forma bruta
+* Focar na conversão do google para RD STATION

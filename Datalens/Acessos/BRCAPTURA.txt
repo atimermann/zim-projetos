@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-02T16:22:47-03:00
+
+====== BRCAPTURA ======
+Criado quarta 02 agosto 2023
+
+====== Acesso ======
+
+username=thiago.silva@brcaptura.com.br
+password=2rJHsVheFVrW6q3wRAg4/ga5IlM=
+
+===== Documentação API =====
+https://api.auth.brcaptura.com.br/swagger-ui/index.html#/sim-bill-entry-controller/search_22
+**Mesmo login acima**
+
+====== LOGIN NA API ======
+
+**IMPORTANTE:**  O insomnia é bugado para carregar o comando curl, verifique se o username foi importando corretamente e faltou o "=" no final da senha q o insomnia não colou
+
+curl --request POST \
+  --url https://api.auth.brcaptura.com.br/oauth/token \
+  --header 'Authorization: Basic ZGF0YXRlbTo3YWk4U0N3OExCdnM1cm1P' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data grant_type=password \
+  --data username=datatem@datatem.com.br \
+  --data password=wRMtBth0EgKXsaqmORykDOZMBDU=
+
+curl --request POST \
+  --url https://api.auth.brcaptura.com.br/oauth/token \
+  --header 'Authorization: Basic ZGF0YXRlbTo3YWk4U0N3OExCdnM1cm1P' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data grant_type=password \
+  --data username=datatem@datatem.com.br \
+  --data password=wRMtBth0EgKXsaqmORykDOZMBDU=
+
+
+====== Projeto Datatem => BR CAPTURA ======
+
+* Ler aqui 8 milhões de linha
+* Outro arquivo tem 4 milhões de linha
+
+* https://api.auth.brcaptura.com.br/swagger-ui/index.html#/simcard-history-controller
+* Tá quebrando onde?
+	* Não sabe se tá quebrando no Power Automate ou na API (DESCOBRIR)
+
+{{./pasted_image.png}}
+
+
+{{./pasted_image001.png?width=800}}
+
+
+Implementar docker um banco postgres e testar performance lá
+

@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-06T12:55:45-03:00
+
+====== 2023-03-06 ======
+Criado segunda 06 março 2023
+
+Apresentação inicial do projeto
+
+* Desmaterialização por Digitalização
+* Remover Lei da desburocratização e colocar 
+* Digitalizar legado e novo fluxo processo
+* Digitalizar, classificar e facilitar a localização (PRINCIPAL DEIXAR NO COMEÇO)
+* Publico e Privado
+
+
+* MOdulo OCR, pode usar serviço diferente de acordo com necessidade
+* Classificação e RH é oq as prefeituras querem
+
+
+* Analisar melhor a busca indexação procurar soluções
+
+* RP publicos integração com RP Publico
+
+* Cofre publico é separado da indexação e busca
+
+* Trust Service é o que importa é o que tem valor
+
+* Concorrente: Axes, 

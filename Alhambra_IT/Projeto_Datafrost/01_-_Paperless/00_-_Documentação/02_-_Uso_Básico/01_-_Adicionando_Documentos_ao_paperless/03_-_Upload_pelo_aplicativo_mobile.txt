@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:43:22-03:00
+
+====== 03 - Upload pelo aplicativo mobile ======
+Criado quinta 02 março 2023
+
+
+O aplicativo mobile Paperless Share para Android permite que os usuários compartilhem documentos com o Paperless. 
+Isso pode ser combinado com qualquer um dos aplicativos de digitalização móveis disponíveis, como o Office Lens. 
+O aplicativo Paperless Mobile também oferece recursos de upload, digitalização, gerenciamento de rótulos e muito mais.

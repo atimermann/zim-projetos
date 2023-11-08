@@ -1,0 +1,41 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-06-06T20:04:14-03:00
+
+====== 2023-06-06 ======
+Criado terça 06 junho 2023
+
+**FUNÇÕES IMPORTANTES INICIAL:**
+
+* **Importante é o chamado de suporte**
+	depois outros chamados
+	- migrando softdesk 
+	- talvez tenha q integrar ITSM (softdesk)(Monitoramento, Sistema de app de técnico de campo)
+	- CRM (CUstomer and Hunter)
+	- Sistema de Faturamento e Nota Fiscal
+	- "hubsoft"
+	- Criar ou usar um software para troca de mensagem entre equipe
+	- 
+* **Visualização dos produtos que ele tem detalhado** 
+	* Onde tem? CRM
+
+* **Fatura**
+	* Onde tem? 
+    
+* **como seria gestão de cliente no painel?**
+* **Expectativa de entrega**
+* **Funcionar Mobile**
+* **Ter um registro de tudo centralizado  para futuro bi**
+
+Cliente que só tem um link, só consegue acessar 4G para pedir suporte
+
+
+**__COLAR AQUI DIAGRAMA DEIFNIDO NA REUNIÂO__**
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}
+
+
+
+

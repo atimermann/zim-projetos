@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T22:48:58-03:00
+
+====== 04 - Workflow Recomendado ======
+Criado quinta 02 março 2023
+
+Depois de se familiarizar com o paperless e estar pronto para usá-lo para todos os seus documentos, o fluxo de trabalho recomendado para gerenciar seus documentos é o seguinte. 
+Esse fluxo de trabalho também leva em consideração que alguns documentos precisam ser mantidos em forma física, mas ainda garante que você obtenha todas as vantagens para esses documentos.
+
+O seguinte diagrama mostra o quão fácil é gerenciar seus documentos.
+
+{{./pasted_image.png}}
+
+==== Captura: ====
+Capture seus documentos digitais, como contas, faturas, contratos, recibos, por meio do processamento automático de email do Paperless ou por digitalização de documentos físicos.
+
+==== Classificação: ====
+Classifique seus documentos digitalizados adicionando tags, correspondentes e tipos para torná-los facilmente pesquisáveis. Você pode usar a opção Inbox do Paperless para colocar documentos não classificados.
+
+==== Processamento: ====
+Adicione informações adicionais aos seus documentos, como comentários, notas ou metadados, para facilitar a pesquisa e a recuperação posterior.
+
+==== Pesquisa: ====
+Use a funcionalidade de pesquisa do Paperless para encontrar facilmente seus documentos com base em palavras-chave, tags, correspondentes, tipos ou datas. O Paperless oferece suporte a pesquisa avançada para refinar ainda mais seus resultados.
+
+==== Backup: ====
+Faça backup regularmente de seus documentos digitalizados para garantir que não perca seus documentos em caso de perda de dados.
+
+==== Arquivamento: ====
+Mantenha cópias físicas de seus documentos importantes em um local seguro e protegido, se necessário.
+
+Com este fluxo de trabalho recomendado, você poderá gerenciar facilmente todos os seus documentos, tanto digital quanto fisicamente, e ter a tranquilidade de que eles estarão seguros e facilmente acessíveis quando precisar deles.

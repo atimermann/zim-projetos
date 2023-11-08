@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-15T16:31:02-03:00
+
+====== Tarefa 03 - RDStation ======
+Criado quarta 15 março 2023
+
+
+https://developers.rdstation.com/reference/get_platform-contacts-identifier-value
+LOGIN: marketing@datatem.com.br
+SENHA: @Fran#marketing2022
+Acesso RDStation
+6258264ef167960023a2db61
+
+====== CRM ======
+
+Buscar todas as API e salvar na base (CRM API)
+https://developers.rdstation.com/reference/introducao-rdsm
+
+* Obter o token
+* Obter todas Tarefas
+	* Listar
+	* Carregar por data
+* Ver quais API estão disponível e quais serão necessária
+	* Perguntar qual a necessidade
+
+
+Qual limite da API?
+	* 120 requisições por minuto
+	* Ao listar só pode listar 10mil primeiros
+	* quando gerar erro 
+
+====== MARKETING ======
+
+ENTENDER COMO INTEGRAR
+* vai passar contato de alguém interno
+
+**ClientId:** 
+0be089dd-dbf1-4663-8733-d9d54104838e
+
+**ClientSecret:**
+d34d8a289da24a15a87e06effeea69fd
+

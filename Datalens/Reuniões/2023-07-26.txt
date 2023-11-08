@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-07-26T16:24:09-03:00
+
+====== 2023-07-26 ======
+Criado quarta 26 julho 2023
+
+====== Projeto Eletrolux ======
+
+===== Acesso SFTP =====
+IP: 200.194.172.23
+Port: 22
+Login:ebt-electrolux
+senha:3TrioU95keZSXOuA
+
+===== Acesso Banco 0 MSSQL =====
+host: datalens-analytics-2-ondemand.sql.azuresynapse.net
+port: 1433
+user: mg8
+passwd: #@n4LyT1cs!
+database: analytics
+A subscription para a query é subscription=35, folder 85, banco dbo.claro
+
+
+===== Processos =====
+Aquisição => Tratamento => Enrriquecimento
+

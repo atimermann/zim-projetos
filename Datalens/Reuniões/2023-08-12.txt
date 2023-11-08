@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-12T21:35:32-03:00
+
+====== 2023-08-12 ======
+Criado sábado 12 agosto 2023
+
+===== Prioridade projetos =====
+
+* BRcaptura, migrar todas
+* MovieDesk, migrar todas as tebelas
+* Migrar RDStation e Google Analytics (outro se tiver)
+

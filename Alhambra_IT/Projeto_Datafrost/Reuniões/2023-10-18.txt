@@ -1,0 +1,29 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-10-18T12:34:06-03:00
+
+====== 2023-10-18 ======
+Criado quarta 18 outubro 2023
+
+====== Documentos discutido ======
+
+**Resumo do projeto com Stories de tudo**
+https://app.clickup.com/36909825/v/dc/136cr1-714/136cr1-1214
+
+**Histórias de Usuário v2 - 25/09/2023**
+* https://app.clickup.com/36909825/v/dc/136cr1-734/136cr1-1254
+
+**Diagramas**
+* Ver links no **Google Chrome =>  Favoritos** 
+
+====== Gestão de configuração ======
+
+
+https://www.atlassian.com/br/microservices/microservices-architecture/configuration-management
+
+
+====== Discussões da Reunião ======
+
+
+====== Pendencia pra próxima reunião, proximo Trabalho ======
+

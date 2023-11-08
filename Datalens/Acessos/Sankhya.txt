@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-08-02T16:19:50-03:00
+
+====== Sankhya ======
+Criado quarta 02 agosto 2023
+
+Sankhya - Vamos realizar via API, será mais seguro e não precisa de VPN,
+	  anexo documentação, usuário e senha: sup / @dtt0901
+
+**Acesso a este sistema:**
+https://sankhya.ingress.datatem.com.br/
+
+===== Login =====
+
+**POST** https://sankhya.ingress.datatem.com.br/mge/service.sbr?serviceName=MobileLoginSP.login
+
+**Campo Texto plano:**
+{{{code: lang="xml" linenumbers="True"
+<serviceRequest serviceName="MobileLoginSP.login">
+	<requestBody>
+		<NOMUSU>sup</NOMUSU>
+		<INTERNO>@dtt0901</INTERNO>
+	</requestBody>
+</serviceRequest>
+}}}
+
+
+**Header:**
+Content-Type: text/xml;charset=ISO-8859-1
+
+
+{{{code: lang="sh" linenumbers="True"
+curl --request POST \
+  --url 'https://sankhya.ingress.datatem.com.br/mge/service.sbr?serviceName=MobileLoginSP.login' \
+  --header 'Content-Type: text/xml;charset=ISO-8859-1' \
+  --cookie JSESSIONID=OqtI0c2NXPEXzObrkisr7kFP59QsW0gEJ_gaaESq.sankhya-w-0 \
+  --data '<serviceRequest serviceName="MobileLoginSP.login">
+<requestBody>
+<NOMUSU>sup</NOMUSU>
+<INTERNO>@dtt0901</INTERNO>
+</requestBody>
+</serviceRequest>'
+}}}
+
+
+{{./pasted_image001.png}}
+
+====== APIs a extrair ======
+
+* Pedidos/Orçamento (Pedido de Venda)
+* Financeiro (Contas à pagar / Contas à receber)
+====== PRAZO ======
+
+**===>** Até SEXTA FINALIZAR

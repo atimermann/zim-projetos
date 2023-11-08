@@ -1,0 +1,117 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T16:51:42-03:00
+
+====== Tarefa 02 ======
+Criado quinta 02 março 2023
+
+https://atendimento.movidesk.com/kb/article/189/movidesk-person-api?ticketId=&q=api%20pessoa
+
+
+* Adicionar tudo q tem no banco de dados
+
+**Criar tabelas secundárias**
+
+* Adicionar todas as colunas
+
+* **Melhor forma de pegar os dados de acordo com a API e não documentação**
+* decidir se é manter o mesmo tipo ou deixar tudo VARCHAR
+
+====== API GET  PERSON ID ======
+
+https://api.movidesk.com/public/v1/persons?token=5dd36e8c-d70e-45ef-aa87-29dbc268b047&$select=id&$filter=changedDate gt 2014-12-17T18:00:43z
+
+====== Tabelas ======
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person (	
+	id varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	codeReferenceAdditional varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	isActive bit  NULL,
+	personType int NULL,
+	profileType int NULL,
+	accessProfile  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	businessName  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	businessBranch  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	corporateName  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	cpfCnpj  varchar(14) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	userName  varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	role  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	bossId varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
+	bossName  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	classification  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	cultureId  varchar(32) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	timeZoneId  varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	createdDate datetime2 NULL,
+	createdBy  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	changedDate datetime2 NULL,
+	changedBy   varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	observations  varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	authenticateOn  varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+);
+
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_addresses (	
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	addressType varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	country varchar(32) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	postalCode varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	state varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	city varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	district varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	street varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	number varchar(32) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	complement varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	reference varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	isDefault bit NULL
+)
+
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_contacts (
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	contactType varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	contact varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	isDefault bit NULL    
+)
+
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_emails(
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	emailType varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	email varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	isDefault bit NULL
+)
+
+
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_relationships (
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	id varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	name varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	slaAgreement varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	forceChildrenToHaveSomeAgreement bit NULL,
+	allowAllServices bit NULL,
+	includeInParents bit NULL,
+	loadChildOrganizations bit NULL,    
+	services_id int NULL,
+	services_name  varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	services_copyToChildren bit NULL,
+)
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_customfieldvalues (	
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	customFieldId  int NULL,
+	customFieldRuleId  int NULL,
+	line  int NULL,
+	value varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,    
+	items_personId  int NULL,
+	items_clientId  int NULL,
+	items_team varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	items_customFieldItem varchar(256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+)
+
+CREATE TABLE [datalens-rpa].datatem.movidesk_person_atAssets (
+	movideskPersonId varchar(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Id varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	name varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	label varchar(64) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+)

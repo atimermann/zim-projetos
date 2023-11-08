@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-17T11:31:11-03:00
+
+====== IdeaText - SMS ======
+Criado sexta 17 março 2023
+
+Temos uma aplicação de SMS chamada idealtext
+
+A aplicação precisa de algumas melhorias mas nao vamos entrar agora neste detalhe
+
+o que precisamos é alterar/adicionar um novo controller para envio de SMS através de um gateway nosso
+
+hoje o envio é feito direto para um provedor
+
+precisamos trocar para enviar pelo nosso gateway (Jasmin)  e ele vai controlar a parte relacionada a operadora
+
+https://git.alhambrait.com.br/alhambrait/sms/idealtext/idealtext/-/blob/master/enviar/index.php
+
+este é o arquivo que esta hoje com a ifnormação do provedor
+criei um usuario alhambra senha @lhambra2023
+esta é a documentação basica, e o usuario e senha criado
+
+curl --location --request GET 'http://sms.alhambrait.com.br/send?username=alhambra&password=@lhambra2023&to=16034550131&from=MikePostman&content=Its me! Mike! :) please confirm you receive&dlr=no'
+este é um execmplo de requisição curl
+https://sms.alhambrait.com.br/send?username=alhambra&password=@lhambra2023&to=5535991570244&from=MikePostman&content=Its%20me!%20Mike!%20:)%20please%20confirm%20you%20receive&dlr=no
+no caso inves de mandar pra nrs, vamos mandar pra este endereço ai
+
+**URL:**
+[[https://idealtext.com.br/portal-idealtext/login|''https://idealtext.com.br/portal-idealtext/login'']]
+
+**usuario:** mike 
+**senha:** LKd2SPZ2ae4xdrWG
+

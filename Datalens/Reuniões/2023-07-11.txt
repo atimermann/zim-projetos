@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-07-05T19:35:40-03:00
+
+====== 2023-07-11 ======
+Criado quarta 05 julho 2023
+
+* por em contato com o Victor para conhecer a plataforma
+* Falei em 30 horas mês passado, Zero horas em Julho
+
+====== Serviços ======
+
+
+* Ativo é a parte patrimonial - Automatizar Datalens
+* Whitelabel => Cliente que usa a plataforma com a marca deles ex: Get Connect global
+
+
+===== Nova automação =====
+* Automação de ativar e desativar colaboradores da plataforma no RDStation
+	* Gatilho é na api ca aplicação de RH
+	* Sai em todas as plataforma desativando o cara
+* Quer colocar dentro da plataforma DATALENS
+
+* Conhecer a plataforma anaylytics para telecom, todo mes manda relatório de tarifação e separa por centro de custo e por usuario
+	* CDRs (FTP)
+	* Leitura de acordo com o template, cadências, tarifas tipos de ligação
+
+* Criar microserviço
+
+
+Qual tecnologia de automação tem hoje ou querem criar??
+
+**Estruturar a plataforma para automação**
+	* Vamos criar um orquestrador de tarefa.
+	* Mandar pro power automate somente automação web / desktop
+	* gerenciar fila/jobs/tarefa/interface
+

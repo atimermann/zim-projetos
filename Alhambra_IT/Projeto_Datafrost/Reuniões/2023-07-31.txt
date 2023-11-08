@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-07-31T17:41:13-03:00
+
+====== 2023-07-31 ======
+Criado segunda 31 julho 2023
+
+====== Problemas encontrados ======
+* Problema de autorização para conectar no driver de scanner no chrome
+* Minio não exibe preview pois tá sem extensão
+* Sendo usado console.log para exibir erros do prisma e upload de imagem
+* Bug na Thumb, sempre mostra a mesma
+
+====== Reunião ======
+* Qual scanner usar, podemos definir alguns scanner compatível
+* Segmentar o modelo de classificação em produtos como notas fiscais, RH, contrato
+* Definir perfil de cliente (profissional de digitalização e cliente final) ou apenas API
+* Desenhar as tela
+* mais o cofre menos digitalizador
+* Parte de pesquisa
+* Acessa o ante-cofre e não cofre
+* **IMPORTANTE:** Resolve a guarda e a pesquisa por conteudo/palavra chave/metatsgs
+O texto dos documentos para pesquisa pode ficar fora do cofre? Sistema fora do cofre (Acabou a duvida)
+*Vender Celepar*
+* Implementar carregar todas as páginas do feed automaticamente 
+* definid Metricar de trabalho, quantos digitalizado, que hroas foi digitalizado, usuario q foi digitalizado
+* Oq é o GED, como usar o GED
+* Pensar em digitalizar com mobile c/ Gigabox
+* Projetar o sistema de modulo => Perfis (profi de digitalização cliente de email) => Hierarquia
+
+====== Apenas API ======
+
+* Swagger
+
+
+====== Modulo de pesquisa ======
+* FOCO em produtividade
+* Definir perfis, hierarquia  e modulos
+
+====== Tela de digitalização ======
+
+**next => next => next**
+	Perfil Digitalizador
+
+**Supervisor**
+	* Pode escolher o scanner
+	* Um login por cliente
+
+**Supervisor tem acesso a metricas documentios enviados etc...**
+
+====== Tela de visualização de documento ======
+* Usar como o paperless onde é possivel salvar Views
+
+====== = ======
+====== Uma empresa digitalizadora pode ter varios subclientes ======
+
+* Desenhar a hierarquia 
+
+

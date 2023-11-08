@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-08T22:08:46-03:00
+
+====== X ======
+Criado segunda 08 maio 2023
+
+* Não precisa mais validação juridica
+* 

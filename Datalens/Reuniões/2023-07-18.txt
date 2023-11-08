@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-07-18T11:08:58-03:00
+
+====== 2023-07-18 ======
+Criado terça 18 julho 2023
+
+====== Novo Projeto ======
+
+**Rua Avenida Republica Argentina, 963** 
+**X Coworking**
+
+* Big Core
+* Projeto de Automação
+* 40 horas
+* 40 horas
+
+
+* Office 365
+
+=> Documentar oq foi feito até agora
+=> Terminar interface Gráfica
+=> Intenção é migrar o que tem para o software q eu desenvolvi

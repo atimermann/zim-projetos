@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-09T14:21:20-03:00
+
+====== Digitalização por Navegador ======
+Criado terça 09 maio 2023
+
+====== PAGO ======
+
+https://www.dynamsoft.com/blog/imaging/capture/scanner-chrome-firefox-safari/
+
+**PREÇO:**
+https://asprise.com/document-scan-upload-image-browser/direct-to-server-php-asp.net-overview.html
+https://asprise.com/document-scan-upload-image-browser/web-scanner-source-code-open-order.html
+
+
+https://webtwainsdk.com/
+
+https://www.gdpicture.com/products/docuvieware/features/web-scanning/
+
+===== Open Source =====
+https://gitlab.gnome.org/World/OpenPaperwork/libinsane#readme
+https://github.com/Luomusha/node-twain
+https://github.com/mrlitong/TWAIN-SDK
+
+https://pt.wikipedia.org/wiki/TWAIN
+
+
+===== Melhores Scanner Twin =====
+https://fixthephoto.com/best-twain-compatible-scanner.html

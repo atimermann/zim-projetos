@@ -5,3 +5,64 @@ Creation-Date: 2023-02-15T15:05:46-03:00
 ====== Datalens ======
 Criado quarta 15 fevereiro 2023
 
+⇒ Automação Moviedesk Tickets
+movidesk_tickets
+movidesk_tickets_actions
+movidesk_tickets_clients
+movidesk_tickets_customFieldValues
+movidesk_tickets_ownerHistories
+movidesk_tickets_satisfactionSurveyResponses
+movidesk_tickets_statusHistories
+
+⇒ Automação Moviedesk Person
+movidesk_person
+movidesk_person_addresses
+movidesk_person_atAssets
+movidesk_person_contacts
+movidesk_person_customfieldvalues
+movidesk_person_emails
+movidesk_person_relationships
+
+⇒ RD Station CRM
+
+rdStationCrmActivities
+rdStationCrmCampaigns
+rdStationCrmContacts
+rdStationCrmCustomFields
+rdStationCrmCustomFieldsOpts
+rdStationCrmDealPipelines
+rdStationCrmDealProducts
+rdStationCrmDealSources
+rdStationCrmDealStages
+rdStationCrmDeals
+rdStationCrmOrganizationSegments
+rdStationCrmOrganizations
+rdStationCrmProducts
+rdStationCrmRelationContactsCustomFields
+rdStationCrmRelationDealCustomFields
+rdStationCrmRelationOrganizationsCustomFields
+rdStationCrmRelationOrganizationsSegments
+rdStationCrmRelationTeamsUsers
+rdStationCrmTasks
+rdStationCrmTeams
+rdStationCrmUsers
+
+⇒ RD Station Marketing
+
+rdStationMarketingContacts
+rdStationMarketingEmails
+rdStationMarketingEmbeddables
+rdStationMarketingLandingPage
+rdStationMarketingPopups
+rdStationMarketingRelationSegmentationsContacts
+rdStationMarketingSegmentations
+rdStationMarketingWorkflows
+
+⇒  Google Analytics GA4
+ga4TrafficAcquisitionActiveUsers
+ga4TrafficAcquisitionEngagedSessions
+ga4TrafficAcquisitionEngagementRate
+ga4TrafficAcquisitionEventCount
+ga4TrafficAcquisitionEventsPerSession
+ga4TrafficAcquisitionSessions
+ga4TrafficAcquisitionUserEngagementDuration

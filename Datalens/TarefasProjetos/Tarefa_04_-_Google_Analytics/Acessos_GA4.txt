@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-05-24T10:35:28-03:00
+
+====== Acessos GA4 ======
+Criado quarta 24 maio 2023
+
+===== Link de acesso: =====
+
+https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries?hl=en
+
+**Documentação da biblioteca:**
+https://googleapis.dev/nodejs/analytics-data/latest/index.html#installing-the-client-library
+
+**Documentação metricas e dimensões:**
+https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema?hl=en
+
+===== Conta criada: =====
+starting-account-qgpz98ol1udz.
+
+===== Arquivo =====
+Quickstart-2c21d9c4862a.json

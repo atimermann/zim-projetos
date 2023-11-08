@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-03-02T23:21:27-03:00
+
+====== 02 - Processamento de documentos fisicos ======
+Criado quinta 02 março 2023
+
+Mantenha uma caixa de entrada física. Sempre que você receber um documento que precisa arquivar, coloque-o em sua caixa de entrada. Regularmente, faça o seguinte para todos os documentos em sua caixa de entrada:
+
+1. Para cada documento, decida se você precisa mantê-lo em forma física. Isso se aplica a documentos importantes, como contratos e certificados.
+2. Se você precisar manter o documento, escreva um número sequencial no documento antes de digitalizá-lo, começando em um e contando para cima. Este é o número de série de arquivo, ou ASN, em resumo.
+3. Digitalize o documento.
+4. Se o documento tiver um ASN atribuído, armazene-o em um único arquivo, classificado por ASN. Não ordene este arquivo de outra maneira.
+5. Se o documento não tiver um ASN, jogue-o fora. Parabéns!
+
+===== Dica =====
+Em vez de escrever um número manualmente no documento, você também pode preparar um rolo de etiquetas com códigos de barras com um número de série crescente, formatados como ASN00001. Isso também permite que o Paperless analise e processe automaticamente o ASN (se ativado na configuração), para que você não precise atribuí-lo manualmente.
+
+Ao longo do tempo, você perceberá que o seu fichário físico ficará cheio. Quando isso acontecer, rotule o fichário com o intervalo de ASN contido neste fichário (por exemplo, "Documentos 1 a 343"), guarde o fichário na sua cave ou em outro local seguro e comece um novo fichário.
+
+A ideia por trás desse processo é que você nunca terá que usar os fichários físicos para encontrar um documento. Se você precisar de um documento físico específico, poderá encontrá-lo fazendo o seguinte:
+
+1. Procurando o documento no Paperless.
+2. Identificando o ASN do documento, já que ele aparece na digitalização.
+3. Pegando o fichário de documentos relevante e encontrando o documento. Isso é fácil, pois eles são classificados por ASN.
+

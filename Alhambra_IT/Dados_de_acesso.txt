@@ -15,8 +15,10 @@ Senha: mudar@123
 
 Usuário email: andre.timermann@alhambrait.com.br
 Senha email: mudar@123
-
 S2@s^vtM#S!5
+
+
+====== VPN ======
 
 Usuário vpn: andre.dev
 Senha vpn: MBfp5@%rZxUg
@@ -27,4 +29,36 @@ Chave l2tp: @lham2019vpn
 A vpn deve ser configurada nas opções de VPN do Windows.
 Caso necessite de ajuda para essas configurações, pode me contatar através do celular que está na minha assinatura, e podemos fazer um acesso remoto via AnyDesk.
 
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}
+
+{{./pasted_image002.png}}
+
 Att.:
+====== GitLab ======
+andre.timermann@alhambrait.com.br
+jWM1oU$kpYE1
+
+====== Maquinas VM para aplicações docker ======
+
+**IPS**
+10.254.60.81 **docker-dev-2**
+10.254.60.82 **docker-dev-1**
+
+**user:** dev.alhambra
+
+**dev.alhambra@docker-dev-1**
+**Senha:** 
+2G34Wt5a:(Ru3)#6,jEn]AyUhj$,qkZQ
+
+**Token de acesso as imagens docker:**
+~~fewsjtQm9pF1igjN2HNC~~
+Token criado com meu usário, depois criar um usuário somente para implantação
+R44UNux5nRJzfXVrxwQE
+
+**dev.alhambra@docker-dev-2**
+**Senha:**
+3K\=Z,S7:llgwIHG{^l8e1N w.k<_d'i
+
