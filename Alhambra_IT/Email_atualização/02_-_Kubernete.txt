@@ -12,6 +12,7 @@ Fiquei bastante impressionado com o Kubernetes e as ferramentas que ele oferece.
 Resumidamente (posso detalhar mais quando a gente conseguir marcar uma reunião):
 
 * Arquitetura Cloud, open source, faz a orquestração completa da aplicação
+* Divide modulos por projeto e namespace, permite gerenciar permissão de acesso e com isso dividir o projeto em várias equipes de desenvolvedor
 * Substiui o orquestrador que a gente discutiu, mas de forma muito mais robusta
 * Conseguimos implantar tanto no google, amazon, Amazon, OVH, **on-premise**
 * Tudo que o cloud oferece: 
@@ -23,7 +24,6 @@ Resumidamente (posso detalhar mais quando a gente conseguir marcar uma reunião)
 * Integração com ferramentas de Machine Learning
 * Funciona com docker que já estamos utilizando pra construir nossos serviços
 * Criado para suportar microserviços
-
 
 ===== Teste =====
 
@@ -39,6 +39,8 @@ Montei um cluster de 8 máquinas pra testar a aplicação:
 * 2 nós redundante pra balanceamento de carga, com IP Virtual (se um balanceador cair, o outro assume o IP virtual)
 
 Depois de instalado, fiquei impressionado, como é muito fácil de subir aplicação, gerenciar nós, só não é redundante pq só to usando uma maquina física, mas é tranquilo de implementar . Lembrando que dá pra utilizar o serviço pago ai de uma amazon da vida que já é tudo gerenciado.
+
+É bom pra desenvolvedor testar , homologação, dá pra instalar na maquina a versão compacta (exemplo no notebook) pra cada desenvolvedor testar localmente.
 
 ===== Ferramentas =====
 
@@ -56,6 +58,7 @@ inumeras  Interface gráfica pronta de gerenciamento (GUI)
 Esse é o mais completo deles q faz todo gerenciamento:
 
 {{./pasted_image006.png}}
+
 {{./pasted_image005.png?width=1000}}
 {{./pasted_image004.png}}
 Mas tem uma infinidade de funcionalidades
@@ -71,8 +74,7 @@ Por exemplo estava discutindo com o Lucas sobre a gente utilizar um gerenciador 
 Argoflow, a gente consegue desenhar o fluxo é o garçom que faz da orquestração:
 {{./pasted_image001.png}}
 
-Tem uma infinidade de opções:
-https://github.com/meirwah/awesome-workflow-engines#full-fledged-product
+
 
 Tem também o N8n:
 {{./pasted_image002.png?width=1000}}
@@ -84,6 +86,12 @@ https://github.com/apache/airflow
 
 {{./pasted_image003.png?width=1000}}
 
+Aqui tem uma infinidade de aplicações kubernete pra ser usado, inclusive com Machine Learning:
+https://github.com/meirwah/awesome-workflow-engines
 
 
 É um mundo novo ai que se abriu, estou bem empolgado.
+Bom também pra projetos de automação como aquele do **[[AirBNB]]**
+Esse de workflow é muito bom pra criar projetos rapidamente
+
+Isso é só um resumo, tem uma infinidade de outras opções que podemos utilizar 
