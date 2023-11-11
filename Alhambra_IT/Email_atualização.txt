@@ -5,6 +5,23 @@ Creation-Date: 2023-11-11T18:16:01-03:00
 ====== Email atualização ======
 Criado sábado 11 novembro 2023
 
+Bom dia Luis, 
+
+Como não conseguimos conversar na sexta, vou te mandar aqui um resumo de todas as minhas atividades desde nossa ultima reunião.
+
+e como  não conseguiu andar muito nas definições dos modulos de digitalização para usuário mais profissional, foquei mais na parte de arquitetura da plataforma que independe disso como a implantação de um serviço de autenticação com [[KeyCloak]]
+
+O projeto se mostrou muito mais complexo que eu tinha imaginado inicialmente
+
+
+
+
+
+
+
+
+
+
 Projeto Data Frost
 
 Estudo e Teste de Implantação de Sistema com Kubernetes em Ambiente Proxmox: Aprofundei meus conhecimentos em Kubernetes, focando na arquitetura de software robusta que ele oferece. A capacidade de Kubernetes em orquestrar contêineres de aplicativos em diferentes ambientes, como Azure, Google Cloud, Amazon Web Services ou on-premise, é notável. Isso oferece flexibilidade significativa para escolher a melhor opção com base nas necessidades do projeto.
