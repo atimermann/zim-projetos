@@ -1,0 +1,81 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-11T19:50:21-03:00
+
+====== 02 - Kubernete ======
+Criado sábado 11 novembro 2023
+
+===== Kubernetes =====
+
+Fiquei bastante impressionado com o Kubernetes e as ferramentas que ele oferece.  Então me aprofundei bastante e fiz muitos testes com a ferramenta.
+
+Resumidamente (posso detalhar mais quando a gente conseguir marcar uma reunião):
+
+* Arquitetura Cloud, open source, faz a orquestração completa da aplicação
+* Substiui o orquestrador que a gente discutiu, mas de forma muito mais robusta
+* Conseguimos implantar tanto no google, amazon, Amazon, OVH, **on-premise**
+* Tudo que o cloud oferece: 
+	* **Escala horizontalmente e verticalmente**, conseguimos escalar facilmente os processos, de forma automatica
+	* **Alta disponibilidade: **todos os componentes do cluster tem redundancia
+	* **Implantação automatizada**
+	* **redução de custo**
+	* **"Autocura"**
+* Integração com ferramentas de Machine Learning
+* Funciona com docker que já estamos utilizando pra construir nossos serviços
+* Criado para suportar microserviços
+
+
+===== Teste =====
+
+Eu comprei um servidor Xeon , e instalei o proxmox nele e instalei uma arquitetura de Kubernete de teste:
+
+{{./pasted_image.png}}
+
+
+Montei um cluster de 8 máquinas pra testar a aplicação:
+
+* 3 nós pra gerenciamento do cluster
+* 3 nós para gerenciamento do agentes (nós que rodam aplicação)
+* 2 nós redundante pra balanceamento de carga, com IP Virtual (se um balanceador cair, o outro assume o IP virtual)
+
+Depois de instalado, fiquei impressionado, como é muito fácil de subir aplicação, gerenciar nós, só não é redundante pq só to usando uma maquina física, mas é tranquilo de implementar . Lembrando que dá pra utilizar o serviço pago ai de uma amazon da vida que já é tudo gerenciado.
+
+===== Ferramentas =====
+
+Além disso tudo, o Kubernte vem com muitas ferramentas integradas nele que resolve muitos problemas que eu estava já implementando no orquestrador:
+
+É possivel criar Jobs e cronjobs, para subir uma aplicação de forma agendada, muito bom pra automação, por exemplo, precisamos todo dia coletar algum relatório, ou por exemplo agendar assinatura de pdf
+
+Ele já vem integrado sistema de proxy reverso, balanceamento de carga e muitas outras ferramentas de rede.
+Eu fiz um teste eu criei 2 servidores HAproxy com ip virtual, que manda conexão pro cluster, qualquer um dos nós e o balanceador de carga do kubernete já faz todo roteamentro para as aplicações correta. (replicas da aplicação ficam distribuida pelos nós do cluster)
+
+Proxy reverso pra tratar os dominios e subdominio e redirecionar para aplicação correta
+
+inumeras  Interface gráfica pronta de gerenciamento (GUI)
+
+===== Aplicações =====
+
+Além disso tudo o kubernete vem com uma infinidade de aplicações prontas que podemos incluir facilmente no cluster. 
+Ele vem com uma ferramenta que faz toda instalação automaticamente: (helm), é tipo um gerenciador de pacote
+
+Por exemplo estava discutindo com o Lucas sobre a gente utilizar um gerenciador de workflow para desenhar processos mais complexos da aplicação
+
+Argoflow, a gente consegue desenhar o fluxo é o garçom que faz da orquestração:
+{{./pasted_image001.png}}
+
+Tem uma infinidade de opções:
+https://github.com/meirwah/awesome-workflow-engines#full-fledged-product
+
+Tem também o N8n:
+{{./pasted_image002.png?width=1000}}
+
+Util pra automação
+
+Lucas defendeu também usarmos o Airflow pra fazer processamento dos dados da fluxo de processamento de documento
+https://github.com/apache/airflow
+
+{{./pasted_image003.png?width=1000}}
+
+
+
+É um mundo novo ai que se abriu, estou bem empolgado.

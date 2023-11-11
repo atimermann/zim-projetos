@@ -13,66 +13,11 @@ e como  não conseguiu andar muito nas definições dos modulos, foquei mais na 
 
 O projeto se mostrou muito mais complexo que eu tinha imaginado inicialmente, principalmente se for considerar todos os módulos como cofre eletronico.
 
-===== Kubernetes =====
-
 Precisamos de um arquitetura bem mais robusta pra suportar todo o projeto, tenho conversado muito com o Lucas ultimas semanas e me aprofundei muito em um arquitetura de Cloud. Verificamos que usa-se muito Kubernete para implantação de uma arquitetura de Machine Learning, como o [[BentoML]] com o Yatai (https://github.com/bentoml/Yatai) e o [[KubeFlow]] (https://www.kubeflow.org/).
 
-Fiquei bastante impressionado com o Kubernetes e as ferramentas que ele oferecer.  Então me aprofundei bastante e fiz muitos testes com a ferramenta.
-
-Resumidamente (posso detalhar mais quando a gente conseguir marcar uma reunião):
-
-* Arquitetura Cloud, open source, faz a orquestração completa da aplicação
-* Substiui o orquestrador que a gente discutiu, mas de forma muito mais robusta
-* Conseguimos implantar tanto no google, amazon, Amazon, OVH, **on-premise**
-* Tudo que o cloud oferece: 
-	* **Escala horizontalmente e verticalmente**, conseguimos escalar facilmente os processos, de forma automatica
-	* **Alta disponibilidade: **todos os componentes do cluster tem redundancia
-	* **Implantação automatizada**
-	* **redução de custo**
-	* **"Autocura"**
-* Integração com ferramentas de Machine Learning
-* Funciona com docker que já estamos utilizando pra construir nossos serviços
-* Criado para suportar microserviços
-
-===== Teste =====
-
-Eu comprei um servidor Xeon , e instalei o proxmox nele e instalei uma arquitetura de Kubernete de teste:
-
-{{./pasted_image.png}}
-
-
-Montei um cluster de 8 máquinas pra testar a aplicação:
-
-* 3 nós pra gerenciamento do cluster
-* 3 nós para gerenciamento do agentes (nós que rodam aplicação)
-* 2 nós redundante pra balanceamento de carga, com IP Virtual (se um balanceador cair, o outro assume o IP virtual)
-
-Depois de instalado, fiquei impressionado, como é muito fácil de subir aplicação, gerenciar nós, só não é redundante pq só to usando uma maquina física, mas é tranquilo de implementar . Lembrando que dá pra utilizar o serviço pago ai de uma amazon da vida q vem tudo pronto
-
-===== Ferramentas =====
-
-Além disso tudo, o Kubernte vem com muitas ferramentas integradas nele que resolve muitos problemas que eu estava já implementando no orquestrador.
-
-É possivel criar Jobs e cronjobs, para subir uma aplicação de forma agendada, muito bom pra automação, por exemplo, precisamos 
+Como acabou acumulando muita coisa, vou separar tudo por e-mail, espero que consiga ler
 
 
 
 
 
-
-
-
-
-Projeto Data Frost
-
-Estudo e Teste de Implantação de Sistema com Kubernetes em Ambiente Proxmox: Aprofundei meus conhecimentos em Kubernetes, focando na arquitetura de software robusta que ele oferece. A capacidade de Kubernetes em orquestrar contêineres de aplicativos em diferentes ambientes, como Azure, Google Cloud, Amazon Web Services ou on-premise, é notável. Isso oferece flexibilidade significativa para escolher a melhor opção com base nas necessidades do projeto.
-
-Implantação Local On-Premise para Testes: Decidi implementar uma versão on-premise do Kubernetes localmente para testes. Essa decisão foi baseada no tamanho e nas especificidades do nosso projeto, permitindo uma avaliação mais controlada e detalhada do sistema em um ambiente familiar.
-
-Arquitetura de Software em Kubernetes: A arquitetura de software que o Kubernetes suporta é ideal para nossas necessidades. Ela permite a implantação de microserviços, gerenciamento eficiente de carga de trabalho e escalabilidade automática. Além disso, a possibilidade de integrar ferramentas de machine learning e criar workflows complexos sem grandes dificuldades é uma grande vantagem.
-
-Vantagens do Kubernetes para Orquestração de Aplicações: O Kubernetes se destaca na orquestração de aplicações, oferecendo ferramentas como cronjobs para disparar tarefas programadas e mecanismos para escalar aplicações automaticamente. Essas funcionalidades são cruciais para manter nossa infraestrutura ágil e responsiva às demandas variáveis.
-
-Benefícios Comerciais e de Desenvolvimento: Do ponto de vista comercial e de desenvolvimento, o uso do Kubernetes oferece várias vantagens. Ele não apenas melhora a eficiência operacional, mas também reduz custos com infraestrutura devido à sua capacidade de escalabilidade e gerenciamento eficiente de recursos. Além disso, a agilidade no desenvolvimento e na implantação de novas funcionalidades é significativamente aprimorada.
-
-Estudo e Implantação do Serviço Keycloak: A implementação do Keycloak foi bem-sucedida, proporcionando uma solução robusta para gestão de identidades e acessos. Isso fortalece nossa segurança e melhora a gestão de usuários e serviços.

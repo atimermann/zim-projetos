@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-11T19:40:08-03:00
+
+====== 03 - Email 03 - Arquitetura ======
+Criado sábado 11 novembro 2023
+
+Arquitetura para o projeto [[DataFrost]]
+
+Eu desenhei uma arquitetura para o datafrost, não cheguei a passar pro Lucas ainda, tentando marcar uma reunião com ele na Alhambra:
+
+Neste modelo, cada serviço é encapsulado em seu próprio contêiner, com o Kubernetes responsável pelo escalonamento, auto-cura e gerenciamento de ciclo de vida dos contêineres. 
+
+A arquitetura de microserviços em Kubernetes e comunicação entre serviços em uma arquitetura de microserviços no Kubernetes:
+
+**API Gateway:** Um API Gateway atua como um ponto de entrada único para aplicações, roteando requisições para os serviços correspondentes. Além disso, é responsável por gerenciar preocupações transversais, como autenticação e SSL.
+
+**Service Discovery:** No Kubernetes, o Service Discovery é realizado internamente, onde cada serviço pode ter um Service que expõe uma API, facilitando a comunicação entre diferentes serviços.
+
+**Autenticação e Autorização:** Um serviço centralizado de autenticação, como o Keycloak, para emitir tokens JWT, garantindo autenticação e autorização eficientes entre os serviços.
+
+**Armazenamento de Imagens:** O MinIO, um armazenamento de objetos de alta performance e compatível com a API do Amazon S3, é ideal para armazenar imagens.
+
+**Banco de Dados:** Aadotar o padrão de "Database per Service", onde cada serviço mantém seu próprio banco de dados, ou um banco de dados compartilhado externo, dependendo da complexidade e necessidade de compartilhamento de dados.
+
+**Filas e Mensageria:** Sistemas de mensagens com RabbitMQ   para desacoplar serviços, permitindo comunicação assíncrona e resiliente, ideal para processamentos que não são imediatos ou que demandam muitos recursos.
+
+**Orquestração de Workflows:** O Argo Workflows, nativo do Kubernetes, é  para gerenciar fluxos de processamento, permitindo definir sequências complexas de tarefas.
+
+**Padrões de Comunicação:** Para a comunicação entre serviços, podem ser utilizadas **chamadas REST**, **gRPC** para uma comunicação mais eficiente,  para uma abordagem mais flexível na obtenção e combinação de dados de diferentes serviços, ou Socket.io entre aplicaçaões web com backend ou outra aplicação desenvolvida por nós com suporta (atualmente suporta Nodejs e python e Java)
+
+**Monitoramento e Logging:**  Prometheus e Grafana para métricas, e **ELK Stack** (Elasticsearch, Logstash, Kibana) ou Loki para logs, é crucial para manter a visibilidade em ambientes distribuídos.
+
+**CI/CD:** Automatizar o teste, construção e implantação de serviços.
+
