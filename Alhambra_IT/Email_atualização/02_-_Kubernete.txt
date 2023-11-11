@@ -53,6 +53,14 @@ Proxy reverso pra tratar os dominios e subdominio e redirecionar para aplicaçã
 
 inumeras  Interface gráfica pronta de gerenciamento (GUI)
 
+Esse é o mais completo deles q faz todo gerenciamento:
+
+{{./pasted_image006.png}}
+{{./pasted_image005.png?width=1000}}
+{{./pasted_image004.png}}
+Mas tem uma infinidade de funcionalidades
+
+
 ===== Aplicações =====
 
 Além disso tudo o kubernete vem com uma infinidade de aplicações prontas que podemos incluir facilmente no cluster. 
