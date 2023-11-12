@@ -16,5 +16,6 @@ Basicamente eu instalei e testei uma plataforma de automação de criação de f
 
 Montei algumas telas de gestão dos processo para controlar melhor o orquestrador:
 
+{{./pasted_image008.png}}
 
-
+{{./pasted_image007.png}}
