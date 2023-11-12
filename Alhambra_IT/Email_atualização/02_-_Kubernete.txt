@@ -60,7 +60,7 @@ Esse é o mais completo deles q faz todo gerenciamento:
 {{./pasted_image006.png}}
 
 {{./pasted_image005.png?width=1000}}
-{{./pasted_image004.png}}
+{{./pasted_image004.png?width=1000}}
 Mas tem uma infinidade de funcionalidades
 
 
