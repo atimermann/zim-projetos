@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.6
-Creation-Date: 2023-11-12T11:57:50-03:00
-
-====== Instalação no Kubernetes ======
-Criado domingo 12 novembro 2023
-
-https://www.keycloak.org/getting-started/getting-started-kube
