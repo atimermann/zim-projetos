@@ -5,3 +5,53 @@ Creation-Date: 2023-11-11T19:52:43-03:00
 ====== 04 - KeyCloak ======
 Criado sábado 11 novembro 2023
 
+
+====== Caracteristicas ======
+
+* Já tem integrado as telas de autenticação basta redirecionar para tela e depois retornar a url de retorno
+	* Login, cadastro, confirmação de email
+* Usa postgres
+* Tem suporte autenticação 2 fatores como enviar mensagem via sms
+* Tem roles grupos e muito mais
+
+====== Funcionamento ======
+
+
+Em uma analogia com conta de banco, procuração, saque por terceiro, podemos dizer que Keycloak é composto por 4 componentes:
+
+* **Resource Owner: **Seria o dono da conta do banco
+* **Client: **Seria o cliente que quer sacar a grana e precisa de uma procuração do **Resource Owner**
+* **Resource Server: **Seria o banco que precisa da procuração pra liberar acesso
+* **Authorization Server: **Seria o Cartório que vai autorizar o acesso do cliente ao banco através de uma procuração 
+
+Keycloak faz uso de muitos mecanismos de autenticação, o mais usasado é o **oAuth 2 + [[OpenID]]**
+
+* OAuth2 apenas realiza **AUTORIZAÇÂO **de recursos
+ 
+{{./pasted_image.png}}
+
+===== OpenId COnnect =====
+
+* Uma cadamada de identificação que trabalha em cima do oAuth2
+* HAblita clientes para verificar a identidade do usuário baseado na autenticação retornado pelo servidor de autorização
+* **Auth2**=> autorização
+* **ClientId** => autenticação
+{{./pasted_image001.png}}
+
+
+====== Fluxos de autenticação ======
+
+O Keycloak tem diversos fluxo diferente q cada plataforma decide usar, umas com mais seguranças outras com menos, de acordo com a ncessidade
+
+
+====== Tokens usados ======
+
+===== Id Token =====
+
+* Utiliza JWT
+* Autentica usuario
+* Informações necessária para garantir a autenticação como id e emailo
+* foco em autenticação
+
+===== Acess token =====
+* Foco em autorização
