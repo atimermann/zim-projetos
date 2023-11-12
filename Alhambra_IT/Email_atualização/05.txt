@@ -11,11 +11,11 @@ Como a gente não conseguiu definir as telas e teve muitas mudanças, eu não an
 
 Basicamente eu instalei e testei uma plataforma de automação de criação de formulário pra agilizar desenvolvimento
 
-{{./pasted_image.png}}
+{{./pasted_image.png?width=1000}}
 
 
 Montei algumas telas de gestão dos processo para controlar melhor o orquestrador:
 
-{{./pasted_image008.png}}
+{{./pasted_image008.png?width=1400}}
 
-{{./pasted_image007.png}}
+{{./pasted_image007.png?width=1400}}
