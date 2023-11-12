@@ -91,7 +91,7 @@ https://github.com/meirwah/awesome-workflow-engines
 
 
 É um mundo novo ai que se abriu, estou bem empolgado.
-Bom também pra projetos de automação como aquele do **[[AirBNB]]**
+Bom também pra projetos de automação como aquele do **AirBNB**
 Esse de workflow é muito bom pra criar projetos rapidamente
 
 Isso é só um resumo, tem uma infinidade de outras opções que podemos utilizar 

@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-11T19:52:43-03:00
+
+====== 04 - Email 04 -  KeyCloak ======
+Criado sábado 11 novembro 2023
+
+Estudo e instalação do keycloak no projeto como gerenciador de identidade e acesso
+{{./pasted_image002.png}}
+
+* Adiciona autenticação a aplicativos e serviços seguros com o mínimo de esforço. 
+* Não há necessidade de lidar com o armazenamento ou autenticação de usuários. 
+* Keycloak fornece federação de usuários, autenticação forte, gerenciamento de usuários, autorização refinada entre outros
+* Tem diversos fluxo diferente q cada plataforma decide usar, umas com mais seguranças outras com menos, de acordo com a necessidade
+
+
+====== Caracteristicas ======
+
+* Já tem integrado as telas de autenticação basta redirecionar para tela e depois retornar a url de retorno
+	* Login, cadastro, confirmação de email
+* Possivel usar as telas internas para o usuario editar seu perfil
+* Usa postgres
+* Tem suporte autenticação 2 fatores como enviar mensagem via sms
+* Tem roles grupos 
+* Suporte LDAP, Active Directory etc...
+* Integração com media social, facebook, google etc...
+* Gerencia diversos sistemas indementendes com Realm, por exemplo, gestão do datafrost e painel do cliente
+
+Em uma analogia com conta de banco, procuração, saque por terceiro, podemos dizer que Keycloak é composto por 4 componentes:
+
+* **Resource Owner: **Seria o dono da conta do banco
+* **Client: **Seria o cliente que quer sacar a grana e precisa de uma procuração do **Resource Owner**
+* **Resource Server: **Seria o banco que precisa da procuração pra liberar acesso
+* **Authorization Server: **Seria o Cartório que vai autorizar o acesso do cliente ao banco através de uma procuração 
+
+Keycloak faz uso de muitos mecanismos de autenticação, o mais usasado é o **oAuth 2 + OpenId**

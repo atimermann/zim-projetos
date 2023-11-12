@@ -1,6 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.6
-Creation-Date: 2023-11-11T19:52:43-03:00
-
-====== Email 04 -  KeyCloak ======
-Criado sábado 11 novembro 2023

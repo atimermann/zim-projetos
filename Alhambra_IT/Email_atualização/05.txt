@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-12T17:36:39-03:00
+
+====== 05 ======
+Criado domingo 12 novembro 2023
+
+Frontent Web
+
+Como a gente não conseguiu definir as telas e teve muitas mudanças, eu não andei muito aqui.
+
+Basicamente eu instalei e testei uma plataforma de automação de criação de formulário pra agilizar desenvolvimento
+
+{{./pasted_image.png}}
+
+
+Montei algumas telas de gestão dos processo para controlar melhor o orquestrador:
+
+
+

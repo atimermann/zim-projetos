@@ -5,7 +5,7 @@ Creation-Date: 2023-11-11T19:40:08-03:00
 ====== 03 - Email 03 - Arquitetura ======
  Criado sábado 11 novembro 2023
 
-Arquitetura para o projeto [[DataFrost]]
+Arquitetura para o projeto DataFrost
 
 Neste modelo, cada serviço é encapsulado em seu próprio contêiner, com o Kubernetes responsável pelo escalonamento, auto-restauração e gerenciamento de ciclo de vida dos contêineres. 
 
