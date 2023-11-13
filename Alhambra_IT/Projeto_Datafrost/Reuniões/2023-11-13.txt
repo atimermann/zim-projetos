@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-13T16:07:40-03:00
+
+====== 2023-11-13 ======
+Criado segunda 13 novembro 2023
+
+* Vamos definir o uso do Kubernete
+* Funcionalidade para controlar o fluxo do processamento do documento
+	* Jobs pode ser usado para criar tarefas uma vez no final do mês
