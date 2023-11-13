@@ -5,6 +5,12 @@ Creation-Date: 2023-11-13T16:07:40-03:00
 ====== 2023-11-13 ======
 Criado segunda 13 novembro 2023
 
-* Vamos definir o uso do Kubernete
+* Discutir implantação 
 * Funcionalidade para controlar o fluxo do processamento do documento
 	* Jobs pode ser usado para criar tarefas uma vez no final do mês
+
+* Analisar 
+	* https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&token=c958116cbc1b462ea453a7bb0285f98e&id=id30qWzVS0ivGVggzeQX3TY4c7g4UgJMgx8XhNSbGMZUNTBER0RLRUVWOENHT1NGU0tCRVZBMVAwTS4u
+	* Verificar como implementar esse fluxo no sistema pensando no Kubernete
+
+====== Cronograma proximas etapas ======
