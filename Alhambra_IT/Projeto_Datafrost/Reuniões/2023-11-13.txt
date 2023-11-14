@@ -13,4 +13,20 @@ Criado segunda 13 novembro 2023
 	* https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&token=c958116cbc1b462ea453a7bb0285f98e&id=id30qWzVS0ivGVggzeQX3TY4c7g4UgJMgx8XhNSbGMZUNTBER0RLRUVWOENHT1NGU0tCRVZBMVAwTS4u
 	* Verificar como implementar esse fluxo no sistema pensando no Kubernete
 
-====== Cronograma proximas etapas ======
+
+====== Reunião ======
+
+* Adoção  do Kubernetes 
+* Alinhamento sobre funcionalidade de definição de fluxo de processamento de documento por cliente: 
+	* https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&token=c958116cbc1b462ea453a7bb0285f98e&id=id30qWzVS0ivGVggzeQX3TY4c7g4UgJMgx8XhNSbGMZUNTBER0RLRUVWOENHT1NGU0tCRVZBMVAwTS4u
+* Alinhamento da adoção do Keycloak 
+* Discussão arquitetura 
+
+===== Proximas Etapas =====
+
+* Estudar como integrar a configuração do fluxo de processamento de documento com kubernetes baseado no formulário discutindo em reunião
+* Verificar com Luiz/Guilherme possibilidade de instalar uma infraestrutura kubernetes no Promox da Alhambra como um ambiente de homologação e teste
+* Migração CI/CD para kubernete
+* Decidir qual configuração  adotar e como integrar no projeto o Keycloak
+
+
