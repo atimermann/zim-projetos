@@ -15,9 +15,25 @@ Criado quinta 23 novembro 2023
 * Node-RED
 	* https://nodered.org/
 * Ambiente Kubernetes
+	* Ingress
+		* https://www.youtube.com/watch?v=5YOEIV-xPdc
 	* Keycloack
+		* https://www.youtube.com/playlist?list=PL-XEb3GK7JUrzMDzRAiRG-AV8iP73FF8T
 	* Vitess
+		* https://vitess.io/
+		* Planetscale
+	* https://www.youtube.com/@fabricioveronez/videos
+	* Multi Tenent
 * Frontend Nuxt
+	* https://formkit.com/
 * Concorrentes
 	* https://automation.bpatechnologies.com/bpa
 * Integração com IA (muito forte)
+
+
+* Foco
+* Não distrair
+* Fazer o mais rápido
+* cronograma
+* Criar varios programas pré pronto e vender rápido
+* Lutar contra TDAH
