@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-23T00:25:21-03:00
+
+====== Neo RPA ======
+Criado quinta 23 novembro 2023
+
+====== Nova abordagem ======
+
+* OpenRPA
+	* https://www.youtube.com/@AllanZimmermann/videos
+	* https://openiap.io/openrpa
+	* https://github.com/open-rpa/openrpa
+	* https://www.youtube.com/playlist?list=PLXXz88_TPiHqvKY1aGsfKL8JImbHjLfMi
+* Node-RED
+	* https://nodered.org/
+* Ambiente Kubernetes
+	* Keycloack
+	* Vitess
+* Frontend Nuxt
+* Concorrentes
+	* https://automation.bpatechnologies.com/bpa
+* Integração com IA (muito forte)

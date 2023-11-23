@@ -1,8 +1,8 @@
 Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
+Wiki-Format: zim 0.6
 Creation-Date: 2020-06-29T22:18:14-03:00
 
-====== NeoBotic ======
+====== old - NeoBotic ======
 Created segunda 29 junho 2020
 
 - Oq mais tá pegando na Terin é ambiente:
