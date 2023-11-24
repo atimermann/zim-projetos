@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-24T20:07:55-03:00
+
+====== 01 - Crontech Plataforma ======
+Criado sexta 24 novembro 2023
+
+Novo projeto para criação de uma plataforma Crontech de aplicações de TI baseado em:
+
+* Infraestrutura Kubernetes
+* Frontend Baseado no Vue 3 + Nuxt 3 + Prime + Template Base com Layer
+* Low Code com Node Red
+* RPA com OpenRPA e Puppeter
+	* Gestor de Orquestração integrado com a plataforma
+* Banco de dados Vitess
+* Backend em Nodejs com aplicação micro e Fastfy
+* Autenticação com Keycloak
+* IA com as melhores ferramentas do mercado para integrar tudo
+* Multi Tenent por padrão
