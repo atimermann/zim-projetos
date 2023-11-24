@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-24T20:13:49-03:00
+
+====== Crontech Loja Gamer ======
+Criado sexta 24 novembro 2023
+
+Usar como projeto base para plataforma crontech

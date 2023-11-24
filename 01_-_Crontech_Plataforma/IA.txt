@@ -5,5 +5,7 @@ Creation-Date: 2023-11-24T20:11:17-03:00
 ====== IA ======
 Criado sexta 24 novembro 2023
 
+Ferramentas IA, para produtividade e para o projeto, acompanhar sempre pq no momento está em rápida evolução
+
 * API ChatGPT
 * Sofia
