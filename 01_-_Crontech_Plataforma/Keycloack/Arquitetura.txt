@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-25T01:51:51-03:00
+
+====== Arquitetura ======
+Criado sábado 25 novembro 2023
+
+- Estou montando uma plataforma de aplicações usando Kubernetes
+- Neste cluster kubernetes vou colocar vários sistemas independentes
+- Como: Sistema de RPA, sistema de loja e-coomerce entre outros
+- Todos os sistemas terão sua autorização e autenticação gerenciado por um unico serviço Keycloak,
+- Será criado um SSO
+- Vou utilizar apenas um Realm
+- Teremos multi tenant, ou seja cada aplicação poderei revender para um cliente e esse cliente fazerá uso da aplicação de forma isolado, podendo inclusive criar outros usuários para acessar este sistema.
+- Cata tenant será separado adicionando um campo espacial chamado domain ou subdomain no usuário
+
+Qual melhor configuração do Keycloak para gerenciar estes usuários?
+
+{{./pasted_image.png}}
+
+
+User
+1) 
+- SSO (Single Sign-On): Configure o SSO para permitir que os usuários acessem diferentes sistemas com um único login.
+
+Como faço isso?
+
+2) 
+- Autosserviço de Gerenciamento de Usuários: Permita que administradores de tenant gerenciem seus próprios usuários, limitando seu escopo ao seu domain/subdomain.
+
+como faço isso no keycloak?
+
+3)
+- O que são Adapters do Keycloak?
+
+4) 
+Logs e Monitoramento: Configure logs detalhados e monitore o Keycloak para detectar e reagir a atividades suspeitas.
+
+Que ferramentas posso utilizar para detectar e reagir a atividades suspeitas?
+
+{{./pasted_image001.png}}
+
+Limitação de Escopo: Utilize os atributos customizados (como 'domain' ou 'subdomain') para limitar o escopo de administração. Por exemplo, um administrador de tenant só pode gerenciar usuários cujos atributos 'domain' correspondem ao seu próprio tenant.
+
+Como faço isso no keycloack?
+
+{{./pasted_image002.png}}
+
+
+

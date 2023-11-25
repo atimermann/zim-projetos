@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-11-25T01:46:29-03:00
+
+====== KeyCloack + Multi tenant ======
+Criado sábado 25 novembro 2023
+
+{{./pasted_image.png}}
+
+

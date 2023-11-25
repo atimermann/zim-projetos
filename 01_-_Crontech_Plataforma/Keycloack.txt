@@ -29,7 +29,7 @@ Implementar um sistema de **Single Sign-On (SSO)** com Keycloak para diversas ap
 **Autenticação entre Realms Diferentes:** O Keycloak não suporta nativamente SSO entre realms diferentes. Se você usar um realm separado para cada aplicação, os usuários terão que se autenticar separadamente para cada realm.
 **Um Único Realm para SSO:** Para que um usuário se autentique uma vez e tenha acesso a todas as aplicações, é mais eficaz utilizar um único realm com vários clientes.
 
-====== Padrão Utilizado: ======
+===== Padrão Utilizado: =====
 
 **Um Realm para Todas as Aplicações:** Para um cenário de SSO, é recomendado usar um único realm com vários clientes. Isso facilita a gestão do SSO e simplifica a experiência do usuário.
 
@@ -37,6 +37,15 @@ Implementar um sistema de **Single Sign-On (SSO)** com Keycloak para diversas ap
 Abordagem de Plataformas como Google e Facebook:
 
 **Sistemas Personalizados:** Google, Facebook, e outras grandes plataformas geralmente usam sistemas de gerenciamento de identidade personalizados, embora eles sigam padrões de indústria como OAuth 2.0 e OpenID Connect.
-SSO em Grande Escala: Estas plataformas implementam SSO para permitir acesso a múltiplos serviços com uma única autenticação. Eles têm mecanismos avançados para gerenciar a segurança e a privacidade dos dados dos usuários.
-Padrões de Autenticação: Eles utilizam padrões de autenticação e autorização para gerenciar o acesso a diferentes aplicações e serviços de forma segura e eficiente.
+
+**SSO em Grande Escala:** Estas plataformas implementam SSO para permitir acesso a múltiplos serviços com uma única autenticação. Eles têm mecanismos avançados para gerenciar a segurança e a privacidade dos dados dos usuários.
+
+**Padrões de Autenticação:** Eles utilizam padrões de autenticação e autorização para gerenciar o acesso a diferentes aplicações e serviços de forma segura e eficiente.
+
 No seu caso, para implementar SSO com eficácia usando Keycloak, o ideal é concentrar todas as suas aplicações em um único realm, configurando cada aplicação como um cliente dentro desse realm. Isso simplifica a administração e proporciona a melhor experiência de usuário com autenticação única.
+
+====== Resposta 2: ======
+
+
+{{./pasted_image.png}}
+
