@@ -12,7 +12,7 @@ Criado sábado 25 novembro 2023
 - Será criado um SSO
 - Vou utilizar apenas um Realm
 - Teremos multi tenant, ou seja cada aplicação poderei revender para um cliente e esse cliente fazerá uso da aplicação de forma isolado, podendo inclusive criar outros usuários para acessar este sistema.
-- Cata tenant será separado adicionando um campo espacial chamado domain ou subdomain no usuário
+- Cada tenant será separado adicionando um campo especial chamado domain ou subdomain no usuário
 
 Qual melhor configuração do Keycloak para gerenciar estes usuários?
 
