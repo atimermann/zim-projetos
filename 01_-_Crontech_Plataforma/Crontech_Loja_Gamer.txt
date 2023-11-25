@@ -5,4 +5,13 @@ Creation-Date: 2023-11-24T20:13:49-03:00
 ====== Crontech Loja Gamer ======
 Criado sexta 24 novembro 2023
 
-Usar como projeto base para plataforma crontech
+**Usar como projeto base para plataforma crontech**
+
+1. Montar estrutura de diretórios e configurar o monorepo
+2. Subir para o git o novo projeto crontech-plataform (Privado)
+3. Preparar ambiente kubernetes inicial
+	a. Configurar Servidor DNS local para substituir o /etc/host
+	b. Configurar Storage
+	c. Configurar Ingress
+4. 
+ 
