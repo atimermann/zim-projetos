@@ -11,7 +11,7 @@ Criado sexta 24 novembro 2023
 [*] Subir para o git o novo projeto crontech-plataform (Privado) 
 3. Preparar ambiente kubernetes inicial
 	[*] . Configurar Servidor DNS local para substituir o /etc/host
-	b. Configurar Storage
+	[*] Configurar Storage
 	c. Configurar Ingress
 . 
  
