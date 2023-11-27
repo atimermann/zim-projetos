@@ -19,5 +19,5 @@ Novo projeto para criação de uma plataforma Crontech de aplicações de TI bas
 * Multi Tenent por padrão
 
 * Criar um login unico que consegue acessar todas as aplicações
-* Possibilidade de configurar aplicações de forma independente (exibencia cliente)
-* Criar o maximo de serviços
+* Possibilidade de configurar aplicações de forma independente (exigencia do cliente)
+* Criar o maximo de serviços/aplicações para revenda
