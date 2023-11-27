@@ -10,8 +10,8 @@ Criado sexta 24 novembro 2023
 [*] **Montar estrutura de diretórios e configurar o monorepo**
 [*] Subir para o git o novo projeto crontech-plataform (Privado) 
 3. Preparar ambiente kubernetes inicial
-	[*] . Configurar Servidor DNS local para substituir o /etc/host
+	[*] Configurar Servidor DNS local para substituir o /etc/host
 	[*] Configurar Storage
-	c. Configurar Ingress
+	[*] Configurar Ingress
 . 
  
