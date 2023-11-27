@@ -14,4 +14,9 @@ Criado sexta 24 novembro 2023
 	[*] Configurar Storage
 	[*] Configurar Ingress
 . 
+===== configurar projeto =====
+
+
+
+
  
