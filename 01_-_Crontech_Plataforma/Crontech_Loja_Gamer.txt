@@ -14,9 +14,11 @@ Criado sexta 24 novembro 2023
 	[*] Configurar Storage
 	[*] Configurar Ingress
 . 
-===== configurar projeto =====
-
-[ ] 
+[ ] Configurar estrutura do projeto, migrar arquivos antigos
+[ ] Definir Banco de dados
+	* Opção 01: Criar externamente em uma VM
+	* Opção 02: Criar em um pod local com acesso Storage central, deve ser uma instancia
+	* Opção 03: Demorado Vitess
 
 
  
