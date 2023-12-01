@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-01T11:33:49-03:00
+
+====== 2023-12-01 ======
+Criado sexta 01 dezembro 2023
+
+*PRIORIDADE*
+
+
+===== Tarefa 01 =====
+
+* Refazer automação datalens para Simcards
+* Atualiza tabela backend em postgrês
+* Quando finalizar substitui todos os dados de uma vez na tabela do SQLLITE
+
+* **Renomear** nome **Parado** p/ **Suspenso no Jobs Overview**
+* Problema duração
+* Renomear **Automação** p/ **Monitoramento**
+* **Monitoramento** p/ **Depuração**
+
+* **Migrar Kubernetes**
+* Verificar oq precisa pra nova plataforma automação
+
+===== Tarefa 02 =====
+
+* Dashboard:
+	* Agrupar por cliente
+
+====== Registros pro mês ======
+
+
+====== Sistema de Alerta ======
+
+* Criar alertas no painel em vermelho, de erros atrasos e por no dashboard
+* se for paginar por aba, acender a flag vermelho na aba
