@@ -5,3 +5,5 @@ Creation-Date: 2023-11-25T01:37:26-03:00
 ====== Autenticação - Keycloack ======
 Criado sábado 25 novembro 2023
 
+* Plataforma unificada de autenticação para ser usada por todas as aplicações da plataforma
+* 
