@@ -17,6 +17,7 @@ Novo projeto para criação de uma plataforma Crontech de aplicações de TI bas
 * Autenticação com Keycloak
 * IA com as melhores ferramentas do mercado para integrar tudo
 * Multi Tenent por padrão
+* Integraćão com hardware node-red
 
 * Criar um login unico que consegue acessar todas as aplicações
 * Possibilidade de configurar aplicações de forma independente (exigencia do cliente)
