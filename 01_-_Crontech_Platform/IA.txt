@@ -9,3 +9,4 @@ Ferramentas IA, para produtividade e para o projeto, acompanhar sempre pq no mom
 
 * API ChatGPT
 * Sofia
+* https://www.tldraw.com/ - Gera interface automaticamente
