@@ -30,4 +30,9 @@ Criado segunda 13 novembro 2023
 * Decidir qual configuração  adotar e como integrar no projeto o Keycloak
 
 
+
+
+
+
+
 {{./pasted_image.png}}
