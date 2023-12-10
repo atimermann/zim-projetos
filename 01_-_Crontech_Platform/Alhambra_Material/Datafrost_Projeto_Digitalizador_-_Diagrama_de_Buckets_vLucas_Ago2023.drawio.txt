@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:04:44-03:00
+
+====== Datafrost Projeto Digitalizador - Diagrama de Buckets vLucas Ago2023.drawio ======
+Criado domingo 10 dezembro 2023
+
+{{./pasted_image.png}}
