@@ -1,0 +1,175 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:58:31-03:00
+
+====== Stories ======
+Criado domingo 10 dezembro 2023
+
+## T1 - Digitalizador
+
+  
+
+* Digitalização simplificada de documentos
+	* Foco no cliente final
+	* Possibilidade de utilizar scanner OU câmera de celular
+	* Mínima configuração por parte do usuário
+	* Separação de páginas de documentos simples e intuitiva
+* Digitalização avançada de documentos
+	* Foco no digitalizador profissional
+	* Scanner apenas
+	* Liberdade para o usuário na configuração do scanner
+	* Possibilidade de utilizar recursos avançados (patch codes, etc.)
+* Entrada manual de metadados e tags pré-definidos
+	* Campos de preenchimento livre
+	* Campos de múltipla escolha
+* Assistência na gestão de arquivos físicos
+	* Metadado/tag para identificar a caixa/local de armazenamento
+	* Emissão de códigos de barras e QR codes para rotular as caixas quando necessário
+* Submissão de documentos digitalizados para o orquestrador / gerenciador de fluxo
+* Single Sign-on via Autenticador
+
+  
+
+## T2 - Orquestrador / Gerenciador de Fluxo de Documentos
+
+  
+
+* Definição e customização de fluxos de processamento de documentos
+	* Módulos para conectar outros sistemas (conectores) e módulos para processar / transformar documentos (processadores)
+	* Conectores de entrada (e.g. digitalizador, métodos de upload de arquivos, integrações com sistemas externos)
+	* Processadores (e.g. OCR, extração de dados, assinatura digital, validade jurídica)
+	* Conectores de saída (e.g. cofre eletrônico, integrações com sistemas externos)
+* Monitoramento do workflow
+	* Visualização de estatísticas de documentos processados
+* REST API para upload direto de arquivos
+* Conector de entrada para o Digitalizador
+* Conector de entrada para WebDAV (?)
+* Conectores (de entrada?) para documentos oriundos de:
+	* Google Drive
+	* One Drive
+	* S3 AWS
+	* DropBox
+* Conectores (de entrada?) para os Maiores ERPs/Plataformas
+	* Emissão de NFs e Cupom Fiscal
+	* Escritórios de Advocacia
+	* Consultórios Médicos
+	* Escritórios de Contabilidade
+	* PABX/Softwares de Gravação de Voz (CallCenters)
+	* Softwares de video-vigilância
+	* Clinicas de Diagnósticos por Imagens
+	* Hospitais
+* Conectores (de entrada?) para os principais ERPs de RH do mercado
+	* Senior RH
+	* TOTVS RH
+	* SAP Business One
+	* Oracle
+* Conectores (de entrada?) para os principais GEDs do mercado
+	* Alfresco
+* Conectores (de entrada?) para os principais sistemas de gestão especializados em administração pública (inclusive sistemas de prefeituras)
+* Processador para OCR
+* Processador para produção de documentos digitais com valor legal / validade jurídica
+* Processadores (no plural) para classificação e extração de informações de documentos
+	* Notas fiscais
+	* Contratos
+	* RH
+	* ...
+	* ?
+* Processador para assinatura digital
+	* Atendimento à Lei da Assinatura Eletrônica Avançada – Lei 14.063
+	* Padrão ICP Brasil
+	* Carimbo de tempo
+* Processadores integrados com ferramentas externas de assinatura digital (?)
+	* DocuSign
+	* AdobeSign
+	* CertiSign
+* Conector de saída para o Cofre Eletrônico
+* Compliance (?)
+	* LGPD
+	* GDPR
+	* ISO 27001
+	* ISO 27018
+	* ISO 27701
+	* PCI DSS
+	* Auditorias Reconhecidas atestando a confiabilidade da Solução
+* Single sign-on via Autenticador
+
+  
+
+## T3 - Sistema de Arquivamento e Cofre Eletrônico
+
+  
+
+* REST API para upload direto de arquivos
+* Opção na interface para upload direto de arquivos
+* Opção para upload de arquivos via WebDAV (?)
+* Validação de assinaturas digitais
+	* Conformidade nos Padrões de Identidade Digital Europeia – eIDAS e Compliance LGPD
+* Validação de valor legal / validade jurídica de documentos inseridos
+	* Validação dos parâmetros de digitalização (?)
+	* Validação dos metadados
+	* Validação da conformidade ao padrão PDF/A
+	* Validação da assinatura digital ICP Brasil
+* Replicação e alta disponibilidade
+	* Datacenters no Brasil, Canadá e França
+	* Replicação em 3 datacenters nacionais
+* Compartilhamento seguro de documentos através de links
+	* Pedido de consentimento ao titular do documento
+	* Apenas mediante validação de identidade (inclusive externos)
+	* Auditoria de compartilhamento - jornal do tempo (inclusive externos)
+	* Opção para desabilitar downloads
+	* Opção de autorizar apenas um IP fixo pré-definido
+	* Opção de ocultar informações do documento
+* Temporalidade e retenção de documentos
+	* Configuração dos prazos de guarda e destinação final dos documentos
+	* Notificações de mudança de perfil de arquivamento
+	* Notificações de destruição de documentos de guarda temporária
+	* Opção de renovação de guarda
+	* Opção de integrar o tempo de permanência com a duração definida em contrato no ERP do cliente
+* Exclusão de arquivos com certificado
+* Opção de Guarda Permanente a Frio de Documentos Digitais do Cliente SEM OCR, Reconhecimento de Tipo de Doc, com SLA de Recuperação mais longo (solução low cost para legados pouco acessados)
+* Compliance (?)
+	* LGPD
+	* GDPR
+	* ISO 27001
+	* ISO 27018
+	* ISO 27701
+	* PCI DSS
+	* Auditorias Reconhecidas atestando a confiabilidade da Solução
+	* NF 461 / ISO 14641 (?)
+* Opção para criptografar documentos
+* Varredura periódica de integridade
+* Tags para classificação de documentos
+* Gestão intuitiva das políticas de acesso aos documentos
+* Possibilidade de exportar dados para estudo / tratamento diferenciado
+	* Consentimento prévio do titular
+	* Anonimização / pseudonimização
+	* Embaralhamento / ocultação de proveniência e data
+* Busca inteligente e avançada de documentos
+* Visualização de diversos formatos de arquivo
+	* Inclusive arquivos de imagens clínicas
+	* Suporte a arquivos grandes (e.g. vídeo)
+* Single sign-on via autenticador
+
+  
+
+## T4 - Autenticador
+
+  
+
+* Autenticação multi-fator
+* Validação de identidade (reconheciment facial?)
+* Integração com / Importação de grupos e usuários de ADs / LDAP e outros serviços de autenticação
+* Estrutura multi-tenant
+	* Empresas de digitalização e seus funcionários
+	* Empresas titulares dos documentos (clientes finais) e seus funcionários
+	* Usuários independentes (cofre pessoal)
+
+  
+
+## T5 - Gerenciador de Configuração
+
+  
+
+* Gerencia configuração das contas, se vai ter validade jurídica ou não
+
+##

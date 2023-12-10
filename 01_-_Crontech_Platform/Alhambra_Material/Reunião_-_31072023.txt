@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:01:27-03:00
+
+====== Reunião - 31072023 ======
+Criado domingo 10 dezembro 2023
+
+## Pontos a discutir
+
+  
+
+- [ ]     Definir padrão de requisição e resposta das APIs dos serviços
+- [ ]     Definir estruturas de dados para representar os documentos/páginas nas diferentes etapas do processo para interoperabilidade entre os serviços
+- [ ]     Definir as rotas das APIs de cada serviço, formato de requisição e reposta, possíveis erros, etc.
+- [ ]     Definir como deve funcionar a conexão com o MinIO, como os serviços devem instanciar e utilizar o cliente para leitura e escrita dos objetos
+- [ ]     Definir como utilizar o Keycloak
+- [ ]     Definir o flow de digitalização para profissionais de digitalização
+- [ ]     Definir o flow de digitalização para usuários finais
+
+  
+
+## Anotações
+
+  
+
+* Padrões de JSON APIs: [https://stackoverflow.com/a/14538774](https://stackoverflow.com/a/14538774)
+* Exemplos de requisição e resposta:
+	* [https://cloud.google.com/vision/docs/ocr#vision\_text\_detection-drest](https://cloud.google.com/vision/docs/ocr#vision_text_detection-drest)
+	* [https://cloud.google.com/vision/docs/pdf#vision\_text\_detection\_pdf\_gcs-drest](https://cloud.google.com/vision/docs/pdf#vision_text_detection_pdf_gcs-drest)
+
+  
+
+Módulos
+
+  
+
+* Nota fiscal, cupom fiscal, guias de pagamentos, boleto, comprovantes
+* RH
+* Contratos
+* Licitações
+
+  
+
+Para avaliar
+
+* Decreto 10278
+* Kubernetes
+* Codificação dos metadados
+* Separação por domínio
+* Definir fluxos
+* Páginas/ divisão dos documentos
+* Hierarquia de usuários (admin, supervisor, digitalizador) - dashboard, área de staging

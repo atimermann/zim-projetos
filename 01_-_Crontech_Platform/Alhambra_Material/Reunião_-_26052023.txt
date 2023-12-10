@@ -1,0 +1,71 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:01:13-03:00
+
+====== Reunião - 26052023 ======
+Criado domingo 10 dezembro 2023
+
+### Apresentação arquitetura atualizada
+
+  
+
+![](https://t36909825.p.clickup-attachments.com/t36909825/18452dc6-ee38-44e2-86f8-6c413c81fb05/image.png)
+
+  
+
+### Definições do projeto
+
+  
+
+* Para o POC o usuário define quais imagens (páginas) pertencem a qual documento no escaneamento
+
+  
+
+### Apresentação cronograma
+
+Andre
+
+* \[2 semanas\] Análise, projeto, desenvolvimento e teste módulo scanner com Dynamic Web
+* \[ 1 semana\] Salvar Imagem S3, Banco de dados, Fila RabbitMQ
+* \[ 1 semana\] Gestão ciclo de vida documento, processamento fila, Craft, Tesseract, Donut
+* \*\[ 3 semanas\] Interface web para visualização do processo (lista de imagem, lista de documento, outros..)
+* **GED**
+* \*\[4 semanas\] Gestão e controle de acesso - Auditoria e Hierarquia
+* \*\[4 semanas\] Gestão de contas de usuário (Limitação, recurso disponível etc...)
+
+  
+
+Lucas
+
+* \[2 semanas\] Classificação documentos de 4barras
+* \*\[4 semanas\] Extração dos metadados documentos 4barras (título, data, etc.)
+* \*\[4 semanas\] Extração de informações estruturadas documentos 4barras (valores, quantidades, etc.)
+
+  
+
+* \*\[4 semanas\] Serviço de geração do PDF/A (Criação do PDF/A pesquisável, inserção dos metadados)
+* \*\[2 semanas\] Serviço de assinatura digital (Integrar API safeweb)
+
+  
+
+### Testes Dynamic Web TWAIN SDK
+
+  
+
+* Discutir valores propostos (possibilidade de desconto 30%)
+* Iniciar teste na plataforma
+
+  
+
+### Contratação serviços GPU Cloud
+
+  
+
+Modelos podem levar bastante tempo para serem treinados dependendo da resolução das imagens, tamanho do dataset, latência e memória das gpus, etc. (alguns datasets levariam dias para treinar com uma única Nvidia A100).
+
+  
+
+* [https://lambdalabs.com/service/gpu-cloud](https://lambdalabs.com/service/gpu-cloud)
+* [https://cloud.google.com/compute/gpus-pricing](https://cloud.google.com/compute/gpus-pricing)
+* [https://docs.aws.amazon.com/dlami/latest/devguide/gpu.html](https://docs.aws.amazon.com/dlami/latest/devguide/gpu.html)
+* [https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-gpu?ref=blog.paperspace.com](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-gpu?ref=blog.paperspace.com)

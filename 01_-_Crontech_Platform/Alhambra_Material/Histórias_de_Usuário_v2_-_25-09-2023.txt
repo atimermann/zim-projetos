@@ -1,0 +1,471 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:49:21-03:00
+
+====== Histórias de Usuário v2 - 25-09-2023 ======
+Criado domingo 10 dezembro 2023
+
+# Descrição
+
+  
+
+# TODO: A definir
+
+  
+
+* A validade jurídica é interessante para todos os tipos de detentores de documento (empresa privada, empresa pública, administração pública e pessoa natural / física)?
+* Seria interessante separar os stakeholders entre os que estão interessados em validade jurídica e os que não estão?
+* Para quais stakeholders a geodistribuição é interessante, e para que tipo?
+* Haverá a opção de download de documento? Se sim, será possível fazer o download de documentos compartilhados, sendo opcional a prevenção do download, ou documentos compartilhados não poderão ser baixados em hipótese alguma?
+* É interessante expor a funcionalidade de versionamento de documentos do MinIO como uma funcionalidade do cofre? Alguns exemplos de uso que eu vejo seriam 1. documentos que são assinados digitalmente (possivelmente mais de uma vez), 2. documentos com informações sensíveis ocultadas (poderia existir uma versão com o documento original, cuja política de acesso é extremamente restrita, e uma versão com o documento com as informações ocultadas, cujo acesso é menos restrito).
+* Qual o custo benefício de possibilitar a atribuição de metadados a documentos do cofre eletrônico x apenas consumir um documento já com os metadados e apenas indexar e permitir a visualização?
+* Quais formatos de arquivo poderão ser visualizados (além de PDF)?
+* Quais formatos de arquivo poderão ser validados (além de PDF/A)?
+* Ambiente frio apenas ou quente e frio tambẽm:
+* Cofre para negocio x regulatorio
+
+  
+
+  
+
+Aplicação para arquivamento seguro de documentos digitais.
+
+  
+
+# Resumo das Funcionalidades
+
+  
+
+* Arquivamento digital de documentos
+* Armazenamento replicado e geodistribuído
+* Garantia de integridade e inviolabilidade dos documentos
+* Criptografia
+* Certificação de validade jurídica de documentos digitalizados
+* Gestão do ciclo de vida dos documentos (tabela de temporalidade)
+* Classificação de documentos através de tags
+* Versionamento de documentos
+* Compartilhamento seguro de documentos
+* Rastreamento de arquivos físicos e controle de descarte definitivo
+* Indexação e busca avançada de documentos
+* Visualização de documentos em múltiplos formatos de arquivo
+
+  
+
+# Atores
+
+## Stakeholders
+
+  
+
+* Detentor de Documentos - Entidade que detém os documentos a serem depositados no cofre. Essas entidades podem ser:
+	* Empresa Privada
+	* Empresa Pública
+	* Administração Pública
+	* Pessoa Física
+
+  
+
+## Usuários
+
+  
+
+* Usuário - Usuário que interage diretamente com a aplicação através de uma interface gráfica. Pode ser um funcionário da entidade detentora de documentos no caso de uma empresa ou administração pública, ou o próprio detentor dos documentos no caso de uma pessoa física. Um Usuário pode assumir um dos seguintes _roles:_
+	* Visualizador - Usuário que apenas acessa e visualiza documentos.
+	* Gestor - Usuário responsável por atividades de gestão de documentos, como o depósito de documentos, a atribuição de tags e metadados e o acompanhamento do ciclo de vida dos documentos.
+	* Administrador - Usuário responsável por atividades de administração do cofre eletrônico, como a definição de tags e metadados e de regras de validação, transição e expiração, além da criação, exclusão e gerenciamento de permissões e acesso de usuários.
+* Usuário Externo - Usuário externo à entidade detentora dos documentos e que portanto não possui login, mas que interage com a aplicação através de uma interface gráfica ao acessar um documento compartilhado por um usuário do cofre eletrônico.
+* Integrador - Desenvolvedor que não interage diretamente com a aplicação, mas que desenvolve aplicações externas que interagem com o cofre eletrônico através de uma API REST.
+
+  
+
+# Histórias de Stakeholders
+
+## T00 - Armazenamento
+
+### \*ST000 - Geodistribuição em Data Centers Brasileiros
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação armazene os documentos de forma replicada em 3 data centers no Brasil para assegurar a preservação e a alta disponibilidade dos documentos além de atender às exigências da LGPD.
+
+  
+
+\*Isso seria interessante para todo o tipo de detentor de documentos?
+
+  
+
+### \*ST000 - Geodistribuição em Data Centers Internacionais
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação armazene os documentos de forma replicada em diferentes data centers no Brasil e no exterior para assegurar a preservação e a alta disponibilidade dos documentos.
+
+  
+
+\*Em quais cenários isso seria interessante?
+
+  
+
+### \*ST000 - Storage Tiering
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação armazene os documentos em "storage tiers" com latências decrescentes referentes aos arquivos corrente, intermediário e permanente para otimizar o acesso aos documentos e atender a recomendações arquivísticas.
+
+  
+
+\*Isso seria interessante para todo o tipo de detentor de documentos?
+
+  
+
+### ST000 - Varredura de Integridade
+
+  
+
+Como Detentor de Documentos, eu preciso que o sistema realize uma varredura periódica de integridade para garantir a preservação dos documentos.
+
+  
+
+## T00 - Validação de Documentos
+
+### ST000 - Validação de Metadados
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação valide os metadados de documentos marcados com tags com regras de validação de metadados durante o processo de ingestão para que garantir que os documentos preencham os requisitos para validade jurídica.
+
+  
+
+### ST000 - Validação de Arquivos PDF/A
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação valide documentos PDF/A quanto ao formato de arquivo marcados com tags com regras de validação de formato de arquivo durante o processo de ingestão para garantir que os documentos preencham os requisitos para validade jurídica.
+
+  
+
+### ST000 - Validação de Assinatura Digital
+
+  
+
+Como Detentor de Documentos, eu preciso que a aplicação valide assinaturas digitais de documentos marcados com tags com regras de validação de assinatura digital durante o processo de ingestão para garantir que os documentos preencham os requisitos para validade jurídica.
+
+  
+
+## T00 - Ciclo de Vida de Documentos
+
+### ST000 - Transição de Estado de Documento
+
+  
+
+Como Empresa (Privada ou Pública), Administração Pública ou Pessoa Física, eu preciso que a aplicação transicione automaticamente os documentos entre os estados corrente, intermediário e permanente conforme os prazos indicados na tabela de temporalidade para que as exigências administrativas e legais sejam cumpridas.
+
+  
+
+### ST000 - Expiração de Documento
+
+  
+
+Como Empresa (Privada ou Pública), Administração Pública ou Pessoa Física, eu preciso que a aplicação expire automaticamente os documentos conforme os prazos indicados na tabela de temporalidade para que as exigências administrativas e legais sejam cumpridas.
+
+  
+
+### ST000 - Notificação de Transição de Estado de Documento
+
+  
+
+Como Empresa (Privada ou Pública), Administração Pública ou Pessoa Física, eu preciso ser notificado quando há uma transição de estado de um documento para que eu possa acompanhar o cumprimento da tabela de temporalidade.
+
+  
+
+### ST000 - Notificação de Expiração de Documento
+
+  
+
+Como Empresa (Privada ou Pública), Administração Pública ou Pessoa Física, eu preciso ser notificado com antecedência sobre a expiração de um documento para que eu possa decidir qual ação tomar.
+
+  
+
+### ST000 - Revisão de Exclusão Permanente de Documento
+
+  
+
+Como Titular de Documento, eu preciso ser capaz de aprovar a exclusão de um documento de minha titularidade cujo prazo de guarda expirou para que a tabela de temporalidade seja cumprida.
+
+  
+
+### ST000 - Renovação do Prazo de Guarda
+
+  
+
+Como Titular de Documento, eu preciso ser capaz de negar a exclusão de um documento de minha titularidade cujo prazo de guarda expirou e definir um novo prazo de guarda para que eu possa preservar documentos que ainda possuem importância para mim ou minha organização apesar da tabela de temporalidade.
+
+  
+
+### ST000 - Emissão de Certificado de Exclusão de Documento
+
+  
+
+Como Titular de Documento, eu preciso que seja emitido um certificado de exclusão de um documento de minha titularidade cujo prazo de guarda expirou e cuja exclusão foi aprovada por mim para que eu tenha uma garantia de que a tabela de temporalidade foi cumprida.
+
+  
+
+# Histórias
+
+## T00 - Autenticação e Acesso ao Sistema
+
+### ST000 - Login
+
+  
+
+Como Usuário (Visualizador, Gestor ou Administrador), eu preciso ser capaz de me logar ao acessar a interface gráfica do cofre eletrônico para que eu possa utilizar a aplicação.
+
+  
+
+### ST000 - Logout
+
+  
+
+Como Usuário (Visualizador, Gestor ou Administrador), eu preciso ser capaz de me deslogar através da interface gráfica para evitar acessos não autorizados.
+
+  
+
+### ST000 - Acesso de Usuário Externo
+
+  
+
+Como Usuário Externo, eu preciso ser capaz de acessar um link de compartilhamento público através da interface gráfica sem a necessidade de me logar para que eu possa visualizar documentos compartilhados comigo.
+
+  
+
+### ST000 - Acesso via API REST
+
+  
+
+Como Integrador, eu preciso ser capaz de me autenticar através da API REST para que eu possa utilizar a API da aplicação.
+
+  
+
+## T00 - Depósito de Documentos
+
+### ST000 - Upload de Documento via Interface Web
+
+  
+
+Como Gestor, eu preciso ser capaz de fazer upload de documentos através da interface para que eu possa facilmente depositar documentos no cofre.
+
+  
+
+### ST000 - Ingestão de Documentos de Pasta Local
+
+  
+
+Como Gestor, eu preciso ser capaz de apontar uma pasta local a ser monitorada de modo que qualquer documento incluído na pasta seja depositado no cofre para que eu possa facilmente depositar documentos no cofre.
+
+  
+
+### ST000 - Upload de Documento via API REST
+
+  
+
+Como Integrador, eu preciso ser capaz de fazer upload de documentos através de uma API REST para que eu possa desenvolver aplicações capazes de depositar documentos no cofre.
+
+  
+
+## T00 - Gestão de Documentos
+
+### ST000 - Criptografia de Documento
+
+  
+
+Como Gestor, eu preciso ser capaz de encriptar documentos para garantir o sigilo e inviolabilidade de informações sensíveis em documentos.
+
+  
+
+## T00 - Tags, Metadados e Regras
+
+  
+
+\*Won't have user stories para a definição de metadados?
+
+  
+
+### ST000 - Definição de Tags
+
+  
+
+Como Administrador, eu preciso ser capaz de definir tags para que classes / categorias de documento possam ser representadas.
+
+  
+
+### ST000 - Definição de Regras de Transição
+
+  
+
+Como Administrador, eu preciso ser capaz de definir e associar regras de transição a uma tag para automatizar a transição de documentos entre estados de arquivamento conforme a sua classificação.
+
+  
+
+### ST000 - Definição de Regras de Expiração
+
+  
+
+Como Administrador, eu preciso ser capaz de definir e associar regras de expiração a uma tag para automatizar a expiração de documentos de guarda temporária conforme a sua classificação.
+
+  
+
+### ST000 - Definição de Regras de Validação de Metadados
+
+  
+
+Como Administrador, eu preciso ser capaz de definir e associar regras de validação de metadados a uma tag para automatizar a validação dos metadados de documentos conforme a sua classificação.
+
+  
+
+### ST000 - Definição de Regras de Validação de Formato de Arquivo
+
+  
+
+Como Administrador, eu preciso ser capaz de definir e associar regras de validação de formato de arquivo a uma tag para automatizar a validação dos formatos de arquivo de documentos conforme a sua classificação.
+
+  
+
+### ST000 - Definição de Regras de Validação de Assinatura Digital
+
+  
+
+Como Administrador, eu preciso ser capaz de definir e associar regras de validação de assinatura digital a uma tag para automatizar a validação das assinaturas digitais de documentos conforme a sua classificação.
+
+  
+
+### ST000 - Atribuição de Tags
+
+  
+
+Como Gestor, eu preciso ser capaz de atribuir tags a um documento para que eu possa classificá-lo e localizá-lo facilmente.
+
+  
+
+## T00 - Compartilhamento de Documentos
+
+### ST000 - Compartilhamento de Documento
+
+  
+
+Como Usuário, eu preciso ser capaz de gerar um link de compartilhamento de um documento para que eu possa compartilhar documentos com outros usuários internos e externos.
+
+  
+
+### ST000 - Prevenção de Download de Documento Compartilhado
+
+  
+
+Como Usuário, eu preciso ser capaz de desabilitar a possibilidade de download de um documento compartilhado para evitar compartilhamentos indevidos.
+
+  
+
+### ST000 - Compartilhamento para IP Fixo
+
+  
+
+Como Usuário, eu preciso ser capaz de configurar um endereço IP a ser utilizado para acessar o documento compartilhado para evitar acessos não-autorizados.
+
+  
+
+### \*ST000 - Ocultação de Informações de Documento Compartilhado
+
+  
+
+Como Usuário, eu preciso ser capaz de ocultar trechos de um documento a ser compartilhado para proteger informações sensíveis.
+
+  
+
+### \*ST000 - Autorização de Compartilhamento
+
+  
+
+Como Titular de Documento, eu preciso ser notificado sobre e ter a opção de autorizar ou não o compartilhamento de um documento de minha titularidade para proteger o documento de acessos não-autorizados.
+
+  
+
+### ST000 - Auditoria de Compartilhamento
+
+  
+
+Como Empresa (Privada ou Pública), Administração Pública ou Pessoa Física, eu preciso que o sistema registre todos os acessos a um documento compartilhado de minha titularidade para que eu tenha uma garantia de que não houveram acessos indevidos ao documento.
+
+  
+
+### \*ST000 - Validação de Identidade para Compartilhamento
+
+  
+
+Como Titular de Documento, eu preciso que o visualizador de um documento compartilhado de minha titularidade tenha sua identidade previamente certificada para proteger o documento de acessos não-autorizados.
+
+  
+
+## T00 - Indexação e Busca
+
+### ST000 - Busca de Documentos por Conteúdo
+
+  
+
+Como Consultante de Documentos, eu preciso ser capaz de realizar buscas pelo texto dos documentos para que eu possa localizar facilmente documentos com determinado conteúdo.
+
+  
+
+### ST000 - Busca de Documentos por Metadado
+
+  
+
+Como Consultante de Documentos, eu preciso ser capaz de selecionar um tipo de metadado e realizar buscas pelo valor dele para que eu possa localizar facilmente documentos com determinado metadado.
+
+  
+
+### ST000 - Filtro de Busca por Tag
+
+  
+
+Como Consultante de Documentos, eu preciso ser capaz de definir filtros de busca por tag para que eu possa realizar buscas apenas em uma base de documentos com uma determinada classificação.
+
+  
+
+### ST000 - Filtro de Busca por Metadado
+
+  
+
+Como Consultante de Documentos, eu preciso ser capaz de definir filtros de busca por valor de metadado para que eu possa realizar buscas apenas em uma base de documentos com um determinado metadado.
+
+  
+
+### ST000 - Rastreamento de Documento Físico
+
+  
+
+Como Consultante de Documentos, eu preciso que o sistema exiba o status da versão física de um documento (arquivado ou destruído) e, caso arquivado, em que unidade de arquivamento se encontra para que eu possa localizá-lo de forma fácil e rápida.
+
+  
+
+### ST000 - Registro de Desmaterialização
+
+  
+
+Como Gestor de Documentos, eu preciso ser capaz de registrar a destruição da versão física de um documento para que eu possa monitorar e auditar a desmaterialização dos documentos.
+
+  
+
+## T00 - Visualização de Documentos
+
+### ST000 - Visualização de Arquivo PDF
+
+  
+
+Como Consultante de Documentos, eu preciso ser capaz de visualizar arquivos em formato PDF para que eu possa realizar consultas a documentos.
+
+  
+
+### ST000 - Visualização de Arquivo de Imagem Médica
+
+  
+
+Como Consultante de Documentos da Área Médica, eu preciso ser capaz de visualizar arquivos nos principais formatos de imagens médicas para que e possa realizar consultas a documentos.

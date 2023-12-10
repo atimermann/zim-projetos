@@ -1,0 +1,200 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:55:37-03:00
+
+====== Analisador ======
+Criado domingo 10 dezembro 2023
+
+# Descrição
+
+  
+
+Aplicação para análise de imagens de documentos e inferência de informações usando machine learning.
+
+  
+
+# Resumo das Funcionalidades
+
+  
+
+* API para reconhecimento de texto (OCR)
+* APIs para inferência de metadados obrigatórios para validade jurídica
+* APIs para extração de dados de documentos de tipos variados
+
+  
+
+# Atores
+
+  
+
+* Desenvolvedor Integrador
+* Administrador
+
+  
+
+# Stakeholders
+
+  
+
+* Empresa Privada
+* Empresa Pública
+* Administração Pública
+* Funcionário
+
+  
+
+# Histórias
+
+## T00 - REST API
+
+### ST000 - REST API
+
+  
+
+Como Desenvolvedor, eu preciso que a aplicação forneça uma REST API para que eu possa realizar integrações com aplicações externas.
+
+  
+
+### ST000 - Listagem dos serviços disponíveis
+
+  
+
+Como Desenvolvedor, eu preciso que
+
+  
+
+### ST000 - Obtenção de informações sobre o serviço
+
+  
+
+### ST000 - Execução de job de inferência
+
+  
+
+### ST000 - Verificação de status do job de inferência
+
+  
+
+### ST000 - Obtenção do resultado do job de inferência
+
+  
+
+### ST000 - Inferência em imagens submetidas
+
+  
+
+### ST000 - Inferência em imagens armazenadas externamente
+
+  
+
+## T00 - Serviços de Inferência
+
+### ST000 - Serviço de reconhecimento de texto (OCR)
+
+  
+
+Como Consultante de Documentos, eu preciso que a aplicação seja capaz de reconhecer o texto dos documentos durante o processamento para que outras aplicações possam implementar a indexação e busca dos documentos digitalizados.
+
+  
+
+### ST000 - Serviço de inferência de metadados para o setor privado
+
+  
+
+Como Empresa Privada, eu preciso que o Analisador possua um serviço para inferência de metadados obrigatórios para o setor privado segundo o Decreto nº 10.278/2020 para que eu possa garantir a validade jurídica dos documentos digitalizados.
+
+  
+
+### ST000 - Serviço de inferência de metadados para o setor público
+
+  
+
+Como Administração ou Empresa Pública, eu preciso que o Analisador possua um serviço para inferência de metadados obrigatórios para o setor público segundo o Decreto nº 10.278/2020 para que eu possa garantir a validade jurídica dos documentos digitalizados.
+
+  
+
+### ST000 - Extração de Dados de Notas Fiscais
+
+  
+
+### ST000 - Extração de Dados de Cupons Fiscais
+
+  
+
+### ST000 - Extração de Dados de Documentos de Identidade
+
+  
+
+ST000 - Extração de Dados de Documentos de RH
+
+  
+
+ST000 - Extração de Dados de Contratos
+
+  
+
+ST000 - Extração de Dados de Documentos Societários
+
+  
+
+ST000 - Extração de Dados de Documentos Fiscais / Tributários
+
+  
+
+ST000 - Extração de Dados de Documentos Contábeis
+
+  
+
+ST000 - Extração de Dados de Processos de Licitação
+
+  
+
+ST000 - Extração de Dados de Documentos de Planejamento e Urbanismo
+
+  
+
+ST000 - Extração de Dados de Documentos de Engenharia
+
+  
+
+ST000 - Extração de Dados de Alvarás
+
+  
+
+ST000 - Extração de Dados de Receitas Médicas
+
+  
+
+ST000 - Extração de Dados de Prontuários Médicos
+
+  
+
+ST000 - Extração de Dados de Laudos e Resultados de Exames
+
+  
+
+ST000 - Extração de Dados de Imagens Médicas
+
+  
+
+ST000 - Extração de Dados de Formulários Cadastrais de Crédito
+
+  
+
+ST000 - Extração de Dados de Formulários de Saúde
+
+  
+
+ST000 - Extração de Dados de Formulários de Reembolso de Procedimentos e Atos Médicos
+
+  
+
+ST000 - Extração de Dados de Documentos de Coparticipação em Planos de Saúde
+
+  
+
+## ST000 - Extração de Dados de Documento
+
+  
+
+Como Possuidor de Documentos, eu preciso que a aplicação seja capaz de extrair dados de um documento de um determinado domínio para que eu possa tratá-las sem a necessidade de uma transcrição manual.

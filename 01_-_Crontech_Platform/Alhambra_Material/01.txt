@@ -1,0 +1,63 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:33:21-03:00
+
+====== 01 ======
+Criado domingo 10 dezembro 2023
+
+# Vantagens
+
+## Serverless
+
+* Não precisamos nos preocupar com a infraestrutura.
+* Serviços são alocados em instâncias do Amazon EC2.
+* É possível alocar instâncias equipadas com GPUs.
+* Basta subirmos os arquivos do serviço e modelos desenvolvidos, configurarmos um "deployment" especificando os recursos necessários, tipos de instância a utilizar, políticas de replicação, e é provisionado um endpoint rodando a API do serviço que desenvolvemos.
+
+## Online vs On-demand Serving
+
+* É possível configurar os deployments para ficarem sempre online, ou seja, sempre prontos para responder requisições em tempo real.
+* Ideal para casos de uso em que a latência deve ser baixa.
+* Ou então podem ser configurados para para atenderem requisições conforme a demanda.
+* Ideal para casos em que custo e eficiência são importantes e a latência pode ser mais alta.
+* Também ideal para economizar recursos de GPU, que são bem caros.
+
+## Scale-to-zero
+
+* No modo on-demand, os runners, que são os containers que executam os modelos de machine learning, podem ser escalonados para zero réplicas.
+* Isso significa que um serviço que use instâncias com GPU para fazer inferência não precisa alocar essas instâncias o tempo todo, o que reduz bastante o custo.
+
+## Centralized Storage
+
+* Utilizando o framework BentoML, é necessário gerar artefatos dos modelos utilizados e também dos serviços que os utilizam.
+* O versionamento pode ser um pouco complexo, pois às vezes é necessário atualizar um modelo com um novo treinamento, e consequentemente uma nova versão do serviço também é gerada, e às vezes apenas a API do serviço é atualizada, o que resulta em uma nova versão do serviço apenas.
+* Também queremos desenvolver serviços cuja API (código) é o mesmo para mais de um serviço, sendo a única diferença a versão do modelo (treinado com dados diferentes para tarefas diferentes).
+* O BentoCloud fornece um registry para subir modelos toda vez que treinados, e também os serviços quando atualizados. Com uma gestão inteligente das versões e dos labels, simplificaria bastante o processo.
+
+# Dúvidas
+
+## Múltiplos deployments de um mesmo serviço
+
+* Como estamos com uma arquitetura multi-tenant em mente, é possível que múltiplos clientes precisem utilizar serviços do analisador ao mesmo tempo.
+* Não seria interessante misturar as requisições de múltiplos clientes para um mesmo endpoint - um cliente precisaria esperar o serviço terminar de processar as requisições do outro.
+* Além disso, dependendo do plano contratado, os recursos e configurações necessários para o deployment de um serviço poderiam variar de cliente para cliente (online x on-demand, CPU x GPU, número de réplicas, etc.)
+* Seria possível especificar vários deployments para um mesmo serviço, de modo que fosse possível fazer o deploy de endpoints distintos com uma mesma API? A nossa aplicação poderia rotear as requisições de cada cliente para seu respectivo endpoint.
+* Outra vantagem dessa abordagem seria o billing, cada instância EC2 alocada seria utilizada por um único cliente, sendo possível determinar exatamente quanto cada cliente gastou.
+
+## Integração com External Identity Providers
+
+* A documentação mostra que é possível criar API tokens manualmente através do console.
+* Esses API tokens podem ser usados para criar protected endpoints, de modo que apenas um usuário com determinado API token consegue fazer uma requisição a um determinado serviço.
+* Seria possível integrar com identity providers externos, como o keycloak, de modo que pudéssemos automatizar o deploy de endpoints protegidos que são acessíveis apenas por membros de determinado grupo?
+* Senão, quais seriam as alternativas?
+
+## Diferenças Starter x Enterprise Plans
+
+* Quais as principais diferenças entre os planos starter e enterprise?
+* Quais instâncias com GPU que estão disponíveis apenas no enterprise?
+* Como funcionaria o Bring Your Own Cloud no plano enterprise? Precisaríamos necessariamente utilizar um cluster AWS EKS ou Google Cloud GKE, ou poderia ser on-premise?
+* Qual o pricing detalhado para ambos os planos?
+
+# Nosso caso de uso
+
+* Inferência em imagens de documentos para automatizar o preenchimento de metadados exigidos por lei em documentos digitalizados e também extração de dados de documentos de tipos variados.

@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:56:17-03:00
+
+====== Gerador PDFA ======
+Criado domingo 10 dezembro 2023
+
+# Descrição
+
+  
+
+Aplicação para gerar documentos conforme o padrão PDF/A.
+
+  
+
+# Resumo das Funcionalidades
+
+  
+
+# Histórias
+
+  
+
+### ST000 - Produção de Documento com Validade Jurídica
+
+  
+
+Como Possuidor de Documentos, eu preciso que a aplicação seja capaz de produzir um documento que atenda aos requisitos do Decreto nº 10.278 a partir de um documento digitalizado para que ele produza os mesmos efeitos legais que o documento original.

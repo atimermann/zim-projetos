@@ -1,0 +1,59 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:00:12-03:00
+
+====== Extração dos Metadados para Validade Jurídica ======
+Criado domingo 10 dezembro 2023
+
+## Metadados Obrigatórios
+
+  
+
+Os metadados obrigatórios para os documentos digitalizados com validade jurídica são estabelecidos pelo [Decreto nº 10.278/2020](https://www.in.gov.br/en/web/dou/-/decreto-n-10.278-de-18-de-marco-de-2020-248810105). Existe uma diferença entre os documentos de entidades públicas e os de entidades privadas.
+
+  
+
+### Metadados Obrigatórios para o Setores Público e Privado
+
+  
+
+| Assunto                            | Palavras-chave que representam o conteúdo do documento.<br>Pode ser de preenchimento livre ou com o uso de vocabulário controlado ou tesauro.                                                                                           |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Autor (nome)                       | Pessoa natural ou jurídica que emitiu o documento.                                                                                                                                                                                      |
+| Data e local da digitalização      | Registro cronológico (data e hora) e tópico (local) da digitalização do documento.                                                                                                                                                      |
+| Identificador do documento digital | Identificador único atribuído ao documento no ato de sua captura para o sistema informatizado (sistema de negócios).                                                                                                                    |
+| Responsável pela digitalização     | Pessoa jurídica ou física responsável pela digitalização                                                                                                                                                                                |
+| Título                             | Elemento de descrição que nomeia o documento. Pode ser formal ou atribuído:<br>formal: designação registrada no documento;<br>atribuído: designação providenciada para identificação de um documento formalmente desprovido de título. |
+| Tipo documental                    | Indica o tipo de documento, ou seja, a configuração da espécie documental de acordo com a atividade que a gerou.                                                                                                                        |
+| Hash (checksum) da imagem          | Algoritmo que mapeia uma sequência de bits (de um arquivo em formato digital), com a finalidade de realizar a sua verificação de integridade.                                                                                           |
+
+  
+
+### Metadados Obrigatórios para o Setor Público apenas
+
+  
+
+| Classe                                                | Identificação da classe, subclasse, grupo ou subgrupo do documento com base em um plano de classificação de documentos.                                                                                                      |
+|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data de produção (do documento original)              | Registro cronológico (data e hora) e tópico (local) da produção do documento.                                                                                                                                                |
+| Destinação prevista (eliminação ou guarda permanente) | Indicação da próxima ação de destinação (transferência, eliminação ou recolhimento) prevista para o documento, em cumprimento à tabela de temporalidade e destinação de documentos das atividades-meio e das atividades-fim. |
+| Gênero                                                | Indica o gênero documental, ou seja, a configuração da informação no documento de acordo com o sistema de signos utilizado na comunicação do documento.                                                                      |
+| Prazo de guarda                                       | Indicação do prazo estabelecido em tabela de temporalidade para o cumprimento da destinação.                                                                                                                                 |
+
+  
+
+## Atribuição inteligente dos metadados
+
+  
+
+A maior parte dos metadados podem ser preenchidos sem a necessidade de uma análise do conteúdo textual dos documentos. Estes podem ser preenchidos ou por valores constantes dentro de uma "sessão" de digitalização (é o caso do autor, do local da digitalização, do responsável pela digitalização e do gênero), ou por valores computados automaticamente pelo sistema (data de digitalização, identificador do documento e _checksum_ da(s) imagem(ns)), ou ainda por valores definidos em função de outros metadados (destinação prevista e prazo de guarda - definidos em função da classe). Os valores dos demais metadados são definidos em função do conteúdo dos documentos. São eles: **Assunto**, **título**, **tipo documental**, **classe** e **data e local de produção**.
+
+  
+
+Os metadados definidos em função do conteúdo são um gargalo no processo de digitalização com validade jurídica, pois é necessário que uma pessoa analise o texto e atribua manualmente os valores aos metadados. Para simplificar e agilizar esse processo, modelos de _machine learning_ podem ser utilizados para definir esses valores de forma automática com base no texto previamente extraído dos documentos também de forma automática. Podem ser utilizados os seguintes métodos de processamento de linguagem natural (NLP) para predizer os valores dos metadados com base apenas no texto:
+
+  
+
+**Classificação de texto:** Assunto, tipo de documento e classe.
+
+**Reconhecimento de entidades:** Título, data e local de produção.

@@ -1,0 +1,112 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:56:04-03:00
+
+====== Orquestrador ======
+Criado domingo 10 dezembro 2023
+
+# T00 - Ingestão de Documentos
+
+  
+
+## ST000 - Submissão de Documento via API
+
+  
+
+Como Desenvolvedor, eu preciso ser capaz de submeter documentos via API REST para que eu possa construir aplicações integradas ao orquestrador (por exemplo, o digitalizador).
+
+  
+
+## ST000 - Ingestão de Documentos em Object Storage
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de consumir documentos digitais armazenados em object storages S3 para que bases de documentos existentes possam ser importadas.
+
+  
+
+## ST000 - Ingestão Contínua de Documentos em Object Storage
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de monitorar e consumir continuamente novos documentos digitais armazenados em object storages S3 para que bases de documentos existentes possam ser sincronizadas.
+
+  
+
+## ST000 - Ingestão de Documentos em File Storage
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de consumir documentos digitais armazenados nos principais file storages do mercado (como Google Drive, Microsoft OneDrive e DropBox) para que bases de documentos existentes possam ser importadas.
+
+  
+
+## ST000 - Ingestão Contínua de Documentos em File Storage
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de monitorar e consumir continuamente novos documentos digitais armazenados nos principais file storages do mercado (como Google Drive, Microsoft OneDrive e DropBox) para que bases de documentos existentes possam ser sincronizadas.
+
+  
+
+# T00 - Processamento de Documentos
+
+  
+
+## ST000 - Análise de Documento
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de utilizar serviços do analisador para análise de imagens de um documento para que artefatos como texto, dados e metadados de um documento possam ser inferidos de forma automática.
+
+  
+
+## ST000 - Geração de Documento PDF/A
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de utilizar o gerador de PDF/A para que documentos pesquisáveis e contendo metadados em formato PDF/A possam ser produzidos.
+
+  
+
+## ST000 - Assinatura Digital de Documento
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de utilizar o(s) assinador(es) para assinar digitalmente um documento para que eu possa garantir sua autenticidade e integridade.
+
+  
+
+## ST000 - Depósito de Documento
+
+  
+
+Como Possuidor de Documentos, eu preciso que o orquestrador seja capaz de depositar um documento no cofre eletrônico para que eu possa garantir seu armazenamento de forma segura e inviolável.
+
+  
+
+T00 - Gerenciamento de Workflows
+
+  
+
+ST000 - Definição de Workflow
+
+  
+
+Como Gerente de Fluxo, eu preciso ser capaz de criar um recurso
+
+  
+
+ST000 - Consulta de Workflow
+
+  
+
+ST000 -
+
+  
+
+T00 - Painel do Cliente
+
+  
+
+ST000 - Formulário de On-boarding

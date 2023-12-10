@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:40:39-03:00
+
+====== Call BentoCloud ======
+Criado domingo 10 dezembro 2023
+
+# Our use case
+
+  
+
+* We are developing a platform for document digitization, lifecycle management and long-term archival
+* We plan to use machine learning models to perform several tasks on document images, such as OCR, inference of metadata fields required by law for digitized documents, and also extraction of data from different document types (such as invoices, receipts, contracts)
+* Experiments with transformer models have shown promising results
+* We have used the BentoML framework for bundling our models and building inference service APIs, and it works really well and helps accelerate development
+* Now we are studying how to efficiently manage and deploy the Bento services, since there are going to be many of them
+* BentoCloud looks really interesting because it seems to be a really easy-to-configure solution for deploying services on fully-managed GPU infrastructure, and features like on-demand serving and scale-to-zero could be really helpful to implement our data pipelines using GPU resources in a cost-efficient way
+* Main use case: Perform inference on digitized document images as part of the document lifecycle, mainly for text recognition and metadata inference
+* Latency is not really important, and it is probably more efficient to wait until a large number of documents are digitized and then allocate GPU instances and perform inference on all images at once
+* Secondary use case: Perform inference on images of documents of varied types in order to extract data from them
+* Latency might or might not be important depending on the document type and the customer needs, for some cases it might be better to perform inference on an image as soon as it is uploaded to us, in others it might be only necessary to perform inference in a fixed period (e.g. at the end of the month for all documents issued during the month)
+* Since we plan to implement a multi-tenant architecture, it would be useful to have multiple deployments of the same service on separate endpoints, so each endpoint is assigned to a specific customer. This way, two customers could use the same service at the same time without one having to wait for a service to finish processing the requests of the other, since the requests would be routed to separate instances of the service
+
+  
+
+# Questions
+
+  
+
+* Considering our application would programatically interact with BentoCloud, what would be the difference between setting up an endpoint to run continuously with on-demand serving and scale-to-zero enabled, and implementing on-demand serving in the client side, that is, not running an endpoint continuously but rather deploying it just for processing a number of images and terminating it after all the processing is done instead? For some cases the second option seems to be more efficient
+* Is there any integration with external identity providers such as keycloak?
+* Is it possible to programatically create a deployment (e.g. through a REST API?)
+* Is it possible to programatically issue access tokens for protected endpoints? Or set existing access tokens during deployment creation (also programatically)?
+* How does Bring Your Own Cloud work? Is it possible to use it in an on-premises Kubernetes cluster?
+* What is the expected wait time in the waitlist?
+* What is the detailed pricing for both starter and enterprise plans?

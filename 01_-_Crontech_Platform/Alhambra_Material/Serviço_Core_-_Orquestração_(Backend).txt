@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:00:33-03:00
+
+====== Serviço Core - Orquestração (Backend) ======
+Criado domingo 10 dezembro 2023
+
+O back-end do projeto será dividido nos seguintes microserviços:
+
+## Central/Orquestração
+
+* Interface com as aplicações web (front-end), desktop e mobile
+* Integração com os demais serviços
+* Usuários, grupos e controle de acesso aos documentos
+
+## Gerenciamento de Mensagens e Fila
+
+* Gerencia a troca de mensagens e informações entre os serviços
+* Podemos utilizar o RabbitMQ
+
+## Storage
+
+* Armazena as imagens, textos e arquivos PDF/A
+* Pode ser acessado pelos outros serviços que precisam desses arquivos
+* Podemos utilizar algum serviço externo como o AWS S3
+
+## Indexação e Busca
+
+* Indexa o texto e os metadados dos documentos
+* Utilizado para filtrar e fazer buscas nos documentos
+* Podemos utilizar algum projeto como o ElasticSearch ou o TypeSense
+
+## Processamento Inteligente de Documentos
+
+* Contém modelos de _machine learning_ e transformações de imagem/texto para diversas finalidades como:
+	* Classificação de imagens
+	* Classificação de textos
+	* Extração de dados de textos
+	* Binarização/_thresholding_ de imagens de documento
+	* Segmentação de linhas de texto/palavras/glifos (?)
+	* Reconhecimento óptico de caracteres (?)
+* Recebe imagens ou textos e retorna os resultados das predições dos modelos ou das transformações aplicadas
+* Pode ser utilizado em várias etapas do processo, como para validar as imagens quanto à resolução e a outros aspectos, binarizar as imagens e automatizar o preenchimento de metadados e a separação das páginas dos documentos
+* Também pode ser o responsável pelo reconhecimento de texto (OCR) das imagens de documento
+* Possui um sistema de _workflows_ que permite múltiplas operações em sequência e/ou em paralelo
+* Escrito em _Python_, utilizando o framework _Flask_
+
+## Geração de Arquivos Digitais (PDF/A)
+
+* Criação, edição e download de arquivos PDF/A
+* Contém funcionalidades como:
+	* Criar documentos
+	* Apagar documentos
+	* Adicionar páginas a um documento
+	* Adicionar uma imagem a uma página
+	* Adicionar texto selecionável/pesquisável a uma página
+	* Definir o padrão utilizado (PDF/A-2, PDF/A-3, etc.)
+	* Adicionar _schemas_ XML (_namespaces_) à seção XMP de um documento
+	* Adicionar metadados à seção XMP de um documento
+	* Anexar arquivos a um documento
+	* Calcular e registrar o _checksum_ do conteúdo (_bitstream_) de um documento
+	* Adicionar assinaturas digitais a um documento
+	* Fazer download de um documento
+* Escrito em _Java_, utilizando o framework _Spring Boot_ e o _Apache PDFBox_
+
+## Reconhecimento de Texto (OCR)
+
+* Recebe imagens de documento e retorna o texto reconhecido
+* É importante que, além do texto em si, sejam retornados também as coordenadas dos glifos ou palavras para a que a geração de PDF/As selecionáveis seja possível
+* Podemos utilizar algum serviço externo como os da AWS, Google, Azure, etc. ou encapsular o _Tesseract_
+* Alternativamente, podemos não utilizar esse serviço e transferir a responsabilidade sobre a segmentação e reconhecimento de texto para o serviço de processamento inteligente
+
+## Gerenciamento de Certificados e Assinaturas Digitais
+
+* Armazena e gerencia o acesso a certificados digitais e também gera e valida assinaturas digitais
+* Suporta a política de assinatura AD-RA (com carimbo de tempo e referências para arquivamento) no padrão ICP-Brasil
+* Podemos utilizar algum serviço externo como o da SafeWeb ou da BRy
+
+## Validação de Arquivos Digitais (PDF/A)
+
+* Valida a conformidade de arquivos PDF/A
+* Podemos utilizar o veraPDF

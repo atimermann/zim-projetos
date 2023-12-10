@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:00:54-03:00
+
+====== Projeto Data Frost ======
+Criado domingo 10 dezembro 2023
+
+## **Introdução e Objetivo**
+
+O projeto em questão visa uma solução moderna e eficiente para a desmaterialização de documentos públicos, permitindo que instituições governamentais e outras entidades possam digitalizar, armazenar e gerir os seus documentos de forma mais segura e ágil, com validade jurídica em conformidade com a Lei da Desburocratização e o DECRETO Nº 10.278.
+
+## Apps
+
+* **Aplicativo Mobile**
+	* Integração com as tags NFC da plataforma de digitalização do fileee (0% - falta adquirir mais plataformas, reprogramar as tags NFCs e integrá-las no app mobile)
+* **Aplicativo Web (Frontend)**
+	* Gestão completa da plataforma através de um sistema Web
+		* Área do cliente
+		* Gestão do cliente e usuários
+		* Monitoramento de processos
+		* Pesquisa de documento e gestão de documentos
+		* outros....
+	* Separar em módulos para gestão completa da plataforma
+* **Aplicativo Desktop**
+	* Comunicação com driver do scanner
+	* Controle de digitalização e envio para plataforma docuguard
+	* Autenticação
+	* Configuração básica dos documentos digitalizados:
+		* (Caixa, departamento, pasta, dossiê, etc...)
+
+## Serviços
+
+* **Core - Orquestração (Backend)**
+	* Serviço principal, comunicação externa e com outros serviços da aplicação
+	* **Armazenamento de documento**
+	* **Controle de acesso (acesso documentos)**
+	* comunicação com API externas
+	* **Gestão ciclo de vida do documento**
+		* Usar um gerenciador de fila pronto ex. RabbitMQ
+	* **Rastreabilidade, indexação e busca avançada dos documentos digitais (100%)**
+		* ElasticSearch
+	* **Integração com soluções de assinatura digital no padrão ICP-Brasil**
+	* **Comunicação Cofre**
+* **Serviço de Banco de dados PostgresSQL (usado pelo Core)**
+* **Serviço Inteligência de Documento**
+	* OCR
+	* Processamento inteligente de texto
+	* Extração de informações:
+		* Tipo de documento
+		* Classe de documento (relacionado a legislação)
+		* Data
+		* Correspondente
+		* Metadadados em geral....
+* **Serviço Gerador PDF (Apache PDF Box)**
+	* Gera PDF/A (Java)
+* **Serviço Assinatura documento digital**

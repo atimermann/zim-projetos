@@ -1,0 +1,74 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:48:25-03:00
+
+====== Histórias de Usuário - 21-08-2023 ======
+Criado domingo 10 dezembro 2023
+
+# Digitalizador Profissional
+
+  
+
+> Funcionário de uma empresa prestadora de serviço de digitalização, encarregado da digitalização dos documentos.
+
+  
+
+* Como digitalizador profissional, eu quero compatibilidade com scanners utilizados pela minha empresa de digitalização.
+* Como digitalizador profissional, eu quero aplicar as minhas metodologias no processo de digitalização para atuar de forma produtiva.
+
+# Supervisor
+
+  
+
+> Funcionário de uma empresa prestadora de serviço de digitalização, encarregado de supervisionar os processos de digitalização.
+
+  
+
+* Como supervisor, eu quero visualizar os status dos documentos digitalizados para acompanhar o processo de digitalização.
+* Como supervisor, eu quero acessar estatísticas de documentos digitalizados para acompanhar o processo de digitalização.
+
+# Prestador de Serviço
+
+  
+
+> Proprietário/Gerente de uma empresa prestadora de serviço de digitalização.
+
+  
+
+* Como prestador de serviço, eu quero acessar estatísticas de documentos digitalizados de cada cliente.
+
+# Digitalizador Amador
+
+  
+
+> Funcionário de uma empresa ou órgão público responsável por digitalizar documentos da própria entidade.
+
+  
+
+* Como digitalizador amador, eu quero digitalizar documentos de forma fácil e intuitiva.
+
+# Consultante
+
+  
+
+> Funcionário de uma empresa ou órgão público que tem como parte de seu trabalho a consulta de documentos da própria entidade.
+
+  
+
+* Como consultante, eu quero fazer buscas de documentos por termo.
+* Como consultante, eu quero filtrar documentos por tipo, data e demais metadados.
+* Como consultante, eu quero visualizar documentos.
+* Como consultante, eu quero fazer o download de documentos.
+* Como consultante, eu quero compartilhar documentos.
+
+# Contratante de Serviço
+
+  
+
+> Proprietário/Gerente de uma empresa ou órgão público contratante de serviço de digitalização.
+
+  
+
+* Como contratante de serviço, eu quero acessar estatísticas de documentos digitalizados da minha empresa ou órgão público.
+* Como contratante de serviço, eu quero visualizar os planos contratados.
+* Como contratante de serviço, eu quero visualizar as cotas utilizadas.

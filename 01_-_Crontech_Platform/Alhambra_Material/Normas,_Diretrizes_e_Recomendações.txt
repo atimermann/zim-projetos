@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:46:18-03:00
+
+====== Normas, Diretrizes e Recomendações ======
+Criado domingo 10 dezembro 2023
+
+# Brasil
+
+  
+
+* Diretrizes Respositórios Arquivísticos Digitais - Resolução CONARQ nº 39/2014 ([Resolução](https://www.gov.br/conarq/pt-br/legislacao-arquivistica/resolucoes-do-conarq/resolucao-no-39-de-29-de-abril-de-2014)) ([RDC-Arq](https://www.gov.br/conarq/pt-br/centrais-de-conteudo/publicacoes/conarq_diretrizes_rdc_arq_resolucao_43.pdf))
+* Procedimentos Eliminação de Documentos Administração Pública - Resolução CONARQ nº 40/2014 ([Resolução](https://www.gov.br/conarq/pt-br/legislacao-arquivistica/resolucoes-do-conarq/resolucao-no-40-de-9-de-dezembro-de-2014-alterada))
+* Regulamento Digitalização com Valor Legal - Decreto nº 10.278/2020 ([Decreto](https://www.in.gov.br/en/web/dou/-/decreto-n-10.278-de-18-de-marco-de-2020-248810105))
+* Diretrizes Digitalização com Valor Legal - Resolução CONARQ nº 48/2021 ([Resolução](https://www.gov.br/conarq/pt-br/legislacao-arquivistica/resolucoes-do-conarq/resolucao-no-48-de-10-de-novembro-de-2021)) ([Diretrizes](https://www.gov.br/conarq/pt-br/centrais-de-conteudo/publicacoes/Diretrizes_digitalizacao__2021.pdf))
+* Modelo de Requisitos Sistemas Gestão Arquivística - Resolução CONARQ nº 50/2022 ([Resolução](https://www.gov.br/conarq/pt-br/legislacao-arquivistica/resolucoes-do-conarq/resolucao-no-50-de-06-de-maio-de-2022)) ([e-ARQ Brasil](https://www.gov.br/conarq/pt-br/centrais-de-conteudo/publicacoes/EARQV205MAI2022.pdf))
+
+  
+
+# França
+
+@Lucas Sulzbach Quer que eu adicione alguns daqueles links que compartilhei?
+
+  
+
+@
+
+# UE
+
+  
+
+# Padrões
+
+  
+
+# Links

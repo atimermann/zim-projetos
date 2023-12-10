@@ -1,0 +1,79 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T11:02:21-03:00
+
+====== Componentes do Sistema ======
+Criado domingo 10 dezembro 2023
+
+# Digitalização
+
+  
+
+* Instalado localmente num smartphone, tablet, ou desktop
+* Utilizado pela equipe de digitalizadores para digitalizar os documentos
+* Deve definir automaticamente os parâmetros necessários para a aquisição da imagem (cor, resolução e formato de imagem), sem permitir a interferência do usuário
+* Deve oferecer todas as ferramentas e recursos necessários para que a equipe de digitalizadores implemente seus próprios ritos e procedimentos de digitalização
+
+  
+
+# Orquestração
+
+  
+
+* Aplicação central do back-end
+* Orquestra o fluxo dos documentos enviados, desde a digitalização e upload até o depósito no cofre eletrônico
+* Conecta os demais componentes do sistema
+* Gerencia as filas de tarefas a serem realizadas pelos demais componentes
+
+  
+
+# Processamento Inteligente de Documentos (IDP)
+
+  
+
+* Aplicação back-end que classifica, reconhece e extrai informações de documentos através de modelos de _machine learning_
+* Recebe do orquestrador as imagens dos documentos digitalizados e reconhece o texto (OCR), os metadados necessários para a garantia de validade jurídica e demais informações importantes (valores, quantidades, pessoas, etc.)
+* Constrói _datasets_ com as imagens recebidas, rotulados a partir do feedback dos supervisores, que são utilizados para treinar os modelos de _machine learning_
+
+  
+
+# Supervisão
+
+  
+
+* Aplicação front- e back-end para supervisionar e prover feedback para o módulo de IDP
+* Utilizado por uma equipe de "especialistas" para validar e corrigir (quando necessário) as informações extraídas dos documentos, garantindo a precisão e a qualidade dessas informações
+* As correções são retornadas como feedback para os modelos do módulo de IDP
+
+  
+
+# Geração de Arquivos PDF/A
+
+  
+
+* Aplicação back-end para gerar documentos arquivísticos digitais em conformidade com o padrão PDF/A e com a legislação
+* Recebe as imagens dos documentos, seus respectivos textos e metadados (após a supervisão) e gera arquivos PDF/A pesquisáveis com os metadados codificados conforme o modelo e-ARQ
+
+  
+
+# Gerenciamento de Certificados e Assinaturas Digitais
+
+  
+
+* Aplicação back-end para assinar os arquivos digitais
+
+  
+
+# Cofre Eletrônico
+
+  
+
+* 
+
+  
+
+# GED
+
+  
+
+*

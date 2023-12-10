@@ -1,0 +1,126 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:57:05-03:00
+
+====== Digitalizador Mobile ======
+Criado domingo 10 dezembro 2023
+
+# T01 - Autenticação e Acesso ao Sistema
+
+## ST000 - Login
+
+  
+
+Como Digitalizador, eu preciso ser capaz de me logar para poder utilizar o sistema.
+
+  
+
+## ST000 - Logout
+
+  
+
+Como Digitalizador, eu preciso ser capaz de me deslogar do sistema para evitar acessos não autorizados após o fim do processo de digitalização.
+
+  
+
+# T02 - Preparação do Ambiente
+
+## ST000 - Seleção de Fluxo de Digitalização
+
+  
+
+Como Gerente de Fluxo, eu preciso que o Digitalizador seja capaz de selecionar o fluxo de digitalização previamente definido e configurado por mim para garantir que os parâmetros de digitalização corretos sejam utilizados e todas as informações necessárias para o processamento e arquivamento dos documentos sejam fornecidas.
+
+  
+
+# T03 - Digitalização de Documentos
+
+## ST000 - Digitalização de Página Única
+
+  
+
+Como Digitalizador, eu preciso ser capaz de tirar uma foto de uma página com a câmera de celular para que eu possa digitalizar um documento.
+
+  
+
+## ST000 - Digitalização de Múltiplas Páginas
+
+  
+
+Como Digitalizador, eu preciso ser capaz de tirar fotos de várias páginas em sequência com uma câmera de celular para que eu possa digitalizar um documento de múltiplas páginas.
+
+  
+
+## ST000 - Ajuste de Inclinação
+
+  
+
+Como Digitalizador, eu preciso ser capaz de realizar leves rotações em uma página fotografada para garantir a qualidade das imagens de um documento digitalizado.
+
+  
+
+## ST000 - Ajuste de Orientação
+
+  
+
+Como Digitalizador, eu preciso ser capaz de realizar rotações em múltiplos de 90º em uma página fotografada para garantir a qualidade das imagens de um documento digitalziado.
+
+  
+
+## ST000 - Recorte de Bordas
+
+  
+
+Como Digitalizador, eu preciso ser capaz de selecionar e recortar a região de interesse de uma página fotografada para garantir a qualidade das imagens de um documento digitalizado.
+
+  
+
+# T04 - Classificação e Descrição de Documentos
+
+## ST000 - Inserção de Metadados
+
+  
+
+Como Consultante de Documentos, eu preciso que o Digitalizador (informe metadados para cada documento para possibilitar que outros sistemas implementem indexação e busca em documentos digitalizados.
+
+  
+
+## ST000 - Atribuição de Tags
+
+  
+
+Como Consultante de Documentos, eu preciso que o Digitalizador atribua tags para cada documento para possibilitar que outros sistemas implementem indexação e busca em documentos digitalizados.
+
+  
+
+## ST000 - Identificação da Unidade de Arquivamento
+
+  
+
+Como Arquivista, eu preciso que o Digitalizador identifique a unidade de arquivamento (caixa, pasta, etc.) em que o documento físico foi armazenado após a digitalização para facilitar a indexação e busca de documentos físicos.
+
+  
+
+## ST000 - Identificação Automática da Unidade de Arquivamento
+
+  
+
+Como Digitalizador, eu preciso que o sistema seja capaz de detectar páginas com patch e bar codes que identificam a unidade de arquivamento em que o documento será armazenado após a digitalização para que eu não precise realizar a identificação de forma manual.
+
+  
+
+# T05 - Finalização
+
+## ST000 - "Fechamento" de Documento
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de sinalizar a conclusão da digitalização, classificação e descrição de um ou mais documentos para que o sistema possa submetê-los para o Orquestrador.
+
+  
+
+## ST000 - Submissão de Documentos
+
+  
+
+Como Gerente de Fluxo, eu preciso que o sistema envie os documentos digitalizados para o sistema Orquestrador para que os documentos possam ser processados e arquivados.

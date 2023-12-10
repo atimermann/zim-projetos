@@ -1,0 +1,202 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-10T10:56:48-03:00
+
+====== Digitalizador Web ======
+Criado domingo 10 dezembro 2023
+
+# Descrição
+
+  
+
+Aplicação web para digitalizar documentos. Consiste em um front-end com uma interface gráfica.
+
+  
+
+# Resumo das Funcionalidades
+
+  
+
+* Digitalização de documentos (simples)
+* Digitalização assistida de documentos em lote
+* Digitalização automática de documentos em lote
+* Digitalização de documentos com páginas heterogêneas
+* Entrada manual de metadados e tags
+* Rastreamento dos arquivos físicos
+* Integração com o **Orquestrador**
+
+  
+
+# Atores
+
+## Usuários
+
+  
+
+* Digitalizador Leigo
+* Digitalizador Profissional
+
+  
+
+## Stakeholders
+
+  
+
+* Organização
+* Funcionário
+
+  
+
+# Histórias
+
+## T01 - Autenticação e Acesso ao Sistema
+
+### ST001 - Login
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de me logar para poder utilizar o sistema.
+
+  
+
+### ST002 - Logout
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de me deslogar do sistema para evitar acessos não autorizados após o fim do processo de digitalização.
+
+  
+
+## T02 - Preparação do Ambiente
+
+### ST003 - Seleção de Fluxo de Digitalização
+
+  
+
+Como Gerente de Fluxo, eu preciso que o Digitalizador (Leigo ou Profissional) seja capaz de selecionar o fluxo de digitalização previamente definido e configurado por mim para garantir que os parâmetros de digitalização corretos sejam utilizados e todas as informações necessárias para o processamento e arquivamento dos documentos sejam fornecidas.
+
+  
+
+### ST000 - Descoberta de Scanners
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso que o sistema seja capaz de descobrir scanners em minha rede ou portas USB para que eu possa selecionar o scanner a ser utilizado.
+
+  
+
+### ST000 - Seleção de Scanner
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de selecionar o scanner a ser utilizado para poder iniciar o processo de digitalização.
+
+  
+
+## T03 - Digitalização de Documentos
+
+### ST000 - Digitalização de Página Única
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de alimentar um scanner com uma página e enviar o comando de digitalizar para que eu possa digitalizar um documento.
+
+  
+
+### ST000 - Digitalização de Múltiplas Páginas em Ação Única
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de alimentar um scanner com múltiplas páginas e enviar o comando de digitalizar para que eu possa digitalizar um documento de múltiplas páginas.
+
+  
+
+### ST000 - Digitalização de Múltiplas Páginas em Etapas
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de realizar várias etapas sequenciais de digitalização de uma ou mais páginas para que eu possa digitalizar um documento cujo número de páginas excede a capacidade do meu scanner.
+
+  
+
+### ST000 - Demarcação Manual de Documentos
+
+  
+
+Como Digitalizador LEIGO, eu preciso ser capaz de selecionar as páginas iniciais e finais de cada documento para que eu possa digitalizar documentos em lote.
+
+  
+
+### ST000 - Demarcação Automática de Documentos
+
+  
+
+Como Digitalizador PROFISSIONAL, eu preciso que o sistema seja capaz de detectar páginas com patch codes que demarcam o início e o fim de cada documento para que eu possa digitalizar documentos em lote de forma automática.
+
+  
+
+### ST000 - Identificação Automática de Página Placeholder
+
+  
+
+Como Digitalizador PROFISSIONAL, eu preciso que o sistema seja capaz de detectar páginas com patch ou bar codes que indicam que a página se trata de um "placeholder" para que eu possa preservar a sequência das páginas de um documento caso meu scanner não suporte as dimensões de todas as páginas.
+
+  
+
+### ST000 - Identificação Automática de Página para Substituição
+
+  
+
+Como Digitalizador PROFISSIONAL, eu preciso que o sistema seja capaz de detectar páginas com bar codes que indicam que a página deve substituir algum "placeholder" para que eu possa digitalizar páginas de um documento cujas dimensões não são suportadas pelo meu scanner padrão separadamente por meio de outro scanner.
+
+  
+
+## T04 - Classificação e Descrição de Documentos
+
+### ST000 - Inserção de Metadados
+
+  
+
+Como Consultante de Documentos, eu preciso que o Digitalizador (Leigo ou Profissional) informe metadados para cada documento para possibilitar que outros sistemas implementem indexação e busca em documentos digitalizados.
+
+  
+
+### ST000 - Atribuição de Tags
+
+  
+
+Como Consultante de Documentos, eu preciso que o Digitalizador (Leigo ou Profissional) atribua tags para cada documento para possibilitar que outros sistemas implementem indexação e busca em documentos digitalizados.
+
+  
+
+### ST000 - Identificação da Unidade de Arquivamento
+
+  
+
+Como Arquivista, eu preciso que o Digitalizador (Leigo ou Profissional) identifique a unidade de arquivamento (caixa, pasta, etc.) em que o documento físico foi armazenado após a digitalização para facilitar a indexação e busca de documentos físicos.
+
+  
+
+### \*ST000 - Identificação Automática da Unidade de Arquivamento
+
+  
+
+Como Digitalizador PROFISSIONAL, eu preciso que o sistema seja capaz de detectar páginas com patch e bar codes que identificam a unidade de arquivamento em que o documento será armazenado após a digitalização para que eu não precise realizar a identificação de forma manual.
+
+  
+
+## T05 - Finalização
+
+### ST000 - "Fechamento" de Documento
+
+  
+
+Como Digitalizador (Leigo ou Profissional), eu preciso ser capaz de sinalizar a conclusão da digitalização, classificação e descrição de um ou mais documentos para que o sistema possa submetê-los para o Orquestrador.
+
+  
+
+### ST000 - Submissão de Documentos
+
+  
+
+Como Gerente de Fluxo, eu preciso que o sistema envie os documentos digitalizados para o sistema Orquestrador para que os documentos possam ser processados e arquivados.
