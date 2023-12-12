@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-12T19:49:08-03:00
+
+====== 2023-12-12 Venda empresa ======
+Criado terça 12 dezembro 2023
+
+* Empresa foi vendida
+* Copiar todos banco de dados
+	* ver se tem outros
