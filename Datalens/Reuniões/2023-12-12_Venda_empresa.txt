@@ -8,3 +8,7 @@ Criado terça 12 dezembro 2023
 * Empresa foi vendida
 * Copiar todos banco de dados
 	* ver se tem outros
+
+* Documentar o código
+* Documetar o acesso e como funciona
+* Subir o código no GIT
