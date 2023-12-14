@@ -17,4 +17,26 @@ Criado quinta 14 dezembro 2023
 	* Armazena o texto sumarizado recebido como resposta no MinIO .
 
 [ ] Criar um pdf generator bem simples, que gera um arquivo PDF a partir de um texto de conteúdo e da sumarização desse texto. Requisitos:
+	* A interface desse microsserviço deve ser uma API HTTP;
+	* Os parâmetros da requisição devem ser o conteúdo / content (texto simples) e o resumo / summary (texto simples);
+	* O pdf generator deve criar um arquivo PDF com uma página em branco, rasterizar o texto recebido no parâmetro content nessa página, e adicionar o metadado description com o texto recebido no parâmetro summary como valor;
+	* A resposta deverá ser simplesmente o arquivo em formato PDF resultante.
+
+[ ] Criar um pdf worker que:
+	* Lê um arquivo de texto (não sumarizado) e o seu respectivo texto sumarizado no MinIO;
+	* Faz uma requisição para o pdf generator;
+	* Armazena o arquivo PDF resultante no MinIO .
+
+[ ] Criar um scheduler que, uma vez a cada intervalo de tempo, escaneia o MinIO atrás de novos arquivos de texto (não sumarizados) criados, instancia os summarizer workers para obter os textos sumarizados, e em seguida instancia os pdf workers para gerar os arquivos PDFs com os textos.
+
+===== Acesso BentoCloud =====
+
+**Endpoint:** http://summarizer-on-demand-org-datafrost--aws-us-east-1.mt2.bentoml.ai/
+**API token:** cltji93ag56n1gfnjuh0
+
+===== Arquivo de exemplo (sample.txt): =====
+
+A large language model (LLM) is a computerized language model, embodied by an artificial neural network using an enormous amount of "parameters" (i.e. "neurons" in its layers with up to tens of millions to billions "weights" between them), that are (pre-)trained on many GPUs in relatively short time due to massive parallel processing of vast amounts of unlabeled texts containing up to trillions of tokens (i.e. parts of words) provided by corpora such as Wikipedia Corpus and Common Crawl, using self-supervised learning or semi-supervised learning, resulting in a tokenized vocabulary with a probability distribution. LLMs can be upgraded by using additional GPUs to (pre-)train the model with even more parameters on even vaster amounts of unlabeled texts.
+
+curl -X POST -H 'accept: text/plain' -H 'Content-Type: text/plain' -H 'Authorization: Bearer cltji93ag56n1gfnjuh0' --data @sample.txt http://summarizer-on-demand-org-datafrost--aws-us-east-1.mt2.bentoml.ai/
 
