@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-14T15:50:13-03:00
+
+====== 0 - Tarefas ======
+Criado quinta 14 dezembro 2023
+

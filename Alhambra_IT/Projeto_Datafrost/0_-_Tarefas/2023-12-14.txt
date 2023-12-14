@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-14T15:50:27-03:00
+
+====== 2023-12-14 ======
+Criado quinta 14 dezembro 2023
+
+* Não pode replicar ativo minio
+	* Miniio
+
+[ ] Configurar o cluster Kubernetes
+[ ] Fazer o deploy e configurar MinIO no cluster;
+[ ] Depositar vários arquivos de texto de exemplo no MinIO;
+[ ] Criar um summarizer worker que:
+	* Lê o texto de um arquivo no MinIO;
+	* Faz uma requisição para o endpoint de um sumarizador de texto instanciado na BentoCloud;
+	* Armazena o texto sumarizado recebido como resposta no MinIO .
+
+[ ] Criar um pdf generator bem simples, que gera um arquivo PDF a partir de um texto de conteúdo e da sumarização desse texto. Requisitos:
+
