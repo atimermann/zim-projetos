@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-21T08:55:10-03:00
+
+====== 2023-12-21 ======
+Criado quinta 21 dezembro 2023
+
+- Conferir se tem acesso as API ainda
+- Copiar os banco de dados
+- Verificar se consegue puxar sankia

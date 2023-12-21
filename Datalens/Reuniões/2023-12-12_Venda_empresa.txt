@@ -12,3 +12,6 @@ Criado terça 12 dezembro 2023
 * Documentar o código
 * Documetar o acesso e como funciona
 * Subir o código no GIT
+
+
+====== = ======
