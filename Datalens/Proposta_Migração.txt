@@ -1,0 +1,69 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-21T20:20:27-03:00
+
+====== Proposta Migração ======
+Criado quinta 21 dezembro 2023
+
+Proposta Comercial para Serviços de Migração
+
+===== Introdução =====
+
+Este documento apresenta a proposta para  migração de sistema de automação Datatem, incluindo a preparação de ambiente, migração de dados, implantação de sistema de automação, e criação de documentação de arquitetura.
+
+===== Detalhes do Projeto =====
+
+==== 2.1 Preparação de Ambiente ====
+
+- **Objetivo:** Preparar o ambiente garantindo a instalação dos serviços necessários.
+- **Atividades:**
+  - Atualização do sistema
+  - Instalação e configuração de dependencias do serviço de automação.
+
+**Prazo:** 4 horas
+
+==== 2 .2 Migração de Dados para Nova Plataforma ====
+
+- **Atividades:**
+  - Planejamento detalhado da migração.
+  - Execução da migração com foco em minimizar o tempo de inatividade.
+
+### 3.3 Implantação da Última Versão do Sistema de Automação
+- **Objetivo:** Implementar a última versão do sistema de automação, configurá-lo para o ambiente do cliente e realizar testes.
+- **Atividades:**
+  - Instalação do sistema.
+  - Configuração personalizada conforme as necessidades do cliente.
+  - Testes rigorosos para garantir funcionamento adequado.
+
+### 3.4 Criação de Documentação de Arquitetura
+- **Objetivo:** Fornecer uma compreensão clara da nova arquitetura do sistema.
+- **Atividades:**
+  - Documentação técnica detalhada.
+  - Diagramas de arquitetura e fluxos de processo.
+
+## 4. Requisitos Técnicos
+
+- **Banco de Dados:** SQL Server, para garantir um gerenciamento de dados robusto e seguro.
+- **Ambiente de Operação:** Máquina virtual Linux, compatível com Docker, proporcionando uma plataforma estável e flexível.
+
+## 5. Cronograma
+[Inserir cronograma detalhado do projeto aqui]
+
+## 6. Investimento
+O custo total do projeto será [inserir valor], que cobre todos os aspectos do desenvolvimento, implementação e suporte inicial.
+
+## 7. Termos e Condições
+Detalhes sobre pagamento, cronograma de entrega, garantias, e suporte pós-implementação.
+
+## 8. Aceitação
+O abaixo-assinado [Nome do Cliente] confirma a aceitação desta proposta e dos termos e condições anexos.
+
+[Assinatura do Cliente]
+[Data]
+
+[Assinatura do Fornecedor]
+[Data]
+
+---
+
+Esta proposta é válida até [inserir data]. Agradecemos a oportunidade de apresentar esta proposta e esperamos colaborar no sucesso do seu projeto.
