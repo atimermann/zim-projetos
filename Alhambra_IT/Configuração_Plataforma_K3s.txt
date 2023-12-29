@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2023-12-29T16:34:54-03:00
+
+====== Configuração Plataforma K3s ======
+Criado sexta 29 dezembro 2023
+
+====== Arquitetura: ======
+
+Ambiente de homologação utilizando k3s, deve servir como ponto de partida para configuração de produção on-premise (Recomendo RKE) ou nuvem (google/azure/aws)
+
+* 3 nós Control Plane (exclusivo gestão do cluster)
+* 3 nós Data Plane (exclusivo execução das aplicações)
+* 2 nós 
