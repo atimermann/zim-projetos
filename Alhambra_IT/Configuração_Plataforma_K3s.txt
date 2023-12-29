@@ -92,3 +92,19 @@ vrrp_instance haproxy-vip {
 * Instalar kubectl
 * Instalar o k (configuração bashrc)
 * kubecolor se interessar
+
+===== Instalação Control Plane =====
+
+
+curl -sfL https://get.k3s.io | sh -s - server --cluster-init --tls-san=10.50.255.100 --node-taint CriticalAddonsOnly=true:NoExecute --disable=servicelb
+
+===== Adicionando outros control plane =====
+
+**Obter o token no primeiro servidor em:**
+	cat /var/lib/rancher/k3s/server/node-token
+
+curl -sfL https://get.k3s.io | K3S_TOKEN=K1010b0e089b498250842831c24b03279c73a038ba3c2d4a789675ee48261cf9214::server:79eec29da1d678c88f2538911f219dac sh -s - server --server https://10.50.255.100:6443 --tls-san=10.50.255.100 --node-taint CriticalAddonsOnly=true:NoExecute
+	
+===== Adicionando agentes =====
+
+curl -sfL https://get.k3s.io | K3S_TOKEN=K1010b0e089b498250842831c24b03279c73a038ba3c2d4a789675ee48261cf9214::server:79eec29da1d678c88f2538911f219dac sh -s - agent --server [[https://]][[https://10.50.255.100:6443|10.50.255.100]][[:6443]]
