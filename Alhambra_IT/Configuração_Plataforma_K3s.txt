@@ -11,4 +11,17 @@ Ambiente de homologação utilizando k3s, deve servir como ponto de partida para
 
 * 3 nós Control Plane (exclusivo gestão do cluster)
 * 3 nós Data Plane (exclusivo execução das aplicações)
-* 2 nós 
+* 2 nós Load Balance para conexão ao cluster
+* 1 VM banco de dados
+* 1 VM Storage NFS montado sob iscsi
+
+===== Load Balance =====
+
+DTF-LAP-LB01-Dev HA-Proxy 10.50.255.7
+DTF-LAP-LB02-Dev HA-Proxy 10.50.255.8
+
+====== Instruções ======
+
+* Instalar kubectl
+* Instalar o k (configuração bashrc)
+* kubecolor se interessar
