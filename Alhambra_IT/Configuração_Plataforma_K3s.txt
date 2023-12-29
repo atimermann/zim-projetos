@@ -15,10 +15,52 @@ Ambiente de homologação utilizando k3s, deve servir como ponto de partida para
 * 1 VM banco de dados
 * 1 VM Storage NFS montado sob iscsi
 
+===== IPs =====
+
+10.50.255.100   cluster.datafrost-cic.idc
+10.50.255.7     lb01.datafrost-cic.idc
+10.50.255.8     lb02.datafrost-cic.idc
+
+10.50.255.1     control01.datafrost-cic.idc
+10.50.255.2     control02.datafrost-cic.idc
+10.50.255.3     control03.datafrost-cic.idc
+
+10.50.255.4     agent01.datafrost-cic.idc
+10.50.255.5     agent02.datafrost-cic.idc
+10.50.255.6     agent03.datafrost-cic.idc
+
+10.50.255.9     database.datafrost-cic.idc
+10.50.255.250   storage.datafrost-cic.idc
+
+
+
 ===== Load Balance =====
 
 DTF-LAP-LB01-Dev HA-Proxy 10.50.255.7
 DTF-LAP-LB02-Dev HA-Proxy 10.50.255.8
+
+**IP Virtual:** 10.50.255.100
+
+Haproxy
+{{{code: lang="js" linenumbers="True"
+frontend k3s-frontend
+    bind *:6443
+    mode tcp
+    option tcplog
+    default_backend k3s-backend
+
+backend k3s-backend
+    mode tcp
+    option tcp-check
+    balance roundrobin
+    default-server inter 10s downinter 5s
+    server control01 10.50.255.1:6443 check
+    server control02 10.50.255.2:6443 check
+    server control03 10.50.255.3:6443 check    
+}}}
+	
+
+
 
 ====== Instruções ======
 
