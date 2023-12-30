@@ -139,3 +139,14 @@ users:
     client-key-data: LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUoyWUVTcVE3WnFrelFhTUpYU0xSMmNSTytESTczd0RCZTlUNjhka2xlYmRvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFeDYvSmhwdU5CYjliYVJBSjVKY3hGd0V4dnJpZkt4NklRVlA2MVQ1SGM0ajJ0Q05IS3JDTwpFZFJpTjErUXNNTVgyMDJxSzlnYXk5VGppc3VPdTlwTi9nPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
 
 }}}
+
+====== Ambiente dev ======
+
+* __TODO__: Documentar a configuração do traefki com virtualhost localmente no ambiente dev, 
+	* Configurar [[/etc/hosts]] 127.0.0.1
+	* O Traefik em ambientes de apenas um host (dev) vai pegar o ip da maquina local do loadbalancer
+	* então ao criar um virtualhost para redirecionar o trafego de traefik.datafrost.local para porta 9000, ele usa o IP da maquina localmesmo 
+	* NAVEGADOR => traefik.datafrost.local => 127.0.0.1 => Serviço do Traefik => processa virtualhost => redireciona porta 9000 => (IP [[LOCAL):9000]] transparente
+	* podemos testar o proxy desta forma
+	* k get nodes -o wide para obter o **ip** em INTERLAN-IP
+
