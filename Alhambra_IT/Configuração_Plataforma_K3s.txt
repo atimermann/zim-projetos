@@ -17,22 +17,20 @@ Ambiente de homologação utilizando k3s, deve servir como ponto de partida para
 
 ===== IPs =====
 
-10.50.255.100   cluster.datafrost-cic.idc
-10.50.255.7     lb01.datafrost-cic.idc
-10.50.255.8     lb02.datafrost-cic.idc
+10.50.255.100   	cluster.datafrost-cic.idc
+10.50.255.7     	lb01.datafrost-cic.idc
+10.50.255.8     	lb02.datafrost-cic.idc
 
-10.50.255.1     control01.datafrost-cic.idc
-10.50.255.2     control02.datafrost-cic.idc
-10.50.255.3     control03.datafrost-cic.idc
+10.50.255.1     	control01.datafrost-cic.idc
+10.50.255.2     	control02.datafrost-cic.idc
+10.50.255.3     	control03.datafrost-cic.idc
 
-10.50.255.4     agent01.datafrost-cic.idc
-10.50.255.5     agent02.datafrost-cic.idc
-10.50.255.6     agent03.datafrost-cic.idc
+10.50.255.4     	agent01.datafrost-cic.idc
+10.50.255.5     	agent02.datafrost-cic.idc
+10.50.255.6     	agent03.datafrost-cic.idc
 
-10.50.255.9     database.datafrost-cic.idc
-10.50.255.250   storage.datafrost-cic.idc
-
-
+10.50.255.9     	database.datafrost-cic.idc
+10.50.255.250	storage.datafrost-cic.idc
 
 ===== Load Balance =====
 
@@ -83,9 +81,6 @@ vrrp_instance haproxy-vip {
 }
 
 }}}
-
-
-
 
 ====== Instruções ======
 
@@ -149,4 +144,6 @@ users:
 	* NAVEGADOR => traefik.datafrost.local => 127.0.0.1 => Serviço do Traefik => processa virtualhost => redireciona porta 9000 => (IP [[LOCAL):9000]] transparente
 	* podemos testar o proxy desta forma
 	* k get nodes -o wide para obter o **ip** em INTERLAN-IP
+
+====== NFS ======
 
