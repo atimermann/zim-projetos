@@ -32,6 +32,10 @@ Ambiente de homologação utilizando k3s, deve servir como ponto de partida para
 10.50.255.9     	database.datafrost-cic.idc
 10.50.255.250	storage.datafrost-cic.idc
 
+**Login UI storage.datafrost-cic.idc**
+**User:** admin
+**Senha**: @lham2020
+
 ===== Load Balance =====
 
 DTF-LAP-LB01-Dev HA-Proxy 10.50.255.7
