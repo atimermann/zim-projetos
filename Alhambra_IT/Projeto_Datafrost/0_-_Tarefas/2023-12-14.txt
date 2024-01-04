@@ -32,11 +32,12 @@ Criado quinta 14 dezembro 2023
 ===== Acesso BentoCloud =====
 
 **Endpoint:** http://summarizer-on-demand-org-datafrost--aws-us-east-1.mt2.bentoml.ai/
+				   https://summarization-ondemand-org-datafrost--aws-us-east-1.mt2.bentoml.ai
 **API token:** cltji93ag56n1gfnjuh0
 
 ===== Arquivo de exemplo (sample.txt): =====
 
 A large language model (LLM) is a computerized language model, embodied by an artificial neural network using an enormous amount of "parameters" (i.e. "neurons" in its layers with up to tens of millions to billions "weights" between them), that are (pre-)trained on many GPUs in relatively short time due to massive parallel processing of vast amounts of unlabeled texts containing up to trillions of tokens (i.e. parts of words) provided by corpora such as Wikipedia Corpus and Common Crawl, using self-supervised learning or semi-supervised learning, resulting in a tokenized vocabulary with a probability distribution. LLMs can be upgraded by using additional GPUs to (pre-)train the model with even more parameters on even vaster amounts of unlabeled texts.
 
-curl -X POST -H 'accept: text/plain' -H 'Content-Type: text/plain' -H 'Authorization: Bearer cltji93ag56n1gfnjuh0' --data @sample.txt http://summarizer-on-demand-org-datafrost--aws-us-east-1.mt2.bentoml.ai/
+curl -X POST -H 'accept: text/plain' -H 'Content-Type: text/plain' -H 'Authorization: Bearer cltji93ag56n1gfnjuh0' --data @sample.txt https://summarization-ondemand-org-datafrost--aws-us-east-1.mt2.bentoml.ai
 
