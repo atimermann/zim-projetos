@@ -10,7 +10,7 @@ Criado quinta 14 dezembro 2023
 
 [*] Configurar o cluster Kubernetes
 [*] Fazer o deploy e configurar MinIO no cluster;
-[ ] Depositar vários arquivos de texto de exemplo no MinIO;
+[*] Depositar vários arquivos de texto de exemplo no MinIO;
 [ ] Criar um summarizer worker que:
 	* Lê o texto de um arquivo no MinIO;
 	* Faz uma requisição para o endpoint de um sumarizador de texto instanciado na BentoCloud;
