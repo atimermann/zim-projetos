@@ -10,3 +10,25 @@ Ferramentas IA, para produtividade e para o projeto, acompanhar sempre pq no mom
 * API ChatGPT
 * Sofia
 * https://www.tldraw.com/ - Gera interface automaticamente
+
+
+====== huggingface.co ======
+
+**Repositórios de modelos:**
+	 https://huggingface.co/docs/hub/models-the-hub
+
+Veja o vídeo
+
+
+====== BentoML ======
+
+BentoML é um framework unificado para a construção de aplicações de IA confiáveis, escaláveis e eficientes em termos de custo. 
+
+Ele oferece uma solução completa para simplificar o processo de implantação de modelos, incluindo tudo o que é necessário para servir modelos, empacotar aplicações e implantá-las em produção. 
+
+O BentoML é voltado para equipes que trabalham para colocar modelos de machine learning em produção de forma confiável e eficiente, facilitando a integração de modelos pré-treinados de última geração em aplicações. 
+
+Com um formato de distribuição unificado, o BentoML simplifica a colaboração entre desenvolvedores e equipes de ciência de dados, apoiando implantações em qualquer lugar, desde ambientes Docker até Kubernetes
+
+
+
