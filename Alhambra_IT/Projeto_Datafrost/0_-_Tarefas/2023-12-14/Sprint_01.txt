@@ -5,7 +5,8 @@ Creation-Date: 2024-01-11T15:19:50-03:00
 ====== Sprint 01 ======
 Criado quinta 11 janeiro 2024
 
-[>] **[15:35]** Enviar Texto para MinIO (UI) - Formulário Simples
+[*] **[15:35]** Enviar Texto para MinIO (UI) - Formulário Simples (FRONT)
+[ ] **[18:18]** (BACK) - API para receber texto e salvar no Minio
 [ ] Criar Schedule em Kubernetes para disparar o TextLoader
 [ ] Implementar o TextLoader que carrega novos arquivo texto no minio e salva no Fila para processamento
 [ ] Criar o Summarizer Worker que lê da fila e envia para BentoMl par aprocessamento
