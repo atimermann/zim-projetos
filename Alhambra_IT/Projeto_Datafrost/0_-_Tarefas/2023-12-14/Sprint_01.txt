@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-11T15:19:50-03:00
+
+====== Sprint 01 ======
+Criado quinta 11 janeiro 2024
+
+[*] **[15:35]** Enviar Texto para MinIO (UI) - Formulário Simples
+[ ] Criar Schedule em Kubernetes para disparar o TextLoader
+[ ] Implementar o TextLoader que carrega novos arquivo texto no minio e salva no Fila para processamento
+[ ] Criar o Summarizer Worker que lê da fila e envia para BentoMl par aprocessamento
+	* Lembrando que na primeira execução pode ocorrer timeOutr tratar
+	* Salva na fila para processamento
+[ ] Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
+
