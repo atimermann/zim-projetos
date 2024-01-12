@@ -14,3 +14,9 @@ Criado quinta 11 janeiro 2024
 	* Salva na fila para processamento
 [ ] Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
 [ ] Criar imagem docker para UI e MAIN
+
+
+
+
+
+
