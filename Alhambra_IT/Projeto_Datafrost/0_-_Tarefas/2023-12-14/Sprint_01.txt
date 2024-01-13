@@ -7,8 +7,9 @@ Criado quinta 11 janeiro 2024
 
 [*] **[15:35]** Enviar Texto para MinIO (UI) - Formulário Simples (FRONT)
 [*] **[18:18]** (BACK) - API para receber texto e salvar no Minio
-[>] **[Dia 2: 16:49]** Implementar o TextLoader que carrega novos arquivo texto no minio e salva no Fila para processamento
-[ ] Criar Schedule em Kubernetes para disparar o TextLoader
+[>] **[Dia 2: 16:49]** Criar Schedule em Kubernetes para disparar o TextLoader
+[ ] Implementar o TextLoader que carrega novos arquivo texto no minio e salva no Fila para processamento
+
 [ ] Criar o Summarizer Worker que lê da fila e envia para BentoMl par aprocessamento
 	* Lembrando que na primeira execução pode ocorrer timeOutr tratar
 	* Salva na fila para processamento
