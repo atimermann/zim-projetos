@@ -17,5 +17,4 @@ Criado quinta 11 janeiro 2024
 [ ] Implementar validação de segurança para todas as API usando keycloak
 
 
-- desativar check parent ao rodar job pelo terminal (analisar)
 - executar ncli-agtm-update antes do build
