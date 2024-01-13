@@ -17,5 +17,17 @@ Criado quinta 11 janeiro 2024
 [ ] Criar imagem docker para UI e MAIN
 [ ] Implementar validação de segurança para todas as API usando keycloak
 
-
+* Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
 - executar ncli-agtm-update antes do build
+
+* Necessário desabilitar o parent-check por causa do kubernetes
+* adicionar um parent-check no argumento e rodar quando for job controlado pelo job manager (que vai ser bem raro agora com kubernetes)
+
+* separar k8s de infra para k8s do projeto
+	* exemplo: traefik, registry, metallb, são globais e podem ser usado por vários projetos
+	* Criar um apply separado, inclusive fora do application-stack
+
+* Renomear imagem de datafrost para datafrost-node em conjunto com version do node
+
+
+* Versionar build
