@@ -16,8 +16,10 @@ Criado quinta 11 janeiro 2024
 [ ] Criar imagem docker para UI e MAIN
 [ ] Implementar validação de segurança para todas as API usando keycloak
 
-
-
+- Quando executar um job desativar carregar outros controllers
+- Reativar // await AuthService.initialize()
+- reativar minio
+- desativar check parent ao rodar job pelo terminal (analisar)
 
 
 
