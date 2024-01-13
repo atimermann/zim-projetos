@@ -19,6 +19,3 @@ Criado quinta 11 janeiro 2024
 
 * Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
 - executar ncli-agtm-update antes do build
-
-
-* Versionar build
