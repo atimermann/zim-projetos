@@ -19,3 +19,9 @@ Criado quinta 11 janeiro 2024
 
 * Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
 - executar ncli-agtm-update antes do build
+
+--------------------
+* DOCUMENTAR RABBITMQ no zim
+* criar script automatico para port-forward
+* Descobrir como alterar o storage
+	* https://www.rabbitmq.com/kubernetes/operator/using-operator.html#persistence
