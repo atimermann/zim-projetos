@@ -21,7 +21,9 @@ Criado quinta 11 janeiro 2024
 - executar ncli-agtm-update antes do build
 
 --------------------
-* DOCUMENTAR RABBITMQ no zim
-* criar script automatico para port-forward
-* Descobrir como alterar o storage
-	* https://www.rabbitmq.com/kubernetes/operator/using-operator.html#persistence
+[*] DOCUMENTAR RABBITMQ no zim
+[*] criar script automatico para port-forward
+
+[ ] adicionar classe base AMQP e MINIO no Node Framework, ou por no util e carregar no node-framework, serião serviços pré-definidos
+
+[ ] Remover .env da imagem deve ser configurado por configMap ou secrets
