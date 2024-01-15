@@ -15,7 +15,18 @@ Criado quinta 11 janeiro 2024
 	* Salva na fila para processamento
 [*] **[Dia 4 19:32]** Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
 [*] Criar imagem docker para UI e MAIN
+
+[ ] Configurar imagens
+[ ] Configurar serviços K8S Dev
+[ ] Configurar serviços K8S Homol
+[ ] Documentar atividades em formato apresentação
+[ ] Melhorar Frontend
+
+
 [ ] Implementar validação de segurança para todas as API usando keycloak
+
+
+--------------------
 
 * Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
 - executar ncli-agtm-update antes do build
