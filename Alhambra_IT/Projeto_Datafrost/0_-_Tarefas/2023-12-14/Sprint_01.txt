@@ -13,7 +13,7 @@ Criado quinta 11 janeiro 2024
 [*] **[Dia 4: 16:50]** Criar o Summarizer Worker que lê da fila e envia para BentoMl par aprocessamento
 	* Lembrando que na primeira execução pode ocorrer timeOutr tratar
 	* Salva na fila para processamento
-[>] **[Dia 4 19:32]** Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
+[*] **[Dia 4 19:32]** Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
 [*] Criar imagem docker para UI e MAIN
 [ ] Implementar validação de segurança para todas as API usando keycloak
 
