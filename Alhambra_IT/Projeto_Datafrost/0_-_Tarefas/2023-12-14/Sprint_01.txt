@@ -54,3 +54,7 @@ function printErrorDetails (error) {
 	console.log(`${prop}: ${error[prop]}`)
   })
 }
+
+--------------------
+**Como Testar Container**
+docker run -it registry.datafrost-cic.idc:5000/datafrost-node:dev npm start
