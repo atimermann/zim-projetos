@@ -57,3 +57,10 @@ function printErrorDetails (error) {
 --------------------
 **Como Testar Container**
 docker run -it registry.datafrost-cic.idc:5000/datafrost-node:dev npm start
+
+**Como Testar POD:**
+kubectl exec -it pod/postgres-68d794b445-jfnk9 -n datafrost -- [[/bin/bash]]
+
+@agtm/packages/nuxt-layer-adminlite-primeface
+- Atualização documentação
+- Nova definição de runTimeConfig
