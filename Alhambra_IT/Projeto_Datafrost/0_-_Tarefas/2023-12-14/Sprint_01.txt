@@ -39,7 +39,6 @@ Criado quinta 11 janeiro 2024
 
 [ ] Remover .env da imagem deve ser configurado por configMap ou secrets
 
-
 --------------------
 ADICIONAR NO **agtm/util,** documentar no todo, tipagem
 function printErrorDetails (error) {
