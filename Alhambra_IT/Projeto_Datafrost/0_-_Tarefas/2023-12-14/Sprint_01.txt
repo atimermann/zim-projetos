@@ -64,3 +64,62 @@ kubectl exec -it pod/postgres-68d794b445-jfnk9 -n datafrost -- [[/bin/bash]]
 @agtm/packages/nuxt-layer-adminlite-primeface
 - Atualização documentação
 - Nova definição de runTimeConfig
+
+--------------------
+Documentar Variaveis de ambiente em NUXT em produção
+
+npm run build
+node [[./output/server/index.mjs]]
+
+**Definir runtimeConfig no nuxt.config.ts**
+  runtimeConfig: {
+	public: {
+	  template: {
+		version: packageJSON.version
+	  },
+	  /**
+	   * Chave de licenciamento do Digitalizador online dynamsoft Webtwain
+	   */
+	  dynamsoftWebtwainProductKey: '',
+	  /**
+	   * Server Config
+	   */
+	  server: {
+		protocol: '',
+		hostname: '',
+		port: '',
+		apibaseurl: ''
+	  }
+	}
+  }
+
+**IMPORTANTE:** 
+* process.env não funciona
+* arquivo .env será ignorado carregar manualmente
+* Prefixar com NUXT_
+* Toda variavel de ambiente deve ser em maiusculo
+* NUXT_PUBLIC_TEMPLATE_VERSION
+	* irá subtituir config.public.template.version
+	* ou config.public.templateVersion
+	* ou qualquer combinação dos dois
+* 
+
+**Exemplos:**
+ para acessar a configuração acima faça:
+
+NUXT_PUBLIC_SERVER_PROTOCOL='http' node .output/server/index.mjs
+
+NUXT_PUBLIC_DYNAMSOFT_WEBTWAIN_PRODUCT_KEY='http' node .output/server/index.mjs
+
+**NO CÒDIGO:**
+
+import { useRuntimeConfig } from '#imports' // Caso auto-imports estiver desativado
+
+const config = useRuntimeConfig()
+console.log(JSON.stringify(config.public, undefined, ' '))
+
+
+
+
+
+
