@@ -16,8 +16,8 @@ Criado quinta 11 janeiro 2024
 [*] **[Dia 4 19:32]** Criar um PDF Generator q lê da fila os textos e gera PDF com PDF Kit e salva no minio o novo PDF, utilizar PDFKIT
 [*] Criar imagem docker para UI e MAIN
 
-[ ] Configurar imagens
-[ ] Configurar serviços K8S Dev
+[*] Configurar imagens
+[*] Configurar serviços K8S Dev
 [ ] Configurar serviços K8S Homol
 [ ] Documentar atividades em formato apresentação
 [ ] Melhorar Frontend
