@@ -39,6 +39,7 @@ Criado quinta 11 janeiro 2024
 
 [*] Remover .env da imagem deve ser configurado por configMap ou secrets
 [ ] Imprimir versão do projeto no job também e outras informões importate
+[ ] Alterar node-framework para criar pasta storage na inicialização caso não exista
 
 --------------------
 ADICIONAR NO **agtm/util,** documentar no todo, tipagem
