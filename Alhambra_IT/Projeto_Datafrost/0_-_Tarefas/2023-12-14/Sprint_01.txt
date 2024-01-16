@@ -37,7 +37,8 @@ Criado quinta 11 janeiro 2024
 
 [ ] adicionar classe base AMQP e MINIO no Node Framework, ou por no util e carregar no node-framework, serião serviços pré-definidos
 
-[ ] Remover .env da imagem deve ser configurado por configMap ou secrets
+[*] Remover .env da imagem deve ser configurado por configMap ou secrets
+[ ] Imprimir versão do projeto no job também e outras informões importate
 
 --------------------
 ADICIONAR NO **agtm/util,** documentar no todo, tipagem
