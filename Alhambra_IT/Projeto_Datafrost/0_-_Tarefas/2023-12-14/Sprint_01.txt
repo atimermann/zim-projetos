@@ -29,6 +29,12 @@ Criado quinta 11 janeiro 2024
 Senha:  Keycloak
 andre@timermann.com.br
 n*ZqOCw2Sx$f8k&o
+
+Minio
+**Access Key**
+27zgnVQJZWW6T49qXyVX
+**Secret Key**
+Ivgrn4yWEIRCmt48bim7t0nv8kI2LC0P1iFzeZUc
 --------------------
 
 * Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
