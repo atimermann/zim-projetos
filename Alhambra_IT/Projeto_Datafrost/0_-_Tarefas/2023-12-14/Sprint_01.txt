@@ -26,7 +26,9 @@ Criado quinta 11 janeiro 2024
 [ ] Implementar validação de segurança para todas as API usando keycloak
 [ ] Persistir fila RabbitMQ no storage
 
-
+Senha:  Keycloak
+andre@timermann.com.br
+n*ZqOCw2Sx$f8k&o
 --------------------
 
 * Documentar e revisar direitinha como salvar o certificado localmente para funcionar no k3s local e reconhecer registro privado
