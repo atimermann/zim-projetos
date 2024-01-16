@@ -134,8 +134,15 @@ console.log(JSON.stringify(config.public, undefined, ' '))
 
 
 
+* possibilidade de usar RKE ou cloud em produção
+* Necessidade de um profissional para gestão on-promise
+* Ambiente desenvolvimento
+	* MiniKube tem mais ferramentas que o K3S
+	* como gestão de imagens docker
 
 
 
-10.42.0.240:3001
+
+
+
 
