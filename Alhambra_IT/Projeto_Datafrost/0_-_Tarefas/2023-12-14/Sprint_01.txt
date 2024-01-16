@@ -131,7 +131,7 @@ const config = useRuntimeConfig()
 console.log(JSON.stringify(config.public, undefined, ' '))
 
 
-
+FALTOU  STORAGE
 
 
 * possibilidade de usar RKE ou cloud em produção
@@ -140,6 +140,7 @@ console.log(JSON.stringify(config.public, undefined, ' '))
 	* MiniKube tem mais ferramentas que o K3S
 	* como gestão de imagens docker
 
+* 
 
 
 
