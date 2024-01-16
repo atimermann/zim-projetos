@@ -24,6 +24,7 @@ Criado quinta 11 janeiro 2024
 
 
 [ ] Implementar validação de segurança para todas as API usando keycloak
+[ ] Persistir fila RabbitMQ no storage
 
 
 --------------------
