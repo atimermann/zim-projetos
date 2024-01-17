@@ -6,3 +6,4 @@ Creation-Date: 2024-01-17T16:00:09-03:00
 Criado quarta 17 janeiro 2024
 
 * Instalar kubernetes na VM
+* Instalar o postgresSQL
