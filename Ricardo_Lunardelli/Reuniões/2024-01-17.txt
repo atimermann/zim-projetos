@@ -7,3 +7,7 @@ Criado quarta 17 janeiro 2024
 
 * Instalar kubernetes na VM
 * Instalar o postgresSQL
+
+* DBHUB
+	* Franqueado da MacDonald
+	* 
