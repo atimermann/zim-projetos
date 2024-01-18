@@ -6,3 +6,6 @@ Creation-Date: 2024-01-18T01:31:28-03:00
 Criado quinta 18 janeiro 2024
 
 https://medium.com/@xmikex83/how-to-setup-an-highly-available-load-balancer-with-keepalived-and-haproxy-on-ubuntu-18-04-8bab7b77f715
+
+* Necessário acessar API da OVH para migrar o IP de um servidor para outro
+* Demora entre 20 e 30 segundos para realizar a migração de IP
