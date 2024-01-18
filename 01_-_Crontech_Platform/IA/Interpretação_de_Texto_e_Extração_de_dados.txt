@@ -24,3 +24,29 @@ Criado quinta 18 janeiro 2024
 Reconhecimento de Entidades Nomeadas: Excelente para NER, e pode ser uma escolha mais adequada para identificar entidades como nomes de empresas.
 Personalização: Assim como NLTK, permite treinar modelos personalizados. spaCy é mais orientado para produção e oferece uma performance melhor para tarefas de NLP em tempo real.
 Análise de Estrutura de Sentença: Útil para entender a estrutura das sentenças, o que pode ajudar na extração da lista de produtos e valores.
+
+====== CHAT GPT 4 ======
+Você pode utilizar a API do ChatGPT para integrar capacidades de processamento de linguagem natural em suas aplicações. A OpenAI disponibiliza o GPT-4, uma versão avançada otimizada para conversação, na sua API. Para usar a API, você precisa criar uma conta na plataforma da OpenAI, obter as chaves de acesso e seguir a documentação para integrar a API em sua aplicação. A API é acessível via uma interface RESTful, facilitando a integração com várias linguagens de programação e tipos de aplicações.
+
+====== Donut ======
+https://github.com/clovaai/donut
+https://huggingface.co/docs/transformers/main/en/model_doc/donut
+
+Donut 🍩, é um novo método de compreensão de documentos que utiliza um modelo Transformer de ponta a ponta sem OCR. 
+Donut não requer motores/APIs OCR prontos para uso, mas mostra desempenhos de ponta em várias tarefas de compreensão de documentos visuais, como classificação de documentos visuais ou extração de informações (também conhecida como análise de documentos). 
+Além disso, apresentamos o SynthDoG 🐶, Gerador de Documentos Sintéticos, que ajuda no pré-treinamento do modelo para ser flexível em vários idiomas e domínios.
+
+
+
+====== donut-rvlcdip ======
+
+Usado no datafrost
+https://huggingface.co/naver-clova-ix/donut-base-finetuned-rvlcdip
+
+O modelo Donut, especificamente a versão "**donut-base-finetuned-rvlcdip**", é um modelo de transformador documental que foi ajustado para o conjunto de dados RVL-CDIP. 
+Este modelo é notável por sua capacidade de entender documentos sem a necessidade de OCR (Reconhecimento Óptico de Caracteres). 
+Ele é composto por um codificador de visão (Swin Transformer) e um decodificador de texto (BART). 
+O codificador processa a imagem e a converte em um tensor de embeddings, e então o decodificador gera texto de forma autoregressiva, baseando-se na codificação do codificador. 
+Este modelo é particularmente útil para classificação de imagens de documentos e foi apresentado no artigo "Donut: Document Understanding Transformer without OCR". Para mais informações, você pode visitar a página do modelo na Hugging Face.
+
+**donut-rvlcdip faz parte do Donut**
