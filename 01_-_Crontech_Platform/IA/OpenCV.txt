@@ -1,0 +1,51 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T00:57:54-03:00
+
+====== OpenCV ======
+Criado quinta 18 janeiro 2024
+
+OpenCV (Open Source Computer Vision Library) é uma biblioteca de software de código aberto voltada para a visão computacional e aprendizado de máquina. 
+Ela foi inicialmente desenvolvida pela Intel e agora é mantida pela OpenCV.org. 
+A biblioteca é amplamente usada em aplicações comerciais e de pesquisa devido à sua robustez, grande quantidade de recursos e licenciamento amigável (licença BSD).
+
+====== Características Principais do OpenCV: ======
+
+===== Linguagens de Programação: =====
+Embora originalmente escrita em C/C++, o OpenCV possui interfaces para Python, Java, e outras linguagens. Isso torna a biblioteca acessível para uma ampla gama de desenvolvedores e pesquisadores.
+
+===== Processamento de Imagens e Vídeo: =====
+OpenCV oferece funcionalidades para processamento de imagens e vídeos, incluindo operações como filtragem, transformações geométricas, ajustes de cor, redução de ruído, etc.
+
+===== Reconhecimento Facial e de Objetos: =====
+A biblioteca tem algoritmos para detecção e reconhecimento de rostos, bem como identificação de objetos e classificação.
+
+===== Funcionalidades de Visão Computacional: =====
+Inclui recursos para segmentação e reconhecimento de padrões, que são essenciais em muitas aplicações de visão computacional.
+Realidade Aumentada:
+
+OpenCV também é usada em aplicações de realidade aumentada, fornecendo ferramentas para sobrepor imagens virtuais no mundo real.
+
+===== Interface com Câmeras: =====
+A biblioteca pode capturar e analisar fluxos de vídeo em tempo real de câmeras digitais ou webcams.
+
+===== Aprendizado de Máquina: =====
+OpenCV inclui módulos para técnicas de aprendizado de máquina, como detecção de objetos e classificação.
+
+====== Aplicações Comuns: ======
+
+* **Reconhecimento Facial:** Para identificar rostos em imagens e vídeos.
+* **Veículos Autônomos:** Para detectar obstáculos e navegar.
+* **Monitoramento de Segurança:** Para vigilância e monitoramento de atividades.
+* **Controle de Qualidade em Manufatura:** Para inspeção automática de produtos.
+* **Realidade Aumentada:** Para criar experiências imersivas.
+
+====== Comunidade e Documentação: ======
+A comunidade OpenCV é grande e ativa, com muitos tutoriais, exemplos de código e documentação disponíveis.
+A biblioteca é continuamente atualizada e melhorada pela comunidade e pelos mantenedores.
+
+====== Considerações: ======
+
+Embora o OpenCV seja poderoso, pode ter uma curva de aprendizado íngreme para novatos na área de visão computacional.
+Para usos específicos de aprendizado profundo, pode ser necessário integrá-lo com outras bibliotecas como TensorFlow ou PyTorch.
+Em resumo, o OpenCV é uma ferramenta versátil e poderosa para qualquer pessoa interessada em visão computacional e aprendizado de máquina, sendo aplicável em uma ampla variedade de projetos e pesquisas.
