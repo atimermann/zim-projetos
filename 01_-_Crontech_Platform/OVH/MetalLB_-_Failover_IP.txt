@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T01:18:50-03:00
+
+====== MetalLB - Failover IP ======
+Criado quinta 18 janeiro 2024
+
+https://metallb.universe.tf/installation/clouds/
