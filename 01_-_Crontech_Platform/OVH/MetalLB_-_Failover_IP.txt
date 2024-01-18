@@ -6,3 +6,11 @@ Creation-Date: 2024-01-18T01:18:50-03:00
 Criado quinta 18 janeiro 2024
 
 https://metallb.universe.tf/installation/clouds/
+
+* Funciona apenas com OVH VRACK
+* MetalLB não funciona com VPS OVH, portanto vai precisar contratar um serviço de LoadBalance $22.99 dolares 
+	* Limitado a 2TB
+	* ExternalIP do kubernetes: https://www.fadhil-blog.dev/blog/kubernetes-external-ip/
+* Ou ip adicional para funcionar como fail over, porém vai ficar limitado pela velocidade da interface  $2.50 dolares
+
+https://www.fadhil-blog.dev/blog/kubernetes-external-ip/
