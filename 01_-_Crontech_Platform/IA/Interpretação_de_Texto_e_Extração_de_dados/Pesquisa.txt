@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T03:31:32-03:00
+
+====== Pesquisa ======
+Criado quinta 18 janeiro 2024
+
+**spaCy:** Destaca-se no processamento de linguagem natural (NLP) para tarefas de grande escala, como tokenização, marcação de partes da fala, e reconhecimento de entidades nomeadas. É especialmente eficiente para manipular grandes conjuntos de dados, sendo ideal para tarefas industriais de NLP​​.
+https://thectoclub.com/tools/best-nlp-software/
+
+**Rossum:** Uma plataforma de extração de dados alimentada por IA, que elimina processos manuais com fluxos de trabalho completos de processamento de documentos. Ela se destaca pela alta taxa de precisão na extração de dados (cerca de 96%) e pela sua capacidade de adaptação a novos estilos de documentos sem a necessidade de modelos predefinidos​​.
+https://www.docsumo.com/blog/best-data-extraction-tools
+
+**Docparser:** Plataforma inteligente de processamento de documentos que utiliza OCR Zonal, reconhecimento de padrões avançados e palavras-chave âncora para identificar e extrair dados de documentos baseados em imagens, PDFs e arquivos Word. Possui a capacidade de converter documentos em vários formatos editáveis e estruturados, como CSV, Excel, JSON e XML​​.
+https://www.docsumo.com/blog/best-data-extraction-tools
+
+**Ephesoft Transact:** Utiliza OCR e classificação de aprendizado de máquina supervisionado para extração de dados. Sua tecnologia de Semantik AI, uma rede neural profunda, melhora a automação de documentos sem a necessidade de modelos, treinamento ou configuração extensa​​.
+https://www.docsumo.com/blog/best-data-extraction-tools
+
+**Grooper:** Ferramenta de extração de dados que utiliza tecnologia OCR para extrair dados de documentos não estruturados, classificá-los e armazenar as informações extraídas. Possui recursos de validação celular e detecção de região delimitada, garantindo precisão na captura de texto​​.
+https://www.docsumo.com/blog/best-data-extraction-tools

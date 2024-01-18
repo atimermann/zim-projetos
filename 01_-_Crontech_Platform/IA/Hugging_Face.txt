@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T03:17:34-03:00
+
+====== Hugging Face ======
+Criado quinta 18 janeiro 2024
+
+Hugging Face é uma plataforma e comunidade líder na área de NLP. É conhecida por sua biblioteca "Transformers", que fornece uma grande quantidade de modelos de NLP de última geração.
+
+====== Características: ======
+
+* **Biblioteca Transformers:** Oferece fácil acesso a modelos como **BERT**, **GPT**, **T5**, etc., para uma variedade de tarefas de **NLP.**
+* **Foco em Pesquisa e Comunidade:** Uma comunidade ativa e uma grande quantidade de recursos para pesquisa e desenvolvimento em NLP.
+* **Modelos de IA de Ponta:** Constantemente atualizada com os mais recentes avanços em modelos de linguagem.
+
+===== Caso de Uso: =====
+Ideal para pesquisadores, cientistas de dados e desenvolvedores que querem utilizar os modelos de NLP mais avançados em suas aplicações, com suporte para várias linguagens e tarefas.
+

@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T03:18:48-03:00
+
+====== NLP Cloud ======
+Criado quinta 18 janeiro 2024
+
+https://nlpcloud.com/
+
+NLP Cloud é um serviço baseado em nuvem que oferece uma API para várias tarefas de NLP, utilizando modelos de linguagem de ponta.
+
+====== Características: ======
+
+* **Modelos Pré-treinados:** Disponibiliza modelos pré-treinados, como **GPT-3**, **BERT** e outros, para tarefas como classificação de texto, geração de texto, tradução, sumarização, entre outras.
+* **Fácil Integração:** Projetado para ser facilmente integrável com outros sistemas através de API RESTful.
+* **Escalabilidade:** Como é um serviço baseado em nuvem, lida bem com a escalabilidade e o gerenciamento de infraestrutura.
+Caso de Uso:
+
+Adequado para empresas e desenvolvedores que desejam implementar soluções avançadas de NLP sem ter que treinar seus próprios modelos.

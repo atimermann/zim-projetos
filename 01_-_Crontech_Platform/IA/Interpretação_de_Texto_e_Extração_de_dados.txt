@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T03:26:27-03:00
+
+====== Interpretação de Texto e Extração de dados ======
+Criado quinta 18 janeiro 2024
+
+* Apache OpenNLP
+* Stanford NLP Group's Software,
+* Microsoft Recognizers Text
+* Google Cloud Natural Language API
+* IBM Watson Natural Language Understanding
+* 
+
+====== Python com NLTK/spaCy: ======
+
+===== NLTK (Natural Language Toolkit) =====
+
+**Uso Geral:** Mais focada em pesquisa e educação em NLP. Oferece muitas ferramentas para a análise de texto, mas não possui funcionalidades específicas para reconhecimento de entidades nomeadas (NER) tão avançadas quanto spaCy.
+
+**Personalização:** Você pode treinar seus próprios modelos para identificar padrões específicos (como CNPJ), mas isso exige um conjunto de dados de treinamento e conhecimento em aprendizado de máquina.
+
+====== spaCy ======
+Reconhecimento de Entidades Nomeadas: Excelente para NER, e pode ser uma escolha mais adequada para identificar entidades como nomes de empresas.
+Personalização: Assim como NLTK, permite treinar modelos personalizados. spaCy é mais orientado para produção e oferece uma performance melhor para tarefas de NLP em tempo real.
+Análise de Estrutura de Sentença: Útil para entender a estrutura das sentenças, o que pode ajudar na extração da lista de produtos e valores.

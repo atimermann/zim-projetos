@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-18T03:17:57-03:00
+
+====== NLP ======
+Criado quinta 18 janeiro 2024
+
+O NLP é um campo interdisciplinar que combina conhecimentos de linguística, ciência da computação e inteligência artificial, com o objetivo de criar sistemas que entendam e respondam à linguagem humana de maneira útil.
+
+NLP envolve a capacidade de um computador interpretar, analisar e potencialmente gerar linguagem humana. Isso inclui texto escrito e fala.
+
+====== Aplicações do NLP: ======
+
+* **Tradução Automática:** Como Google Translate.
+* **Assistentes Virtuais:** Siri, Alexa, e Google Assistant.
+* **Análise de Sentimento:** Avaliação de opiniões em mídias sociais.
+* **Sistemas de Recomendação:** Baseados em análise de preferências pessoais.
+* **Chatbots e Interfaces Conversacionais:** Em sites de atendimento ao cliente.
+
+====== Componentes-Chave do NLP ======
+
+* **Tokenização:** Divisão de texto em unidades menores, como palavras ou frases.
+* **Análise Morfológica:** Estudo da estrutura e formação de palavras (stemming e lematização).
+* **Reconhecimento de Entidades Nomeadas (NER):** Identificação de nomes próprios, locais, organizações, etc., no texto.
+* **Part-of-Speech Tagging (POS):** Marcação de partes do discurso, como substantivos, verbos e adjetivos.
+* **Análise Sintática (Parsing):** Determinação da estrutura gramatical de uma frase.
+* **Análise Semântica:** Compreensão do significado e da interpretação do texto.
+* **Geração de Linguagem Natural (NLG):**  Geração de texto ou fala compreensível a partir de dados.
+
+====== Técnicas e Modelos em NLP ======
+
+* **Regras Baseadas:** Sistemas mais antigos de NLP frequentemente dependiam de um conjunto de regras manuais.
+* **Modelos Estatísticos:** Uso de modelos probabilísticos para entender e gerar linguagem.
+* **Aprendizado de Máquina:** Utilização de técnicas como aprendizado supervisionado, não supervisionado e reforçado.
+* **Redes Neurais e Deep Learning:** Uso de redes neurais profundas para tarefas complexas de NLP, como transformadores (BERT, GPT).
+
+====== Desafios do NLP ======
+
+* **Ambiguidade da Linguagem:** A linguagem humana é cheia de ambiguidades e variações, o que torna o NLP um campo desafiador.
+* **Contexto e Conhecimento do Mundo:** A compreensão do contexto e do conhecimento geral do mundo é crucial para a interpretação correta do texto.
+* **Diversidade de Idiomas:** Existem inúmeras línguas e dialetos, cada um com suas peculiaridades.
+
+====== Ferramentas e Bibliotecas ======
+
+* **Python é a linguagem mais popular para NLP:** com bibliotecas como NLTK, spaCy, Gensim e PyTorch/TensorFlow para aplicações de deep learning.
+* **Frameworks como Hugging Face’s Transformers:** oferecem acesso a modelos de NLP avançados.
+
+====== Conclusão e Tendências Futuras ======
+* O NLP está em constante evolução, com novas técnicas e modelos emergindo regularmente.
+* Tendências futuras incluem uma melhor compreensão do contexto, processamento de linguagem multimodal (texto, imagem, som) e ética em NLP.
