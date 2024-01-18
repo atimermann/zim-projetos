@@ -6,5 +6,5 @@ Creation-Date: 2023-12-28T21:47:35-03:00
 Criado quinta 28 dezembro 2023
 
 * Novo POC para extração de PDF
-	* file:///home/andre/projetos/Ricardo/documento_teste_.pdf
+	* file:///home/andre/projetos/ricardo_lunardelli/documento_teste_.pdf
 * Subir um banco de dados com o JSON extraído
