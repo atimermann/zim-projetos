@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-19T02:43:08-03:00
+
+====== CUDA ======
+Criado sexta 19 janeiro 2024
+
+ é uma API destinada a computação paralela, GPGPU, e computação heterogênea, criada pela Nvidia.[1] destinada a placas gráficas que suportem a API (normalmente placas gráficas com chipset da Nvidia). A plataforma CUDA dá acesso ao conjunto de instruções virtuais da GPU e a elementos de computação paralela, para a execução de núcleos de computação.[2]
+
+https://en.wikipedia.org/wiki/CUDA
+
+====== Placa de video barata ======
+
+Placa de vídeo gráfica original para NVIDIA, TESLA K80, GPU de 24GB, J0G95A, 796124-001, 699-22080-0200-501, navio rápido
+CUDA 3.7
