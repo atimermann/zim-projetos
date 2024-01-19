@@ -10,7 +10,8 @@ Criado quinta 18 janeiro 2024
 * Microsoft Recognizers Text
 * Google Cloud Natural Language API
 * IBM Watson Natural Language Understanding
-* 
+
+https://huggingface.co/blog/document-ai
 
 ====== Python com NLTK/spaCy: ======
 
@@ -50,3 +51,9 @@ O codificador processa a imagem e a converte em um tensor de embeddings, e entã
 Este modelo é particularmente útil para classificação de imagens de documentos e foi apresentado no artigo "Donut: Document Understanding Transformer without OCR". Para mais informações, você pode visitar a página do modelo na Hugging Face.
 
 **donut-rvlcdip faz parte do Donut**
+
+====== RVL-CDIP ======
+https://paperswithcode.com/dataset/rvl-cdip
+O conjunto de dados RVL-CDIP consiste em imagens de documentos digitalizados pertencentes a 16 classes, como carta, formulário, e-mail, currículo, memorando, etc. 
+O conjunto de dados possui 320.000 imagens de treinamento, 40.000 de validação e 40.000 de teste. 
+As imagens são caracterizadas por baixa qualidade, ruído e baixa resolução, tipicamente 100 dpi.

@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-19T02:12:10-03:00
+
+====== Donut ======
+Criado sexta 19 janeiro 2024
+
+https://github.com/clovaai/donut
+https://github.com/clovaai/donut
+https://huggingface.co/docs/transformers/main/en/model_doc/donut
+
+Donut 🍩, é um novo método de compreensão de documentos que utiliza um modelo Transformer de ponta a ponta sem OCR. 
+Donut não requer motores/APIs OCR prontos para uso, mas mostra desempenhos de ponta em várias tarefas de compreensão de documentos visuais, como classificação de documentos visuais ou extração de informações (também conhecida como análise de documentos). 
+Além disso, apresentamos o SynthDoG 🐶, Gerador de Documentos Sintéticos, que ajuda no pré-treinamento do modelo para ser flexível em vários idiomas e domínios.
+
+**Artigo sobre**
+https://towardsdatascience.com/ocr-free-document-understanding-with-donut-1acfbdf099be
