@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-24T10:55:18-03:00
+
+====== Server01 - Postgres ======
+Criado quarta 24 janeiro 2024
+
+
+===== Configuração Máquina 01 =====
+
+**Name:** Server01
+**IP:** 167.114.97.124
+**Acesso:** Apenas via **chave ssh** [[~/chaves/ovh-ricardo]] (connect.sh)
+**Objetivo:** Instalação postgres
+
+Instalado postgresql-15
+
+**Documentação:**
+Ref: https://ubuntu.com/server/docs/databases-postgresql
+
+
+{{./pasted_image.png?width=600}}
+
+**Acesso inicial root:**
+	sudo -u postgres psql
+
+CREATE USER datalens WITH PASSWORD 'senha_segura';
+CREATE DATABASE datalens;
+GRANT ALL PRIVILEGES ON DATABASE datalens TO datalens;
+**Senha:** 76Y8dq1BUTkILGJp
+**Senha:** 76Y8dq1BUTkILGJp
+
+Por padrão, o PostgreSQL usa autenticação 'peer' para conexões locais, o que significa que ele tenta autenticar o usuário do sistema operacional com o mesmo nome que o usuário do banco de dados.
+
+**Editar:**
+[[/etc/postgresql/15/main/pg_hba.conf]]
+
+Modificar as linhas de configuração:
+
+**Encontre as linhas que se parecem com:**
+	local   all             all                                     peer
+**Substitua peer por md5 para permitir a autenticação por senha:**
+	local   all             all     					md5
+
+
