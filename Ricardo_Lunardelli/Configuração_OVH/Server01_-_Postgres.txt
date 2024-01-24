@@ -52,3 +52,11 @@ Modificar as linhas de configuração:
 	local   all             all     					md5
 
 
+===== Configuração de acesso =====
+
+[[/etc/postgresql/15/main/postgresql.conf]]
+listen_addresses = '10.8.0.1'
+
+
+
+
