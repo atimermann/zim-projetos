@@ -13,7 +13,16 @@ Criado quarta 24 janeiro 2024
 **Acesso:** Apenas via **chave ssh** [[~/chaves/ovh-ricardo]] (connect.sh)
 **Objetivo:** Instalação postgres
 
-Instalado postgresql-15
+==== Wireguard ====
+**PrivateKey:** mAF1h...
+**Address:** 10.8.0.1/24
+**ListenPort:** 53765 
+
+
+
+
+====== Instalado postgresql-15 ======
+
 
 **Documentação:**
 Ref: https://ubuntu.com/server/docs/databases-postgresql
