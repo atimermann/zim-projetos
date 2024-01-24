@@ -53,10 +53,12 @@ Modificar as linhas de configuração:
 
 
 ===== Configuração de acesso =====
+Liberar apenas para REDE 10.8.0.0/24 no ip 10.8.0.1
 
-[[/etc/postgresql/15/main/postgresql.conf]]
+**/etc/postgresql/15/main/postgresql.conf**
 listen_addresses = '10.8.0.1'
 
-
+**/etc/postgresql/15/main/pg_hba.conf**
+host    all             all           10.8.0.0/24                         md5
 
 
