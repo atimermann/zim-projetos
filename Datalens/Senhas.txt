@@ -17,5 +17,7 @@ datalens-rpa.database.windows.net
 USER: datalens
  datalens-rpa
 PASS: 36tvv1at3sgvzzf9@
+			36tvv1at3sgvzzf9@
 
 
+2TLo1vxxYXKS
