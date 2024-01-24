@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-24T01:42:32-03:00
+
+====== Configuração OVH ======
+Criado quarta 24 janeiro 2024
+
+===== Configuração Máquina 01 =====
+
+**Name:** Server01
+**IP:** 167.114.97.124
+**Acesso:** Apenas via **chave ssh** [[~/chaves/ovh-ricardo]] (connect.sh)
+**Objetivo:** Instalação postgres
+
+Instalado postgresql-15
+
+**Documentação:**
+Ref: https://ubuntu.com/server/docs/databases-postgresql
+
+
+{{./pasted_image.png?width=600}}
+
+**Configuração Inicial:**
+	sudo -u postgres psql template1
+
+The above command connects to PostgreSQL database template1 as user postgres. 
+
