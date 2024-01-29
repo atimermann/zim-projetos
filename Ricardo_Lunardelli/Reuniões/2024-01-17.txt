@@ -11,5 +11,4 @@ Criado quarta 17 janeiro 2024
 * DBHUB
 	* Franqueado da MacDonald
 
-
 **OBJETIVO:** Verificar performance, dimensionar, testar consumo de memoria/processador
