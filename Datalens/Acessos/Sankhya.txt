@@ -50,6 +50,4 @@ curl --request POST \
 
 * Pedidos/Orçamento (Pedido de Venda)
 * Financeiro (Contas à pagar / Contas à receber)
-====== PRAZO ======
 
-**===>** Até SEXTA FINALIZAR

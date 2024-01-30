@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-01-30T20:01:17-03:00
+
+====== 2024-01-30 ======
+Criado terça 30 janeiro 2024
+
+* Vai reativar o azure
+* Simular uma ferramenta pra apresentação, não vai ter automação de verdade
+
+**FOCAR EXTRAIR DOCUMENTAÇÂO API SANKYA**
+entender o sankya
+Ricardo precisa analisar oq dá pra tirar pra por no gerencial do Dashboard
