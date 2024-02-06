@@ -7,3 +7,21 @@ Criado terça 06 fevereiro 2024
 
 ====== Script de configuração inicial VPS ======
 
+* Utilize edição em lote do terminator
+
+{{{code: lang="sh" linenumbers="True"
+sudo apt update
+sudo apt upgrade
+sudo datedpkg-reconfigure tzdata
+sudo hostnamectl set-hostname ovhXX.crontech.com.br
+sudo sed -i 's/^127\.0\.1\.1.*/127.0.1.1\tovhXX.crontech.com.br ovhXX/' /etc/hosts
+sudo reboot
+...
+
+
+sudo apt install wireguard -y
+wg genkey | sudo tee /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
+
+
+}}}
+
