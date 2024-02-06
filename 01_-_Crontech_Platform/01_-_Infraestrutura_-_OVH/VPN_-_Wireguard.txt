@@ -9,3 +9,5 @@ Credenciais salva no LastPass (Notas)
 
 **Crontech => Chaves OVH Crontech**
 
+**REDE:** 10.12.0.0/24
+

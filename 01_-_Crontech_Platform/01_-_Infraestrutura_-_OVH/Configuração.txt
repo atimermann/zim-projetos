@@ -29,3 +29,25 @@ net.ipv6.conf.all.forwarding = 1
 sysctl -p
 }}}
 
+====== K3S ======
+
+===== ovh01.crontech.com.br =====
+
+* Será o servidor gateway
+* Está com o Ip forward habilitado
+* Será o gateway do K3S com o htproxy habilitado
+
+===== ovh02.crontech.com.br =====
+===== ovh03.crontech.com.br =====
+===== ovh04.crontech.com.br =====
+
+Serão o controlPlane
+
+===== ovh05.crontech.com.br =====
+===== ovh06.crontech.com.br =====
+===== ovh07.crontech.com.br =====
+===== ovh08.crontech.com.br =====
+===== ovh09.crontech.com.br =====
+===== ovh10.crontech.com.br =====
+* Funcionará como dataplane
+* Habilitar por demanda
