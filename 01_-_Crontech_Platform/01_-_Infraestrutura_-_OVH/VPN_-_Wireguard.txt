@@ -11,3 +11,8 @@ Credenciais salva no LastPass (Notas)
 
 **REDE:** 10.12.0.0/24
 
+10.12.0.1 funciona como gateway geral:
+* VPN entrypoint padrão para clientes
+* haproxy para cluster k3s
+* Habilitado swap
+* Está com o Ip forward habilitado
