@@ -27,6 +27,14 @@ vim /etc/sysctl.conf
 net.ipv4.ip_forward = 1
 net.ipv6.conf.all.forwarding = 1
 sysctl -p
+
+# Não ativar swap e firewall nos nós do kubernetes (2x Memoria)
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=4194304 
+sudo mkswap /swapfile
+sudo chmod 600 /swapfile
+sudo swapon /swapfile
+sudo -i
+echo "/swapfile none swap sw 0 0" >> /etc/fstab
 }}}
 
 ====== K3S ======
@@ -36,6 +44,7 @@ sysctl -p
 * Será o servidor gateway
 * Está com o Ip forward habilitado
 * Será o gateway do K3S com o htproxy habilitado
+	* No futuro pode ser substituido por um load balance
 
 ===== ovh02.crontech.com.br =====
 ===== ovh03.crontech.com.br =====
