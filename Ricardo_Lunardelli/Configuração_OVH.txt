@@ -11,4 +11,18 @@ Criado quarta 24 janeiro 2024
 N*sFgKG1@kRBfN85
 
 
-1
+Me ajude a redigir o texto abaixo em inglês para o suporte da OVH:
+
+
+Meu servidor VPS IP  **167.114.97.124 (vps-418ac226.vps.ovh.ca)** está com problema de rota, eu tenho 10 servidores vps e todos funcionam, exceto este, porém pigando por outro servidor funciona.
+
+Por exemplo, eu entrei no servidor de londres e de lá consegui pingar e acessar via SSH. O problema ocorre apenas quando tento acessar diretamente do Brasil
+
+Outro teste q fiz foi tentar pingar site no Brasil do servidor, todos os outros funcionam menos neste, portanto parace ser problema de rota ou algum bloqueio
+
+Estou no Brazil:
+
+Meu ip é 191.177.247.206
+IP Reverso bfb1f7ce.virtua.com.br
+Data 13h54min - 03/02/2024
+
