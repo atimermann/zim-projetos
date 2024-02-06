@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-06T00:29:04-03:00
+
+====== VPN - Wireguard ======
+Criado terça 06 fevereiro 2024
+
+Credenciais salva no LastPass (Notas)
+
+**Crontech => Chaves OVH Crontech**
+
