@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-06T18:59:35-03:00
+
+====== Firewall ======
+Criado terça 06 fevereiro 2024
+
+===== Configuração Firewall =====
+
+{{./pasted_image001.png?width=1000}}
+
+* Habilita TCP para funcionar wget
+* Habilitar ICMP para funcionar ping
+* Habilitar UDP 52830 para funcionar wireguard

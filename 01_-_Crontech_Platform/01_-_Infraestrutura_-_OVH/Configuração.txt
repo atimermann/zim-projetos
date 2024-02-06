@@ -37,7 +37,16 @@ sudo -i
 echo "/swapfile none swap sw 0 0" >> /etc/fstab
 }}}
 
+Configure firewall:
+	[[Firewall]]
+
+
 ====== K3S ======
+
+**Verifique se o wget tá funcionando para instalar o k3s:**
+	wget https://github.com/k3s-io/k3s/releases/download/v1.28.5+k3s1/sha256sum-amd64.txt
+
+Se der erro verifique o firewall, TCP dve estar habilitado, ver aqui: [[Firewall]]
 
 ===== ovh01.crontech.com.br =====
 
@@ -46,11 +55,17 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 * Será o gateway do K3S com o htproxy habilitado
 	* No futuro pode ser substituido por um load balance
 
+
 ===== ovh02.crontech.com.br =====
 ===== ovh03.crontech.com.br =====
 ===== ovh04.crontech.com.br =====
 
 Serão o controlPlane
+Instalação:
+
+{{{code: lang="sh" linenumbers="True"
+curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI] sh -s - server --server https://192.99.167.10:6443 --tls-san=192.99.167.10   --node-taint CriticalAddonsOnly=true:NoExecute
+}}}
 
 ===== ovh05.crontech.com.br =====
 ===== ovh06.crontech.com.br =====
@@ -59,4 +74,10 @@ Serão o controlPlane
 ===== ovh09.crontech.com.br =====
 ===== ovh10.crontech.com.br =====
 * Funcionará como dataplane
-* Habilitar por demanda
+
+{{{code: lang="sh" linenumbers="True"
+curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server https://192.99.167.10:6443
+}}}
+
+
+
