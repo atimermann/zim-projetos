@@ -22,8 +22,10 @@ sudo reboot
 sudo apt install wireguard -y
 wg genkey | sudo tee /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
 
+# No Servidor Gateway Habilitar o ip forward
 vim /etc/sysctl.conf
 net.ipv4.ip_forward = 1
+net.ipv6.conf.all.forwarding = 1
 sysctl -p
 }}}
 
