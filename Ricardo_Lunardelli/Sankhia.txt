@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-07T01:24:43-03:00
+
+====== Sankhia ======
+Criado quarta 07 fevereiro 2024
+
+[[Datalens:Acessos:Sankhya]]
+
+
+**Documentação XML**
+https://developer.sankhya.com.br/docs/api-de-integra%C3%A7%C3%A3o
