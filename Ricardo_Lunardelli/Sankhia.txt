@@ -10,3 +10,28 @@ Criado quarta 07 fevereiro 2024
 
 **Documentação XML**
 https://developer.sankhya.com.br/docs/api-de-integra%C3%A7%C3%A3o
+
+
+
+===== Login =====
+{{{code: lang="sh" linenumbers="True"
+curl --request POST   --url 'https://sankhya.ingress.datatem.com.br/mge/service.sbr?serviceName=MobileLoginSP.login'   --header 'Content-Type: text/xml;charset=ISO-8859-1'   --cookie JSESSIONID=OqtI0c2NXPEXzObrkisr7kFP59QsW0gEJ_gaaESq.sankhya-w-0   --data '<serviceRequest serviceName="MobileLoginSP.login">
+<requestBody>
+<NOMUSU>sup</NOMUSU>
+<INTERNO>@dtt0901</INTERNO>
+</requestBody>
+
+}}}
+
+**RETORNO:**
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<serviceResponse serviceName="MobileLoginSP.login" status="1" pendingPrinting="false" transactionId="1F1485C029C2CB22E3F9C2CCA82F4764">
+	<responseBody>
+		<jsessionid>OqtI0c2NXPEXzObrkisr7kFP59QsW0gEJ_gaaESq</jsessionid>
+		<idusu>MA==</idusu>
+		<callID>A3A4D990F940CB55AC674C6E2DD4BD08</callID>
+	</responseBody>
+</serviceResponse>
+
+
