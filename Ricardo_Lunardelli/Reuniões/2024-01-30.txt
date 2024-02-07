@@ -9,5 +9,6 @@ Criado terça 30 janeiro 2024
 * Simular uma ferramenta pra apresentação, não vai ter automação de verdade
 
 **FOCAR EXTRAIR DOCUMENTAÇÂO API SANKYA**
-entender o sankya
+entender o ''sankya''
 Ricardo precisa analisar oq dá pra tirar pra por no gerencial do Dashboard
+sankhya
