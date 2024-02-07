@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-07T13:15:56-03:00
+
+====== Uber like App ======
+Criado quarta 07 fevereiro 2024
+
+https://www.mapbox.com/pricing
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}
