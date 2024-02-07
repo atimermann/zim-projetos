@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-07T00:08:31-03:00
+
+====== Kubernetes ======
+Criado quarta 07 fevereiro 2024
+
+Definir um dominio para o Ricardo
+
+===== Server 01 => Postgres =====
+167.114.97.124	server01
+
+===== Server02 -> Gateway =====
+167.114.97.229 server02
+
+===== Server03 => Server05 (ControlPlane) =====
+
+
+===== Server06 => Server10 (DataPlane) =====
+
