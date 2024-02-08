@@ -85,17 +85,4 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server ht
 
 
 ===== ovh10.crontech.com.br =====
-* Postgres
-Mesmo modelo usado aqui:
-	* [[Ricardo Lunardelli:Configuração OVH:Server01 - Postgres]]
-
-**Acesso inicial root:**
-	sudo -u postgres psql
-	
-CREATE USER crontech WITH PASSWORD 'senha_segura';
-CREATE DATABASE datalens;
-GRANT ALL PRIVILEGES ON DATABASE datalens TO datalens;
-**Senha:** dEHF?SQ-tL&qfBPKT/6j
-**Senha:** dEHF?SQ-tL&qfBPKT/6j
-
-
+	[[+ovh10.crontech.com.br]]

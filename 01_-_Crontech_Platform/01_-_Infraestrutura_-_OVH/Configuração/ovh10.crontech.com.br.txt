@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-08T02:47:24-03:00
+
+====== ovh10.crontech.com.br ======
+Criado quinta 08 fevereiro 2024
+
+===== = =====
+* Postgres
+Mesmo modelo usado aqui:
+	* [[Ricardo Lunardelli:Configuração OVH:Server01 - Postgres]]
+
+**Acesso inicial root:**
+	sudo -u postgres psql
+	
+**Comandos iniciais de configuração:**
+CREATE USER crontech WITH PASSWORD 'senha_segura';
+CREATE DATABASE crontech;
+ALTER DATABASE crontech OWNER TO crontech;
+GRANT ALL PRIVILEGES ON DATABASE crontech TO crontech;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO crontech;
+
+**Senha:** dEHF?SQ-tL&qfBPKT/6j
+**Senha:** dEHF?SQ-tL&qfBPKT/6j
+
+==== Configuração ====
+
+**vim /etc/postgresql/15/main/pg_hba.conf**
+host    all             all           10.12.0.0/24              md5
+
+**vim /etc/postgresql/15/main/postgresql.conf**
+listen_addresses = '10.12.0.10'
+
+* **\list** : listar banco de dados
+* **\c crontech:** conectar crontech
+* **\dt**: Lista tabelas do banco de dados
+
+
+
