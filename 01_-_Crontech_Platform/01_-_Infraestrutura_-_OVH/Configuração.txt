@@ -77,12 +77,25 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI] sh -s - server --server ht
 ===== ovh07.crontech.com.br =====
 ===== ovh08.crontech.com.br =====
 ===== ovh09.crontech.com.br =====
-===== ovh10.crontech.com.br =====
 * Funcionará como dataplane
 
 {{{code: lang="sh" linenumbers="True"
 curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server https://192.99.167.10:6443
 }}}
 
+
+===== ovh10.crontech.com.br =====
+* Postgres
+Mesmo modelo usado aqui:
+	* [[Ricardo Lunardelli:Configuração OVH:Server01 - Postgres]]
+
+**Acesso inicial root:**
+	sudo -u postgres psql
+	
+CREATE USER crontech WITH PASSWORD 'senha_segura';
+CREATE DATABASE datalens;
+GRANT ALL PRIVILEGES ON DATABASE datalens TO datalens;
+**Senha:** dEHF?SQ-tL&qfBPKT/6j
+**Senha:** dEHF?SQ-tL&qfBPKT/6j
 
 
