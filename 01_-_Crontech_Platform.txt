@@ -22,3 +22,6 @@ Novo projeto para criação de uma plataforma Crontech de aplicações de TI bas
 * Criar um login unico que consegue acessar todas as aplicações
 * Possibilidade de configurar aplicações de forma independente (exigencia do cliente)
 * Criar o maximo de serviços/aplicações para revenda
+
+Mais detalhes...
+[[+00 - Projeto]]

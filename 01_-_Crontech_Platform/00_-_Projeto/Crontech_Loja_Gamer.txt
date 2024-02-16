@@ -1,6 +1,6 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.6
-Creation-Date: 2023-11-24T20:13:49-03:00
+Creation-Date: 2024-02-16T18:54:49-03:00
 
 ====== Crontech Loja Gamer ======
 Criado sexta 24 novembro 2023
@@ -21,4 +21,19 @@ Criado sexta 24 novembro 2023
 	* Opção 03: Demorado Vitess
 
 
- 
+====== Requisitos ======
+
+* **Dominio:** crontech.inf.br
+* **Frontend-site:** Site da loja
+* **Frontend-admin:** Integrado com o crontech-platform
+	* Desenvolver integrado com o principal ou
+	* Estender o principal testando a função app
+* **Backend:**
+	* node-red
+		* Importação Excel
+		* Integração facebook, ML, OLX etc...
+		* **RPA:** Scrapping aliexpress
+	* node-framework
+	* Keycloak
+
+

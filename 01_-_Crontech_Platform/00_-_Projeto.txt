@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-16T18:44:30-03:00
+
+====== 00 - Projeto ======
+Criado sexta 16 fevereiro 2024
+
+====== Site Principal do projeto ======
+
+* Novo site institucional crontech.com.br
+
+
+====== Sistema Principal ======
+
+* Novo sistema principal em platform.crontech.com.br
+* Tela de login com infomações relevantes e interessante junto com o login
+* Integração keycloak para gerenciar contas (clientes) 
+* Dashboard
+* Destaque na seleção de módulos o cliente assinar
+* Modulos disponiveis:
+	* Store (usado pela crontech-store apenas a principio, usado para testar o conceito)
+	* RPA: Módulos prontos, ex: olx, aliexpress
+	* RPA: Customizável para o cliente, desenvolvimento para o cliente
+	* Importação (excel por exemplo)
+	* aplicações node-red globais
+	* Ativação de node-red proprio
+	* Ferramentas de IA
+
+* Frontend-admin deve poder ser integrada ao frontend-admin do cliente, Backend que será sempre separado
+* Frontend deve ser modulor de fácil importação (USAR APPS, desenvolver testando)
+
+===== Arquitetura =====
+
+* Vamos separar os módulos por apps quando necessário dependendo da complexidade
+* módulos disponibilizam dashboard via interface padrão
+
+===== Aplicações =====
+
+* Automação Sankya (parceria Ricardo)
+* Processamento inteligente de documento. ex: nota fiscal (IA)
+
+====== Aplicações Próprias ======
+
+* Desenvolvimento de sistemas especificos para o cliente, no ambiente kubernete utilizando seu namespace e seus recuros
+* pode estender módulos do crontech-platform através de app
+* Sua instancia própria do nore-red
+* Suas aplicações podem se integrar facilmente com serviços disponíveis no crontech-platform
+
+
+====== Automações ======
+
+* Automatizar tarefas internas como gerenciar instancias node-red de cada cliente, usar operator, ou acessar APIs do kubernete para executar tarefas
