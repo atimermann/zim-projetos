@@ -5,11 +5,11 @@ Creation-Date: 2020-08-09T01:21:22-03:00
 ====== Crawlers & Scrapper ======
 Created domingo 09 agosto 2020
 
-Projetos de Crawler com **APIFY**
+**Projetos de Crawler com APIFY**
+https://apify.com/
 
 **Apis populares**
 https://rapidapi.com/collection/top-scraper-api-tools
-
 
 **OLX**
 https://github.com/carmolim/olx-monitor/tree/main
@@ -18,3 +18,33 @@ https://github.com/carmolim/olx-monitor/tree/main
 https://github.com/passivebot/facebook-marketplace-scraper
 https://github.com/topics/facebook-crawler
 https://github.com/topics/facebook-scraper
+
+===== Ferramentas NODEJS =====
+
+==== Apify: ====
+Embora você já tenha mencionado o Apify, vale a pena explorar mais profundamente suas ofertas. 
+Além de ser uma plataforma poderosa para web scraping, automação de navegador e extração de dados, o Apify oferece uma ampla gama de atores (scrapers pré-construídos) para diversos casos de uso. 
+A plataforma também permite que os desenvolvedores **monetizem seus próprios atores**, além de oferecer suporte e documentação extensivos para quem está começando ou procurando soluções customizadas. 
+O Apify se destaca por sua capacidade de escalar com os recursos do sistema, gerenciar proxies e sessões automaticamente, e fornecer armazenamento pluggable tanto para dados tabulares quanto para arquivos. Mais detalhes sobre o Apify podem ser encontrados em seu site oficial e documentação.
+
+==== Crawlee: ====
+É uma biblioteca de automação de navegador e web scraping para Node.js, que permite a construção de crawlers confiáveis. 
+Funciona com Puppeteer, Playwright, Cheerio, JSDOM, e HTTP puro. 
+A biblioteca oferece funcionalidades tanto em modo cabeçalho quanto sem cabeçalho, com rotação de proxy, tornando seus crawlers mais humanos e menos detectáveis por proteções modernas contra bots. 
+Além disso, o Crawlee suporta a extração de dados para **AI, LLMs, RAG, ou GPTs**, e permite o download de HTML, PDF, JPG, PNG, e outros arquivos de sites. 
+A biblioteca está disponível como um pacote NPM e é ideal para projetos que exigem tanto **crawling HTTP** quanto em navegadores reais. 
+Mais informações podem ser encontradas no GitHub do Crawlee e no site oficial do Crawlee.
+
+https://crawlee.dev/
+https://github.com/apify/crawlee
+
+==== Scraping-Bot.io ====
+Uma ferramenta eficiente para extrair dados de URLs específicas. Oferece várias APIs adaptadas a diferentes necessidades de extração, incluindo uma API genérica para recuperar o HTML bruto de uma página, uma API especializada em scrapping de sites de varejo, e uma API para extração de dados específicos​​.
+
+==== Bright Data ====
+ (anteriormente conhecido como Luminati): Um programa de web scraping que oferece soluções de coleta de dados tanto para empresas quanto para indivíduos. Vem com várias opções de navegadores e recursos avançados de scraping​​.
+
+====== Ferramentas pagas ======
+
+* [[https://oxylabs.io/pages/scraper-api1?utm_source=121&utm_medium=affiliate&groupid=121&transaction_id=102045157f2412f78450f1d4d18d46|OxyLabs]]
+* [[https://brightdata.com/|BrightData]]
