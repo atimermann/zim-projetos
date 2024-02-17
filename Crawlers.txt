@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2020-08-09T01:21:22-03:00
-
-====== Crawlers ======
-Created domingo 09 agosto 2020
-
-Projetos de Crawler com APIFY
-

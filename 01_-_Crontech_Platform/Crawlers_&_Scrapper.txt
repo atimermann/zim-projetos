@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2020-08-09T01:21:22-03:00
+
+====== Crawlers & Scrapper ======
+Created domingo 09 agosto 2020
+
+Projetos de Crawler com **APIFY**
+
+**Apis populares**
+https://rapidapi.com/collection/top-scraper-api-tools
+
+
+**OLX**
+https://github.com/carmolim/olx-monitor/tree/main
+
+**Facebook**
+https://github.com/passivebot/facebook-marketplace-scraper
+https://github.com/topics/facebook-crawler
+https://github.com/topics/facebook-scraper
