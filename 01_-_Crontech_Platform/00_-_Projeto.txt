@@ -26,8 +26,13 @@ Criado sexta 16 fevereiro 2024
 	* Ativação de node-red proprio
 	* Ferramentas de IA
 
-* Frontend-admin deve poder ser integrada ao frontend-admin do cliente, Backend que será sempre separado
-* Frontend deve ser modulor de fácil importação (USAR APPS, desenvolver testando)
+* webui-admin deve poder ser integrada ao web-admin do cliente, Backend que será sempre separado
+* webui deve ser modulor de fácil importação (USAR APPS, desenvolver testando)
+
+**SOLUÇÃO:** Vamos separar os webui em layers, cada módulo do **webui,** será  implementado separadamente em layers, assim podemos comprar webui com os layers
+* Então vamos montar o webui principal carregando esses layers
+* Projeto de clientes pode carregar os layers customizado, exemplo: **login**
+
 
 ===== Arquitetura =====
 
