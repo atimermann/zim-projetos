@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-21T10:32:49-03:00
+
+====== Node-RED ======
+Criado quarta 21 fevereiro 2024
+
+**Como criar seu modulo privado**
+https://chat.openai.com/c/ccafae25-955f-4edc-aeb2-600c2c09bc69
