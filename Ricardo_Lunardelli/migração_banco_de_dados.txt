@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-24T13:07:29-03:00
+
+====== migração banco de dados ======
+Criado sábado 24 fevereiro 2024
+
+**Erro:**
+movidesk_tickets_actions_202312220229_2.json
+Error processing /home/ubuntu/backup/1/movidesk_tickets_actions_202312220229_2.json: SyntaxError: Bad control character in string literal in JSON at position 128285112
+	at JSON.parse (<anonymous>)
+	at Interface.<anonymous> (file:///home/ubuntu/server/src/apps/main/services/migration-service.mjs:107:24)
+	at Interface.emit (node:events:530:35)
+	at Interface.close (node:internal/readline/interface:527:10)
+	at ReadStream.onend (node:internal/readline/interface:253:10)
+	at ReadStream.emit (node:events:518:28)
+	at endReadableNT (node:internal/streams/readable:1696:12)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
