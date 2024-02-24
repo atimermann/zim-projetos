@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-24T18:22:03-03:00
+
+====== Configuração Windows PC Ricardo ======
+Criado sábado 24 fevereiro 2024
+
+Aqui configuração usada no PC do Ricardo
+
+**Public Key:**
+kOw26W033a23TD6BG5Y8VVZ23nYTjfzAroMWtGiezGE=
+
+**Private Key:**
+cKfEAExMzIepuTut438UbXNoPU+07gAHtQIYKvQ7TUM=
+
+
+# André Notebook
+[Peer]
+PublicKey = kOw26W033a23TD6BG5Y8VVZ23nYTjfzAroMWtGiezGE=
+AllowedIPs = 10.8.0.101/32
+
+
