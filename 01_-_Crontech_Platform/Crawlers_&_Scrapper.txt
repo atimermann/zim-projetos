@@ -5,6 +5,19 @@ Creation-Date: 2020-08-09T01:21:22-03:00
 ====== Crawlers & Scrapper ======
 Created domingo 09 agosto 2020
 
+===== Crawlers =====
+Também conhecidos como spiders ou bots, são usados principalmente pelos motores de busca para varrer a internet de forma sistemática e automatizada. Eles são projetados para indexar o conteúdo da web, ajudando a construir um vasto índice que os motores de busca utilizam para fornecer resultados de pesquisa relevantes.
+
+Um crawler começa com uma lista de URLs para visitar, chamada de sementes. À medida que visita essas páginas, identifica todos os hiperlinks na página e adiciona-os à lista de URLs a serem visitados, repetindo esse processo continuamente.
+
+===== Scrapers =====
+São projetados para extrair informações específicas de páginas da web. Eles são usados para coletar dados de sites específicos, como preços de produtos, listagens de imóveis, informações de contato, etc., geralmente para análise de dados, monitoramento de preços ou agregação de informações.
+
+Um scraper acessa um site específico, analisa o HTML da página para localizar os dados de interesse e, então, extrai esses dados, muitas vezes salvando-os em um banco de dados ou arquivo para análise posterior.
+
+====== Projetos ======
+
+
 **Projetos de Crawler com APIFY**
 https://apify.com/
 
@@ -22,7 +35,6 @@ https://github.com/topics/facebook-scraper
 ===== Ferramentas NODEJS =====
 
 ==== Apify: ====
-Embora você já tenha mencionado o Apify, vale a pena explorar mais profundamente suas ofertas. 
 Além de ser uma plataforma poderosa para web scraping, automação de navegador e extração de dados, o Apify oferece uma ampla gama de atores (scrapers pré-construídos) para diversos casos de uso. 
 A plataforma também permite que os desenvolvedores **monetizem seus próprios atores**, além de oferecer suporte e documentação extensivos para quem está começando ou procurando soluções customizadas. 
 O Apify se destaca por sua capacidade de escalar com os recursos do sistema, gerenciar proxies e sessões automaticamente, e fornecer armazenamento pluggable tanto para dados tabulares quanto para arquivos. Mais detalhes sobre o Apify podem ser encontrados em seu site oficial e documentação.

@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-28T12:53:54-03:00
+
+====== Análise de projeto ======
+Criado quarta 28 fevereiro 2024
+
+**Verificar:**
+* Anti-bot
+* Se tem API disponível
+* Se tem scrapper pronto só baixar
