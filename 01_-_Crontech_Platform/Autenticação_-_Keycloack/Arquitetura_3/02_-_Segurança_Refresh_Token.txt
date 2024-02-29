@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-28T22:44:36-03:00
+
+====== 02 - Segurança Refresh Token ======
+Criado quarta 28 fevereiro 2024
+
+{{./pasted_image.png}}

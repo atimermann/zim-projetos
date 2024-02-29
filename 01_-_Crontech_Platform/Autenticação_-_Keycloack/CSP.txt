@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-28T22:22:51-03:00
+
+====== CSP ======
+Criado quarta 28 fevereiro 2024
+
+O Content Security Policy (CSP) é uma medida de segurança adicional que ajuda a detectar e mitigar certos tipos de ataques, incluindo ataques de Cross-Site Scripting (XSS) e injeção de dados. 
+CSP permite que os desenvolvedores controlem quais recursos o navegador está autorizado a carregar e executar para uma página específica, como scripts, estilos, imagens, e até mesmo a origem desses recursos.
+ Ao definir uma política de segurança de conteúdo, os desenvolvedores podem reduzir significativamente o risco de exploração de vulnerabilidades de injeção de conteúdo.
+
+CSP funciona permitindo que os desenvolvedores web especifiquem, por meio de cabeçalhos HTTP ou meta tags HTML, quais origens de conteúdo são confiáveis. 
+Quando um navegador carrega uma página com uma política CSP, ele verifica todos os recursos solicitados contra essa política.
+ Se um recurso viola a política CSP definida, o navegador bloqueia sua carga e execução, e pode relatar a violação se a política incluir uma diretiva de relatório.
+
+====== Implementação do CSP ======
+
+===== Via Cabeçalho HTTP =====
+
+A maneira mais comum de implementar CSP é através do envio de um cabeçalho HTTP Content-Security-Policy do servidor. 
+Isso pode ser feito configurando o servidor web ou por meio de código do lado do servidor. Por exemplo:
+
+	**Content-Security-Policy: default-src 'self'; script-src 'self' https://apis.google.com**
+
+Este cabeçalho instrui o navegador a carregar scripts somente do mesmo domínio que a página (indicado por 'self') ou de https://apis.google.com.
+Todos os outros domínios para scripts serão bloqueados.
+
+===== Via Meta Tag HTML =====
+
+Você também pode implementar CSP usando uma meta tag dentro do <head> de seu documento HTML. Isso pode ser útil para testes ou se você não tem controle sobre os cabeçalhos HTTP enviados pelo seu servidor:
+
+	**<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com">**
+
+====== Diretivas Comuns do CSP ======
+
+* **default-src:** Define a política padrão para carregar recursos como scripts, estilos, imagens, fontes, etc.
+* **script-src:** Especifica as origens válidas para scripts.
+* **style-src:** Define as origens permitidas para folhas de estilo.
+* **img-src:** Lista as origens de onde as imagens podem ser carregadas.
+* **connect-src:** Restringe as origens para as quais o navegador pode conectar-se usando interfaces de script como fetch, XMLHttpRequest, e WebSockets.
+* **font-src:** Especifica as origens permitidas para carregar fontes.
+* **report-uri / report-to:** Especifica onde enviar os relatórios de violação da política CSP.
+
+====== Benefícios do CSP ======
+
+* **Mitigação de XSS:** CSP é uma das defesas mais eficazes contra ataques XSS, pois restringe de onde o conteúdo pode ser carregado, impedindo a execução de scripts maliciosos injetados.
+* **Controle de Recursos:** Fornece um controle detalhado sobre os recursos que podem ser carregados na página, ajudando a prevenir a inclusão de recursos não confiáveis ou maliciosos.
+* **Relatórios de Violação:** A capacidade de reportar violações da política CSP fornece insights sobre tentativas de ataque e ajuda a melhorar a segurança.
+

@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-28T21:53:20-03:00
+
+====== Arquitetura 3 ======
+Criado quarta 28 fevereiro 2024
+
+- Preciso implementar um serviço de autenticação usando nodejs/express.js/socket.io
+- Acesso ao socket.io deve ser validade assim como acesso a api REST
+- Esse serviço vai utilizar o keycloak para realizar autenticação
+- Toda autenticação será sempre realizada pelo backend em nodejs/express.js/socket ou se possivel acessar a api do keycloak diretamente, mas tudo via REST, não usar nenhum frontend do keycloak
+- Os "serviços clientes" vão se conectar em uma api REST para realizar autenticação inicial colocando login e senha
+- Não quero que redirecione para outro site (keycloak) para realizar autenticação, deve ser feita direto pelo backend
+- Vou ter vários sistemas diferentes que podem se logar na mesma api, vamos ter um servidor de autenticação centralizado
+- Apesar de ter uma autenticação centralizada, vamos ter vários "serviços clientes".
+- Preciso implementar o conceito de perfil, ou seja por exemplo, usuario andre tem o perfil administrador
+- Cada perfil precisa a informação de permissão para acessar o "serviços clientes"
+- Cada perfil tem um conjunto de permissões para cada "serviços clientes"
+- Preciso implementar com um conceito de Conta, por exemplo, uma pessoa cria uma conta nova, ao criar um aconta precisa criar um usuário que será administrador dessa conta, essa conta terá acsso a determinados "serviços clientes", perfis e permissões
+- Essa conta poderá cadastrar usuários com permissões definidas por esse administrador
+- Também preciso do conceito de "CLIENTE da CONTA" ou seja essa conta pode criar um "serviço cliente" do tipo loja,  e essa loja vai ter clientes da conta, vai ser vinculado apenas a essa conta, e terá acesso por exemplo a dados do pedido e mudança de senha, porém toda autenticação será feita pelo keycloak
+
+- Será criado um SSO (Single Sign On)
+- Teremos multi tenant, ou seja cada aplicação poderei revender para um cliente e esse cliente fazerá uso da aplicação de forma isolado, podendo inclusive criar outros usuários para acessar este sistema.
+- Cada tenant será separado adicionando um campo especial chamado domain ou subdomain no usuário
+
+- Me ajude a projetar um sistema desse, implementar uma arquitetura
+- Se necessário me explique o conceito do keycloak envolvido e me de exemplos
+
+
+====== Projeto ======
+
+===== Etapa 01 -> Autenticação =====
+
+* Autenticação será feita diretamente pelo frontend para o servidor keycloak via api REST
+* Cliente recebe "token de acesso", "token de refresh,"
+* Configurar corretamente CORS
+**Armazenamento Seguro no Lado do Cliente**
+* **Limite o Tempo de Vida:** Tokens de acesso geralmente têm uma vida útil curta. Certifique-se de que o token seja válido apenas pelo tempo necessário e utilize tokens de atualização (refresh tokens), que são armazenados de forma mais segura, para obter novos tokens de acesso.
+* **Atenção com o LocalStorage:** Embora seja conveniente, o localStorage é acessível por scripts no mesmo domínio, o que pode expor o token em caso de um ataque XSS. Prefira armazenar tokens de forma mais segura sempre que possível.
+* **Utilize Contexto Seguro:** Em cenários onde o localStorage ou sessionStorage é utilizado, garanta que o seu site implemente Content Security Policy (CSP) para reduzir o risco de ataques XSS. Além disso, a implementação de técnicas de sanitização de entrada do usuário pode ajudar a evitar a execução de scripts maliciosos.
+
+
