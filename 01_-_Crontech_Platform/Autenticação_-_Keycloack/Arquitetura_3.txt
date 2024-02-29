@@ -5,6 +5,8 @@ Creation-Date: 2024-02-28T21:53:20-03:00
 ====== Arquitetura 3 ======
 Criado quarta 28 fevereiro 2024
 
+**CHAT:** https://chat.openai.com/c/84c12b27-47a3-44d7-8a9f-92ab0cad4a3a
+
 - Preciso implementar um serviço de autenticação usando nodejs/express.js/socket.io
 - Acesso ao socket.io deve ser validade assim como acesso a api REST
 - Esse serviço vai utilizar o keycloak para realizar autenticação
