@@ -1,0 +1,67 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-02-29T11:53:33-03:00
+
+====== Explicação ======
+Criado quinta 29 fevereiro 2024
+
+Não tô conseguindo andar com Sankhya, documentação não bate, amanhã vou precisar de um auxílio
+{{./pasted_image.png}}
+No Sankya eu consegui logar da seguinte forma:
+
+[10:12, 07/02/2024] André Timermann: isso me retorna um XML
+[10:12, 07/02/2024] André Timermann: <?xml version="1.0" encoding="ISO-8859-1"?>
+<serviceResponse serviceName="MobileLoginSP.login" status="1" pendingPrinting="false" transactionId="1F1485C029C2CB22E3F9C2CCA82F4764"><responseBody><jsessionid>OqtI0c2NXPEXzObrkisr7kFP59QsW0gEJ_gaaESq</jsessionid>
+<idusu>MA==</idusu><callID>A3A4D990F940CB55AC674C6E2DD4BD08</callID></responseBody></serviceResponse>
+[10:12, 07/02/2024] André Timermann: ele retorna um idusu
+e um callID
+[10:12, 07/02/2024] André Timermann: BLZ, mas eu não sei oq fazer com isso
+[10:13, 07/02/2024] André Timermann: Pesquisei na internet e achei esta documentação para XML
+https://developer.sankhya.com.br/docs/api-de-integra%C3%A7%C3%A3o
+
+{{./pasted_image001.png}}
+
+Aqui ele fala pra eu passar o TOKEN
+eu tentei esse callID
+ele retorna isso
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<serviceResponse serviceName="CRUDServiceProvider.loadRecords" status="3" pendingPrinting="false" transactionId="6B5A833ABE98245E90CC77D63B890E99"><statusMessage><![CDATA[TuNvIGF1dG9yaXphZG8u
+]]></statusMessage></serviceResponse>
+
+[10:15, 07/02/2024] André Timermann: dependente doq coloco, deve ser um erro codificado
+[10:16, 07/02/2024] André Timermann: de qualquer forma pela documentação ele não tem a opção de extração de pedido,/ orçamento financeiro
+[10:16, 07/02/2024] André Timermann: eu encontrei na API JSON deles
+[10:16, 07/02/2024] André Timermann: Olha:
+
+https://developer.sankhya.com.br/reference/post_login
+
+Aqui tem tudo
+
+{{./pasted_image002.png}}
+
+só que pra logar pede um monte de coisa:
+
+token appkey
+
+Loguei no sistema lá, procurei não achei
+
+vi q esse sankya tá instalado em https://sankhya.ingress.datatem.com.br
+
+Agora não sei se é versão antiga ou nova
+
+
+[10:17, 07/02/2024] André Timermann: Você não consegue me ajudar a achar a documentação correta, pq essa q achei não bate com oq tenho aqui
+[10:18, 07/02/2024] André Timermann: eu consegui LOGAR, ok
+eu tenho esse callID
+
+mas precisava de uma lista das API q posso acessar e oq fazer com esse callid
+[10:21, 07/02/2024] André Timermann: Aqui tem uma explicação
+https://developer.sankhya.com.br/reference/configurando-acessos-iniciais-integra%C3%A7%C3%A3o
+[10:22, 07/02/2024] André Timermann: Mas tem um monte de passos que envolve pedir pra eles acesso
+
+
+{{./pasted_image003.png}}
+
+[10:23, 07/02/2024] André Timermann: a datalens era parceiro do sankya?
+[10:23, 07/02/2024] André Timermann: COmo é o esquema?
