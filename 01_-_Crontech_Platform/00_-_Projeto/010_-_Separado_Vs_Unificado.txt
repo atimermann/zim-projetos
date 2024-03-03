@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-02T22:54:20-03:00
+
+====== 010 - Separado Vs Unificado ======
+Criado sábado 02 março 2024
+
+====== FRONT END ======
+
+===== Unificado =====
+
+* Mais rápido desenvolvimento, não precisa ficar criado projetos
+* Ocupa menos memoria/processamento, uma aplicação atente todo mundo, só replicar
+* Ocupa menos espaço com imagens grandes
+* Tudo integrado para o cliente acessar do mesmo painel, sem precisar utilizar mais de um sistema
+	* (Pode ser  contornado usando layer q estente uma camada inicial)
+
+**Desvantagem:**
+* Para usar preciso implementar um multi tenent, para ser parar layout, logo, tratamento de dominio pra carregar um ou outro
+
+===== Separado =====
+
+* Desacoplado, não corre risco de quebrar todos os apps pq quebrou
+* Possivel atualizar em partes
+* Menos teste pra subir nova versão ou atualizar
+* 
+
+====== Backend ======
+
+===== Unificado =====
+* Mais rápido desenvolvimento, não precisa ficar criado projetos
+* Ocupa menos memoria/processamento, uma aplicação atente todo mundo, só replicar
+* Ocupa menos espaço com imagens grandes
+* Pode ser separado por App, se quiser carregar uma instancia por aplicação só desabilitar outras
+
+
+
+
+===== Separado =====
+* segurança, separação de conceito, não corre risco de um cliente acessar dados de outro
+* Cada um tem sua configuração de banco de dados, não precisa ficar configurando multiplis banco de dados
+* Desacoplado, não corre risco de quebrar todos os apps pq quebrou
+* Possivel atualizar em partes
+* Menos teste pra subir nova versão ou atualizar
+* **Crescimento por demanda (Micro serviço)**
+	* Porém posso separar depois
