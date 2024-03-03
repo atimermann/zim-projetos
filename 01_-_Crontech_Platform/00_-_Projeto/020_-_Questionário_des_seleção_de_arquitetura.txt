@@ -1,0 +1,53 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-02T23:32:16-03:00
+
+====== 020 - Questionário des seleção de arquitetura ======
+Criado sábado 02 março 2024
+
+====== Frontend ======
+
+===== Crontech Platform (Unificado) =====
+(1 imagem para todos)
+
+* Vamos ter um projeto do frontend da plataforma Crontech
+* Aqui vamos manter todos os serviços **SaaS (Software as Service)** , ou seja, aplicações **não personalizadas,** que o cliente paga assinatura e tem limitação de recurso onde **TODOS** os clientes tem pode ter acesso
+* Vamos desenvolver os serviços por layer, para ser fragmentado
+* Vai ter módulo para selecionar os serviços disponível
+* Pode ter subdominio personalizado para ter seua logo cores personalizada
+* Exceção fica pro rednode que precisa de uma instancia pra cada cliente (necessário automação no nivel de infra)
+* Ficará tudo no mesmo repositório **GIT**
+
+===== Aplicação Customizada sem acesso ao código fonte =====
+(1 imagem para cada cliente)
+
+* Quando o  cliente desejar desenvolver módulos/apps personalidados, mas sem acesso ao código fonte
+* Vamos criar uma aplicação apenas para ao cliente
+* podemos compor essa aplicação frontend com diversos layers para permitir que o cliente acesse seus seviços do tipo SaaS diretamente do mesmo menu, sem redirecionamento de pagina
+* Subominio personalizado por cliente e pode ter mudanças mais drásticas no painel, como layout diferent
+* Poderá ou não ficar  no mesmo repositório **GIT**, porém separado por projects
+
+===== Aplicação Customizada com acesso ao código fonte =====
+(1 imagem para cada cliente)
+
+* Quando cliente desejar o código fonte, então não terá acesso ao layers
+* Para acessar os serviços SaaS terá que acessar outro dominio 
+* Deve haver alguma comunicação para automatizar autenticação
+* Pode ou não utilizar mesmo servidor de autenticação
+* **Ficará em repositório GIT separado**
+
+====== Backend ======
+
+===== Crontech Platform =====
+(1 imagem)
+* Teremos uma imagem unica com todos os serviços (Saas) implementado
+* Porém podemos fragmentar a execução caso algum serviços tenha mais demanda, criando novos deployment e customizando imagem para executar apenas determinados Apps
+* Ficará tudo no mesmo repositório **GIT**
+
+===== Aplicação Customizada com ou sem acesso ao código fonte =====
+
+* Serviços SaaS, serão acessados pela api do crontech plaform normalmente, diferente do frontend que separa
+* Teremos uma imagem exclusiva para endpoints (API/socket/Jobs) para serviços do cliente	
+	* **Não devemos misturar código e implantação do cliente com crontech platform**
+* funcionará da mesma forma se o cliente ter ou não código fonte,
+* **Ficará em repositório GIT separado**
