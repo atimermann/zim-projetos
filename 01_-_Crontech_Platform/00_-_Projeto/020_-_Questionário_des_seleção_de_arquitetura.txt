@@ -25,7 +25,7 @@ Criado sábado 02 março 2024
 * Vamos criar uma aplicação apenas para ao cliente
 * podemos compor essa aplicação frontend com diversos layers para permitir que o cliente acesse seus seviços do tipo SaaS diretamente do mesmo menu, sem redirecionamento de pagina
 * Subominio personalizado por cliente e pode ter mudanças mais drásticas no painel, como layout diferent
-* Poderá ou não ficar  no mesmo repositório **GIT**, porém separado por projects
+* Poderá ou não ficar  no mesmo repositório **GIT**, porém separado por projects (MONOREPO)
 
 ===== Aplicação Customizada com acesso ao código fonte =====
 (1 imagem para cada cliente)
@@ -50,4 +50,9 @@ Criado sábado 02 março 2024
 * Teremos uma imagem exclusiva para endpoints (API/socket/Jobs) para serviços do cliente	
 	* **Não devemos misturar código e implantação do cliente com crontech platform**
 * funcionará da mesma forma se o cliente ter ou não código fonte,
-* **Ficará em repositório GIT separado**
+* **Ficará em repositório GIT separado,** caso cliente queira acesso ao código fonte
+
+
+====== Sugestões ======
+
+**API Gateway:** Implementar um API Gateway para gerenciar as solicitações para os diferentes serviços e aplicações, proporcionando uma camada adicional de abstração, segurança e controle de acesso.
