@@ -26,3 +26,70 @@ Meu ip é 191.177.247.206
 IP Reverso bfb1f7ce.virtua.com.br
 Data 13h54min - 03/02/2024
 
+====== Instalação Rápida ======
+
+{{{code: lang="sh" linenumbers="True"
+apt update && apt upgrade -y
+apt install net-tools
+apt install wireguard
+
+# atualmente serverXX
+hostnamectl set-hostname <HOSTNAME> 
+
+wg genkey | sudo tee /etc/wireguard/private.key
+chmod go= /etc/wireguard/private.key
+cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
+cd /etc/wireguard
+vim wg0.conf
+
+### => COPIAR O WG0.CONF:
+
+* Mude o Interface para a maquina 
+* remova de peers a propria maquina
+
+### => COPIAR O WG0.CONF:
+
+
+systemctl enable wg-quick@wg0.service
+systemctl start wg-quick@wg0.service
+
+# Entar nas outras maquinas atualizar 
+systemctl restart wg-quick@wg0.service
+
+}}}
+{{{code: lang="ini" linenumbers="True"
+[Interface]
+Address = 10.8.0.3/24
+SaveConfig = false
+ListenPort = 53765
+PrivateKey = yLj4Z4IaqVtD9pYstkOXZ7lC7F/WeAWmanKTdeBWsUA=
+
+# André Notebook
+[Peer]
+PublicKey = E43s2BYDUjSuThxA+1LDWwOP5R05IIZcs0D6daqrH0o=
+AllowedIPs = 10.8.0.100/32
+
+# PC Ricardo
+[Peer]
+PublicKey = kOw26W033a23TD6BG5Y8VVZ23nYTjfzAroMWtGiezGE=
+AllowedIPs = 10.8.0.101/32
+
+# Server01 (Fallback)
+[Peer]
+PublicKey = VwbIMFlvpKX7nKh2+bjaEdf2IVNT1P9t9jF40i7KZwQ=
+AllowedIPs = 10.8.0.0/24
+Endpoint = 167.114.97.124:53765
+
+# Server02
+[Peer]
+PublicKey = +tDmr9QxsLaPLN3ZehPZfZKHyQKgqofr/LLjQK6BYU8=
+AllowedIPs = 10.8.0.2/32
+Endpoint = 57.128.159.134:53765
+
+# Server03
+[Peer]
+PublicKey = 4hlHbHSyHMsbOGhH0Eyo+1qc0zByPH5Cyvh49QcDniU=
+AllowedIPs = 10.8.0.3/32
+Endpoint = 67.114.97.188:53765
+}}}
+
