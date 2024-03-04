@@ -16,3 +16,56 @@ Criado domingo 03 março 2024
 * **(VERIFICAR SE FUNCIONA)**:
 * {{./pasted_image.png}}
 
+ALternativa: configurar um HAPRoxy
+
+{{{code: lang="yaml" linenumbers="True"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haproxy-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: haproxy
+  template:
+    metadata:
+      labels:
+        app: haproxy
+    spec:
+      containers:
+      - name: haproxy
+        image: haproxy:latest
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/local/etc/haproxy/haproxy.cfg
+          subPath: haproxy.cfg
+        ports:
+        - containerPort: 80        
+      volumes:
+      - name: config-volume
+        configMap:
+          name: haproxy-config
+}}}
+
+{{{code: lang="ini" linenumbers="True"
+global
+    log stdout format raw local0
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    timeout connect 5000ms
+    timeout client  50000ms
+    timeout server  50000ms
+
+frontend http_front
+    bind *:80
+    acl url_fotos path_beg -i /fotos/
+    use_backend fotos_backend if url_fotos
+
+backend fotos_backend
+    server foto_server 10.12.0.100:80
+}}}
+

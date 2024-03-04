@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-04T02:01:41-03:00
+
+====== Revisão Básica ======
+Criado segunda 04 março 2024
+
+[ ] Inicializar um banco de dados novo
+[ ] Configurar prisma
+[ ] Modelar banco de dados
+[ ] Montar CRUD
+[ ] Instalar gestão de fila RabbitMQ com acesso pela rede VPN
+[ ] Configurar CRUD para enviar para Fila
+[ ] Converter Algoritmo de Crawller mercado livre em JOB com gestão de status: Inicializando, Na fila, Processando, Finalizado, Erro
+[ ] Implementar no crowler coleta da fila 
+[ ] Implementar no crowler envio resultado na fila
+[ ] Implementar serviço para coletar resultado, atualizar banco de dados e CRUD (Grid)
