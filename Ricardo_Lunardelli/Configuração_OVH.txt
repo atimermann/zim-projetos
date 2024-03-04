@@ -30,8 +30,7 @@ Data 13h54min - 03/02/2024
 
 {{{code: lang="sh" linenumbers="True"
 apt update && apt upgrade -y
-apt install net-tools
-apt install wireguard
+apt install net-tools wireguard nmap
 
 # atualmente serverXX
 hostnamectl set-hostname <HOSTNAME> 
@@ -55,6 +54,9 @@ systemctl start wg-quick@wg0.service
 
 # Entar nas outras maquinas atualizar 
 systemctl restart wg-quick@wg0.service
+
+# Adicione a linha abaixo nos clientes (pc pessoal)
+PersistentKeepalive = 25
 
 }}}
 {{{code: lang="ini" linenumbers="True"
