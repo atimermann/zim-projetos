@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-03T22:48:46-03:00
+
+====== Projeto ======
+Criado domingo 03 março 2024
+
+* Vamos utilizar Crawlee parece ser a biblioteca mais completa para nodejs
+* Criar uma interface api pra cada crawlee, utilizar o node-framework
+* Usar APIFY sempre q possivel, ver custo
+* Usar Proxy Rotativo
+
+* Rodar o scrapper das maquinas locais (servidor em casa), fila rabbitMQ no servidor
+* Salvar imagem minio local (muito consumo armazenamento)
+* Pesquisar como implementar uma interface publica q consiga acessar o minio via VPN
