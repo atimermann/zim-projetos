@@ -13,3 +13,6 @@ Criado domingo 03 março 2024
 * Rodar o scrapper das maquinas locais (servidor em casa), fila rabbitMQ no servidor
 * Salvar imagem minio local (muito consumo armazenamento)
 * Pesquisar como implementar uma interface publica q consiga acessar o minio via VPN
+* **(VERIFICAR SE FUNCIONA)**:
+* {{./pasted_image.png}}
+
