@@ -14,8 +14,8 @@ Criado sexta 24 novembro 2023
 	[*] Configurar Storage
 	[*] Configurar Ingress
 . 
-[ ] Configurar estrutura do projeto, migrar arquivos antigos
-[ ] Definir Banco de dados
+[*] Configurar estrutura do projeto, migrar arquivos antigos
+[*] Definir Banco de dados
 	* Opção 01: Criar externamente em uma VM
 	* Opção 02: Criar em um pod local com acesso Storage central, deve ser uma instancia
 	* Opção 03: Demorado Vitess
@@ -26,7 +26,6 @@ Criado sexta 24 novembro 2023
 * **Dominio:** crontech.inf.br
 * **Frontend-site:** Site da loja
 * **Frontend-admin:** Integrado com o crontech-platform
-	* Desenvolver integrado com o principal ou
 	* Estender o principal testando a função app
 * **Backend:**
 	* node-red

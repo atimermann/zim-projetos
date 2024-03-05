@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-05T01:48:11-03:00
+
+====== 01 - Autenticação e Autorização ======
+Criado terça 05 março 2024
+
+[ ] Focado no keycloak
+[ ] Vamos ter uma role universal para 
