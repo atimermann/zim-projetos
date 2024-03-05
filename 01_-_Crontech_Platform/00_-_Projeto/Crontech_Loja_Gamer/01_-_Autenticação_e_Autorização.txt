@@ -10,7 +10,7 @@ Criado terça 05 março 2024
 	* Vamos ter uma role universal para Autenticação, ou seja, usuário consegue logar no sistema
 	* as outras roles permite acessar determinado setor do sistema, como carregar menu, pagina, ou customizado
 
-[ ] Implementar sistema de roles no UI
+[*] Implementar sistema de roles no UI
 [ ] Implementar cadastro de produtos
 [ ] Implementar cadastro de estoque
 [ ] Implementar orçamento
