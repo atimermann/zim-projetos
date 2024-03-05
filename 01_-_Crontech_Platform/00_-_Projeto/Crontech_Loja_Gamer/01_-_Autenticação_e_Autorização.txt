@@ -5,5 +5,17 @@ Creation-Date: 2024-03-05T01:48:11-03:00
 ====== 01 - Autenticação e Autorização ======
 Criado terça 05 março 2024
 
-[ ] Focado no keycloak
-[ ] Vamos ter uma role universal para 
+* Focado no keycloak
+* Carrega roles em resouce_access.[CLIENT_ID].roles
+	* Vamos ter uma role universal para Autenticação, ou seja, usuário consegue logar no sistema
+	* as outras roles permite acessar determinado setor do sistema, como carregar menu, pagina, ou customizado
+
+[ ] Implementar sistema de roles no UI
+[ ] Implementar cadastro de produtos
+[ ] Implementar cadastro de estoque
+[ ] Implementar orçamento
+[ ] Implementar pedido
+[ ] Implementar site
+[ ] Implementar atendimento N1 com ChatGPT
+
+[ ] Implementar no back autenticação dupla: assim q autentica keycloak, valida no backend e criar Secure Cookie que vai validas requisições subsequente (ou seja, não adianta roubar accesstoken)
