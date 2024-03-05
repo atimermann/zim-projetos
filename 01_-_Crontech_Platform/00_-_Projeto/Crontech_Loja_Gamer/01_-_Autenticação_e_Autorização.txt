@@ -17,5 +17,7 @@ Criado terça 05 março 2024
 [ ] Implementar pedido
 [ ] Implementar site
 [ ] Implementar atendimento N1 com ChatGPT
+	* https://helpwise.io/blog/how-to-use-chatgpt-for-customer-service
+	* https://openai.com/pricing
 
 [ ] Implementar no back autenticação dupla: assim q autentica keycloak, valida no backend e criar Secure Cookie que vai validas requisições subsequente (ou seja, não adianta roubar accesstoken)
