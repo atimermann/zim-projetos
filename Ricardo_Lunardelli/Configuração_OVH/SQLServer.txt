@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-21T20:53:48-03:00
+
+====== SQLServer ======
+Criado quinta 21 março 2024
+
+**Máquina:** VPS vps2020-starter-1-2-20
+**IP:**  167.114.97.245
+**Licença:** Express
+
+**Senha:** HsKkw1YJMoi3B7Jh
+**Senha:** HsKkw1YJMoi3B7Jh
+

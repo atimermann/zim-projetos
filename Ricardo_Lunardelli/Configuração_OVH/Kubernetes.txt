@@ -13,8 +13,3 @@ Definir um dominio para o Ricardo
 ===== Server02 -> Gateway =====
 167.114.97.229 server02
 
-===== Server03 => Server05 (ControlPlane) =====
-
-
-===== Server06 => Server10 (DataPlane) =====
-
