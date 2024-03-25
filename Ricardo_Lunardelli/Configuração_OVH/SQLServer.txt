@@ -17,3 +17,6 @@ rlcs@HsKkw1YJMoi3B7Jh
 rlcs@HsKkw1YJMoi3B7Jh
 
 rlcs@HsKkw1YJMoi3B7Jh
+
+sqlcmd -S localhost -U 'sa' -P 'rlcs@HsKkw1YJMoi3B7Jh' -C
+RESTORE DATABASE wetranf FROM DISK = '/opt/backup.bak' WITH REPLACE
