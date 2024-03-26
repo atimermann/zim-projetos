@@ -23,3 +23,9 @@ RESTORE DATABASE wetranf FROM DISK = '/opt/backup.bak' WITH REPLACE
 
 ====== Instalação SQL SERVE RLINUX ======
 https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16&tabs=ubuntu2204#prerequisites
+
+
+====== Instalação SQL CMD ======
+
+
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install
