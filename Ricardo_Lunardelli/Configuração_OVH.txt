@@ -83,16 +83,21 @@ AllowedIPs = 10.8.0.100/32
 PublicKey = kOw26W033a23TD6BG5Y8VVZ23nYTjfzAroMWtGiezGE=
 AllowedIPs = 10.8.0.101/32
 
-# Server01 (Fallback)
+# Servidor Xeon André
+[Peer]
+PublicKey = HBTuyyR30pfu0/Q01hzOgE14YYR0pNU+UpmL0XLoIkY=
+AllowedIPs = 10.8.0.110/32
+
+# Server01
 [Peer]
 PublicKey = VwbIMFlvpKX7nKh2+bjaEdf2IVNT1P9t9jF40i7KZwQ=
-AllowedIPs = 10.8.0.0/24
+AllowedIPs = 10.8.0.1/32
 Endpoint = 167.114.97.124:53765
 
-# Server02
+# Server02 (Fallback)
 [Peer]
 PublicKey = +tDmr9QxsLaPLN3ZehPZfZKHyQKgqofr/LLjQK6BYU8=
-AllowedIPs = 10.8.0.2/32
+AllowedIPs = 10.8.0.0/24
 Endpoint = 57.128.159.134:53765
 
 # Server03
