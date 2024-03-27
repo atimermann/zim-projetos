@@ -13,6 +13,7 @@ Senha: Flemax
 **Chave Secreta:** A6dphPR2kz0UfEuR2GNV73xnA2O3K0V5
 **APP_ID:** 2167508377284670
 **URL_REDIRECT:** https://localhost:3000
+**CÒDIGO_VENDEDOR:** 33802651
 
 ====== Autorização de Usuario ======
 
@@ -41,3 +42,28 @@ curl -X POST -H 'Authorization: Bearer $ACCESS_TOKEN' -H "Content-Type: applicat
 
 
 https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2507198423080849&redirect_uri=https://localhost:3000
+
+
+====== Core retornado será usado para gerar o acesss token ======
+
+TG-6603a56d4074f40001573ce3-4054538
+TG-6603a6ed4074f4000157500d-405453887
+{{{code: lang="sh" linenumbers="True"
+curl -X POST -H 'accept: application/json' -H 'content-type: application/x-www-form-urlencoded' 'https://api.mercadolibre.com/oauth/token' -d 'grant_type=authorization_code' -d 'client_id=2507198423080849' -d 'client_secret=oYfjvTkimQaOS4DUO3gNqAsQh4CM0R8g' -d 'code=TG-6603a6ed4074f4000157500d-405453887' -d 'redirect_uri=https://crontech.com.br/redirect'
+
+
+curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/applications/2507198423080849
+
+curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/sites/MLA/search?q=Motorola%20G6
+
+
+curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/users/33802651/items/search?reputation_health_gauge=unhealthy
+}}}
+
+
+===== Resposta =====
+
+{"access_token":"APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887","token_type":"Bearer","expires_in":21600,"scope":"offline_access read write","user_id":405453887,"refresh_token":"TG-6603a717287de40001dec394-405453887"}----
+
+
+curl -X GET -H 'Authorization: Bearer $ACCESS_TOKEN' https://api.mercadolibre.com/applications/2507198423080849
