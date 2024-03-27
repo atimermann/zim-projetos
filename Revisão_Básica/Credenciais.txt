@@ -16,11 +16,28 @@ Senha: Flemax
 
 ====== Autorização de Usuario ======
 
-https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=http://localhost:3000&code_challenge=lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds&code_challenge_method=S256
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=https://localhost:3000&code_challenge=lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds&code_challenge_method=S256
 https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=$APP_ID&redirect_uri=$YOUR_URL&code_challenge=$CODE_CHALLENGE&code_challenge_method=$CODE_METHOD
 
-https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=https://localhost:3000
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=1620218256833906&redirect_uri=https://localhost.com/redirect&state=$12345
 
 
 Code Verifier: 4dac375a1670c6243707be3fe83d4bdf6fe5a188041e9cae5d9a40d65533a7a7
 Code Challenge: lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds
+
+
+====== Teste André ======
+
+**API_ID:** 2507198423080849
+**CHAVE SECRETA:** oYfjvTkimQaOS4DUO3gNqAsQh4CM0R8g
+**URL_REDIRECT:** https://crontech.com.br/redirect
+
+**__NÂO PODE USAR LOCALHOST, OBRIGATÓRIO DEFINIR UM URL VALIDA__**
+
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2507198423080849&redirect_uri=https://crontech.com.br/redirect&code_challenge=lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds&code_challenge_method=S256
+
+
+curl -X POST -H 'Authorization: Bearer $ACCESS_TOKEN' -H "Content-Type: application/json" -d '{"site_id":"MLA"}' https://api.mercadolibre.com/users/test_user
+
+
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2507198423080849&redirect_uri=https://localhost:3000
