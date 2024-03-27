@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-27T00:34:19-03:00
+
+====== Credenciais ======
+Criado quarta 27 março 2024
+
+===== Mercado livre =====
+
+login: euro4r.br@gmail.com
+Senha: 
