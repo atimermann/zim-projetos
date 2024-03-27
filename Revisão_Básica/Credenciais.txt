@@ -8,4 +8,19 @@ Criado quarta 27 março 2024
 ===== Mercado livre =====
 
 login: euro4r.br@gmail.com
-Senha: 
+Senha: Flemax
+
+**Chave Secreta:** A6dphPR2kz0UfEuR2GNV73xnA2O3K0V5
+**APP_ID:** 2167508377284670
+**URL_REDIRECT:** https://localhost:3000
+
+====== Autorização de Usuario ======
+
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=http://localhost:3000&code_challenge=lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds&code_challenge_method=S256
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=$APP_ID&redirect_uri=$YOUR_URL&code_challenge=$CODE_CHALLENGE&code_challenge_method=$CODE_METHOD
+
+https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=https://localhost:3000
+
+
+Code Verifier: 4dac375a1670c6243707be3fe83d4bdf6fe5a188041e9cae5d9a40d65533a7a7
+Code Challenge: lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds
