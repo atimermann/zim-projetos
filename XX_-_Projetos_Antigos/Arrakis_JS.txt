@@ -1,0 +1,26 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2014-04-10T13:50:23-03:00
+
+====== Arrakis JS ======
+Created quinta 10 abril 2014
+
+===== Tecnologia =====
+* Núcleo do framework será composto por:
+	* [[RequireJS]]
+	* Backbone
+* Outras Bibliotecas usadas:
+	* Jquery
+	* Underscore
+	* Bootstrap
+	* Jquery Easy UI
+* Linguagem:
+	* Typescript (Para herança de classes)
+
+
+===== Conceitos =====
+
+* Javascript funciona como Aplicação
+* Usar Conceito de plugin do Arrakis
+
+

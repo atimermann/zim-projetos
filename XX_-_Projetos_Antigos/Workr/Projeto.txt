@@ -1,0 +1,492 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2016-05-02T16:26:04-03:00
+
+====== Projeto ======
+Created segunda 02 maio 2016
+
+
+====== Próximas Tarefas ======
+Aqui as próximas Tarefas em Ordem (colocar no final assim q forem concluídas
+
+[*] Definir estrutura de Banco de dados para salvar informações sobre os Workers
+[*] Atualizar Smartify-grid para suporte a socketCluster
+[*] Adicionar smartify-grid no projeto
+[*] Atualizar na interface Grid para listar workers conectados 
+[*] Manter Log na memoria por enquanto (mas vamos salvar num mongoDB) (Documentar)
+[*] Criar Minimo Classes Client e Server para conexão entre eles
+[*] Atualizar na interface para exibir logs em realtime
+	* atualizar log Incrementalmente 
+	* pensar como otimizar
+
+[ ] Dar uma revisada no código, tentar organizar melhor
+[ ] Refazer mensagens de log para ser exibido na interface,
+	* Log gerado no worker será integrado com o log gerado pelo objeto que representa o worker no servidor (talvez pensar em uma forma de separar)
+[ ] Revisar código com os logs, bem feitos
+[ ] __ERRO:__ logs de dois robos estão caindo no mesmo
+
+[ ] Finalizar outros campos de informação
+[ ] Fazer Histórico
+[ ] Estatistica
+[ ] Dazer diagrama representando arquitetura do Sistema
+[ ] Ímplementar sortable (impedir ordenação que desmarcado)
+[ ] Diminuir fonte do log
+[ ] Testar em Cluster
+
+---- Agora Inicia Desenvolvimento pleno ----
+
+[ ] Conexão com a aplicação Client <=> Autoit
+
+[ ] Implementação de todos os detalhes conexão cliente <-> Servidor
+	[ ] Queda de conexão
+	[ ] Ping
+	[ ] SSL
+	[ ] Lista de IP
+	[ ] SendData / GetData
+	[ ] Eventos etc...
+
+[ ] **Quando ocorrer falha ou erro, registrar as ultimas instruções executadas, qual instrução falhou com print, e erros para entender o motivo**
+[ ] Parametrizar a opção de ao dar falha por no final da fila ou no começo
+
+====== Geral ======
+
+[ ] Interface para cadastro de documentos (ex: certificado)
+
+
+**BASE DE DADOS** => **INTERFACE** => **BACKEND**
+
+[ ] **Manager deve ser compatível com Windows e deve ter código ofuscado**
+
+[ ] **Tentar criar uma configuração inteligente igual é o autoitmanager atualmente, se reiniciar o servidor as tarefas não começam da onde pararam. Pode ser mais complicado se ficar tudo no manager**
+
+[ ] Separar aplicações em módulos, em vez de carregar tudo a partir de um binário e depois criar um que unifica
+[ ] segregrar aplicação por fork, usar cluster e threads 
+[ ] Modulo gerenciado pelo [[WebUi]] 
+[ ] Separar Front do Backend
+
+[ ] Aplicativo deve ser escalave Via threads (cluster e via servidores) (Aplicação e Mysql)
+	[ ] https://www.tutorialspoint.com/nodejs/nodejs_scaling_application.htm
+	[ ] Pense no Pacemaker
+
+[ ] Modularizar sistema para melhor monitoramento e depuração
+[ ] Banco de Dados Master-Slave para backup, com controle na interface para moniramento (Talvez nessário uma interface externa), desenvolvido internamente
+[ ] Desenvolver deixando em mente a **redundancia (dois servidores em paralelo) ou já desenvolver pensando nisso**
+[ ] Desenvolver com foco em **monitoramento e log**  (mesmo em dev devemos conseguir monitorar oq acontece com a execução)
+[ ] Desenvolver primeiro a **interface com log, depois o backend**, desta forma forçamos a existencia de uma interface
+
+[ ] Mostrar nos gráfico de workers a performance na listagem junto com um gráfico estilo no ovirt com opção de abrir painel de detalhamento (se ficar lento avisar para reiniciar a maquina) ou para detectar maquina problematica
+
+[ ] Deixar projeto preparado para Teste Unitário, mesmo que não o faça
+[ ] Criar Diagramas de Atividade para facil manutenção futura
+
+[ ] Identificar Worker pelo Mac Address (em vez de id), toda configuração deve ser feita no host
+
+[ ] Criar grid de vnc na página, para q eu possa ver varios agentes executando ao mesmo tempo e ao clicar duas vezes abre tela cheia. botão "Abrir todos"
+
+[ ] Monitoramento de Timeout para tarefas. Se uma tarefa demorar muito pra ser finalizada, abortar e enviar alerta Ex: maximo 30min
+
+[ ] Aplicação não deve manter estado, para permitir clustar e processamento paralelo, informação deve ficar em uma base de dados externa
+
+[ ] Robô deve ser capaz de se alto recuperar.
+	[ ] Deixar o Workr ter acesso ao servidor? como reiniciar?
+	[ ] Criar uma task de recuperação que limpa area de trabalho, não automatico, mas pode ser criado pra cada robô
+
+[ ] Criar algoritmo de inteligência para melhorar a performance, (diminuindo ou aumentando a espera por ações de acordo com os erros) WAIT
+	[ ] ele vai registrando os tempos em que ocorreram erro, criar uma estatitica, prever casos excepcionais, tempo em tempo (a cada 1000 horas por exemplo) voltar a tentar diminuir o tempo
+
+====== Módulo 1: Worker Manager ======
+**Tipo: **Serviço e Interface
+Gerenciador de Workers (agentes):
+
+===== Algoritmo =====
+
+**Fuções Principais**
+* Cliente conecta no Servidor
+* Trocar de Mensagens
+* Desconecção e Recuperação
+* Autorização
+	* Sempre por padrão fica desautorizado, qualquer problema, duvida, desconecta
+	* Autorização só pode ser feita manualmente pelo usuário
+
+
+* connection => Auth => Estabelecido => 
+	* Comunicação Diversa -=> API
+	* Controle  =>
+		* Ping => Recuperação
+		* Eventos => Altera info 
+
+* Vamos ter uma estrutura de dados para armazenar informação que será compartilhado pelos nós
+* No futuro criar conexão reversa (ver se é possível no vídeo server-server socketcluster)
+* Vamos ter camadas, primeira camada é apenas comunicação, outra camada vai tratar envio de mensagem e gerenciamento do worker
+* Vamos forcar em interface e log primeiro
+* Entender melhor como funciona socketCluster, só o nó Leader faz gerenciamento? manual? 
+* Vamos ter um método de verificação que executa ping tempo em tempo e executa rotinas de recuperação, sempre atualizando a tabela
+* Talvez não seja necessário implementar todo o cluster,mas ir testando e deixando preparado
+
+[x] Descobrir se comunicação individual só pode ser feita através da classe Socket, ou se podemos utilizar um id (pois vamos precisar salvar essas instancias)
+	* Somente classe socket
+
+=== Cliente ===
+
+* Garantir conexão (fica tentando conectar indefinidamente)
+* Log pré conexão apenas no console
+* Log pré conexão fica num buffer, quando conectar, envia para o manager
+* Suporte a multiplo Servidor (se um não tiver diponível tenta outro do banco de IP)
+* SSL
+* Método Genérico SendData e [[GetData]]
+* Lembrando que o controle do robô será feito totalmente pelo Servidor (cliente só reiniciar aplicação ou configurar dados de conexão)
+
+**Garantia de conexão:**
+* Verifica desconexões
+* Realiza Pings frequentes
+
+**Eventos**
+* onData
+* onDisconnect
+* onConfig
+
+Tratar Eventos e Validações
+
+===== Campos da Tabela =====
+
+workers:
+* macAddress
+* ip
+* name
+* key/ssl (informação de segurança)
+* auth (bool) status se worker está autorizado
+	* qualquer problema muda flag aqui para false
+	* a flag só pode ser ativado pelo usuario
+* workflows
+	* Lista de workflows q este robo irá executar
+* port
+* user
+* exclusivo
+	* Se o robo está no modo exclusivo, permite otimizar tempo de execução
+
+===== Comunicação entre processos =====
+
+WEBUI <=> MANAGER <=> CLIENT <=> AUTOIT
+
+
+
+===== Funções =====
+
+
+**Definir se um robô vai ser alocado exclusivamente para uma conta ou compartilhado**
+	* Se compartilhado conta  não deve ter acesso a informações sensiveis de outra conta
+		* Não pode ter acesso ao controle 
+		* Colunas personalizada de acordo com o tipo
+		* Histórico filtrado por conta
+
+**Usar socketCluster para Comunicação**
+	* Precisa ser Testado e estudado, tentar ver a dificuldade
+	* Manager vai funcionar para redundancia ou para balanceamento
+		* Vamos pensar em redundancia num primeiro momento devido a complexidade
+
+* comunicação continua entre nós
+* lista de ips disponivel para o cliente poder conectar caso um servidor caia
+* Usar conceito Master/Slave? pcs?
+* Cliente auxilia na verificação se um servidor caiu, as vezes não cairam mas a comunicação entre eles está comprometida, um robo pode ajudar dizendo se consegue ou não conectar no outro
+* **Compartilhamento de dados entre os nós, deve sempre estar sincronizado**
+* Controle de qual nó está gerenciando qual worker ou client (pode ser complexo necessário entender funcionamento do cluster, ex: se uma nova conexão chega quem pega pra gerenciar?)
+	* salvar na tabela virtual talvez (estrutura de dados)
+* Comunicação Segura
+* **Configuração Automatica e Remota ( no futuro)**
+	* Basta Instalar o Cliente
+	* Estudar melhor forma de comunicação: Socket, REST API
+	* https://nodejs.org/api/net.html
+
+
+* **Varredura na rede (no futuro)**
+	* Cliente abre porta de conexão, apenas no modo discovery assim que o servidor conectar, servidor é fechado, 
+	* A não ser q abra novamente no cliente
+	* Em configurações permitir relaxamento desta protação
+
+* Conexão em Porta Especifica
+* Criptografia de comunicação
+* Chave de Acesso
+* Restrição por IP e Rede
+* Log [[RealTime]] Via rede              
+	* https://docs.mongodb.com/ecosystem/use-cases/storing-log-data/
+	* http://devopslab.com.br/centralizacao-e-analise-de-logs-com-graylog-mongodb-e-elasticsearch/
+	* https://docs.mongodb.com/manual/replication/
+* Desenvolver Interface por Primeiro
+
+
+
+* Configuração Remota
+* Gerenciamento Remoto
+* Exibir Versão do Client
+
+* Configuração
+	* Workflows Ativos
+	* Modo Exclusivo (ativo/Inativo) (apenas um workflow)
+
+* Monitoramento de Saúde
+	* Conectado
+	* Desconectado
+
+* Status
+	* Aguardando
+	* Em Execução
+	* Reservado
+	* Parado
+	* Pausado
+
+* Modo
+	* Executar
+	* Parar
+	* Pausar
+	* Abortar
+
+* Monitoramento
+	* CPU
+	* Memoria (Total/Usado/Disponível/Cache)
+	* REDE
+	* PERFORMANCE (Benchmark)
+	* Periodo de Ativação
+	* FQDN (HostName)
+	* Sistema Operacional
+	* Conexão de Internet (DNS)
+
+===== Interface =====
+
+Fixar tamanho, para sempre cabe na tela criando barra de rolagem
+
+
+==== View 01: Controles: ====
+	* Detectar Workers
+	* Adicionar
+	* Remover
+	* Icones (iniciar / pausar / parar / abortar)  - na mesma linha ou no painel de controles?
+	* Monitor
+
+
+
+==== View 02: Grid ====
+	* Grid com botões de controle e gráficos
+
+* Criar redimensionamento entre as divs: (desenvolver manualmente)
+	* https://github.com/anhr/resizer/blob/master/resizer.js
+
+==== View 03: Detalhes ====
+	* várias abas cada aba um tipo de propriedade
+
+
+
+
+* Deve funcionar no Windows XP, apenas nodejs 4
+* Várias rotinas podem ser executada para cada Worker
+
+* Será necessário implementar 2 versões: uma pro xp e outra mais completa para o 2008 pra frente
+* Não é possível utilizar pacotes binários no nodejs, usar o node apenas para comunicação socket , o node executa o autoit e se comunica com ele enviando instruções
+
+https://github.com/octalmage/robotjs
+http://webdriver.io/
+https://github.com/xhawk18/node-autoit
+
+https://nodejs.org/dist/v4.7.2/docs/api/tls.html#tls_class_tls_tlssocket
+https://www.hacksparrow.com/tcp-socket-programming-in-node-js.html
+
+Enviando Mensagem para um processo
+https://www.autoitscript.com/forum/topic/118440-send-message-to-a-process/
+
+====== Módulo 2: Workflow Manager ======
+**Tipo: **Interface
+
+
+
+
+
+====== Módulo 3: Task Manager ======
+**Tipo: **Interface
+[ ] Interface do Coletor de Tarefa
+[ ] Contabilizar e limitar quantidade de tarefas executadas para determinado workflow
+	[ ] Limitar tarefas executada:
+	[ ] Quantos % para enviar alerta de limite sendo atingido
+	[ ] Quantidade por hora/dia/mês
+	[ ] Opção de ao estourar limite: avisar or email ou bloquear
+[ ] no histórico de execução da tarefa exibir evidência na interface (print da imagem, jpg/png)
+* **Interpretador de instrução**
+
+* Agora todo gerenciamento de execução do algoritmo, ficará no servidor, que apenas enviará pacotes com a próxima instrução, por isso vamos implementar o interpretador de instrução
+Utilizando a lib do uglufy
+
+* Neste ponto a versão antiga era mais robusta, pois o client se conectava era facil rastrear, agora vai ser mais complicado, o ideal é criar uma entidade q represente virtualmente o servidor antigo
+	* ou seja, vamos ter um objeto q responde pelo workr especifico. Foco aqui é tentar deixar o sistema mais rastreavel possível e de fácil manutenção
+	* Será necessário também um grande controle de falha e recuperação
+
+
+====== Modulo 4: Coleta de Tarefa ======
+**Tipo:** Servico
+__Dividir Módulo em módulo Passivo, Ativo e via Interface__
+* Criar Interface para monitorar e logar cada um
+
+* Coleta pode ser feito via chamada para uma api (ATIVO)
+* Coleta pode ser recebida pela API (PASSIVO)
+* Pode ser cadastrado manualmente via interface
+* Em cada coleta é obtido uma lista de tarefas que é explodida e adicionada individualmente na tabela taskqueue
+* (por tarefa) Priorização de tarefa por workflow:
+	* Tarefa herda prioridade do workflow, mas tem sua própria prioridade
+	* Nível:
+		* Máxima (5)
+		* Urgente (4)
+		* Muito Alta (3)
+		* Alta (2)
+		* Normal (1)
+		* Baixa (0)
+	* Ordena fila por prioridade, idade decrescente
+	* Habilita aumento de prioridade (intervalo de tempo para subir uma prioridade)
+* (por workflow) Agendamento de execução
+	* Tabela separada
+		* workflow
+		* inicio, fim
+		* dom, seg, ter, que, qui, sex, sab
+		* Padrão: 0h00 até 23h59 e todos os dias marcados
+
+* Recuperação de Tarefa com parâmetros bem definidos
+	* Monitora tarefas zumbi, recuperando (estado Execução muito tempo, etc...)
+
+====== Módulo 5:  Execução e Cenário ======
+**Tipo:** Servico
+
+Processador de Linguagem
+http://lisperator.net/pltut/
+http://lisperator.net/uglifyjs/codegen
+http://lisperator.net/uglifyjs/walk
+
+* Na nova versão o foco vai ser o manager, todo o gerenciamento será no manager
+* Nesta nova versão para  Cada workflow teremos um conjunto de cenários
+	* Cada Cenário deve pertencer a um workflow especifico
+	* E cada cenário terá um conjunto de tarefas, divididos em 3 etapas:
+		* Pré (Configuração de Ambiente)
+		* Execução (Execução das tasks(item))
+		* Pós (Finalização do Ambiente )
+
+
+===== Jobs =====
+Execução de jobs será uma instrução do workflow especial, que permite executar jobs externos (não faz uso do Robô)
+
+===== Robo de Tarefa =====
+* Criar categoria robos para serem executados manualmente poucas vezes. Ex: Um robô apenas para trocar o certificado
+
+===== Pré Configuração de Ambiente =====
+* O Executor irá ler o próxima Task da fila (Módulo 1), nela vai obter o Workflow (Esta tarefa será chamada de **TAREFA ALVO**)
+* Para o workflow obtido, o executor vai carregar todos os cenários daquele workflow
+* Cada cenário vai carregar uma lista de Tarefas da fila 
+* As tarefas serão selecionado de acordo com as seguintes condições:
+	* Deve pertencer ao mesmo workflow do cenário
+	* Deve combinar com a condição definida no cenário (exemplo: Apenas as tarefas cujo certificado seja igual a X) **É o agrupamento de variavel (vc agrupa tarefa por variavel)**
+	* Caso seja definido um agrupamento, o executor vai pegar apenas as terefas cujo esteja no mesmo grupo da terefa alvo
+		* Por exemplo:  Agrupado por nome do certificado, então só serão carregadas neste cenário as tarefas que tem o mesmo certificado da Tarefa  Alvo
+	* Serão pegas apenas as N primeiras tarefas da fila, onde N é o limite definido no cenário
+
+
+===== Execução Execução de Tasks =====
+* A Execução do cenário se dará da seguinte forma 
+	* Verifica-se se existem instruções de Worker, caso positivo:
+		* A execução do cenário aguarda um Worker ficar disponível
+		* Lembrando a a coleta de tarefas da fila só é feita quando o worker ficar disponível não antes
+	* Pré (Configuração do Ambiente) SETUP
+		* Todas as **váriaveis agrupadas** ficarão disponíveis na etapa de setup (outras váriaveis não)
+			* por exemplo: nome do certificado. 
+			* È feito desta forma pois na etapa de setup, as instruções executadas serão comuns a todas as tasks, como por exemplo, entrar num determinado site
+		* O Setup executa uma preparação de ambiente, como por exemplo carregar um novo site, o sistema mantem neste estado e todas as tarefas a seguir executam a partir deste momento num ciclo
+		* Isso garante maior performance
+		* Um worker é alocado para este cenário e fica exclusivo até a finalização do cenário (Quando um worker é necessário)
+	* Execução
+		* De forma ciclica todas as tarefas são executadas, devendo sempre voltar para o estado após o setup (PRÉ)
+		* Caso ocorra alguma falha a task (do modulo 1) é marcado como falha e portanto entra para o final da fila (como na versão anterior)
+		* Todas as variáveis ficam disponíveis, inclusive as agrupadas ou outras tarefas criada pela etapa SETUP
+	* Pós (Finalização do Ambiente)
+		* Nesta etapa é executada tarefas para finalizar o ambiente como fechamento do Navegador, também fica disponível as váriaveis agrupadas
+		* Worker é Liberado
+
+
+* É possível executar instruções no manager intercalada com o worker, haverá uma comunicação constante
+* A configuração do worker agora deve ficar no manager (exemplo: quais workflows irá executar)
+* Preparado para função de Tomada de Decisão (Manager)	Parar execução até que a decisão seja tomada, Interface de comunicação no manager para mobile, SMS, e-mail
+* Melhoria - Repositório de Objetos	Repositório de Atributos de elementos de componentes do windows em memória 
+	* Como as instruções serão enviadas 1 por 1, estudar as eventuais funcionalidades perdida do autoit (por exemplo o Repositório de Objeto, que fica no autoit)
+* Registro de Evidência
+* Controle de recuperação de conexão (saber onde parou e continuar de lá)
+
+===== Configuração Especial =====
+
+* Quando configurado uma tarefa exclusiva para uma maquina permitir deixar o sistema já na posíção do workflow ideal para processamento com melhor resposta, 
+	* Ex: logado na receita no com terminal  de prontidão
+	* opção de manter algum movimento neste periodo para evitar q a sessão caia
+
+====== Módulo 6: Entrega de resposta ======
+**Tipo:** Servico
+
+* Toda vez que uma task é finalizada é enviado um status para uma API alvo (caso seja configurado assim) Não é mais necessário configurar o envio de dados, os dados ficam armazenados e é entregue no final
+	* Vale apena salvar o resultado a execução? SIM
+
+* Vamos precisar de um campo
+
+
+====== Módulo 7: Módulo de Monitoramento ======
+**Tipo:** interface
+
+* Interfece para monitramento das execuções
+* Cada task, workflow, modulo, worker deve ter seu próprio log
+* Para econimizar espaço mover logs antigo para outras tabelas (mais lentas) (ex: 1 mês)
+* Registro de evidência enviado pelo robo para manager
+
+
+====== Módulo 8: Interface de Controle ======
+**Tipo:** Interface
+
+* Existiram algumas intruções de controle no worker	
+* PARAR, (sempre aguarda parar a tarefa atual)
+* FORÇAR PARAR
+* atualiza sistemas
+* Segurança, comunicação http e com token
+* Worker tem q autenticar, criptografar
+
+
+====== Módulo 9: Recuperação ======
+
+* Monitora tarefas zumbi, recuperando (estado Execução muito tempo, etc...)
+
+
+====== Módulo 10: Gerenciamento de Usuários ======
+* Usuarios podem acessar sistema para monitoramento (usar já pronto de usuario)o 
+
+====== Módulo 11: Envio de Alertas (planilha é o modulo 7) ======
+
+* Monitorar por inatividade, demora, parada, enviar alerta email quando tarefa parar
+	* Necessário alert atanto na tarefa como no robo (robo pode ter travado)
+* Criar aplicativo q se perde comunicação com servidor já emite alerta (até alarme)
+
+* Alertas: Email, Timeout SMS, Email (Módulo de Alerta)
+
+====== Módulo 12: Pareamento ( PLanilha é o modulo 5 cluster) ======
+
+* Similar ao Pacemaker, testar constantemente a comunicação entre dois manager, se um cair outro assume
+* Necessidade de IP Virtual? Não, se um cair tenta outro ip
+* Frequentemente avalia se tem 1 master e 1 slave, se tiver 2 master informa
+* Pareamento Mysql, Se um cair outro deve assumir, verificar sincronia constantemente, recuperação de erro
+
+
+====== Módulo 13: Relatórios (Planilha é o modulo 9) ======
+
+* Painel de relatórios
+* Relatórios Enviado por e-mail periodicamente
+
+
+====== Módulo 14: Dashboard (Planilha é o modulo 9) ======
+
+
+
+====== Módulo 15:  Financeiro ======
+
+* A inicio opção de cobrar por despacho, centavo a centavo e dar relatório consolidado
+
+
+
+
+
+

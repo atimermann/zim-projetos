@@ -19,9 +19,7 @@ Senha: Flemax
 
 https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=2167508377284670&redirect_uri=https://localhost:3000&code_challenge=lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds&code_challenge_method=S256
 https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=$APP_ID&redirect_uri=$YOUR_URL&code_challenge=$CODE_CHALLENGE&code_challenge_method=$CODE_METHOD
-
 https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=1620218256833906&redirect_uri=https://localhost.com/redirect&state=$12345
-
 
 Code Verifier: 4dac375a1670c6243707be3fe83d4bdf6fe5a188041e9cae5d9a40d65533a7a7
 Code Challenge: lLTKoBwnlS0CWZBoF5TLhVwZoFlczUlfFLKAA1Ht5ds
@@ -57,7 +55,7 @@ curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e
 curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/sites/MLA/search?q=Motorola%20G6
 
 
-curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/users/33802651/items/search?reputation_health_gauge=unhealthy
+curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com/users/405453887/items/search?reputation_health_gauge=unhealthy
 }}}
 
 
@@ -67,3 +65,85 @@ curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e
 
 
 curl -X GET -H 'Authorization: Bearer $ACCESS_TOKEN' https://api.mercadolibre.com/applications/2507198423080849
+
+===== APIS =====
+
+===== Obter dados do usuario =====
+
+curl -X GET -H 'Authorization: Bearer APP_USR-2507198423080849-032700-1aa240190e3286c5676b398479b5355f-405453887' https://api.mercadolibre.com//users/me
+{{{code: lang="json" linenumbers="True"
+{
+  "id": 405453887,
+  "nickname": "CRONTECH",
+  "registration_date": "2021-03-19T13:45:10.000-04:00",
+  "first_name": "Andre Gustavo Timermann Games ",
+  "last_name": "Andre Gustavo Timermann Games ",
+  "gender": "",
+  "country_id": "BR",
+  "email": "andre@timermann.com.br",
+  "identification": {
+    "number": "17936039000118",
+    "type": "CNPJ"
+  },
+  "address": {
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip_code": null
+  },
+  "phone": {
+    "area_code": null,
+    "extension": "",
+    "number": null,
+    "verified": false
+  },
+  "alternative_phone": {
+    "area_code": "",
+    "extension": "",
+    "number": ""
+  },
+  "user_type": "normal",
+  "tags": [
+    "normal",
+    "messages_as_seller"
+  ],
+  "logo": null,
+  "points": 6,
+  "site_id": "MLB",
+  "permalink": "http://perfil.mercadolivre.com.br/CRONTECH",
+  "seller_experience": "ADVANCED",
+  "bill_data": {
+    "accept_credit_note": "N"
+  },
+  ...
+}}}
+
+
+===== Obter dados publicos de outro usuario =====
+curl -X GET -H 'Authorization: Bearer $ACCESS_TOKEN'  https://api.mercadolibre.com/users/202593498^C
+{{{code: lang="json" linenumbers="True"
+{
+  "id": 33802651,
+  "nickname": "REVISÃO BÁSICA",
+  "country_id": "BR",
+  "address": {
+    "city": "Curitiba",
+    "state": "BR-PR"
+  },
+  "user_type": "normal",
+  "site_id": "MLB",
+  "permalink": "http://perfil.mercadolivre.com.br/REVIS%C3%83O+B%C3%81SICA",
+  "seller_reputation": {
+    "level_id": "5_green",
+    "power_seller_status": "silver",
+    "transactions": {
+      "period": "historic",
+      "total": 5506
+    }
+  },
+  "status": {
+    "site_status": "active"
+  }
+}
+}}}
+

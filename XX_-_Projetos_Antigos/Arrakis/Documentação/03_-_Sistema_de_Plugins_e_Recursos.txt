@@ -1,0 +1,115 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2013-12-09T23:21:23-02:00
+
+====== 03 - Sistema de Plugins e Recursos ======
+Created segunda 09 dezembro 2013
+
+
+
+
+O Arrakis é baseado em um sistema de recursos e plugins, tudo é um recurso ou um puglins, e a maioria deles ficam dentro dos aplicativos.
+Além disso a principal filosofia do Arrakis é manter tudo o mais simples possível, e deixar tudo o mais conectavel possível, por exemplo:
+
+Um aplicativo de notícia só vai implementar a notícia, caso precise de uma função de comentário, será utilizado um plugin de comentário que funcionará em qualquer aplicativo, seja de notícia ou não, portanto mantenha isso sempre em mente ao criar novos plicativos.
+
+**A idéia aqui é quando você precisa de algum recurso do sistema, vocẽ pergunta pro framework: "Quero um recurso X" o framework vai se virar e retornar para você este recurso, independente de onde ele venha**
+
+====== Diferenças entre plugins e recursos ======
+
+
+A diferença entre plugin e recurso é:
+
+**Plugin:  **Modifica algo
+
+**Recurso: **Entrega algo
+
+==== Plugin ====
+
+Plugins irão obter um objeto, trata-lo e retorna-lo;
+
+== Exemplo: ==
+Vamos supor que temos um objeto que representa uma url, então podemos criar um plugin que se chama tratarURL e ele tem como objetivo remover um pedaço da url e retornar o restante:
+
+	**url = "parte1/parte2/parte3"**
+	
+	**nova_url = PLUGIN(url)**
+	
+	**nova_url agora tem "parte1/parte2**
+
+Ou seja o plugin tratar url obtém o objeto url, modifica e retorna o objeto modificado.
+
+**NOTA: **Podemos ter vários plugins do mesmo tipo, neste caso o objeto em questão será processado por **TODOS** os plugins
+
+==== Recursos ====
+
+Neste caso, queremos um "recurso" ou um objeto pronto, não vamos modificar nada, 
+
+=== Exemplo ===
+Podemos pedir para o sistema um template, para usar em nossa view, neste caso pedimos para o sistema, um recurso template.
+
+
+**NOTA: **Podemos ter vários recursos do mesmo tipo, será retornado apenas um recurso, selecionado pelo arrakis.
+
+
+====== Como usar Plugins e Recursos ======
+
+===== Plugins =====
+
+Para realizar a chamada de um plugin deve ser usado a função:
+
+	**callPlugin();**
+	
+Ele tem os seguintes parâmetros:
+	
+	**NOME:  **Nome do plugin desejado, por exemplo:
+		* "urls"
+		* "admin:get_form:exclude"
+		* "pagina:pre_renderizacao"
+
+	**VALUE:**
+		* Objeto que será processado pelo plugin, note que ele deve ser do tipo correto, caso contrário será gerado um erro, o sistema também verifica se o objeto retornado é do mesmo tipo do objeto enviado
+
+	**ARGS, KARGS:** Podemos passar parâmetros para o plugin
+
+
+=== Exemplo: ===
+	__callPlugins('%s:tratarURL' % stage, None)__ # Note que aqui não passado nenhum objeto por motivos especiais, veja em [COnfigHolder - Por link aqui
+	__urlpatterns = callPlugins("urls", urlpatterns, usar_cache=True)__ # Aqui enviamos para o plugin um parâmetro, que irá alterar a forma de processar o plugin
+	__self = app.callPlugins("pagina:pre_renderizacao", self)__ # Aqui vemos um caso em que o proprio objeto chama um plugin que irá processar a si próprio
+	
+
+===== Recursos =====
+
+Para pedir para o sistema um recurso deve-se usar a seguinte função:
+
+	**getResource();**
+	
+Parametros:
+	**NAME: **Nome do recurso desejado
+	**ARGS, KARGS:** Podemos passar parâmetros para app que irá retornar o recurso
+
+
+
+**Existirá uma ferramenta no arrakis para ajudar na visualização dos plugisn e recursos disponívels, para usa-la faça:**
+	**[NÃO IMPLEMENTADO]**
+
+**O fonte dessas funções se encontram em:**
+	__/system/app/__init__.py__
+
+
+====== Implementando Plugins e recursos ======
+
+
+[[Como implementar um APP]]
+
+====== Como é implementado internamente ======
+
+
+
+====== Aplicativos que modificam outros aplicativos ======
+
+
+
+====== Modelos Básicos ======
+

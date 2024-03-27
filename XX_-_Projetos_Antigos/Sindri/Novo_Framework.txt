@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2014-06-16T23:56:58-03:00
+
+====== Novo Framework ======
+Created segunda 16 junho 2014
+
+[[[ **DOCUMENTAÇÃO ATUALIZADA NO ARQUIVO README.md do projeto: (hweb/ nodejs-web-framework) ]]]**
+
+
+**Será criado um framework compartilhado com NODEJS server**
+
+
+====== Sistema Admin ======
+
+Sistema será Autenticado por:
+
+CONTA -> USUARIO -> PERFIL -> PERMISSAO
+
+* Menu
+
+===== Autenticação =====
+Carrega apenas o html básico, com o campo body vazio, irá fazer uma requisição para verificar se está logado ou não,
+	* **Se SIM**, carrega o esqueleto para o sistema de ADMINSITADOR, (SEM MENU, e outros modulos que serão usados)
+	* **Se Não**, carrega uma tela escura apenas com o campo de menu
+
+	* **PROPOSTA:** Crias as duas telas antecipadamente e criar efeitos de transição bacana 
+	* **PROPOSTA:** Focar sempre na velocidade, se possível carregar antecipadamente conteudo antes do usuário clicar
+
+
+===== Inicialização =====
+
+Primeira etapa é inicializar os módulos, e carregar aplicativo inicial (Dashboard por exemplo)
+
+
+
+===== Módulo Rota =====
+
+* Aqui vamos definir a execução dos aplicativos principais 
+* Veja que módulo é diferente de Aplicativo, módulo é um plugin q adiciona funcionalidade ao admin (ex: menu, mensagens), enquanto aplicativos funcionam por si só (sistema de cadastro de navio, etc...)
+* Cada aplicativo deverá definir seu ponto de entrada, e funciona assim:
+	* SERVIDOR: Cada aplicativo deverá ter um arquivo com o nome **admin.yml**, e nele definido configurações
+	* O admin irá varrer todos os aplicativos a procura desse arquivo e carregar configurações
+
+* Nessa configuração podemos definir:
+	* Dados do Menu padrão (para ser carregado pelo admin na configuração ou restauração do sistema)
+	* caminho do aplicativo no LADO CLIENTE que será carregado por esta rota,  será usado no REQUIRE e em seguida será executado a função initialize deste módulo carregado (portanto deve existir 
+	* Existe um tipo de aplicação muito comum: CRUD, cadastro/edição, este será um modelo(template) de aplicação, poderá existir mais, porém a idéia é não precisar programar novamente, apenas passamos configurações básicas e o admin se responsabilizará carregar o crud pra vc, agilizando o processo, apenas em casos de aplicações especificas vamos usar
+
+===== Otimizações =====
+* Vamos tentar fazer o menu pré-carregar na inicialização o maximo de aplicativo possível parar ver se fica mais rápido, o mais rápido deve ganhar
+* Prestar atenção no uso de memoria, janelas fechadas devem ter memoria liberada, assim quando uma div for sobreposta por outro aplicativo, o aplicativo anterior deve ser finalizado
+
+===== Outras funcionalidades =====
+
+
+===== Janela/ quadro =====
+* podemos carregar aplicações (template CRUD) em uma div ou podemos ainda abrir uma janela, ficando parecido com desktop
+
+===== Autenticação =====
+* Cuidado com autenticação: deixar cada aplicativo se virar com isso, ou forçar passar pelo admin?
+* Todo aplicativo deve passar por um middlware do admin, que autentica, verifica autorização e abre pop up de autenciação caso necessário
+
+
+====== Verificação de autenticação frequente ======
+* Sempre verificar se o usuário ainda está logado, caso não, abrir um popup de autenticação sem que o usuário perca o que estava fazendo

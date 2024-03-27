@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2015-06-04T21:21:17-03:00
+
+====== Refêrencia  Atributos Servidor ======
+Created quinta 04 junho 2015
+
+__MIGRADO PARA O JSDOCS DO PROJETO SINDRI__
+
+Refêrencia de Configuração para o Modelo do Servidor
+
+Atualizar daqui:
+[[Sindri:Refêrencia Modelos]]
+
+====== Atributos Globais ======
+
+{{./diagram002.png?type=diagram}}
+
+* nullable (true)
+* unique (false)
+* size (null)
+* required (false)
+	* Se aplica apenas a campos do tipo string, outros usar nullable
+* enum (Lista de Atributos - Valor -> Descrição)
+	* Mais usado no cliente, evitar usar, pois causa mais consumo de dados na transfêrencia (apenas em caso que é necessário fazer transmissão de forma explicita)
+	* Normalmente se definido no cliente não é definido aqui
+* dafault (não implementado)
+
+
+
+====== Schemas ======
+
+
+
+
+====== Relations ======
+
+Podemos definir relacionamento no modelo e com isso fazer uso de ferramentas disponíveis no Sindri model
+ex:
+
+{{{code: lang="js" linenumbers="True"
+UsuarioModel.prototype.relations = {
+  
+  perfis: {
+		type: 'manyToMany',
+		remoteTable: 'perfil',
+		relationTable: 'usuario__perfil'
+  }
+	
+};
+}}}
+
+
+===== Propriedades =====
+
+{{./diagram.png?type=diagram}}
+
+
+===== Métodos =====
+
+{{./diagram001.png?type=diagram}}
+

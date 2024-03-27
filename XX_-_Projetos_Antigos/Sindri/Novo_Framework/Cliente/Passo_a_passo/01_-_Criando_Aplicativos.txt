@@ -1,0 +1,156 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2014-06-17T23:26:57-03:00
+
+====== 01 - Criando Aplicativos ======
+Created terça 17 junho 2014
+
+
+====== Etapa 01 - Onde ======
+
+
+Baseando-se na estrutura de diretórios: 05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Desenvolvimento Framework:01 - Estrutura de Diretório
+
+Criar uma pasta no diretório:
+	 **client/apps**
+	
+Exemplo:
+	**/framework/client/apps/Crud**
+	
+	
+
+====== Etapa 02 - Esqueleto ======
+
+
+Agora temos duas opções:
+
+===== Biblioteca =====
+
+Se for uma biblioteca vamos criar apenas o arquivo de modulo do require.
+
+deve ter o mesmo nome do app todo em minusculo exemplo:
+	**crud.js**
+	
+A estrutura mínima é:
+{{./pasted_image.png}}
+
+O restante segue o funcionamento do requireJS, veja detalhes importantes aqui:
+
+* [[06 Cursos-Tutoriais:Linguagens:Javascript:Javascript - Require:03 - Definindo um Módulo]]
+* [[06 Cursos-Tutoriais:Linguagens:Javascript:Javascript - Require:04 - Configurações:shim]]
+
+===== Aplicativo =====
+
+
+Caso seja um aplicativo que se comunicará com outros aplicativos, você deve criar um config como o exemplo abaixo:
+
+{{./pasted_image001.png}}
+
+Veja como funciona o sistema de configuração aqui:
+
+05 Cursos-Tutoriais:Linguagens:Javascript:Novo Framework:Desenvolvimento Framework:02 - Sistema de Aplicativos e Relacionamento entre si
+
+====== Etapa 03 - Pontos de Entrada e Layout do aplicativo ======
+
+===== Pontos de Entrada =====
+Aqui existem diversas formas de iniciar a aplicação, normalmente fica no arquivo que vocẽ criou acima com o mesmo nome da aplicação:
+
+	**crud.js**
+	
+Existem diversos layout que podemos usar para definir um módulo em nossa aplicação, segue abaixo:
+
+**NOTA: **Pode ser usado tanto para bibliotecas quando aplicação, apenas que aplicação tem uma pequena peculiaridade que será discutido depois
+
+===== 1: Módulo Estático =====
+
+Neste exemplo, o módulo vai funcionar como uma classe estática, não precisamos instanciar o objeto:
+
+por exemplo:
+{{./pasted_image002.png}}
+
+
+Para chamar podemos fazer:
+
+{{./pasted_image004.png}}
+
+**NOTA:** Define sempre retorna algo que será adicionado no primeiro parâmetro, então sempre usaremos return algouma coisa, mais em: [[06 Cursos-Tutoriais:Linguagens:Javascript:Javascript - Require:03 - Definindo um Módulo]]
+**NOTA2: **Não precisamos usar require para carregar, pode ser uma dependenca de define
+
+===== 2: Módulo Instanciavel =====
+
+Em vez de retornar um objeto com funções (initialize) como no anterior, retornamos um objeto instancial (classe) no estilo javascript
+**REFS:**
+	https://developer.mozilla.org/pt-PT/docs/Javascript_orientado_a_objetos
+	http://www.w3schools.com/jsref/jsref_constructor_math.asp
+	http://www.maujor.com/blog/2012/10/19/javascript-precisa-de-classes/
+	Privado e Publico:
+	http://javascript.crockford.com/private.html
+
+**Exemplo:**
+
+{{./pasted_image005.png}}
+Para chamar podemos fazeR:
+
+{{./pasted_image006.png}}
+
+
+Existem outras formas de fazer módulo instanciavel, veja a refêrencia acima
+
+**NOTA:**  Depois de testes práticos foi verificado que a melhor forma é o 3 para apps instanciaveis
+
+===== 3: Backbone =====
+
+**NOVO: **Depois de testes práticos foi verificado que o melhor método par acirar pps instanciaveis é usar o Backbone.View como base, pois assim fica fácil de utilizar herança
+
+Começe retornando um objeto Backbone.view.Extend:
+
+{{./pasted_image008.png}}
+
+**Herança e instanciação:**
+
+Basta usar extend, em seguida como instancia
+{{./pasted_image009.png}}
+
+
+===== 4: Outros Métodos =====
+
+Note, que o módulo pode retornar qualquer coisa, não só objetos, podemos retornar valores, array, lista, até mesmo plugin para o Jquery
+
+ **Tudo depende do caso.**
+
+Por ordem de prefêrencia a usar os métodos 3 
+
+
+===== Ponto de entrada por Rota =====
+
+Podemos iniciar uma aplicação através da chamada de uma rota:
+
+**Exemplo:**
+{{./pasted_image001.png}}
+
+Admin segue a mesma metodologia mostrada acima
+
+====== Etapa 4: Dependencias ======
+
+
+Próxima etapa é especificar as dependencias, exemplo:
+
+{{./pasted_image007.png}}
+
+
+
+====== Etapa 5: Backbone ======
+
+Agora precisamos estruturar nossa aplicação usando o backbone:
+
+Podemos começar pela VIEW:
+[[06 Cursos-Tutoriais:Linguagens:Javascript:Javascript - Backbone:01 - Backbone.View]]
+
+Importante Entender Rota:
+[[06 Cursos-Tutoriais:Linguagens:Javascript:Javascript - Backbone:04 - Backbone.Router]]
+
+
+
+
+
+

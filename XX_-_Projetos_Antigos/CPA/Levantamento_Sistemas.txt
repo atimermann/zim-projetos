@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2017-02-27T09:19:50-03:00
+
+====== Levantamento Sistemas ======
+Created segunda 27 fevereiro 2017
+
+====== Guardian ======
+
+* Existe integração via [[WebService]] (Documentação será enviada pelo Guilherme)  (Parece ser SOAP)
+* Desenvolvedor do Guardian é o Toledo (fabricante da balança) 
+* Não tem acesso a base de dados 
+* Se mexer o banco perde garantia
+* Não existe um servidor de teste/Homologação (entrar em contato com a Toledo para verificar esta possibilidade)
+* Guilherme disponibilizou documentação do WebService
+* Não existe licença para execução pelos robôs, talvez seja necessário comprar outra licença
+* Unisolution já vez uma integração com o Guardian, podemos entrar em contato para verificar como
+* toledobrasil.com.br
+
+====== Corporate ======
+
+* Desenvolvedor Unisolution unisolution.com.br
+* Tem acesso base de dados
+* Tem Integração [[WebService]] talvez ñ seja necessário usar base de dados
+* Tem documentação, será enviado pelo Guilherme
+* Existe documentaçao extensa do Corporate
+* Aguarda fim do feriado para entrar em contato com a [[UniSolution]] e verificar melhores formas de integração

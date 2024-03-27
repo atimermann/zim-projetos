@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-03-27T02:32:12-03:00
+
+====== Mercado Livre ======
+Criado quarta 27 março 2024
+
+**URL:** https://developers.mercadolivre.com.br/pt_br/minha-primeira-aplicacao
+
+**Exemplo**: [[Revisão Básica:Credenciais]]
+
+* **Autenticação:** https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao
+
+====== Resumo ======
+
+* Necessário ter uma conta no mercado livre
+* Necessário criar uma aplicação no mercado livre, que representa seu software
+	* Esse aplicação deve ser criada por um usuario do mercado livre, que não é o mesmo que será feita a consulta na API
+	* Então temos um usuario do mercado livre q será dono da aplicação e outros N usuarios q serão os clientes, onde as consultas serão feitas
+* Precisamos vincular um cliente (usuario à nossa aplicação)
+* Recebemos um code de autorização
+* Toda vez que desejarmos acessar os dados do usuario, realizamos uma requisição com esse token e recebendo um acess_token
+* Com access_token utilizamos API do mercado livre
+* Utiliza o refresh_token quando o access_token expirar para renovar o access_token **(3. Refresh token)**
+
+{{./pasted_image.png?width=1000}}
+
+====== API Básica ======
+
+Acessar dados do usuario logado (CLIENTE):
+{{{code: lang="sh" linenumbers="True"
+curl -X GET -H 'Authorization: Bearer <ACCESS_TOKEN>' https://api.mercadolibre.com/users/me
+}}}

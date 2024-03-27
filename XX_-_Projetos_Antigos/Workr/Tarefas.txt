@@ -1,0 +1,284 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2016-04-07T14:52:17-03:00
+
+====== Tarefas ======
+Created quinta 07 abril 2016
+
+====== Mais Novas ======
+
+[ ] Ativar Robôs apenas em caso de emergencia (PICO)
+
+
+====== Novas ======
+
+[ ] Log de comunicação externa
+[ ] Estátistica de falhas e acerto por worker
+[ ] Modo Debug, com msg box e sleep(1000) 
+[ ] Modo Exclusivo, uma workflow não pode ter duas tarefas executando ao mesmo tempo em dois robos diferente (ex: senha que bloqueia acesso)
+[ ] Permitir ou não agrupar
+[ ] Reconfigurar servidores: Manter espelho com discos no mesmo servidor e MYSQL replicado
+	[ ] Desenvolver módulo para assumir automatico
+
+====== Prioridade ======
+
+[ ] Interface de gerenciamento de usuário
+[ ] Interface de criação de workflow
+[ ] Criar repositório no bitbucket para os workflows no windows
+[ ] Manager Travou e os workers deram timeout, com isso tarefas ficaram com status execução, criar um algoritimo para recuperar tarefas perdidas com status X
+[ ] Interface de Gerenciamento de Pool de Conexão (Está ocorrendo estouro de pool, verificar se é possível fazer algum tipo de monitoramento disso)
+
+[ ] Instalador windows para nodejs:
+	[ ] https://en.wikipedia.org/wiki/List_of_installation_software
+	[ ] http://nsis.sourceforge.net/Main_Page
+	[ ] http://jrsoftware.org/isinfo.php
+
+====== Restante ======
+
+[ ] Proteger ou desativar botão Reinicia Automação (pois o robo tá desativando acidentalmente)
+[ ] Criar janela overWindows igual o ISN AUtoitStudio faz
+
+
+
+https://docs.google.com/document/d/109uIaMvgHXPILQ3T8xf0yDdRLMpeIWiUJi3yyNQrlX4/edit
+
+- Validar conexão tanto db2 e mssql  ANTES de iniciar execução
+
+- Fechar processo do argos como é feito no IE antes de iniciar, pois processo fica preso
+
+- As vezes dá erro ao escrever ARGOS.ws, revalidar
+
+- Revisar robo SISCARGA, problema com CPF
+
+
+
+- Alterar screenshoot, não está servindo pra nada: SISCARGA problema CPF
+
+
+
+- O Novo algoritmo não está funcionando em DEV, por algum motivo  parou de rodar as instruções, analiasr e criar controle pra q isso não ocorre, estranho q no prod não deu problema
+SE O FLUXO DE INSTRUÇÕES para reiniciar
+Nem que queria um cara só pre observer isso
+PODE SER O TIMEOUT, mas ficou dias sem sinal de vida no fluxo, aplicação corria normalente:: Detectado problema: Conexão cai no processo principal, aquela acessa as tabelas de gerenciamento
+
+
+- Criar arquivos de log no servidor em vez de imprimir na tela e separar log por aplicação, assim fica mais fácil ratrear um eventual problema
+
+- Conexão morreu
+
+
+
+- Remover a LIsta de Workflows a monitorar
+
+- Melhoria sistema de log, muito extenso registrar em arquivo, pensar em outra forma
+
+[ ] -Sistema de recuperação avançado, se um robo parar ou não responder, DESATIVA-LO pelo painel e enviar a tarefa para outro robo. Permitir o cancelamento do robo a qualque rmomento, mesmo no meio do processo o robo pode receber um sinal para parar
+[ ] Perfil de Acesso de Usuário
+[ ] Interface para monitoramento 
+[ ] DEFINIR PERIODO DE EXECUÇÃO DAS TAREFAS NO AUTOIT (deve ser possível agendar execução) 
+[ ] barra de progresso - upload
+[ ] simplificar log na saida principal
+[ ] criar log mais robusto para os workfliws e workers (Um log separado pra cada)
+[ ] Melhorar o log para cada chamada, worker chamou o [[/nextStatement]] mas pode ser q tenha travado o evento e não consigo encontrar (banco de dados ou arquivo)
+[ ] Preparar post de testes para testar api, com relatórios e aviso em caso de algum problema
+[ ] Criar uma forma de executar passo a passo uma execução (titulo de teste ao criar um novo workflow)
+[ ] Adicionar Versão na tela de controle
+[ ] Acesso API via token
+[ ] Acesso https (SSL) Certificado Digital
+[ ] Manager com suporte a cluster e distribuição de tarefa
+[ ] Carrega Workflows dinamicamente sem precisar reiniciar
+[ ] Importação/Exportação Workflow
+[ ] Gerenciamento do Workers através do host como:
+	[ ] Iniciar/Reiniciar Workers
+	[ ] Configuração diversas (Arquivo Ini)
+[ ] Contadores de acesso para combrança e limites (acesso por cliente) (Cadastro de cliente)
+[ ] Prioridade de Manager, podemos definir uma prioridade, pode ser usado para testes,
+	[ ] Poder trocar de manager com um clique do mouse, (EM casa ou do servidor, testes e depuração)
+	[ ] Ou então troca (configuro dois manager, mas eles se conversão e será possível trocar entre eles)
+
+[ ] Ideia para resolver problema dos print (evidencia): O sistema grava a evidencia em cada execução, caso de problema manda pro manager q manda por email par ao usuario, se tudo certo, apaga evidencia
+	[ ] Enviar email formatido bonito com cada passo e oq aconteceu
+
+[ ] Controle total dos robos pelo painel, inclusive com envio do arquivo de execução do robo
+	[ ] opção de enviar sinal para parar, porém só para quando finalizar tarefa atual
+	[ ] Desativar qual tarefa o robo executa pra não parar as outras
+		[ ] Opção de mandar um broadcast, todos os robos parem o Workflow 10 (Manutenção)
+
+===== Acabou a luz, cortou conexão, gerou o seguinte erro: =====
+
+debug:  uri=https://api.logcomex.com.br/v2/get_siscomexexp_dde_presenca_pendente/?api_key=68686e1459183a6d5e6facf02e3e3a27, method=GET
+info: Acessando API: https://api.logcomex.com.br/v2/get_siscomexexp_dde_presenca_pendente/?api_key=68686e1459183a6d5e6facf02e3e3a27
+/home/andre/projetos/autoitmanager/src/apps/autoitManager/server/statement/106.js:78
+			logger.error('statusCode', response.statusCode);
+											   ^
+
+TypeError: Cannot read property 'statusCode' of undefined
+	at Request._callback (/home/andre/projetos/autoitmanager/src/apps/autoitManager/server/statement/106.js:78:48)
+	at self.callback (/home/andre/projetos/autoitmanager/src/node_modules/request/request.js:199:22)
+	at emitOne (events.js:77:13)
+	at Request.emit (events.js:169:7)
+	at Request.onRequestError (/home/andre/projetos/autoitmanager/src/node_modules/request/request.js:821:8)
+	at emitOne (events.js:77:13)
+	at ClientRequest.emit (events.js:169:7)
+	at TLSSocket.socketErrorListener (_http_client.js:259:9)
+	at emitOne (events.js:77:13)
+	at TLSSocket.emit (events.js:169:7)
+	at connectErrorNT (net.js:998:8)
+	at doNTCallback2 (node.js:441:9)
+	at process._tickCallback [[(node.js:355:17)]]
+	
+	
+	
+
+===== Conexão Caiu =====
+
+Task atualizada
+/home/andre/projetos/autoitmanager/src/apps/autoitManager/server/statement/106.js:78
+			logger.error('statusCode', response.statusCode);
+											   ^
+
+TypeError: Cannot read property 'statusCode' of undefined
+	at Request._callback (/home/andre/projetos/autoitmanager/src/apps/autoitManager/server/statement/106.js:78:48)
+	at self.callback (/home/andre/projetos/autoitmanager/src/node_modules/request/request.js:199:22)
+	at emitOne (events.js:77:13)
+	at Request.emit (events.js:169:7)
+	at Request.onRequestError (/home/andre/projetos/autoitmanager/src/node_modules/request/request.js:821:8)
+	at emitOne (events.js:77:13)
+	at ClientRequest.emit (events.js:169:7)
+	at TLSSocket.socketErrorListener (_http_client.js:259:9)
+	at emitOne (events.js:77:13)
+	at TLSSocket.emit (events.js:169:7)
+	at connectErrorNT (net.js:998:8)
+	at doNTCallback2 (node.js:441:9)
+	at process._tickCallback (node.js:355:17)
+	
+
+EXTRATO DE DECLARACAO DE DESPACHO
+
+
+  __ SISCOMEX,EXPORT-DE ( EXPORTACAO-PERFIL DEPOSITARIO )_____________________  
+ NI01                                                USUARIO : ALINE            
+                                                                                
+  SISTEMA INTEGRADO DE COMERCIO EXTERIOR                                        
+                                                                                
+	 POSICIONE O CURSOR NA OPCAO DESEJADA E PRESSIONE <ENTER>                   
+                                                                                
+			  EDE-INFO01 -> INFORMA PRESENCA CARGA                              
+			  EDE- +------------------------------------------+                 
+			  EDE- |                                          |                 
+			  EDE- |          EXISTEM NOVAS NOTICIAS          |                 
+			  EDE- |                                          |                 
+			  EDE- |  CASO QUEIRA ACESSA-LAS, TECLE 'ENTER',  |                 
+			  EDE- |   SENAO COLOQUE 'N' E TECLE 'ENTER'.     |                 
+				   |                                          |                 
+				   |                  ( S )                   |                 
+				   +------------------------------------------+                 
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+ COMANDO..... _______________________________________________________________   
+                                                                                
+ PF1=DUVIDAS PF3=SAIDA PF7=VOLTA MENU PF8=AVANCA MENU                       NT01
+
+
+                                                                                
+  SISCOMEX - NOTICIAS                                23/04/2016        15:01:54 
+						   NOTICIAS CONSULTA                         PAG.:     1
+  ------------------------------------------------------------------------------
+	DATA       MSG                       TEXTO                                  
+  ------------------------------------------------------------------------------
+                                                                                
+  22/04/2016  0010  INFORMA SOBRE A EXCLUSãO DE CóDIGOS DE EXPORTAçãO           
+                                                                                
+					A SECRETARIA DE COMéRCIO EXTERIOR INFORMA QUE EM 20/04/16   
+					FORAM EXCLUíDOS OS CóDIGOS DE UF 94 - CONSUMO DE BORDO (CB),
+					96 - MERCADORIA NACIONALIZADA (MN), 98 ESTADOS DIVERSOS (ED)
+					E 99 - ZONA NÃO DECLARADA (ZO), SENDO MANTIDOS OS CóDIGOS 95
+					- NÃO DECLARADO (ND) E 97 - REEXPORTAÇÃO (RE).              
+                                                                                
+					DESTA FORMA, OS REGISTROS DE EXPORTAçãO (RE) QUE CONTIVEREM 
+					FABRICANTES ESTRANGEIROS OU DIVERSOS FABRICANTES DEVEM SER  
+					PREENCHIDOS UTILIZANDO-SE O CóDIGO ND OU RE, CONFORME O TIPO
+					DE OPERAçãO. O CNPJ A SER INFORMADO DEVE SER                
+					99.999.999/9999-99.                                         
+                                                                                
+																   CONTINUA...  
+  ______________________________________________________________________________
+   PF3 -MENU ANTERIOR                 PF6 -SAIDA                 ENTER -CONTINUA
+
+====== Erro de Banco ======
+
+error:  Error: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+	at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:138:30
+	at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+	at CatchFilter.doFilter (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/catch_filter.js:40:36)
+	at CatchFilter.tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+	at Promise._settlePromiseFromHandler (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:507:31)
+	at Promise._settlePromiseAt (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:581:18)
+	at Promise._settlePromises (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:697:14)
+	at Async._drainQueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:123:16)
+	at Async._drainQueues (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:133:10)
+	at Immediate.Async.drainQueues [as _onImmediate] (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:15:14)
+	at processImmediate [as _immediateCallback] (timers.js:383:17)
+Unhandled rejection Error: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+	at /var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/lib/runner.js:138:30
+	at tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+	at CatchFilter.doFilter (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/catch_filter.js:40:36)
+	at CatchFilter.tryCatcher (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/util.js:26:23)
+	at Promise._settlePromiseFromHandler (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:507:31)
+	at Promise._settlePromiseAt (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:581:18)
+	at Promise._settlePromises (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/promise.js:697:14)
+	at Async._drainQueue (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:123:16)
+	at Async._drainQueues (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:133:10)
+	at Immediate.Async.drainQueues [as _onImmediate] (/var/node/autoitmanager/node_modules/sindri-framework/node_modules/knex/node_modules/bluebird/js/main/async.js:15:14)
+	at processImmediate [as _immediateCallback] (timers.js:383:17)
+
+————————————————————————————————————————————
+
+
+
+Única Automate Platinum Partner na América Latina
+Única com soluções prontas para automação em diferentes segmentos de negócios
+Monitoramento do Automate no seu ambiente de forma remota e descomplicada
+Serviços de suporte estendido aos seus workflows e tarefas
+Especialistas em Automate para desenvolvimento de projetos ágeis
+
+ Soluções prontas de automação para Terminais Aduaneiros
+ Integração com os sistemas da Receita Federal
+ Implantação descomplicada e integração simples com seus sistemas
+ Homologação e garantia com monitoramento e suporte estendido
+
+Soluções de Automação para Escritórios de Advocacia e Departamentos Jurídicos
+Integração com sistemas dos tribunais para captura de dados processuais
+Integração entre sistemas jurídicos
+Auditoria de base processual a fim de reduzir estoque de processos
+Homologação e garantia com monitoramento e suporte estendido
+
+Várias vezes premiado e que se adapta a qualquer desafio de automação de tarefas na sua empresa, mesmo substituindo processos manuais, integrando-se à qualquer sistema, à nuvem ou ao seu legado.
+
+Automação de tarefas manuais entre sistemas internos ou na WEB
+
+Automação para Integração dos seus sistemas ao legado
+
+Automação de tarefas da TI (Jobs)
+
+Automação de transferência e tratamento de arquivos e acesso à banco de dados
+
+Automação de Consulta e Atualização de informações com sites do governo ou de parceiros
+
+Monitoramento e atuação nos dispositivos ou servidores na rede
+
+Automação de e-mail e redes sociais
+
+Enterprise Job Scheduling
+
+Possuímos soluções prontas de automação para os segmentos de: Terminais Aduaneiros, Escritórios de Advocacia, Departamentos Jurídicos.
+
+Entre em contato ou visite-nos para uma apresentação presencial ou remota do Automate e das nossas soluções.
+
+SOBRE
+
+Somos uma empresa dedicada à soluções para automação de processos de negócio e de TI, sendo representante oficial das soluções da HelpSystems. Contamos com vasta experiência em Automate atuando em assessoria durante a venda, consultoria especializada em desenvolvimento além de monitoramento e suporte estendido ao ambiente Automate. Entre em contato conosco pelos nossos canais de comunicação e conheça mais sobre os nossos serviços.
+
+{{./pasted_image.png}}

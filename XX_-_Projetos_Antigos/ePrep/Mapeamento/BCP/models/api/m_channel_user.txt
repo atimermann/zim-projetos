@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2016-02-07T20:56:45-02:00
+
+====== m channel user ======
+Created domingo 07 fevereiro 2016
+
+**Caminho:**
+	bcp/application/models/api/m_channel_user.php
+
+**Classe que estende:**
+	[[M apibase]]
+
+
+====== function ext_create($vars) ======
+
+* **Se existir Dados**
+	* Se **$_POST['formauthcode']  **__[????]__
+* **Se não existir Dados**
+
+
+
+
+

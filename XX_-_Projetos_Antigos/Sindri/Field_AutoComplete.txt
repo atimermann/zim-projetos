@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2015-05-21T16:16:03-03:00
+
+====== Field AutoComplete ======
+Created quinta 21 maio 2015
+
+* Pré Loading
+	* Inicialmente já carrega informações principais
+	* Até 30 carrega tudo e deixar no selecbox (cache) ... indicando q tem mais
+	* + 30 carrega os 30 primeiros e caso tenha mais usa o filtro
+* Cache
+* Formato de [[SelectBox]]
+* Botão Cadastrar Novo Comunicação com outra Janela
+	* incluir o modelForm do formulario alvo
+	* criar evento onClose pra receber os dados salvos
+
+* url requisicao
+* GET ALL Filtrado (aproveitar o mesmo GET ALL? ou fazer um mais enxuto?) 
+
+* Callback para montar o resultado (exemplo: por uma foto, colocar nome descrição) ou só texto 

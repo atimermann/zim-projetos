@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2015-06-04T21:21:06-03:00
+
+====== Refêrencia Atributos Cliente ======
+Created quinta 04 junho 2015
+
+Refêrencia de Configuração para o Modelo do Cliente
+
+Atualizar daqui:
+[[Sindri:Refêrencia Modelos]]
+
+"
+Enquanto não existe suporte a tabela no Zim, podemos usar Diagrama, para alterar clique com o direito do mouse na tabela e em **"edit diagram"**
+
+====== Propriedades Globais ======
+
+{{./diagram001.png?type=diagram}}
+
+====== Propriedade por Campo: ======
+
+{{./diagram.png?type=diagram}}
+
+* As propriedades podem ser estendidas para o Formulário e o Datagrid. Exemplo: **string** pode se transformar em **changePassword**
+* **ATENÇÃO:**  Apenas propriedades pertiente ao modelo, não a estrutura como formulário ou datagrid, pois poderá ser usado para muitos casos
+
+* **ATENÇÃO:** O nome do Campo deve ser o mesmo nome no servidor
+
+
+

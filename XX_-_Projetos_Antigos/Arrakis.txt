@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2013-01-11T22:17:24-02:00
+
+====== Arrakis ======
+Created sexta 11 janeiro 2013
+
+
+====== Configuração Inicial de um projeto Arrakis ======
+
+
+Criei um script que automatiza o processo: **arrakis-admin.py**
+
+
+====== Plugins e Resources ======
+
+
+
+====== Notas ======
+
+* Ver sessão 
+[[+Como implementar um APP]]
+* Criar um script que verifica se tudo foi testado
+
+====== Padrão arrakis ======
+
+minha_variavel
+
+def minhaFuncao(meu_argumento):
+	pass
+
+**Classe:**
+	
+	def meuMetodo (meu_argumento):
+		pass
+		
+minha_instancia = Classe()
+
+===== Padrão nome de arquivos =====
+
+* Com exceção dos diretório dos apps que vem **começar com maiuscula seguindo o padrão CamelCase (MeuApp)**, os diretórios e aplicativos devem seguir o padrão underline:
+	* meu_arquivo.y, meu_diretorio
+
+
+====== TODOS ======
+
+* Criar app registro (vai registrar tudo que o usuário fizer, os app devem ser compativeis)
+* Mais TODOS no diretório do projeto no arquivo TODO.txt

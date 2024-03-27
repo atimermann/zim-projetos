@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2016-09-28T20:28:08-03:00
+
+====== 17 - Reunião 28-09-2016 ======
+Created quarta 28 setembro 2016
+
+* [[PagSeguro]]
+

@@ -1,7 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2012-12-30T14:11:34-02:00
-
-====== Projetos Antigos ======
-Created domingo 30 dezembro 2012
-

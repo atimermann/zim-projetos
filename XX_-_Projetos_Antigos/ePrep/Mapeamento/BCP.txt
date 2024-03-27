@@ -1,0 +1,53 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2016-02-05T15:27:08-02:00
+
+====== BCP ======
+Created sexta 05 fevereiro 2016
+
+__MAPEAMENTO NO FREEMIND__
+
+__USAR XDEBUG PARA DEPURAR PROJETO, NÂO PERCA TEMPO__
+
+
+====== Melhor DEBUG ======
+
+===== Route Debug =====
+	* https://github.com/PhiloNL/CodeIgniter-Route-Debugging
+	* https://ellislab.com/codeigniter/user-guide/general/core_classes.html
+	
+	Alterado MY p/Ext e habilitado log debug
+
+
+====== Página Inicial ======
+
+===== Home =====
+
+===== Login =====
+	[[+Login]]
+
+
+===== About =====
+
+===== Team =====
+
+	**Controller:** 
+	* bcp/application/controllers/pages.php (team) => this.index
+	* Acessa Método  [[+Output]]
+		* Carrega View: **pages/static**
+		* Configura tdata com:
+			* define **cur_topmenu** e **tpl_hide_edition**
+			* html_inner: Define html carregado internamente **pages/team**
+	**View: **
+	* Carrega pelo método Output
+		* bcp/application/views/pages/static.php
+	* Carrega dentro de html_inner
+		* bcp/application/views/pages/team.php
+
+
+
+
+====== Administrador ======
+
+===== Students =====
+[[+Registro de Estudante]]
