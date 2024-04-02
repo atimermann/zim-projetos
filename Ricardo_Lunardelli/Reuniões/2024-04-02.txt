@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-02T14:54:17-03:00
+
+====== 2024-04-02 ======
+Criado terça 02 abril 2024
+
+* Criar uma maquina para VUEJS/
+
+
+**LINUX**
+Banco de Dados
+Memória 4GB
+Armazenamento 20GB
+Windows Server 2022
+
+
+**Aplicação**
+Memória 4GB
+Armazenamento 10GB
+Windows Server 2022
+
+Tem alguns recursos na aplicação que são usados do Azure, exemplo: armazenamento de arquivos no BlobStorage, armazenamento de variáveis de ambiente no KeyVault, se realmente o sistema for ficar em VM teremos que fazer algumas alterações.
+
+* Pesquisar essas duas máquinas na OVH (Preço)
+
+
+====== Plataforma Monitoramento ======
+
+===== Item1: =====
+	* Controladores de Processo (Atualmente fake)
+	* Manipulação jobs
+	
