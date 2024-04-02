@@ -30,4 +30,10 @@ Tem alguns recursos na aplicação que são usados do Azure, exemplo: armazename
 ===== Item1: =====
 	* Controladores de Processo (Atualmente fake)
 	* Manipulação jobs
+	* Sistema deve baseado no cliente em vez de por api (montar o sistema pra revenda)
+	* Suport White-Label, Multi-tanent
+
+===== Item 2: PARCERIA =====
+	* Desenvolver a parceria
+	* analise de NOta fiscal da preferitura por I.A.
 	
