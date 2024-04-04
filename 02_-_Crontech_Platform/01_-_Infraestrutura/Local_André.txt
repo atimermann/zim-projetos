@@ -23,6 +23,8 @@ Será criado um cluster local André para servidor de alta performance
 * VPN Wireguard conectado na OVH
 * Cluster configurado via Wireguard
 
+* Agente01 configurado com maximo de memoria possível (64GB pra começar) 
+
 ====== Maquinas: ======
 **Hostname				Máquina		IP Local			IP VPN**
 k3s-crontech-lb01 		XEON			192.168.0.61		10.12.0.61
@@ -65,5 +67,16 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN] sh -s - server \
     --node-taint CriticalAddonsOnly=true:NoExecute
     
 # Agents
-
+curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN] sh -s - agent \
+	--server https://192.168.0.60:6443
 }}}
+
+===== Configuração local =====
+Configurado contexto com nome crontech-andre ( no futuro teremos outros serviores)
+ 
+{{{code: lang="sh" linenumbers="True"
+kubectl config current-context 
+kubectl config get-contexts 
+kubectl config use-context crontech-andre
+}}}
+
