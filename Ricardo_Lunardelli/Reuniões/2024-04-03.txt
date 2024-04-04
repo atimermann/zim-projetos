@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-03T21:38:38-03:00
+
+====== 2024-04-03 ======
+Criado quarta 03 abril 2024
+
+====== Jobs ======
+
+1 Painel de Monitoramento
+  - Painel deve apresentar os Jobs da Automação segregado por:
+	.  Administradores
+		.  White Label´s
+			.  Clientes
+
+ex.: Ricardo ( Acesso ADM )
+		  Datatem ( Acesso White Label - Gestor)
+			 . BRCap( Acesso Client A )
+			  .. extração API BRCAP
+			 . ADM Int ( Acesso Cliente B - Analista Datatem )
+			  .. GA4
+			  .. RD Station
+				 .. Marketing
+				 .. CRM
+			  .. Sankya
+
+
+===== Template =====
+template atualmente é usado para ler o CDR de claro, vivo
+Exemplo qual posição está cada dado na linha separado por ; ou outro separador
+
+Quer usar o mesmo para JSON, de outras API, mas não entendi direito o pq e qual a função
+
+
+====== Outros ======
+
+* Vamos converter para nova estrutura
+* Adicionar alarmes na api
