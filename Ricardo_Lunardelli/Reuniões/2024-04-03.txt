@@ -5,6 +5,18 @@ Creation-Date: 2024-04-03T21:38:38-03:00
 ====== 2024-04-03 ======
 Criado quarta 03 abril 2024
 
+====== Painel amigável ======
+
+* Remover o dashboard no momento e colocar na listagem de processo, criar um gráfico de progresso
+	* Objetivo só bater o olho já ver se tá tudo funcionando direito
+* Migrar sistema nova plataforma
+* As Api não precisam estão funcional nesta fase, apenas para apresentação (pegar uma mais simples)
+
+Vamos converter para microserviço, mas fazer da forma mais rápida possível
+
+Deixar a seguinte cores:
+{{./pasted_image.png}}
+
 ====== Jobs ======
 
 1 Painel de Monitoramento
@@ -36,3 +48,5 @@ Quer usar o mesmo para JSON, de outras API, mas não entendi direito o pq e qual
 
 * Vamos converter para nova estrutura
 * Adicionar alarmes na api
+
+
