@@ -21,3 +21,4 @@ Será criado um cluster local André para servidor de alta performance
 * 1 Worker no XEON
 * 1 Worker no Notebook
 * VPN Wireguard conectado na OVH
+
