@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-04T01:15:05-03:00
+
+====== Local André ======
+Criado quinta 04 abril 2024
+
+Será criado um cluster local André para servidor de alta performance
+
+* Duas maquinas:
+	* Notebook mais lento
+	* XEON maior performance e capacidade de processamento GPU
+
+* Dois load balance um em cada servidor
+* Serão Vms proxmox
+	* No worker do XEON terá uma placa de vídeo ligado diretamente
+
+* 2 LoadBalance um em cada servidor
+* 2 Nó Master no XEON
+* 1 nó master no Notebook
+* 1 Worker no XEON
+* 1 Worker no Notebook
+* VPN Wireguard conectado na OVH

@@ -16,3 +16,5 @@ Credenciais salva no LastPass (Notas)
 * haproxy para cluster k3s
 * Habilitado swap
 * Está com o Ip forward habilitado
+
+
