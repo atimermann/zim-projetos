@@ -43,4 +43,10 @@ dhcp-host=BC:24:11:C7:38:7C,192.168.0.65
 dhcp-host=2E:25:32:86:47:A4,192.168.0.66
 dhcp-host=BC:24:11:EF:F8:98,192.168.0.67
 
+====== Wireguard ======
+
+* Wireguard não aceita IP Failover, não utilizar
+* Necessário Instalar o Kubernetes via ip tradicional mesmo, sem wireguard
+
+
 
