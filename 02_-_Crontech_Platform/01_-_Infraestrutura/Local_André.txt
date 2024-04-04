@@ -21,4 +21,17 @@ Será criado um cluster local André para servidor de alta performance
 * 1 Worker no XEON
 * 1 Worker no Notebook
 * VPN Wireguard conectado na OVH
+* Cluster configurado via Wireguard
 
+====== Maquinas: ======
+
+**IP LOCAL**
+| Máquina           | IP Local     | IP VPN     |
+|:------------------|:-------------|:-----------|
+|                   |              |            |
+| k3s-crontech-lb01 | 192.168.0.61 | 10.12.0.61 |
+|                   |              |            |
+|                   |              |            |
+
+k3s-crontech-lb01 192.168.0.61
+k3s-crontech-lb02 192.168.0.62
