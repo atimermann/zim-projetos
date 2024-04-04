@@ -48,5 +48,22 @@ dhcp-host=BC:24:11:EF:F8:98,192.168.0.67
 * Wireguard não aceita IP Failover, não utilizar
 * Necessário Instalar o Kubernetes via ip tradicional mesmo, sem wireguard
 
+====== Configuração k3S ======
 
+**Master**
+{{{code: lang="sh" linenumbers="True"
+# MASTER
+curl -sfL https://get.k3s.io | sh -s - server \
+    --cluster-init \
+    --tls-san=192.168.0.60 \     
+    --node-taint CriticalAddonsOnly=true:NoExecute
+    
+# Outros Master
+curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN] sh -s - server \
+    --server https://192.168.0.60:6443 \
+    --tls-san=192.168.0.60 \
+    --node-taint CriticalAddonsOnly=true:NoExecute
+    
+# Agents
 
+}}}
