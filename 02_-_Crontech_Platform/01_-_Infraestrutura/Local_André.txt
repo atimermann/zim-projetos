@@ -24,14 +24,23 @@ Será criado um cluster local André para servidor de alta performance
 * Cluster configurado via Wireguard
 
 ====== Maquinas: ======
+**Hostname				Máquina		IP Local			IP VPN**
+k3s-crontech-lb01 		XEON			192.168.0.61		10.12.0.61
+k3s-crontech-lb02 		NOTE-DELL		192.168.0.62		10.12.0.62
+k3s-crontech-server01	XEON			192.168.0.63		10.12.0.63
+k3s-crontech-server02	XEON			192.168.0.64		10.12.0.64
+k3s-crontech-server03	NOTE-DELL		192.168.0.65		10.12.0.65
+k3s-crontech-agent01	XEON			192.168.0.66		10.12.0.66
+k3s-crontech-agent02	NOTE-DELL		192.168.0.67		10.12.0.67
 
-**IP LOCAL**
-| Máquina           | IP Local     | IP VPN     |
-|:------------------|:-------------|:-----------|
-|                   |              |            |
-| k3s-crontech-lb01 | 192.168.0.61 | 10.12.0.61 |
-|                   |              |            |
-|                   |              |            |
+===== Configuração DNSMasq =====
+**/etc/dnsmasq.d/domains.conf**
+dhcp-host=BA:45:25:2D:63:F1,192.168.0.61
+dhcp-host=BC:24:11:FD:F9:80,192.168.0.62
+dhcp-host=76:99:71:61:AD:9E,192.168.0.63
+dhcp-host=5E:A5:FF:E0:6C:9A,192.168.0.64
+dhcp-host=BC:24:11:C7:38:7C,192.168.0.65
+dhcp-host=2E:25:32:86:47:A4,192.168.0.66
+dhcp-host=BC:24:11:EF:F8:98,192.168.0.67
 
-k3s-crontech-lb01 192.168.0.61
-k3s-crontech-lb02 192.168.0.62
+
