@@ -19,3 +19,8 @@ https://ollama.com/library/llama2
 
 models:
 https://ollama.com/library
+
+Execução em paralelo:
+https://github.com/ollama/ollama/issues/358
+https://github.com/ParisNeo/ollama_proxy_server
+https://github.com/ollama/ollama/pull/3418
