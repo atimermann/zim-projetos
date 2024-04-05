@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-04T23:24:46-03:00
+
+====== Ollama ======
+Criado quinta 04 abril 2024
+
+Instalação:
+[[Tecnologia-cursos-tutoriais?1 - Kubernetes + K3S:Ollama]]
+
+FAQ
+https://github.com/ollama/ollama/blob/main/docs/faq.md
+
+huggingface
+https://huggingface.co/meta-llama
+
+requisitos
+https://ollama.com/library/llama2
+
+models:
+https://ollama.com/library
