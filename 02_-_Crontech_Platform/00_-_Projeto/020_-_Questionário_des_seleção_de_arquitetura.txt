@@ -30,7 +30,7 @@ Criado sábado 02 março 2024
 ===== Aplicação Customizada com acesso ao código fonte =====
 (1 imagem para cada cliente)
 
-* Quando cliente desejar o código fonte, então não terá acesso ao layers
+* Quando cliente desejar o código fonte, então não terá acesso ao layers (Layer propriedade Crontech)
 * Para acessar os serviços SaaS terá que acessar outro dominio 
 * Deve haver alguma comunicação para automatizar autenticação
 * Pode ou não utilizar mesmo servidor de autenticação

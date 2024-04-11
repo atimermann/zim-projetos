@@ -47,7 +47,7 @@ Criado sexta 16 fevereiro 2024
 ====== Aplicações Próprias ======
 
 * Desenvolvimento de sistemas especificos para o cliente, no ambiente kubernete utilizando seu namespace e seus recuros
-* pode estender módulos do crontech-platform através de app
+* pode estender módulos do crontech-platform através de app (Backend)
 * Sua instancia própria do nore-red
 * Suas aplicações podem se integrar facilmente com serviços disponíveis no crontech-platform
 
