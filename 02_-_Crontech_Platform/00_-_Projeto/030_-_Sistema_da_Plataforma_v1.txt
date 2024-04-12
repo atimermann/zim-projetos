@@ -73,6 +73,7 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 
 ====== 04 Módulo de Segurança ======
 * Precisamos implementar algum módulo no API GATEWAY que valida se nenhum vazamento de dado ocorre de outros usuários, todo acesso tem q estar vinculado a uma conta
+* Estudar uso do Kong em vez do Trafik, traefik pareceu amarrado/complexo para middeware
 * Será validado junto como autenticação e autenticação
 * Todo recurso deve ter uma conta vinculada
 
@@ -106,21 +107,42 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * São processos padrões pré configurado q apenas recebem parâmetros:
 	* Por exemplo: Coletar dados de uma API e salvar em um banco de dados
 
+===== RPA =====
+* Um tipo despecifico de automação que fará acesso a Workers rodando em maquinas windows
+* Para ao futuro necessário toda uma gestão de workes
+* Verificar openRPA q já tem orquestração
+* 99% dos casos é resolvido com crawler
 
 ===== Triggers =====
 * Podem ser iniciados à partir de uma mensagem sms
 * podem ser iniciado à partir de novos registros em uma fila RabbitMQ
 
+====== Integrações ======
 
-===== 05. WEB UI - Interface de Monitoramento =====
+* Apify
+* [[zapier.com]]
+* [[make.com]]
+* https://rapidapi.com/collection/top-scraper-api-tools
+
+
+====== 05. WEB UI - Interface de Monitoramento ======
+
 * Teremos uma interface master q é configurada de acordo com cada tenant
 * ou podemos ter interfaces independentes exclusiva de um cliente
 * VUE3/NUXT3
 * Deve monitorar progresso das automações
 * Gestão de logs e erros
 * Verficar outras ferramentas q fazem isso como prometeus ou outros
+* Na listagem de automação teremos nome da automação, client, e owner
+	* Porém a conta nunca deve saber quem é seu próprio dono explicitamente, deve ser ocultados, apenas na listagem do dono exibe essa coluna (para casos de subdonos)
 
 
 
 ===== ChatGPT ANALISE =====
 
+* Analise meu novo projeto
+* Sugira sugestões relavantes para melhoria do projeto
+* Verifique se já existem soluções prontas e me sugira, seja para o projeto como um todo ou para algum pedaço especifico
+* Aponte possiveis erros
+* Aponte melhorias
+* Me avise se tem arquitetura melhor para o objetivo do projeto
