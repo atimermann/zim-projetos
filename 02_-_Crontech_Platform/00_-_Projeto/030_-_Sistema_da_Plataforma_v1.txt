@@ -12,7 +12,6 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * Controle de usuários
 * Modulos de automação
 
-
 ====== 01 - Contas (account) ======
 
 * Vamos ter 3 componentes principais para gerenciar a plataforma ao nível macro:
@@ -28,6 +27,7 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * cada conta é associada a um usuário obrigatóriamente, que será o usuário **DONO** da conta, que será criado ao criar uma nova conta (ou associado se esse usuario já existir)
 * usuario só poderá acessar sua conta através do tenant especificado, ou na prática, através do dominio daquele tenant
 * A conta não poderá alterar seu proprio tenant ou seu proprio usuário dono
+* Mas a conta poderá alterar alguns atributos do seu tenant, como LOGO, descrição, cor. (definir permissões para cada caso)
 * Toda conta terá uma conta dona (ou pai), exceto a conta master (crontech)
 * as contas terão alguns papéis principals descrito abaixo:
 
@@ -35,15 +35,92 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * Uma conta do tipo **Tenant Admin**, poderá criar e gerenciar tenant
 * Os tenant criados são para subcontas e não pode ser usado pela própria conta
 * Tenant tem necessáriamente um dominio vinculado.
-* Ao acesso o **dominio da tenant**, automaticamente será identificado a ten
 
+===== Account Admin Role =====
+* Uma conta do tipo Account Admin pode criar novas contas
+* Toda conta criada terá um account owner que será quem a criou
+* É possivel selecionar o tenant da conta, pode ser tenant do dono da conta (quem criou) ou um tenant criado anteriormente.
+	* Exemplo: Você cria uma nova subconta, um novo usário, um novo tenant e vincula todos a nova subconta
+* **Subaccount Admin Role:** Permite criar contas que também é uma **Account Admin**
+* **Subaccount Tenant  Role:** Permite criar contas que são **Tenant Admin Role**
 
+===== User Admin Role =====
+* Uma conta do tipo **user admin** **,** pode criar e vincular usuário a sua conta
+* Pode Criar grupos/perfis e permissões para diversos aspecto do sistema e vincular a um usuário
 
+===== Automation Manager Role =====
+* Contas com este tipo, pode criar e gerenciar automações
+* Poderiamos ter contas apenas para gerenciar subcontas (revendedores)
 
 ====== 02 Tenant ======
-
+* No tenant é configurado LOGO, cores, definição de layout e outras opções diversas
+* Toda conta tem um tenant associado
+* Todo tenant tem uma conta dona (que normalmente é a conta pai da conta associada)
+* Ao acesso o **dominio da tenant**, automaticamente será identificado a tenant e apenas usuários com acesso a este tenant terão acesso liberado na autenticação
 
 ====== 03 Usuários ======
 * Usuários não tem donos, cada usuário é dono do seu próprio usuário
+* Ou seja conta é global no nível de plataforma
 * Uma conta pode criar uma nova conta como atalho e permitir que este usuario acesse sua conta
 * Uma conta não pode remover nenhum usuário, apenas revogar acesso a sua conta
+* Autenticação, grupos e roles é gerenciado pelo Keycloak
+
+====== 04 Groups and Role (Perfis e Permissões) ======
+* Gerencia grupos e usuários para acessar diferentes aspectos do sistema
+* Apenas gurpo podem ser associado a usuário
+* Também existirão grupos pré definidos com permissões mais comuns para ser utilizado
+
+
+====== 04 Módulo de Segurança ======
+* Precisamos implementar algum módulo no API GATEWAY que valida se nenhum vazamento de dado ocorre de outros usuários, todo acesso tem q estar vinculado a uma conta
+* Será validado junto como autenticação e autenticação
+* Todo recurso deve ter uma conta vinculada
+
+
+====== 04  Módulos principais da Plataforma ======
+
+===== Service =====
+* São serviços PASSIVOS no ambiente kubernete, normalmente uma API, que é consumida pelos processos de automação
+* Precisa existir um outro microserviço para controlar os limites de acesso, autorização logs entre outros 
+* Exemplo: Consome API do mercado livre
+* Necessário ter um agent que gerencia o serviço, coletando dados de uma fila (RabbitMQ) para não congestionar
+* Escalonar
+* POdem ser serviços que salvam no banco de dados especifico, executam alguma ação e retorna resultad
+
+===== Automations =====
+* São processos de automação que irá utilizar os serviços para coleta de dados ou processamento
+* Fará uso de filas (rabbitMQ) para gerenciar as trocas de mensagem
+* Faz a orquestração de tarefas
+* Cada automação podem ser recorrente (periodicas) com agendamento
+* Podem ser contante (ou seja sempre em execução)
+* Executada por trigger, exemplo um novo SMS
+* Temos diversos tipos de automações:
+
+**NodeRed**
+* Podemos criar processos com o node-red, 
+
+**MicroServiço**
+* Outros serviços que são executados via jobs do kubernetes
+
+**Pré Configurados**
+* São processos padrões pré configurado q apenas recebem parâmetros:
+	* Por exemplo: Coletar dados de uma API e salvar em um banco de dados
+
+
+===== Triggers =====
+* Podem ser iniciados à partir de uma mensagem sms
+* podem ser iniciado à partir de novos registros em uma fila RabbitMQ
+
+
+===== 05. WEB UI - Interface de Monitoramento =====
+* Teremos uma interface master q é configurada de acordo com cada tenant
+* ou podemos ter interfaces independentes exclusiva de um cliente
+* VUE3/NUXT3
+* Deve monitorar progresso das automações
+* Gestão de logs e erros
+* Verficar outras ferramentas q fazem isso como prometeus ou outros
+
+
+
+===== ChatGPT ANALISE =====
+
