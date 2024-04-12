@@ -6,5 +6,11 @@ Creation-Date: 2023-11-25T01:37:26-03:00
 Criado sábado 25 novembro 2023
 
 * Plataforma unificada de autenticação para ser usada por todas as aplicações da plataforma
-
 * Utilizar o OAuth2 Proxy  para  autenticar no kubernetes
+
+
+* Necessário revisar toda documentação, foi implementado apenas uma versão simplificada e inicial
+* Não foi implementaado authenticação e autorização ao nivel backend, será utilizado um API GATEWAY p
+* Autorização sim, pode estar na aplicação
+* Usuario se autentica diretamente no keycloak e recebe um access_token q será usado para validar as requisições
+* Necessário adicionar tratamento validações adicionais como multi-tenant
