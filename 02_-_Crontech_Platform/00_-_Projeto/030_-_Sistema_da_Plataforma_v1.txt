@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-12T02:34:33-03:00
+
+====== 030 - Sistema da Plataforma v1 ======
+Criado sexta 12 abril 2024
+
+Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, descreve os seguintes modulos:
+
+* Gestão de Contas (Account)
+* Gestão de Tenant (WhiteLabel / Revenda)
+* Controle de usuários
+* Modulos de automação
+
+
+====== 01 - Contas (account) ======
+
+* Vamos ter 3 componentes principais para gerenciar a plataforma ao nível macro:
+	* Contas (Account/Client)
+	* Tenant (Revenda/WhiteLabel)
+	* User (Usuários)
+
+* A idéia é iniciar o projeto pensando no conceito de revenda, ou whitelabel, ou seja podemos ter revendedores dos serviços
+* Primeiro contato com o sistema é através de contas, quando um novo cliente entra em contato, ele terá uma nova conta
+* O Controle financeiro, gastos, limites, será feito para determinada conta
+* Teremos uma conta master inicial chamada crontech
+* Cada conta é associada a um tenant obrigatóriamente, tenant são como visões de acesso a plataforma, ele terá seu proprio dominio, seu proporio layout (mais abaixo)
+* cada conta é associada a um usuário obrigatóriamente, que será o usuário **DONO** da conta, que será criado ao criar uma nova conta (ou associado se esse usuario já existir)
+* usuario só poderá acessar sua conta através do tenant especificado, ou na prática, através do dominio daquele tenant
+* A conta não poderá alterar seu proprio tenant ou seu proprio usuário dono
+* Toda conta terá uma conta dona (ou pai), exceto a conta master (crontech)
+* as contas terão alguns papéis principals descrito abaixo:
+
+===== Tenant Admin Role =====
+* Uma conta do tipo **Tenant Admin**, poderá criar e gerenciar tenant
+* Os tenant criados são para subcontas e não pode ser usado pela própria conta
+* Tenant tem necessáriamente um dominio vinculado.
+* Ao acesso o **dominio da tenant**, automaticamente será identificado a ten
+
+
+
+
+====== 02 Tenant ======
+
+
+====== 03 Usuários ======
+* Usuários não tem donos, cada usuário é dono do seu próprio usuário
+* Uma conta pode criar uma nova conta como atalho e permitir que este usuario acesse sua conta
+* Uma conta não pode remover nenhum usuário, apenas revogar acesso a sua conta
