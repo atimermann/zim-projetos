@@ -116,6 +116,8 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 ===== Triggers =====
 * Podem ser iniciados à partir de uma mensagem sms
 * podem ser iniciado à partir de novos registros em uma fila RabbitMQ
+* Teremos uma API onde serviços externos podem acessar
+* etc...
 
 ====== Integrações ======
 
