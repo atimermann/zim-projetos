@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-11T22:04:57-03:00
+
+====== Aplicação Inicial temporaria ======
+Criado quinta 11 abril 2024
+
+
+appConfig.unsafeAuth = {
+  email: 'admin@rlcs.com.br',
+  password: 'rlcs2024$$$'
+}
