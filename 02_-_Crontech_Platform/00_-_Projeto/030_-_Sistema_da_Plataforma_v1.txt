@@ -15,9 +15,9 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 ====== 01 - Contas (account) ======
 
 * Vamos ter 3 componentes principais para gerenciar a plataforma ao nível macro:
-	* Contas (Account/Client)
-	* Tenant (Revenda/WhiteLabel)
-	* User (Usuários)
+	* **Contas (Account/Client)**
+	* **Tenant (Revenda/WhiteLabel)**
+	* **User (Usuários)**
 
 * A idéia é iniciar o projeto pensando no conceito de revenda, ou whitelabel, ou seja podemos ter revendedores dos serviços
 * Primeiro contato com o sistema é através de contas, quando um novo cliente entra em contato, ele terá uma nova conta
