@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-22T22:55:08-03:00
+
+====== Tenant RLCS ======
+Criado segunda 22 abril 2024
+
+Implementação do Tenant da RLCS (Ricardo)
