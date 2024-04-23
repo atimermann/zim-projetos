@@ -5,3 +5,25 @@ Creation-Date: 2024-04-23T01:41:40-03:00
 ====== 040 - Executor da Plataforma ======
 Criado terça 23 abril 2024
 
+====== Antigo ======
+	**NodeRed**
+		* Podemos criar automations com o node-red, 
+
+	**MicroServiço**
+		* Outros serviços que são executados via jobs do kubernetes
+
+	**~~Pré Configurados~~**
+		* São processos padrões pré configurado q apenas recebem parâmetros:
+			* Por exemplo: Coletar dados de uma API e salvar em um banco de dados
+
+
+====== Novo ======
+
+
+Na plataforma de automação, podemos criar automações, poderemos ter diversos tipos de automações.
+
+A automação mais básica é baseado em steps: **Step Automation**
+
+	[[+Step Automation]]
+
+Podemos ter também por **node-red**

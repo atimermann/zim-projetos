@@ -96,16 +96,8 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * Podem ser constante (ou seja sempre em execução)
 * Executada por trigger, exemplo um novo SMS
 * Temos diversos tipos de automações:
+	* Detalhes aqui [[040 - Executor da Plataforma]]
 
-	**NodeRed**
-		* Podemos criar automations com o node-red, 
-
-	**MicroServiço**
-		* Outros serviços que são executados via jobs do kubernetes
-
-	**Pré Configurados**
-		* São processos padrões pré configurado q apenas recebem parâmetros:
-			* Por exemplo: Coletar dados de uma API e salvar em um banco de dados
 
 ===== RPA =====
 * Um tipo despecifico de automação que fará acesso a Workers rodando em maquinas windows

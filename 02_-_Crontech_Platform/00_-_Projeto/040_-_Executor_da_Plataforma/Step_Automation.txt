@@ -1,0 +1,72 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-23T01:44:59-03:00
+
+====== Step Automation ======
+Criado terça 23 abril 2024
+
+Na automação do tipo Step Automation, o usuário irá criar uma nova automação, e nessa nova automação ele irá cadastrar steps (ETAPAS)
+
+
+* Existe uma step principal ou inicial, que será executado quando a automação for disparada
+* As steps em geral são executado em paralelo, não existe necessáriamente uma ordem de execução
+* O que determinar a ordem de execução é o controle de fila, uma step salva em uma fila q será lida por outra step
+* Fortemene baseado em filas RabbitMQ
+* Cada automation e step é salvo no banco de dados
+
+====== Propriedades de cada STEP ======
+
+
+* **Trigger:** Como esse step será disparada para execução, como esta step será executado (Mais detalhe abaixo)
+* **Cron:** Descrição em formato cron do agendamento de execução
+* **QueueName:** Nome da fila onde este step será executado quando carregar um novo item
+* **Input:** Dados utilizados para execução dessa step, deve ser um **JSON**
+* **Execution:** Como será a execução, ex: **Automation** ou **Service**  (Mais detalhes abaixo)
+* **Output:** Onde o resultado da execução será salvo, pode ser **null**, ou uma **fila** (Mais detalhes abaixo)
+* **Output Type:**  Pode ser **single** ou **Multiple.** Se multiple, o resultado deve ser um array e cada item do array será um item para fila definido em output
+
+
+====== Automations Agents ======
+
+* São agentes que irão controlar a execução dos steps
+
+===== Cron Agent =====
+**Trigger:** cron
+
+* É um serviços kubernetes do tipo **schedule Job**, que é executado a cada minuto
+* A cada execução ele busca todos os steps cujo trigger é do tipo **CRON**
+* Filtra todos steps configurado para executar neste minuto
+* **TODO:** Ou podemos criar uma instancia deste job para cada step do tipo cron, seria necessário criar um manager que atualiza os jobs sempre que as automações forem alterada.
+	* **Vantagem:** 
+		* Execução do job é controlado pelo kubernete, engine eficiente em vez de precisar implementar a lógica de busca mais sucetivel a erro, já q precisamos garantir execução.
+	* **Desvantagem:** necessita de um manager para criar e remover jobs
+* Necessário implementar uma validação de execução, ou seja se o step for disparado e reconhecido por este cron, marca como executado, caso contrário tenta novamente
+* Adiciona este step para execução adicionando na fila **"AUTOMATION_STEP_EXECUTION"**
+	* Adiciona os dados na fila: **INPUT**, **OUTPUT**, **EXECUTION, OUTPUT TYPE, automationId, stepId**
+	* Ver mais sobre **Step Execution** abaixo
+* Particionar a tabela de **automation** se precisar escalar, para não duplicar execução
+
+===== Queue Agent =====
+**Trigger:** fila
+
+* É um serviço kubernetet do tipo **deployment**  que pode ter várias instancias. e estão sempre em execução
+* Fica ouvindo a fila **"AUTOMATION_STEP_OUTPUT"** e é executado para cada nova item
+* Sempre que um novo item é carregado ele lê as seguinte propriedades:
+	* **Name:** Nome da fila
+* Procura na tabela de automação, todos os steps que tem como **trigger** a opção fila
+* Procura todos os steps que tem o nome dessa fila como trigger
+	* Criar um indice em **queueName** para agilizar a busca
+* Carrega todas as propriedades do step
+* Adiciona este step para execução adicionando na fila **"AUTOMATION_STEP_EXECUTION"**
+	* Adiciona os dados na fila: **INPUT**, **OUTPUT**, **EXECUTION, OUTPUT TYPE, automationId, stepId**
+	* Ver mais sobre **Step Execution** abaixo
+
+
+====== Execution STEP ======
+
+* Todos os agentes adicionam os step para execução na fila **STEP_EXECUTION**
+* Este é um serviço kubernetes do tipo **deployment** que pode ser facilmente escalado
+* Ele fica ouvindo a fila **AUTOMATION_STEP_EXECUTION** e carrega as propriedades do step
+* Vai carregar a propriedade EXECUTION e vai executar de acordo:
+
+====== STEP OUTPUT ======
