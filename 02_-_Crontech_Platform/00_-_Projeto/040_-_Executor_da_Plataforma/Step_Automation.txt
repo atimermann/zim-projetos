@@ -7,24 +7,49 @@ Criado terça 23 abril 2024
 
 Na automação do tipo Step Automation, o usuário irá criar uma nova automação, e nessa nova automação ele irá cadastrar steps (ETAPAS)
 
+* Deve ser utilizado para automações mais simples, no futuro teremos a opção de nodered
+	* Talvez step atomaticion dispare uma execução do nodered, não sei necessário estudar node-red a fundo
 
-* Existe uma step principal ou inicial, que será executado quando a automação for disparada
-* As steps em geral são executado em paralelo, não existe necessáriamente uma ordem de execução
-* O que determinar a ordem de execução é o controle de fila, uma step salva em uma fila q será lida por outra step
-* Fortemene baseado em filas RabbitMQ
-* Cada automation e step é salvo no banco de dados
+* Existe uma **step principal ou inicial**, que será executado quando a automação for disparada.
+* As steps em geral são executado em paralelo, não existe necessáriamente uma ordem de execução.
+* O que determinar a ordem de execução é o controle de fila, uma step salva em uma fila q será lida por outra step.
+* Fortemene baseado em filas RabbitMQ.
+* Cada automation e step é salvo no banco de dados.
 
 ====== Propriedades de cada STEP ======
 
 
-* **Trigger:** Como esse step será disparada para execução, como esta step será executado (Mais detalhe abaixo)
+* **Trigger:** Como esse step será disparada para execução, como esta step será executado (Mais detalhe abaixo). 
 * **Cron:** Descrição em formato cron do agendamento de execução
 * **QueueName:** Nome da fila onde este step será executado quando carregar um novo item
 * **Input:** Dados utilizados para execução dessa step, deve ser um **JSON**
 * **Execution:** Como será a execução, ex: **Automation** ou **Service**  (Mais detalhes abaixo)
+* **executionName:** Nome da automation ou service para ser executado neste step
 * **Output:** Onde o resultado da execução será salvo, pode ser **null**, ou uma **fila** (Mais detalhes abaixo)
-* **Output Type:**  Pode ser **single** ou **Multiple.** Se multiple, o resultado deve ser um array e cada item do array será um item para fila definido em output
+* **OutputName:** Nome da fila onde o resultado vai ser salvo
+* **OutputType:**  Pode ser **single** ou **Multiple** ou null**.** Se multiple, o resultado deve ser um array e cada item do array será um item para fila definido em output
 
+====== Triggers ======
+Determina como os steps são executados, podemos ter:
+* **cron:** Executa de forma agendada, gerenciada pelo Cron Agent
+* **fila:** Executa quando um item definido em **QueueName** é carregado
+* **null:**  nenhum trigger especifico, usado apenas pela step principal, diz q essa automação será executada manualmente pelo usuário ou por outra automation pai ou por um serviço externo via API REST
+
+===== Triggers Externa =====
+Poderiamos ter trigger externas, como quando uma requisição é feita por uma API REST, ou pelo recebimento de um email ou SMS
+
+Nesses casos seria interessante criar um serviço de recebimento de email que adiciona diretamente na fila **AUTOMATION_STEP_OUTPUT.**
+
+**TODO:** Criar uma interface simples para isso, para q o serviço adicione de forma intuitiva
+
+==== Exemplos: ====
+**Email**
+* Criar um step do tipo cron e acessa o serviço smtp email e tem com outout o nome da fila do proximo step
+* A cada X periodo os emails são consultados para buscar novos recebidos
+
+**SMS**
+* Criar um serviço no kubernetes q fica aguardando os sms
+* Quando chegar um novo o proprio serviço chama a api do automator para dispara a automação
 
 ====== Automations Agents ======
 
@@ -42,7 +67,7 @@ Na automação do tipo Step Automation, o usuário irá criar uma nova automaç�
 	* **Desvantagem:** necessita de um manager para criar e remover jobs
 * Necessário implementar uma validação de execução, ou seja se o step for disparado e reconhecido por este cron, marca como executado, caso contrário tenta novamente
 * Adiciona este step para execução adicionando na fila **"AUTOMATION_STEP_EXECUTION"**
-	* Adiciona os dados na fila: **INPUT**, **OUTPUT**, **EXECUTION, OUTPUT TYPE, automationId, stepId**
+	* Salva na fila todos os dados referente ao step
 	* Ver mais sobre **Step Execution** abaixo
 * Particionar a tabela de **automation** se precisar escalar, para não duplicar execução
 
@@ -64,9 +89,34 @@ Na automação do tipo Step Automation, o usuário irá criar uma nova automaç�
 
 ====== Execution STEP ======
 
+
 * Todos os agentes adicionam os step para execução na fila **STEP_EXECUTION**
 * Este é um serviço kubernetes do tipo **deployment** que pode ser facilmente escalado
-* Ele fica ouvindo a fila **AUTOMATION_STEP_EXECUTION** e carrega as propriedades do step
-* Vai carregar a propriedade EXECUTION e vai executar de acordo:
+* Ele fica ouvindo a fila **AUTOMATION_STEP_OUTPUT** e carrega as propriedades do step
+* Vai carregar a propriedade **EXECUTION** e vai executar de acordo:
+
+===== Execution: Automation =====
+
+* Irá executar uma outra automação, normalmente uma automação complexa já disponível no sistema
+* Vai imediatamente  adicionar a fila **STEP_EXECUTION**, os dados da **step principal ou inicial** da automation passada em **ExecutionName**
+* Como **output type** é repassado, então o resultado será salvo automaticamente na output original
+
+===== Execution: Service =====
+* Irá executar uma chamada (Fetch) para a API REST o serviço especificado
+* Irá aguardar o resoltado
+* Se o **OutputType** for **multiple**, então a api deve retornar um array e cada item do array é adicionado a fila especificado por **ouputName**
+* Se o **OutputType** for **single**, então o resultado inteiro da api é adicionado a fila especificado em **outputName**
+* Se o **OutputType** for **null**,  os dados serão descartado
+
+* **TODO:** podemos ter um **external**, para executar uma api externa
 
 ====== STEP OUTPUT ======
+
+* Sempre que uma execução é finalizada, o resultado deve ser salvo em uma fila
+* Esse resultado é sempre salvo na fila **AUTOMATION_STEP_OUTPUT**
+* o atributo name especifica a fila, é feito uma fila só para não confundir com outras filas usada em outro serviço
+* Esse resultado pode ser array, neste caso se 
+	* **outputType = multiple**, cada item do array é adicionado indepententemente na fila. 
+	* **outputType = single** Todo resultado é adicionado em um unico item na fila
+	* **outputType = null,** resultado será descartado, exemplo quando vc está na ultima etapa salvando o resultado em um banco de dados
+
