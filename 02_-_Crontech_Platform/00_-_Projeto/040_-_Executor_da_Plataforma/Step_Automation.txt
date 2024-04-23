@@ -5,6 +5,10 @@ Creation-Date: 2024-04-23T01:44:59-03:00
 ====== Step Automation ======
 Criado terça 23 abril 2024
 
+**A idéia é ser simples, para casos realmente básico**
+
+**TODO:** Implementar o conceito de fila de erro
+
 Na automação do tipo Step Automation, o usuário irá criar uma nova automação, e nessa nova automação ele irá cadastrar steps (ETAPAS)
 
 * Deve ser utilizado para automações mais simples, no futuro teremos a opção de nodered
@@ -41,6 +45,7 @@ Poderiamos ter trigger externas, como quando uma requisição é feita por uma A
 Nesses casos seria interessante criar um serviço de recebimento de email que adiciona diretamente na fila **AUTOMATION_STEP_OUTPUT.**
 
 **TODO:** Criar uma interface simples para isso, para q o serviço adicione de forma intuitiva
+**TODO:** No futuro aparecendo trigger externos comuns e simples poderemos implementar então esse trigger especial
 
 ==== Exemplos: ====
 **Email**
@@ -49,7 +54,11 @@ Nesses casos seria interessante criar um serviço de recebimento de email que ad
 
 **SMS**
 * Criar um serviço no kubernetes q fica aguardando os sms
+	* Essa configuração pode ser feita no modulo de serviço
 * Quando chegar um novo o proprio serviço chama a api do automator para dispara a automação
+
+**Integração de sistema**
+* CrontechPlatform pode fornecer uma api publico onde serviços externos podem se conectar para enviar dados
 
 ====== Automations Agents ======
 

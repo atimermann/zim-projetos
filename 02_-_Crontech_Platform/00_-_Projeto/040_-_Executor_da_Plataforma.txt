@@ -27,3 +27,9 @@ A automação mais básica é baseado em steps: **Step Automation**
 	[[+Step Automation]]
 
 Podemos ter também por **node-red**, necessário estudar como o node-red funciona
+
+Estudaor o uso de:
+	* NODERED
+	* APACHE NIFI
+	* AIRFLOW
+	* ZAPIER
