@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-04-23T01:41:40-03:00
+
+====== 040 - Executor da Plataforma ======
+Criado terça 23 abril 2024
+
