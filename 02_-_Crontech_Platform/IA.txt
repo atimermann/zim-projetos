@@ -33,3 +33,10 @@ Com um formato de distribuição unificado, o BentoML simplifica a colaboração
 
 
 ====== Pytorch Craft ======
+
+
+====== AI BUILDER ======
+https://platform.openai.com/assistants
+
+Essa automação com IA pode vender qualquer coisa
+https://www.youtube.com/watch?v=4TGQxAYy1BA
