@@ -18,7 +18,6 @@ sudo sed -i 's/^127\.0\.1\.1.*/127.0.1.1\tovhXX.crontech.com.br ovhXX/' /etc/hos
 sudo reboot
 ...
 
-
 sudo apt install wireguard -y
 wg genkey | sudo tee /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
 
@@ -77,12 +76,12 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI] sh -s - server --server ht
 ===== ovh07.crontech.com.br =====
 ===== ovh08.crontech.com.br =====
 ===== ovh09.crontech.com.br =====
+===== ovh10.crontech.com.br =====
+
 * Funcionará como dataplane
 
 {{{code: lang="sh" linenumbers="True"
 curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server https://192.99.167.10:6443
 }}}
 
-
-===== ovh10.crontech.com.br =====
-	[[+ovh10.crontech.com.br]]
+	

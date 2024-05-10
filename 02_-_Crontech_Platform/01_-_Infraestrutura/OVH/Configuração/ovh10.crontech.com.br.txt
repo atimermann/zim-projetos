@@ -4,7 +4,6 @@ Creation-Date: 2024-02-08T02:47:24-03:00
 
 ====== ovh10.crontech.com.br ======
 Criado quinta 08 fevereiro 2024
-
 ===== = =====
 * Postgres
 Mesmo modelo usado aqui:
