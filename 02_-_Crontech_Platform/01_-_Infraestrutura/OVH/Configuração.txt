@@ -28,12 +28,6 @@ net.ipv6.conf.all.forwarding = 1
 sysctl -p
 
 # Não ativar swap e firewall nos nós do kubernetes (2x Memoria)
-sudo dd if=/dev/zero of=/swapfile bs=1024 count=4194304 
-sudo mkswap /swapfile
-sudo chmod 600 /swapfile
-sudo swapon /swapfile
-sudo -i
-echo "/swapfile none swap sw 0 0" >> /etc/fstab
 }}}
 
 Configure firewall:
