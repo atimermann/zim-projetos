@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-17T09:28:08-03:00
+
+====== Guilherme Campos ======
+Criado sexta 17 maio 2024
+
+* Onde será instalado os nós? em servidor fisico ou Vm ou nuvem
+* Se for instalado em Vm, quantas máquinas fisicas serão utilizadas?
+* Assim como o Linux, o Kubernetes tem diferentes distros, tem alguma restrição quanto a isso?
+* Qual storage será utilizado?
+* Será necessário implementar um cluster multi região?
