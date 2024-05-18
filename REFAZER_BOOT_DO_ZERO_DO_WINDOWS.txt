@@ -1,0 +1,75 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-18T10:04:25-03:00
+
+====== REFAZER BOOT DO ZERO DO WINDOWS ======
+Criado sábado 18 maio 2024
+
+https://www.youtube.com/watch?v=Km48-ABrnqc
+
+{{./pasted_image.png}}
+
+{{./pasted_image001.png}}
+
+====== O Que você vai precisar: ======
+* 1 CD ou Pendrive com instalação do Windows ou disco de recuperação
+* 1 Pendrive ou HD externo caso queira fazer backup.
+
+1. **Dê o boot com o a mídia de instalação ou recuperação do Windows**
+
+2. **Pressione uma tecla caso seja solicitado.**
+
+3. **Selecione teclado e idioma e clique em "Avançar".**
+
+4. **Na próxima tela clique em "Reparar o computador" \ "Solução de Problemas" \ Opções avançadas \ Prompt de comando.**
+
+5. **Digite diskpart e pressione ENTER para entrar no diskpart**
+
+6. **Dentro do diskpart digite list disk para listar os discos conectados ao computador.**
+
+7. **Digite select disk mais o número do disco onde fica o Windows por exemplo:**
+ 
+Select disk 0 (onde 0 é o disco que você quer selecionar)
+
+8. **Digite list volume para mostrar os volumes**
+
+9. **Memorize a letra de unidade da partição do Windows e de seu pendrive (backup)**
+
+10. **Especifique o seguinte comando:**
+
+bcdedit /export F:\md\backup\BCD\PC\boot
+
+Onde F:\md\backup\BCD\PC é o caminho para onde desaja salvar e "boot" é o arquivo de configuração de boot.
+
+11. **Volte ao diskpart**
+
+12. **Selecione o disco onde está o Windows**
+
+select disk 0
+
+13. **Selecione a patição EFI (Ela tem apróximadamente 100 MB e esta no formato de sistemas de arquivos Fat32)**
+
+ex:
+list partition
+select partition 2 (onde 2 é a sua partição EFI)
+delete partition override
+
+14. **Crie uma nova partição EFI e atribua uma letra a ela:**
+
+create partition efi
+format quick fs=fat32
+assign letter=s (onde s pode ser qualquer letra a sua escolha)
+
+15. **Saia do diskpart**
+
+exit
+
+16. **Agora vamos gravar novos arquivos de boot na partição EFI:**
+
+bcdboot c:\windows /f UEFI /s s: (onde s: é letra que você atribuiu a partição EFi)
+
+17. **Use o comando bootrec para adicionar entradas ao arquivo de configuração de boot:**
+
+bootrec /rebuildbcd
+
+18. **Agora digite exit para sair do prompt de comando e reinicie o Windows.**
