@@ -41,3 +41,4 @@ Estudaor o uso de:
 
 Fornece uma orquestração de workflow nativa para o kuberentes
 Parece extremamente complexo
+mas pode ser simples

@@ -30,3 +30,5 @@ Argo Workflows é uma ferramenta para criar, gerenciar e executar pipelines de w
 
 **Persistência de Dados:**
 Utilize um banco de dados adequado para armazenar os dados coletados e processados. Bancos de dados como PostgreSQL, MongoDB ou mesmo soluções de armazenamento em nuvem podem ser utilizados dependendo das suas necessidades de consistência e desempenho.
+
+{{./pasted_image.png}}

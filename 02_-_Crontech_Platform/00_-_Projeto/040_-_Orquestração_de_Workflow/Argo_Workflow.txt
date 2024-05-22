@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-22T00:43:44-03:00
+
+====== Argo Workflow ======
+Criado quarta 22 maio 2024
+
+Talvez seja interessante utilizar o argo workflow no lugar do Step Automation para tarefas simples
+
+Necessário estudar para endender melhor como funciona
+
+https://github.com/argoproj/argo-workflows/releases
+Para teste instale a versão quick-start-minimal
+
+https://argo-workflows.readthedocs.io/en/release-3.4/use-cases/data-processing/
+https://argo-workflows.readthedocs.io/en/release-3.4/use-cases/data-processing/?utm_source=argo-ui
