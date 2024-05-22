@@ -35,6 +35,7 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * Uma conta do tipo **Tenant Admin**, poderá criar e gerenciar tenant
 * Os tenant criados são para subcontas e não pode ser usado pela própria conta
 * Tenant tem necessáriamente um dominio vinculado.
+* **Subaccount Tenant  Role:** Permite criar contas que são **Tenant Admin Role**
 
 ===== Account Admin Role =====
 * Uma conta do tipo Account Admin pode criar novas contas
@@ -42,7 +43,6 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * É possivel selecionar o tenant da conta, pode ser tenant do dono da conta (quem criou) ou um tenant criado anteriormente.
 	* Exemplo: Você cria uma nova subconta, um novo usário, um novo tenant e vincula todos a nova subconta
 * **Subaccount Admin Role:** Permite criar contas que também é uma **Account Admin**
-* **Subaccount Tenant  Role:** Permite criar contas que são **Tenant Admin Role**
 
 ===== User Admin Role =====
 * Uma conta do tipo **user admin** **,** pode criar e vincular usuário a sua conta
@@ -81,12 +81,13 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 ====== 04  Módulos principais da Plataforma ======
 
 ===== Services =====
-* São serviços PASSIVOS no ambiente kubernete, normalmente uma API, que é consumida pelos processos de automação
+* São serviços PASSIVOS no ambiente kubernete, normalmente uma API, que é consumida pelos processos de automação.
 * Precisa existir um outro microserviço para controlar os limites de acesso, autorização logs entre outros 
 * Exemplo: Consome API do mercado livre
 * Necessário ter um agent que gerencia o serviço, coletando dados de uma fila (RabbitMQ) para não congestionar
 * Escalonar
 * POdem ser serviços que salvam no banco de dados especifico, executam alguma ação e retorna resultad
+* **21/05/2023:** Logcomex utiliza o modelo outbox
 
 ===== Automations =====
 * São processos de automação que irá utilizar os serviços para coleta de dados ou processamento
@@ -96,8 +97,10 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * Podem ser constante (ou seja sempre em execução)
 * Executada por trigger, exemplo um novo SMS
 * Temos diversos tipos de automações:
+	* Step Automation
+	* RedNode
+	* Apache Nifi
 	* Detalhes aqui [[040 - Executor da Plataforma]]
-
 
 ===== RPA =====
 * Um tipo despecifico de automação que fará acesso a Workers rodando em maquinas windows

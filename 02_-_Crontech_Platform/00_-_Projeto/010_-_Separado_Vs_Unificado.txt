@@ -16,7 +16,7 @@ Criado sábado 02 março 2024
 	* (Pode ser  contornado usando layer q estente uma camada inicial)
 
 **Desvantagem:**
-* Para usar preciso implementar um multi tenent, para ser parar layout, logo, tratamento de dominio pra carregar um ou outro
+* Para utilizar é preciso implementar um multi tenent, para separar layout, logo, tratamento de dominio pra carregar um ou outro
 
 ===== Separado =====
 
@@ -28,12 +28,10 @@ Criado sábado 02 março 2024
 ====== Backend ======
 
 ===== Unificado =====
-* Mais rápido desenvolvimento, não precisa ficar criado projetos
-* Ocupa menos memoria/processamento, uma aplicação atente todo mundo, só replicar
+* Mais rápido desenvolvimento, não precisa ficar criando projetos
+* Ocupa menos memoria/processamento, uma aplicação atende todo mundo, só replicar
 * Ocupa menos espaço com imagens grandes
 * Pode ser separado por App, se quiser carregar uma instancia por aplicação só desabilitar outras
-
-
 
 
 ===== Separado =====
