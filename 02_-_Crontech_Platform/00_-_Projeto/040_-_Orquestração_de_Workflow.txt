@@ -2,8 +2,10 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.6
 Creation-Date: 2024-04-23T01:41:40-03:00
 
-====== 040 - Executor da Plataforma ======
+====== 040 - Orquestração de Workflow ======
 Criado terça 23 abril 2024
+
+Desenvolvimento de uma solução de desenho e orquestração de workflow
 
 ====== Antigo ======
 	**NodeRed**

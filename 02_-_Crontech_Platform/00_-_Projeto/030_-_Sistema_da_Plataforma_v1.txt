@@ -100,7 +100,7 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 	* Step Automation
 	* RedNode
 	* Apache Nifi
-	* Detalhes aqui [[040 - Executor da Plataforma]]
+	* Detalhes aqui [[040 - Orquestração de Workflow]]
 
 ===== RPA =====
 * Um tipo despecifico de automação que fará acesso a Workers rodando em maquinas windows
