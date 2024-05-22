@@ -28,6 +28,9 @@ A automação mais básica é baseado em steps: **Step Automation**
 
 	[[+Step Automation]]
 
+**[22/05/2024]** Em vez de implementar um STEP Automation vamos usar algo pronto, não precisamos implementar nada, ex: Argo Workflow
+	
+
 Podemos ter também por **node-red**, necessário estudar como o node-red funciona
 
 Estudaor o uso de:

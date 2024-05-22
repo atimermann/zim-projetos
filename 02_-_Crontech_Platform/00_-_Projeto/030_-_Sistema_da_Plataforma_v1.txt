@@ -84,14 +84,18 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 * São serviços PASSIVOS no ambiente kubernete, normalmente uma API, que é consumida pelos processos de automação.
 * Precisa existir um outro microserviço para controlar os limites de acesso, autorização logs entre outros 
 * Exemplo: Consome API do mercado livre
-* Necessário ter um agent que gerencia o serviço, coletando dados de uma fila (RabbitMQ) para não congestionar
+* Necessário ter um agent que gerencia o serviço, coletando dados de uma fila (RabbitMQ) para não congestionar (Outbox?)
 * Escalonar
-* POdem ser serviços que salvam no banco de dados especifico, executam alguma ação e retorna resultad
+* POdem ser serviços que salvam no banco de dados próprio, executam alguma ação e retorna resultad
 * **21/05/2023:** Logcomex utiliza o modelo outbox
 
 ===== Automations =====
+* Teremos diferentes Engine de automação, mas serão listada na interface:
+	* Argo Workglow
+	* NodeRed
+	* Apache Nifi
 * São processos de automação que irá utilizar os serviços para coleta de dados ou processamento
-* Fará uso de filas (rabbitMQ) para gerenciar as trocas de mensagem
+* Poderá fazer uso de filas (rabbitMQ) para gerenciar as trocas de mensagem
 * Faz a orquestração de tarefas
 * Cada automação podem ser recorrente (periódicas) com agendamento
 * Podem ser constante (ou seja sempre em execução)
