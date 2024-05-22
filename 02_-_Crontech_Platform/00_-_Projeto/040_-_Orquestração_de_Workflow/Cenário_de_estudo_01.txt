@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-22T00:40:40-03:00
+
+====== Cenário de estudo 01 ======
+Criado quarta 22 maio 2024
+
+- Tenho um conjunto de serviços, rodando em pods kubernetes
+- Cada serviço é uma automação como por exemplo, coletar dados do Mercado Livre, salvar em um banco de dados, acessar uma api externa, coletar dados da olx etc...
+- Gostaria de criar uma arquitetura onde um fluxo de processo de dados  vai passar por vários serviços. Ex: 1x por dia, acessa api do mercado livre, processa resultado e salva em um banco de dados
+- Deve ser feito em kubernetes
+
+O que recomenda?
+
+====== Arquitetura sugerida: ======
+
+Para criar uma arquitetura eficiente e escalável onde um fluxo de dados passa por vários serviços em Kubernetes, você pode seguir uma abordagem baseada em microserviços e utilizar ferramentas de orquestração e gerenciamento de workflows. Aqui estão algumas recomendações:
+
+**Microserviços:**
+Cada serviço deve ser um contêiner separado, gerenciado por Kubernetes. Certifique-se de que cada serviço tenha uma responsabilidade clara e única, como coletar dados, processar dados e salvar dados no banco de dados.
+
+**Kubernetes CronJob:**
+Utilize Kubernetes CronJobs para agendar a execução periódica dos seus serviços. Um CronJob permite executar tarefas em horários específicos, como acessar a API do Mercado Livre uma vez por dia.
+
+**Mensageria e Fila de Trabalho:**
+Use um sistema de mensageria, como RabbitMQ ou Kafka, para orquestrar a comunicação entre os serviços. Por exemplo, um serviço que coleta dados pode enviar uma mensagem para uma fila, que é consumida por outro serviço que processa esses dados.
+
+**Argo Workflows:**
+Argo Workflows é uma ferramenta para criar, gerenciar e executar pipelines de workflows complexos em Kubernetes. É uma excelente escolha para definir e controlar o fluxo de dados através dos seus serviços.
+
+**Persistência de Dados:**
+Utilize um banco de dados adequado para armazenar os dados coletados e processados. Bancos de dados como PostgreSQL, MongoDB ou mesmo soluções de armazenamento em nuvem podem ser utilizados dependendo das suas necessidades de consistência e desempenho.

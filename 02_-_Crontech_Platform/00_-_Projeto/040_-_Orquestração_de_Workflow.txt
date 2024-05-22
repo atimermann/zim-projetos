@@ -35,3 +35,9 @@ Estudaor o uso de:
 	* APACHE NIFI
 	* AIRFLOW
 	* ZAPIER
+
+
+====== Argo Workflow ======
+
+Fornece uma orquestração de workflow nativa para o kuberentes
+Parece extremamente complexo
