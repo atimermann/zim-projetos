@@ -1,0 +1,63 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-22T23:42:48-03:00
+
+====== Problema de Serviço e Agentes separado vs unificado ======
+Criado quarta 22 maio 2024
+
+**Cenário 01:**
+
+* temos um serviço exclusivo para realizar uma determinada tarefa como por exemplo coletar  dados do Mercado Livre
+* ela será apenas uma api rest sem nenhuma outra responsabilidade
+* Teremos um segundo serviço q vai funcionar com um agente, onde ele vai olhar pra fila pra verificar se tem uma nova mensagem e requisitar do serviço de coletar dados via rest aguardar a resposta e enviar para outra fila
+
+**Cenário 02:**
+
+* Teremos um serviço que faz o papel tanto do agente quanto da coleta, ele acessa fila ele escreve resultado na fila
+
+Vantagens e desvantagens:
+
+=== Cenário 01: Serviços Separados (Coleta e Agente) ===
+**Vantagens:**
+
+* **Desacoplamento:** A separação de responsabilidades facilita a manutenção e a evolução de cada serviço independentemente.
+* **Escalabilidade:** Cada serviço pode ser escalado independentemente com base na carga de trabalho. O serviço de coleta pode ser escalado horizontalmente para lidar com um maior número de requisições ao Mercado Livre, enquanto o agente pode ser escalado conforme a demanda das filas.
+* **Especialização:** Cada serviço pode ser otimizado e configurado especificamente para sua tarefa, melhorando a eficiência e desempenho.
+* **Resiliência:** Falhas em um serviço (ex.: o agente) não necessariamente impactam o outro (ex.: coleta de dados), aumentando a resiliência do sistema.
+* **Isolamento de Falhas:** Problemas de performance ou bugs em um serviço não afetam diretamente o outro, facilitando a identificação e resolução de problemas.
+
+**Desvantagens:**
+
+* **Complexidade Operacional:** A gestão de múltiplos serviços pode aumentar a complexidade operacional e de deploy, requerendo mais recursos de monitoramento e orquestração.
+* **Latência:** A comunicação entre serviços via REST pode adicionar latência, especialmente em arquiteturas de alto tráfego.
+* **Gerenciamento de Estado:** O estado compartilhado entre os serviços (ex.: informações de sessão ou cache) pode ser mais difícil de gerenciar.
+
+=== Cenário 02: Serviço Único (Coleta e Agente Integrados) ===
+**Vantagens:**
+
+* **Simplicidade Operacional:** Menor complexidade na implantação e operação, já que há apenas um serviço para gerenciar.
+* **Redução de Latência:** A integração direta entre coleta e agente elimina a necessidade de comunicação REST entre serviços, reduzindo a latência.
+* **Menor Overhead:** Reduz o overhead de chamadas de rede entre serviços, o que pode ser benéfico em cenários de alto tráfego.
+* **Facilidade de Desenvolvimento:** Pode ser mais fácil implementar e testar um único serviço integrado, pois todas as responsabilidades estão no mesmo contexto.
+
+**Desvantagens:**
+
+* **Acoplamento:** A combinação de responsabilidades pode dificultar a manutenção e a evolução do serviço, pois alterações em uma funcionalidade podem impactar a outra.
+* **Escalabilidade Limitada:** Escalar partes específicas do serviço (ex.: apenas a coleta) se torna mais difícil, podendo levar à necessidade de escalar todo o serviço, o que pode ser ineficiente.
+* **Complexidade de Código:** O código pode se tornar mais complexo, com responsabilidades múltiplas e possivelmente conflitantes dentro do mesmo serviço.
+* **Resiliência Reduzida:** Falhas em uma parte do serviço (ex.: coleta) podem afetar a outra (ex.: agente), reduzindo a resiliência geral do sistema.
+
+=== Considerações para Arquitetura de Alto Tráfego e Controle de Requisições ===
+  * **Monitoramento e Limitação de Taxa:**
+	* **Cenário 01:** Pode implementar mecanismos de limitação de taxa (rate limiting) e monitoramento específicos para cada serviço, ajustando conforme a demanda.
+	* **Cenário 02:** A limitação de taxa deve ser aplicada no serviço integrado, o que pode ser mais complexo se diferentes partes do serviço tiverem diferentes requisitos de taxa.
+  * **Escalabilidade:**
+	* **Cenário 01:** Mais flexibilidade para escalar serviços independentemente, permitindo uma utilização mais eficiente dos recursos.
+	* **Cenário 02:** Pode ser necessário escalar todo o serviço, o que pode levar a uma utilização menos eficiente dos recursos em cenários de tráfego variável.
+  * **Desempenho:**
+	* **Cenário 01:** A comunicação entre serviços pode introduzir latência adicional, mas permite otimização específica para cada parte do serviço.
+	* **Cenário 02:** Menos latência de comunicação, mas potencial para maior complexidade e acoplamento que pode impactar negativamente o desempenho em larga escala.
+
+=== Conclusão ===
+Para uma arquitetura de alto tráfego, o Cenário 01 oferece mais flexibilidade e controle sobre a escalabilidade e resiliência do sistema, apesar da maior complexidade operacional. O Cenário 02 pode ser mais simples de implementar inicialmente, mas pode enfrentar desafios de escalabilidade e manutenção à medida que a demanda cresce. A escolha depende das prioridades e recursos disponíveis, bem como da capacidade da equipe de gerenciar a complexidade adicional do Cenário 01.
+
