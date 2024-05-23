@@ -8,7 +8,7 @@ Criado terça 23 abril 2024
 Desenvolvimento de uma solução de desenho e orquestração de workflow
 
 ====== Outbox ======
-
+https://medium.com/design-microservices-architecture-with-patterns/outbox-pattern-for-microservices-architectures-1b8648dfaa27
 em vez de usar um agente q conecta no serviço e espera resultado mantendo um conexão HTTP aberta, seria interessante deixar o serviço responder em uma fila por padrão mesmo
 ou em um outbox
 
