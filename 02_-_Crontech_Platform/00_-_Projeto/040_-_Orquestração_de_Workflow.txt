@@ -7,6 +7,11 @@ Criado terça 23 abril 2024
 
 Desenvolvimento de uma solução de desenho e orquestração de workflow
 
+====== Outbox ======
+
+em vez de usar um agente q conecta no serviço e espera resultado mantendo um conexão HTTP aberta, seria interessante deixar o serviço responder em uma fila por padrão mesmo
+ou em um outbox
+
 ====== Antigo ======
 	**NodeRed**
 		* Podemos criar automations com o node-red, 
