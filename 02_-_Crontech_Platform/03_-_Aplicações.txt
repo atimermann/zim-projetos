@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-23T23:29:45-03:00
+
+====== 03 - Aplicações ======
+Criado quinta 23 maio 2024
+
+Aqui vou descrever principalmente aplicações kubernetes e como estão sendo implantadas
