@@ -5,3 +5,18 @@ Creation-Date: 2024-05-23T23:30:04-03:00
 ====== 01 - Postgres ======
 Criado quinta 23 maio 2024
 
+Para implanatação de banco de dados estamos utilizando um Postgres Operator que permite executar um cluster MASTER-SLAVE, onde temos 1 um unico master para gravação e N slave para leitura.
+
+Para isso vamos utilizar a ferramenta: **Crunchy Postgres for Kubernetes:**
+
+Principal solução Postgres nativa do Kubernetes. Construído em **PGO**, o **Operador Postgres da Crunchy Data**, o Crunchy Postgres for Kubernetes oferece uma solução Postgres declarativa que gerencia automaticamente seus clusters PostgreSQL, fornecendo:
+
+* Implantação rápida e fácil 
+* Alta disponibilidade 
+* Gerenciamento de backup recuperação de desastres 
+* Gerenciamento e dimensionamento de conexão Monitoramento de desempenho e integridade 
+* Muito mais...
+
+
+**REF:** https://access.crunchydata.com/documentation/postgres-operator/latest
+**REF:** https://github.com/CrunchyData/postgres-operator

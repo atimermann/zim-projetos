@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-24T00:05:44-03:00
+
+====== 02 -  Criando um Cluster ======
+Criado sexta 24 maio 2024
+
+**REF:** https://access.crunchydata.com/documentation/postgres-operator/latest/quickstart#create-a-postgres-cluster
+
+Na pasta **kustomize/postgres**
+
+Vamos ter uma estrutura de exemplo, podemos copiar esta estrutura para criarmos nosso cluster modificando-o conforme necessário
+
+Você pode acompanhar o progresso do seu cluster usando o seguinte comando:
+
+{{{code: lang="sh" linenumbers="True"
+kubectl -n postgres-operator describe postgresclusters.postgres-operator.crunchydata.com hippo
+}}}
+hippo é o nome default, que podemos alterar
+
+
+====== Conectando no Cluster ======
+
+Como parte da criação de um cluster Postgres, o Operador Postgres cria uma conta de usuário **PostgreSQL.**
+
+As credenciais desta conta são armazenadas em um segredo que tem o nome:
+
+	**<clusterName>-pguser-<userName>**
+
+Dentro deste segredo estão atributos que fornecem informações para permitir que você faça login no cluster PostgreSQL. Esses incluem:
+
+* **usuário:** O nome da conta do usuário. 
+* **senha:** A senha da conta do usuário. 
+* **dbname:** O nome do banco de dados ao qual o usuário tem acesso por padrão. 
+* **host:** O nome do host do banco de dados. Isso faz referência ao serviço da instância primária do Postgres. port: A porta em que o banco de dados está escutando. uri: Um URI de conexão PostgreSQL que fornece todas as informações para login no banco de dados Postgres. jdbc-uri: Um URI de conexão PostgreSQL JDBC que fornece todas as informações para efetuar login no banco de dados Postgres por meio do driver JDBC.

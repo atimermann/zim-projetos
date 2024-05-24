@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-24T00:05:22-03:00
+
+====== 01 - Instalação ======
+Criado sexta 24 maio 2024
+REF: https://access.crunchydata.com/documentation/postgres-operator/latest/quickstart
+
+Postgres Operator vamos instalar através da clonagem de um repositório do GITHUB:
+
+{{{code: lang="sh" linenumbers="True"
+YOUR_GITHUB_UN="$YOUR_GITHUB_USERNAME"
+git clone --depth 1 "git@github.com:${YOUR_GITHUB_UN}/postgres-operator-examples.git"
+cd postgres-operator-examples
+}}}
+
+===== Instalando via Kustomize =====
+
+{{{code: lang="sh" linenumbers="True"
+kubectl apply -k kustomize/install/namespace
+kubectl apply --server-side -k kustomize/install/default
+}}}
+
+===== Verificando Status =====
+{{{code: lang="sh" linenumbers="True"
+kubectl -n postgres-operator get pods \
+  --selector=postgres-operator.crunchydata.com/control-plane=postgres-operator \
+  --field-selector=status.phase=Running
+
+}}}
+
+Se o pod PGO estiver íntegro, você verá um resultado semelhante a:
+
+**NAME                                					READY   STATUS    RESTARTS   AGE**
+**postgres-operator-9dd545d64-t4h8d        1/1     Running       0                3s**
+
+
+
