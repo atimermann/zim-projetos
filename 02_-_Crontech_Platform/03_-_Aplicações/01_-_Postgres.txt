@@ -20,3 +20,73 @@ Principal solução Postgres nativa do Kubernetes. Construído em **PGO**, o **O
 
 **REF:** https://access.crunchydata.com/documentation/postgres-operator/latest
 **REF:** https://github.com/CrunchyData/postgres-operator
+
+====== Explicação sobre  e instalação ======
+
+[[Tecnologia-cursos-tutoriais?1 - Kubernetes + K3S:28 - Banco de dados:01 - Postgres]]
+
+Vamos criar um cluster para cada **sistema independente**, para melhorar escalabilidade
+
+Por exemplo, um cluster apenas para o KEYCLOAK
+
+Exemplo:
+{{{code: lang="yaml" linenumbers="True"
+# REF: https://access.crunchydata.com/documentation/postgres-operator/latest/quickstart
+apiVersion: postgres-operator.crunchydata.com/v1beta1
+kind: PostgresCluster
+metadata:
+  name: postgres
+spec:
+  patroni:
+    dynamicConfiguration:
+      failsafe_mode: true
+      synchronous_mode: true
+  image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres:ubi8-16.2-0
+  postgresVersion: 16
+  instances:
+    - name: instance1
+      replicas: 3
+      dataVolumeClaimSpec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 1Gi
+      affinity:
+        #REF: https://access.crunchydata.com/documentation/postgres-operator/latest/tutorials/day-two/high-availability#affinity
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  postgres-operator.crunchydata.com/cluster: postgres
+                  postgres-operator.crunchydata.com/instance-set: instance1
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: "disk-space"
+                    operator: "Gt"
+                    values:
+                      - "6"
+
+  backups:
+    pgbackrest:
+      image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.49-0
+      global:
+        repo1-retention-full: "14"
+        repo1-retention-full-type: time
+      repos:
+        - name: repo1
+          schedules:
+            full: "0 1 * * 0"
+            differential: "0 1 * * 1-6"
+          volume:
+            volumeClaimSpec:
+              accessModes:
+                - "ReadWriteOnce"
+              resources:
+                requests:
+                  storage: 1Gi
+}}}
