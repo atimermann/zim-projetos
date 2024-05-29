@@ -5,3 +5,13 @@ Creation-Date: 2024-05-23T23:30:11-03:00
 ====== 02 - Keycloak ======
 Criado quinta 23 maio 2024
 
+====== Instalação Operator ======
+
+[[Tecnologia-cursos-tutoriais?1 - Kubernetes + K3S:Instalação keycloak]]
+
+====== Configuração Cluster Postgres ======
+
+
+
+====== Configuração Keycloak ======
+
