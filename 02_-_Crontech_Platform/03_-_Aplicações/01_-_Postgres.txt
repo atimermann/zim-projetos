@@ -54,6 +54,7 @@ spec:
             storage: 1Gi
       affinity:
         #REF: https://access.crunchydata.com/documentation/postgres-operator/latest/tutorials/day-two/high-availability#affinity
+        # Evita que múltiplos pods sejam agendados no mesmo nó
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - topologyKey: kubernetes.io/hostname
