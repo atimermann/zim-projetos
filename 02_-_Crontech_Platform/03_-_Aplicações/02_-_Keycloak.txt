@@ -45,7 +45,17 @@ export PGDATABASE=$(kubectl get secrets -n ${PG_NAMESPACE} "${PG_CLUSTER_USER_SE
 # Connecta psql
 psql -h localhost
 
+# Necessário criar um schema:
+
+	
+
 }}}
+
+Agora necessário criar um schema, pois o public não terá permissão
+{{{code: lang="sql" linenumbers="True"
+CREATE SCHEMA keycloak AUTHORIZATION "postgres-keycloak";
+}}}
+
 
 ===== Comandos PSQL =====
 **\l =>** Lista todos os bancos de dados
