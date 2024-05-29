@@ -11,6 +11,54 @@ Criado quinta 23 maio 2024
 
 ====== Configuração Cluster Postgres ======
 
+Verifique o manifesto usada no projeto
+
+Como obter as credenciais:
+{{{code: lang="sh" linenumbers="True"
+############################################################################
+# Nome do Cluster , definido por <clusterName>-pguser-<userName>
+############################################################################
+PG_NAMESPACE=crontech-platform
+PG_CLUSTER_NAME=postgres-keycloak
+PG_CLUSTER_USER_SECRET_NAME=${PG_CLUSTER_NAME}-pguser-${PG_CLUSTER_NAME}
+
+echo "Namespace:   $PG_NAMESPACE"
+echo "ClusterName: $PG_CLUSTER_NAME"
+echo "Secret:      $PG_CLUSTER_USER_SECRET_NAME"
+
+############################################################################
+# Cria port forwarder
+############################################################################
+PG_CLUSTER_PRIMARY_POD=$(kubectl get pod -n ${PG_NAMESPACE} -o name -l postgres-operator.crunchydata.com/cluster=${PG_CLUSTER_NAME},postgres-operator.crunchydata.com/role=master)
+
+echo "Cluster POD Name: $PG_CLUSTER_PRIMARY_POD"
+kubectl -n ${PG_NAMESPACE} port-forward "${PG_CLUSTER_PRIMARY_POD}" 5432:5432
+
+############################################################################
+# Conecta PSQL outra aba
+############################################################################
+# Obtém as credenciais
+export PGUSER=$(kubectl get secrets -n ${PG_NAMESPACE} "${PG_CLUSTER_USER_SECRET_NAME}" -o go-template='{{.data.user | base64decode}}')
+export PGPASSWORD=$(kubectl get secrets -n ${PG_NAMESPACE} "${PG_CLUSTER_USER_SECRET_NAME}" -o go-template='{{.data.password | base64decode}}')
+export PGDATABASE=$(kubectl get secrets -n ${PG_NAMESPACE} "${PG_CLUSTER_USER_SECRET_NAME}" -o go-template='{{.data.dbname | base64decode}}')
+
+# Connecta psql
+psql -h localhost
+
+}}}
+
+===== Comandos PSQL =====
+**\l =>** Lista todos os bancos de dados
+**\c nome-banco  =>** Conecta no banco nome-banco
+**\dn =>** Lista todos os schemas
+**\d  =>** Lista as tabelas do banco de dados conectado
+**\d  table-name =>** Descrimina as colunas da tabela
+**\dg =>** Lista usuários existentes, as permissões e grupos que o usuário pertence
+**\password [usuario] =>** Troca a senha do usuário com segurança, ou seja você não vê a seha que foi digitada e não é possível ver através do histórico de comandos.
+**select * from table-name  =>** Lista o conteúdo das tabelas (o.O)
+
+
+
 
 
 ====== Configuração Keycloak ======
