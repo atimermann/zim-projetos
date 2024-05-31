@@ -5,6 +5,8 @@ Creation-Date: 2024-05-23T23:30:04-03:00
 ====== 01 - Postgres ======
 Criado quinta 23 maio 2024
 
+**__NOTA: Deu pau na infra atual, reduzi para 1 replica__**
+
 Para implanatação de banco de dados estamos utilizando um Postgres Operator que permite executar um cluster MASTER-SLAVE, onde temos 1 um unico master para gravação e N slave para leitura.
 
 Para isso vamos utilizar a ferramenta: **Crunchy Postgres for Kubernetes:**
