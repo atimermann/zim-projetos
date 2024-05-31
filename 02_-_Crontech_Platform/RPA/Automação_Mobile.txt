@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-31T01:28:32-03:00
+
+====== Automação Mobile ======
+Criado sexta 31 maio 2024
+
+Simples com ADB + APPIUM + WEBDRIVER + UIAUTOMATOR + PROXY

@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-05-31T01:33:50-03:00
+
+====== 000 - Próximas Tarefas ======
+Criado sexta 31 maio 2024
+
+**Boa tarde**
+
+**Oq tinha pra fazer é:**
+
+* **Remover o dashboard no momento e colocar na listagem de processo, criar um gráfico de progresso**
+* **Objetivo só bater o olho já ver se tá tudo funcionando direito**
+* **Alterar as cores para nova identidade visual do site**
+* **Adicionar alarmes na API**
+* **Fazer mais reuniões para entender a questão do template**
+* **Separar o painel de monitoramento segregado por white label (Clientes)**
+
+**ex.: Ricardo ( Acesso ADM )**
+  **Datatem ( Acesso White Label - Gestor)**
+ **. BRCap( Acesso Client A )**
+  **.. extração API BRCAP**
+ **. ADM Int ( Acesso Cliente B - Analista Datatem )**
+  **.. GA4**
+  **.. RD Station**
+ **.. Marketing**
+ **.. CRM**
+  **.. Sankya**
+
+**Eu estou trabalhando em todos esses itens, mas não consegui finalizar ainda, to resolvendo umas questões pessoais.** 
+**Vou estar fora hoje dia todo.**
+
+**Como estão as demandas? to trabalhando bastante pra entregar uma solução bacana.** 
+**Mas precisei me virar nos 30 aqui pra levantar uma grana e pagar as contas do mẽs**
+**Consegue segurar até quando pra entregar essas alterações?**
+
+--------------------
+
+{{./pasted_image.png}}
+
+--------------------
+
+
+====== Multi Tenant ======
+
+
+
+
+====== Automação ======
+
+* **Ricardo quer telas:**
+{{./pasted_image001.png}}
+
+* 

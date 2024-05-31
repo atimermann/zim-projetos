@@ -12,7 +12,7 @@ Novo projeto para criação de uma plataforma Crontech de aplicações de TI bas
 * Low Code com Node Red
 * RPA com OpenRPA e Puppeter
 	* Gestor de Orquestração integrado com a plataforma
-* Banco de dados Vitess
+* ~~Banco de dados Vitess~~
 * Backend em Nodejs com aplicação micro e Fastfy
 * Autenticação com Keycloak
 * IA com as melhores ferramentas do mercado para integrar tudo

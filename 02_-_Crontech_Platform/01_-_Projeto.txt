@@ -9,7 +9,6 @@ Criado sexta 16 fevereiro 2024
 
 * Novo site institucional crontech.com.br
 
-
 ====== Sistema Principal ======
 
 * Novo sistema principal em platform.crontech.com.br
