@@ -91,6 +91,7 @@ Aqui vou descrever o projeto  do sistema que vai gerenciar o Crontech Platform, 
 
 ===== Automations =====
 * Teremos diferentes Engine de automação, mas serão listada na interface:
+	* Simple
 	* Argo Workglow
 	* NodeRed
 	* Apache Nifi
