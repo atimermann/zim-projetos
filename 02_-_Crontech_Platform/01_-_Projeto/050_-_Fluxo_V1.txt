@@ -1,0 +1,73 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-02T23:46:32-03:00
+
+====== 050 - Fluxo V1 ======
+Criado domingo 02 junho 2024
+
+Aqui descreve o fluxo de workflow / jobs / Monitoramento e como será implementado:
+
+Nosso objetivo é descrever uma arquitetura onde podemos criar workflows (automação) , serviços, de forma q podem ser vendidos e monitorados.
+
+Então teremos 3 entidades principais:
+
+====== 1. Serviços ======
+
+São unidades básicas de processamento, são as aplicações em si com tarefas simples e unica, implementadas através de microserviços.
+
+* O Workflow vai chamar um serviço para executar uma ação
+* A INPUT padrão dos serviçõs são FILAS, cada serviço terá uma fila de entrada e uma fila de saída
+* vamos criar uma interface unica padronizada
+	* Vamos implementar um padrão de **OUTBOX**
+* Um serviço pode receber um registro unico, mas apartir dele pode retornar um array de resultado
+	* Serviços recebem um pacote de dados e entregam outro pacote de dados
+
+===== Fluxo de dados =====
+
+Neste primeira versão vamos implementar o modelo básico do red node, onde os fluxo de dados é representado por:
+	* Um objeto unico em um formato padronizado JSON 
+	* OU um array de dados
+
+
+===== Pacote dados padrão =====
+
+* Todo dado é transmitido via pacote de dados padrão, onde temos:
+	* informação do usuário que está realizando a requisição
+	* Account
+* Pode ser enviado um pacote de dados formato de array
+
+
+====== 2. Workflow de Usuário ======
+
+* Sâo fluxos de processamentos de dados, onde os dados são transmitido entre um serviço e outro
+* Cada execução do workflow é chamado de jobs e são disparado por um Trigger
+* Teremos várias engine de implementação:
+	* **Padrão interno Step Automation**
+		* Versão mais simples 
+	* Node Red
+	* Argo Workflow
+	* Outros
+
+* Precisamos implementar uma forma de monitorar o fluxo por isso usaremos o padrão **OUTBOX**
+
+===== Jobs =====
+
+* Cada execução de um workflow é chamado de jobs
+
+===== Triggers (Gatilhos) =====
+
+* São atividades que disparam, ou iniciam a execução de um workflow,
+* Aqui é criado um registro de jobs
+
+==== Tipos de Jobs: ====
+* **Kubernetes Cron (Agendamento):** integrado com o kubernete, disparam novos workflow pelo kubernetes
+* **Input de usuário:** Através de uma tela de cadastro interno
+* **API:** Alguma aplicação externa acessa a API padrão da plataforma
+* **Email:** Leitura à partir do Email
+* **SMS:** Leitura à partir de novos SMS
+* **FILA:** novos itens numa fila
+
+
+====== 3. Workflows como serviço ======
+
+* Vamos ter a mesma interface de um serviço
