@@ -46,6 +46,9 @@ Service Mesh é uma camada de infraestrutura dedicada ao gerenciamento de comuni
 
 ===== Garanta a criptografia de dados em trânsito (TLS) e em repouso, especialmente para dados sensíveis dos usuários. Qual diferença de dados reouposo e transito =====
 
+Dados em trânsito referem-se aos dados que estão sendo transferidos de um ponto a outro. Isso pode incluir a transferência de dados através da rede interna da sua organização, a comunicação entre microserviços, ou a transmissão de dados entre um cliente (como um navegador web) e um servidor.
+
+Dados em repouso referem-se aos dados que estão armazenados em qualquer meio de armazenamento. Isso inclui dados armazenados em discos rígidos, bancos de dados, sistemas de armazenamento na nuvem, dispositivos de backup e outro
 
 ===== Arquitetura proposta pelo Chat GPT =====
 

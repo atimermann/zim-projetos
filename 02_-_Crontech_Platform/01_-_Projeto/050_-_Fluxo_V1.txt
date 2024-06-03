@@ -8,12 +8,12 @@ Criado domingo 02 junho 2024
 Aqui descreve o fluxo de workflow / jobs / Monitoramento e como será implementado:
 Nosso objetivo é descrever uma arquitetura onde podemos criar workflows (automação) , serviços, de forma q podem ser vendidos e monitorados.
 
-* Para demonstrar aos investidores vamos começar visualmente baseado na arquietura abaixo:
+* **Para demonstrar aos investidores vamos começar visualmente baseado na arquietura abaixo:**
 
 Então teremos 3 entidades principais:
-	* Service
-	* User Workflow
-	* Service Workflow
+	* __Service__
+	* __User Workflow__
+	* __Service Workflow__
 
 ====== 1. Serviços ======
 
@@ -99,4 +99,4 @@ Neste primeira versão vamos implementar o modelo básico do red node, onde os f
 
 ====== Orquestração ======
 
-* Definir como será
+* Será via outbox, portanto , estudar e entender bem arquitetura Outbox para desenvolver

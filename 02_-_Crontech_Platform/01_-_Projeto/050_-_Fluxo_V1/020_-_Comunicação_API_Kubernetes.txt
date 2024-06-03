@@ -1,0 +1,239 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-03T00:42:58-03:00
+
+====== 020 - Comunicação API Kubernetes ======
+Criado segunda 03 junho 2024
+
+https://github.com/kubernetes-client/javascript#readme
+
+Para criar uma Web UI em Vue 3 que permita aos usuários criar e monitorar CronJobs no Kubernetes, você precisará seguir estes passos:
+
+Configurar o Backend: Implementar um backend que se comunique com a API do Kubernetes.
+Configurar o Frontend: Desenvolver a interface de usuário em Vue 3.
+Comunicação entre Frontend e Backend: Estabelecer a comunicação entre a interface do usuário e o backend para criar e monitorar os CronJobs.
+Passos Detalhados
+1. Configurar o Backend
+O backend pode ser implementado em Node.js usando a biblioteca kubernetes-client para interagir com a API do Kubernetes.
+
+Instalação da Biblioteca
+
+sh
+Copiar código
+npm install kubernetes-client
+Código do Backend (Node.js)
+
+javascript
+Copiar código
+const express = require('express');
+const { Client, config } = require('kubernetes-client');
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+const client = new Client({ config: config.fromKubeconfig(), version: '1.13' });
+
+// Rota para criar um CronJob
+app.post('/create-cronjob', async (req, res) => {
+	const { name, schedule, image, command } = req.body;
+
+	const cronJobManifest = {
+		apiVersion: 'batch/v1beta1',
+		kind: 'CronJob',
+		metadata: {
+			name: name
+		},
+		spec: {
+			schedule: schedule,
+			jobTemplate: {
+				spec: {
+					template: {
+						spec: {
+							containers: [{
+								name: name,
+								image: image,
+								command: command
+							}],
+							restartPolicy: 'OnFailure'
+						}
+					}
+				}
+			}
+		}
+	};
+
+	try {
+		const response = await client.apis.batch.v1beta1.namespaces('default').cronjobs.post({ body: cronJobManifest });
+		res.status(201).send(response);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+// Rota para listar CronJobs
+app.get('/cronjobs', async (req, res) => {
+	try {
+		const cronjobs = await client.apis.batch.v1beta1.namespaces('default').cronjobs.get();
+		res.status(200).send(cronjobs);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+app.listen(port, () => {
+	console.log(`Server listening at http://localhost:${port}`);
+});
+2. Configurar o Frontend
+Crie um novo projeto Vue 3 e configure a comunicação com o backend.
+
+Instalação do Vue CLI
+
+sh
+Copiar código
+npm install -g @vue/cli
+vue create cronjob-ui
+Estrutura do Projeto Vue 3
+
+plaintext
+Copiar código
+cronjob-ui/
+├── public/
+├── src/
+│   ├── components/
+│   │   └── CreateCronJob.vue
+│   │   └── CronJobList.vue
+│   ├── App.vue
+│   ├── main.js
+├── package.json
+Componente CreateCronJob.vue
+
+vue
+Copiar código
+<template>
+  <div>
+	<h2>Create a new CronJob</h2>
+	<form @submit.prevent="createCronJob">
+	  <div>
+		<label for="name">Name:</label>
+		<input v-model="name" id="name" required />
+	  </div>
+	  <div>
+		<label for="schedule">Schedule:</label>
+		<input v-model="schedule" id="schedule" required />
+	  </div>
+	  <div>
+		<label for="image">Image:</label>
+		<input v-model="image" id="image" required />
+	  </div>
+	  <div>
+		<label for="command">Command:</label>
+		<input v-model="command" id="command" required />
+	  </div>
+	  <button type="submit">Create CronJob</button>
+	</form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+	return {
+	  name: '',
+	  schedule: '',
+	  image: '',
+	  command: ''
+	};
+  },
+  methods: {
+	async createCronJob() {
+	  const response = await fetch('http://localhost:3000/create-cronjob', {
+		method: 'POST',
+		headers: {
+		  'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+		  name: this.name,
+		  schedule: this.schedule,
+		  image: this.image,
+		  command: this.command.split(' ')
+		})
+	  });
+
+	  if (response.ok) {
+		alert('CronJob created successfully');
+		this.name = '';
+		this.schedule = '';
+		this.image = '';
+		this.command = '';
+	  } else {
+		alert('Failed to create CronJob');
+	  }
+	}
+  }
+};
+</script>
+Componente CronJobList.vue
+
+vue
+Copiar código
+<template>
+  <div>
+	<h2>List of CronJobs</h2>
+	<ul>
+	  <li v-for="cronjob in cronjobs" :key="cronjob.metadata.name">
+		{{ cronjob.metadata.name }} - {{ cronjob.spec.schedule }}
+	  </li>
+	</ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+	return {
+	  cronjobs: []
+	};
+  },
+  async created() {
+	const response = await fetch('http://localhost:3000/cronjobs');
+	const data = await response.json();
+	this.cronjobs = data.items;
+  }
+};
+</script>
+App.vue
+
+vue
+Copiar código
+<template>
+  <div id="app">
+	<CreateCronJob />
+	<CronJobList />
+  </div>
+</template>
+
+<script>
+import CreateCronJob from './components/CreateCronJob.vue';
+import CronJobList from './components/CronJobList.vue';
+
+export default {
+  name: 'App',
+  components: {
+	CreateCronJob,
+	CronJobList
+  }
+};
+</script>
+Comunicação entre Frontend e Backend
+No exemplo acima, a comunicação entre o frontend e o backend é feita através de requisições HTTP utilizando o fetch API do JavaScript. O backend expõe duas rotas principais: uma para criar um novo CronJob e outra para listar os CronJobs existentes.
+
+Conclusão
+Essa abordagem permite que você crie uma interface amigável em Vue 3 para usuários leigos configurarem CronJobs no Kubernetes. O backend em Node.js se comunica com a API do Kubernetes para criar e monitorar os CronJobs. Essa solução pode ser expandida para incluir funcionalidades adicionais, como edição e exclusão de CronJobs, além de monitoramento mais detalhado dos jobs executados.
+
+
+
+
+
+
