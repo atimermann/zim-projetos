@@ -1,0 +1,84 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-03T00:17:28-03:00
+
+====== 010 - Sugestões ChatGPT ======
+Criado segunda 03 junho 2024
+
+===== Circuit Braker =====
+O Circuit Breaker é um padrão de design de software usado para aumentar a resiliência e a robustez de sistemas distribuídos. Ele atua como um mecanismo de proteção que previne que falhas em um componente de um sistema se propaguem para outros componentes, causando um efeito cascata que pode levar a falhas generalizadas.
+
+Funcionamento do Circuit Breaker
+O padrão Circuit Breaker pode ser visualizado como um disjuntor elétrico que monitora chamadas entre componentes ou serviços. Ele possui três estados principais:
+
+Fechado (Closed): Neste estado, o Circuit Breaker permite que todas as solicitações passem normalmente para o serviço ou componente alvo. O número de falhas é monitorado.
+
+Aberto (Open): Quando o número de falhas atinge um limite predeterminado, o Circuit Breaker "abre" e bloqueia todas as solicitações subsequentes para o serviço falho por um período de tempo configurado. Durante este estado, qualquer tentativa de chamada falhará imediatamente, retornando uma exceção ou mensagem de erro apropriada.
+
+Meio-Aberto (Half-Open): Após o período de timeout, o Circuit Breaker entra em um estado de teste. Ele permite que um número limitado de solicitações passem para o serviço falho para verificar se ele se recuperou. Se as chamadas forem bem-sucedidas, o Circuit Breaker volta para o estado fechado. Se falharem, ele retorna ao estado aberto.
+
+Implementação do Circuit Breaker
+Benefícios
+Isolamento de Falhas: Impede que falhas em um serviço se propaguem para outros serviços.
+Recuperação Rápida: Permite que o sistema se recupere rapidamente de falhas temporárias, evitando sobrecarga adicional em serviços falhos.
+Estabilidade Geral: Melhora a estabilidade e a resiliência geral do sistema distribuído.
+
+**Ferramenta:** opossum
+
+===== Utilizar o API Gateway para padronizar interface com os serviços =====
+
+
+===== Camada de abstração comum para troca de engine de workflow =====
+
+
+===== Como o Prometheus, Grafana, e ELK stack (Elasticsearch, Logstash, Kibana irá ajudar no monitoramento =====
+
+
+===== Como adotar  práticas de observabilidade, como tracing (por exemplo, com OpenTelemetry), para rastrear a execução de workflows end-to-end. =====
+
+===== Implementar alertas =====
+
+===== Interface padrão usa contratos, qual a definição de contratos? =====
+
+===== Oque é Service Mesh: Considere usar uma malha de serviços (como Istio ou Linkerd) para gerenciar a comunicação entre microserviços, fornecendo segurança, balanceamento de carga e observabilidade. =====
+
+Service Mesh é uma camada de infraestrutura dedicada ao gerenciamento de comunicação entre microserviços em um sistema distribuído. Ele facilita a implementação de diversas funcionalidades, como roteamento de tráfego, segurança, observabilidade e resiliência, sem a necessidade de modificar o código dos microserviços. As malhas de serviços como Istio e Linkerd são exemplos de tecnologias que implementam este conceito.
+
+===== Garanta a criptografia de dados em trânsito (TLS) e em repouso, especialmente para dados sensíveis dos usuários. Qual diferença de dados reouposo e transito =====
+
+
+===== Arquitetura proposta pelo Chat GPT =====
+
+{{{code: lang="texinfo" linenumbers="True"
+        +--------------------------+
+        |     API Gateway          |
+        +-----------+--------------+
+                    |
+                    v
+        +-----------+--------------+
+        |        Service A         |
+        +----+----+----+----+----+-+
+             |    |    |    |    |
+             v    v    v    v    v
+        +----+----+----+----+----+-+
+        |  Workflow Engine (Argo)  |
+        +----+----+----+----+----+-+
+             |    |    |    |    |
+             v    v    v    v    v
+        +----+----+----+----+----+-+
+        |   Queue (SQS/Kafka)      |
+        +--------------------------+
+             |    |    |    |    |
+             v    v    v    v    v
+        +----+----+----+----+----+-+
+        |       Microservices       |
+        +--------------------------+
+             |    |    |    |    |
+             v    v    v    v    v
+        +----+----+----+----+----+-+
+        | Monitoring & Logging     |
+        +--------------------------+
+
+}}}
+
+
