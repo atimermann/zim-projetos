@@ -8,3 +8,47 @@ Criado segunda 03 junho 2024
 https://www.youtube.com/watch?v=0_Fm-xr3LY8
 
 https://medium.com/fretebras-tech/outbox-pattern-solucionando-desafios-de-atomicidade-em-microsservi%C3%A7os-e65fd3776a52
+
+====== Outbox ======
+
+Outbox vem de caixa de saída, em vez de escrever diretamente na fila vc coloca numa tabela outbox
+* A gravação na tabela outbox deve ser atomico, ou seja inserida dentro de uma transação
+* se der errado vc desfaz a ação completa
+Existe outro serviço responsável por ler as outbox.
+
+
+====== Estratégia de Leitura ======
+
+* Você pode marcar como lida ou excluir
+* Um processo separado **(um worker ou job)** lê periodicamente a tabela Outbox, publica as mensagens no sistema de mensageria (como uma fila SQS da AWS) e marca as mensagens como enviadas.
+* Cada mensagem deve ser identificada com um ID ou hash, que garante q a mensagem não seja enviada novamente caso ocorra falha, 
+
+===== Evitar mensagem duplicada =====
+
+Se ouver uma falha para marcar a mensagem como enviada, ela será enviada novamente no proximo ciclo
+
+**Estrutura Básica do Sistema com RabbitMQ**
+* **Publicação de Mensagens:** Envie mensagens para uma fila RabbitMQ.
+* **Consumo de Mensagens:** Consuma as mensagens da fila RabbitMQ.
+* **Verificação de Duplicação:** Verifique se a mensagem já foi processada utilizando um banco de dados para armazenar o estado das mensagens processadas.
+
+ou seja o consumidor que valida se aceita nova mensagem ou não
+
+
+===== Mensagem perdida na fila =====
+
+1. **Uso de Confirmações do RabbitMQ**
+RabbitMQ oferece um modo de confirmação de mensagens para produtores (publisher confirms). Quando você publica uma mensagem em modo de confirmação, RabbitMQ confirma que a mensagem foi recebida e armazenada com segurança.
+
+2. **Monitoramento do Consumidor**
+O consumidor deve processar a mensagem e confirmar manualmente a recepção (acknowledge) apenas após o processamento bem-sucedido. Caso contrário, deve rejeitar (nack) a mensagem para reenvio.
+
+**Estratégia Revisada com Callbacks ou Dead Letter Queue**
+1. **Produtor Envia Mensagens para RabbitMQ:** As mensagens são enviadas para a fila RabbitMQ e o status na tabela Outbox é atualizado para SENT.
+2. **Consumidor Processa Mensagens:** O consumidor lê e processa as mensagens da fila.
+3. **Dead Letter Queue (DLQ):** Se o processamento da mensagem falhar, a mensagem é movida para uma fila de "dead letters" (DLQ) para futura análise e reprocessamento.
+4. **Callback ou Resposta:** O consumidor envia uma confirmação de volta ao produtor após processar a mensagem com sucesso. Isso pode ser feito através de uma fila de resposta ou um endpoint HTTP.
+
+====== Tabela de controle ======
+
+Vamos ter uma tabela de controle de jobs, gerenciado pelo serviço de worker de leitura de outbox
