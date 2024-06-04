@@ -52,3 +52,4 @@ O consumidor deve processar a mensagem e confirmar manualmente a recepção (ack
 ====== Tabela de controle ======
 
 Vamos ter uma tabela de controle de jobs, gerenciado pelo serviço de worker de leitura de outbox
+

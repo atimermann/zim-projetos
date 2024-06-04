@@ -1,0 +1,72 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-03T23:14:43-03:00
+
+====== 040 - Fluxo Outbox ======
+Criado segunda 03 junho 2024
+
+* Primeiramente temos um serviço de controle de job **JobManager,** um **workr de orquestração**
+
+====== Trigger ======
+
+* Trigger é um componente especial que inicializa workflow
+
+===== Cronjob =====
+* o crontjob ao ser adionado, ele cria um novo job, então ele aciona o serviço jobManager
+	* __Chama uma api padrão de criação de job do **jobManager** com um payload__
+	* Payload:  é a data de execução, mas payload definido no workflow
+	* É passado o workflow responsável
+
+===== Email =====
+* De tempo em tempo ele faz leitura de emails da caixa de entrada
+* Para cada novo email: __Chama uma api padrão de criação de job do **jobManager** com um payload__
+* O Payload é o email, data, e algum payload customizado no workflow
+* É passado o workflow responsável
+* Aqui podemos ter varios workflows fazendo uso deste serviço trigger, cada serviço terá seu jeito de tratar
+	* no email podemos ter uma lista de smtp associado a cada workflow
+	* O serviço de email pode ler todos as instruções do tipo email em todos os workflows para executar ação
+	* PENSAR: o workflow ao ser salvo ele altera o serviço email, ou serviço email q coleta o workflow pra saber quem é email
+
+===== API Externa =====
+* Cada nova requisilçao __Chama uma api padrão de criação de job do **jobManager** com um payload__
+* É passado o workflow responsável
+* payload da api é diretamente passado para novo job
+
+
+====== Job Manager ======
+
+* Ao ser criado novo job, ele é salvo na tabela job que pode ficar bem grande
+* Jobmanager tem seu próprio **JOBMANAGER_OUTBOX** onde é definido:
+	* **ID do JOB**
+	* **Workflow ID**
+	* **STEP**: 1 
+	* **Payload** (pacote de dados)
+	
+
+
+
+====== Job Manager Workr ======
+
+* O Jobmanager tem um worker que vai carregar os dados do  **JOBMANAGER_OUTBOX** 
+	* Vai ler o workflow e descobrir qual serviço representa o step 1
+	* Vai adicionar um registro na fila do serviço
+	* Vai adicionar como payload:
+		* **id do Job,** 
+		* **Id do Workflow,**
+		* **Step**
+		* **payload** 
+
+* O Job manager então vai iterar sobre todos os **OUTBOX** registrado
+	* Atualizar a tabela jobs com novas informações
+	* ler o id do workflow
+	* somar step + 1 
+	* descobrir quem é o serviço do step + 1
+	* salvar na fila do serviç colocando os mesmos dados:
+		* **id do Job,** 
+		* **Id do Workflow,**
+		* **Step**
+		* **payload** 
+
+* e proximo step não existir marca job como encarrado
+* Um job pode se ramificar em subjobs, não existe representação na tabela para subjobs, apenas informação é adicionado ao job
+* O job só é encerrado quando todos os subjobs forem executado
