@@ -6,3 +6,5 @@ Creation-Date: 2024-06-03T00:46:19-03:00
 Criado segunda 03 junho 2024
 
 https://www.youtube.com/watch?v=0_Fm-xr3LY8
+
+https://medium.com/fretebras-tech/outbox-pattern-solucionando-desafios-de-atomicidade-em-microsservi%C3%A7os-e65fd3776a52
