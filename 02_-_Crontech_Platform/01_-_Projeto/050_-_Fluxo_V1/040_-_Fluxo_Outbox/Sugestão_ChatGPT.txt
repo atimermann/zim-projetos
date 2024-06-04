@@ -5,3 +5,12 @@ Creation-Date: 2024-06-03T23:35:09-03:00
 ====== Sugestão ChatGPT ======
 Criado segunda 03 junho 2024
 
+* Separar o JobManager e o JobManagerWorker é uma boa prática que melhora a modularidade e facilita a manutenção do sistema.
+* Você menciona que a tabela job pode ficar bem grande. Seria interessante considerar estratégias para particionamento ou arquivamento de jobs antigos para manter a performance da tabela.
+* Certifique-se de que o JobManagerWorker possa escalar horizontalmente para lidar com um grande volume de jobs simultaneamente. Isso pode ser feito implementando workers adicionais que consumam a fila de mensagens.
+* Implementar uma estratégia de retentativa e um mecanismo de logging e monitoramento para lidar com falhas durante o processamento dos steps é crucial. Isso pode incluir:
+	* Mover jobs problemáticos para uma fila de dead letters (DLQ).
+	* Notificações ou alertas quando um job falhar após várias tentativas.
+
+* Quando você menciona que o serviço de email deve coletar informações do workflow para saber como tratar emails, seria interessante definir claramente como essa sincronização ocorre. Um mecanismo centralizado ou uma configuração dinâmica pode ser utilizado para que serviços de trigger saibam quais workflows estão ativos e como processá-los.
+

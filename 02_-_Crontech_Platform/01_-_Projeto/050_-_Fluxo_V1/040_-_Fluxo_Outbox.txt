@@ -43,6 +43,7 @@ Criado segunda 03 junho 2024
 	* **Payload** (pacote de dados)
 	
 
+**NOTA:** Também criar workflows as service ou seja, um workflow pode funcionar como serviço, wokflow as service deve ser encapsulado como serviço
 
 
 ====== Job Manager Workr ======
@@ -70,3 +71,20 @@ Criado segunda 03 junho 2024
 * e proximo step não existir marca job como encarrado
 * Um job pode se ramificar em subjobs, não existe representação na tabela para subjobs, apenas informação é adicionado ao job
 * O job só é encerrado quando todos os subjobs forem executado
+
+====== Descoberta de OUTBOX ======
+
+Para que o JobManagerWorker conheça todos os outboxes disponíveis, você pode implementar um sistema de descoberta de outboxes. Isso pode ser feito de várias maneiras, incluindo:
+
+**Registro Centralizado:**
+Manter um registro centralizado (um banco de dados ou serviço de configuração) onde todos os outboxes estão registrados.
+O JobManagerWorker consulta este registro periodicamente ou é notificado sempre que um novo outbox é adicionado.
+
+**Configuração Dinâmica:**
+Utilizar um arquivo de configuração ou um serviço de configuração que pode ser atualizado dinamicamente.
+O JobManagerWorker lê esta configuração para descobrir os outboxes disponíveis.
+
+**Autodescoberta:**
+Implementar um mecanismo de autodescoberta onde cada serviço de outbox se registra automaticamente com o JobManagerWorker quando inicia.
+Utilizar um sistema de mensagens (como um broker de mensagens) para que novos serviços de outbox anunciem sua disponibilidade.
+Vou detalhar a implementação do primeiro método, que é o mais comum e geralmente o mais robusto.
