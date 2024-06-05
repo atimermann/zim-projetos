@@ -5,17 +5,63 @@ Creation-Date: 2024-06-04T21:32:51-03:00
 ====== 00 - Cronograma ======
 Criado terça 04 junho 2024
 
+* **04/06/2024:**  Criação versão inicial do cronograma
+
+
 ====== Etapa 01: Aplicação ======
+**Iniciado:** 04/06/2024
 
 * Novo conceito de aplicação para agrupar serviços e automações exclusivo
 * Funciona como um agrupamento
 
-[ ] Adicionar ao menu
-[ ] Configurar Menu
+[*] Adicionar ao menu
+[*] Configurar Menu
 [ ] Configurar Banco de dados
 [ ] Implementar CRUD de cadastro
 
 ====== Etapa 02: Serviços ======
 
 [ ] Configurar banco de dados 
-[ ] Tipo publico ou privado (
+[ ] Tipo publico ou privado
+	* **Publico** será oferecido externamente para os usuarios montar suas próprias automações, vendivel
+	* **Privado** será exclusivo para uso da aplicação internamente 
+		* Exemplo é a aplicação Google Analytics, terá 2 serviços interno, um para buscar paginação e outro para obter os registor daquela página
+		* Porém será apenas utilzado por uma aplicação do tipo serviço que esse sim é publico e oferecido ao cliente
+
+
+====== Etapa 03 - Workflows ======
+
+
+* Poderá ser um workflow as service (transparente para o usuario, que verá como serviço. 
+	* Será obrigatóriamente associado a uma aplicação
+	* pode ser publico ou privado tb
+* Poderá ser de Workflow as user (será criado pelo usuário para montar sua automação). Será chamado de **Automações** e terá seu próprio menu
+	* Não será associado a nenhuma aplicação
+	* Não será oferecido a clientes, apenas pode ser copiado
+
+* No futuro vamos implementar outras engine de workflow principalmente rednode e argo flow
+	* Este deve ser básico
+	* Estudar como integrar o rednode com kubernetes já q ele funciona normalmente por si só
+	* Argo Workflow já é integrado com kubernet
+
+[ ] Configurar banco de dados
+[ ] Implementar Crud
+[ ] Implementar editor de workflow
+	* Será workflow simplificado direto, para workflows mais complexo vamos implementar no futuro NODE RED ou ARGO Workflows
+	* vamos utilizar: https://mermaid.js.org/intro/ por ser simples
+	* Mas também temos JSPlumb e JointJS porém são editores de diagrama complexo
+[ ] Workflow será descrito com um json  simples composto por array de etapas que será enviado peloas filas via pacote de dados
+
+
+====== Etapa 04 - Automações ======
+
+* Será workflows de usuário especiais
+* Usuários comunus podem não ter acesso a lista de workflows
+* será feito para o usuario acessar
+
+====== Etapa 05 - Jobs ======
+
+* Telas de monitoramento de jobs
+* JobManager, executa o workflow
+
+
