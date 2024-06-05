@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-04T21:32:51-03:00
+
+====== 00 - Cronograma ======
+Criado terça 04 junho 2024
+
+====== Etapa 01: Aplicação ======
+
+* Novo conceito de aplicação para agrupar serviços e automações exclusivo
+* Funciona como um agrupamento
+
+[ ] Adicionar ao menu
+[ ] Configurar Menu
+[ ] Configurar Banco de dados
+[ ] Implementar CRUD de cadastro
+
+====== Etapa 02: Serviços ======
+
+[ ] Configurar banco de dados 
+[ ] Tipo publico ou privado (
