@@ -42,7 +42,7 @@ Criado terça 04 junho 2024
 * No futuro vamos implementar outras engine de workflow principalmente rednode e argo flow
 	* Este deve ser básico
 	* Estudar como integrar o rednode com kubernetes já q ele funciona normalmente por si só
-	* Argo Workflow já é integrado com kubernet
+	* Argo Workflow já é integrado com kubernetes necessário estudar bem
 
 [ ] Configurar banco de dados
 [ ] Implementar Crud
