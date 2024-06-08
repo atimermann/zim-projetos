@@ -29,3 +29,9 @@ Configurar maquina confirme reunião:
 
 
 ====== Tarefa 03 ======
+
+Ordem Automação
+
+* Google Analytics
+* RDStations
+* 
