@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-08T14:13:49-03:00
+
+====== 2024-06-08 ======
+Criado sábado 08 junho 2024
+
+* Novo RP Inside System
+	* Base de dados instalado
+	* Consumir numa VM
+
+
+====== Tarefa 01 ======
+
+* Configurar VM 
+
+
+**Tentar o VLE-2**
+	* {{./pasted_image001.png}}{{./pasted_image.png}}
+
+
+* Configurar Banco de dados SQL Server
+* Migrar banco local para este servidor
+
+====== Tarefa 02 ======
+
+Configurar maquina confirme reunião:
+[[2024-04-02]]
+
+
+====== Tarefa 03 ======
