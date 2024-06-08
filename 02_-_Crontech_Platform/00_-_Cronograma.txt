@@ -7,6 +7,15 @@ Criado terça 04 junho 2024
 
 * **04/06/2024:**  Criação versão inicial do cronograma
 
+Basear no Google Analytics
+
+* Criar de Dashboard
+* Criar telas de Jobs (para apresentação)
+* Criar tela de aplicações (Para apresentação)
+* Configurar telas de  logs
+
+Basear na versão antiga as telas 
+
 
 ====== Etapa 01: Aplicação ======
 **Iniciado:** 04/06/2024

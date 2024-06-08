@@ -16,22 +16,26 @@ Criado sábado 08 junho 2024
 
 
 **Tentar o VLE-2**
-	* {{./pasted_image001.png}}{{./pasted_image.png}}
+	* {{./pasted_image.png}}
 
 
-* Configurar Banco de dados SQL Server
-* Migrar banco local para este servidor
+
 
 ====== Tarefa 02 ======
 
 Configurar maquina confirme reunião:
 [[2024-04-02]]
 
-
 ====== Tarefa 03 ======
+
+* Configurar Banco de dados SQL Server
+* Migrar banco local para este servidor
+
+
+====== Tarefa 04 ======
 
 Ordem Automação
 
 * Google Analytics
 * RDStations
-* 
+* Inside System
