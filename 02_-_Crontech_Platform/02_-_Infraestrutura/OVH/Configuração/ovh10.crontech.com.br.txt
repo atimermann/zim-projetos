@@ -4,7 +4,9 @@ Creation-Date: 2024-02-08T02:47:24-03:00
 
 ====== ovh10.crontech.com.br ======
 Criado quinta 08 fevereiro 2024
-===== = =====
+
+**__DESATUALIZADO, MIGRADO PARA O POSTGRES DIRETO NO KUBERNETES__**
+
 * Postgres
 Mesmo modelo usado aqui:
 	* [[Ricardo Lunardelli:Configuração OVH:Server01 - Postgres]]

@@ -107,6 +107,8 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI] sh -s - server --server ht
 curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server https://192.99.167.10:6443
 }}}
 
+curl -sfL https://get.k3s.io | K3S_TOKEN=K10ce8c025a6897e584c2971d9d64d0b34c8950921b3e62b5233230143e65bfe7b3::server:57a200441a047ee1b527a3a66e32b09f sh -s - agent --server https://192.99.167.10:6443
+
 	
 ===== ovh11.crontech.com.br =====
 
