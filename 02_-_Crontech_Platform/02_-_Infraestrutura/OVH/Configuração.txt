@@ -43,9 +43,10 @@ Se der erro verifique o firewall, TCP deve estar habilitado, ver aqui: [[Firewal
 
 ===== ovh01.crontech.com.br =====
 
-* Será o servidor gateway
-* Está com o Ip forward habilitado
-* Será o gateway do K3S com o haproxy habilitado
+* ~~Será o servidor gateway~~
+* ~~Está com o Ip forward habilitado~~
+* **Não será mais gateway pois o ovh11 tem mais performance**
+* Ainda será  o gateway do K3S com o haproxy habilitado
 	* No futuro poderá ser substituido por um load balance
 	* ou criar um ip failover (IP Virtual) e adicionar outro servidor par para funcionar como gateway
 
