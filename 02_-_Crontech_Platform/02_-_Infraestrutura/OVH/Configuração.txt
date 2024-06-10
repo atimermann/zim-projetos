@@ -81,3 +81,14 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server ht
 }}}
 
 	
+===== ovh11.crontech.com.br =====
+
+Nova VPS mais poderosa com:
+* 4 nucleos
+* 4GB Memória
+* 80GB Storage NVME
+* 1GBPS network
+* Ubuntu 24 LTS
+
+Servirá como Gateay pela maior velocidade, terá prioridade
+
