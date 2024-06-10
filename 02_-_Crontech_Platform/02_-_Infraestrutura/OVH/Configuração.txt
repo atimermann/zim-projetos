@@ -50,6 +50,33 @@ Se der erro verifique o firewall, TCP deve estar habilitado, ver aqui: [[Firewal
 	* ou criar um ip failover (IP Virtual) e adicionar outro servidor par para funcionar como gateway
 
 
+---------------------------------------- **PASSMARK** ----------------------------------------
+Intel Core Processor (Haswell, no TSX) (x86_64)
+1 cores @ 0 MHz  |  1.9 GiB RAM
+Number of Processes: 1  |  Test Iterations: 1  |  Test Duration: Medium
+
+CPU Mark:                          **834**
+  Integer Math                     2676 Million Operations/s
+  Floating Point Math              1442 Million Operations/s
+  Prime Numbers                    4.4 Million Primes/s
+  Sorting                          1587 Thousand Strings/s
+  Encryption                       232 MB/s
+  Compression                      12045 KB/s
+  CPU Single Threaded              **989** Million Operations/s
+  Physics                          78.1 Frames/s
+  Extended Instructions (SSE)      614 Million Matrices/s
+
+Memory Mark:                       667
+  Database Operations              354 Thousand Operations/s
+  Memory Read Cached               13343 MB/s
+  Memory Read Uncached             6336 MB/s
+  Memory Write                     6391 MB/s
+  Available RAM                    573 Megabytes
+  Memory Latency                   87 Nanoseconds
+  Memory Threaded                  6565 MB/s
+
+
+
 ===== ovh02.crontech.com.br =====
 ===== ovh03.crontech.com.br =====
 ===== ovh04.crontech.com.br =====
@@ -90,5 +117,31 @@ Nova VPS mais poderosa com:
 * 1GBPS network
 * Ubuntu 24 LTS
 
-Servirá como Gateay pela maior velocidade, terá prioridade
+Servirá como Gateway pela maior velocidade, terá prioridade
+---------------------------------------- **PASSMARK** ----------------------------------------
+**AMD EPYC-Milan** Processor (x86_64)
+4 cores @ 0 MHz  |  3.7 GiB RAM
+Number of Processes: 4  |  Test Iterations: 1  |  Test Duration: Medium
+
+CPU Mark:                          **9849**
+  Integer Math                     23199 Million Operations/s
+  Floating Point Math              18639 Million Operations/s
+  Prime Numbers                    73.5 Million Primes/s
+  Sorting                          14024 Thousand Strings/s
+  Encryption                       5044 MB/s
+  Compression                      98642 KB/s
+  CPU Single Threaded              **2627** Million Operations/s
+  Physics                          1295 Frames/s
+  Extended Instructions (SSE)      8446 Million Matrices/s
+
+Memory Mark:                       **2216**
+  Database Operations              4014 Thousand Operations/s
+  Memory Read Cached               26924 MB/s
+  Memory Read Uncached             19046 MB/s
+  Memory Write                     15669 MB/s
+  Available RAM                    3180 Megabytes
+  Memory Latency                   56 Nanoseconds
+  Memory Threaded                  41838 MB/s
+
+
 

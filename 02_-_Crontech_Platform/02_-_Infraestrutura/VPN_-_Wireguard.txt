@@ -18,3 +18,5 @@ Credenciais salva no LastPass (Notas)
 * Está com o Ip forward habilitado
 
 
+__**TODO:** Migrar para o 10.12.0.11 por ter maior performance__
+
