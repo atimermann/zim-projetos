@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-06-11T15:00:07-03:00
+
+====== N8N ======
+Criado terça 11 junho 2024
+
