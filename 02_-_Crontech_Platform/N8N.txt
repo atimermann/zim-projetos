@@ -5,3 +5,5 @@ Creation-Date: 2024-06-11T15:00:07-03:00
 ====== N8N ======
 Criado terça 11 junho 2024
 
+Sobre  N8N:
+https://chatgpt.com/c/7fd406f0-5307-43c7-8dc1-1aee4b2093b5
