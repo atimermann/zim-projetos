@@ -9,14 +9,10 @@ Criado quinta 21 março 2024
 **IP:**  167.114.97.245
 **Licença:** Express
 
-**Senha:** HsKkw1YJMoi3B7Jh
-**Senha:** HsKkw1YJMoi3B7Jh
-
+**SENHA:**
 rlcs@HsKkw1YJMoi3B7Jh
-
 rlcs@HsKkw1YJMoi3B7Jh
-
-rlcs@HsKkw1YJMoi3B7Jh
+rlcs@HsKkw1YJMoi3B7Jh	
 
 sqlcmd -S localhost -U 'sa' -P 'rlcs@HsKkw1YJMoi3B7Jh' -C
 RESTORE DATABASE wetranf FROM DISK = '/opt/backup.bak' WITH REPLACE
@@ -26,6 +22,4 @@ https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?vi
 
 
 ====== Instalação SQL CMD ======
-
-
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install
