@@ -16,7 +16,8 @@ rlcs@HsKkw1YJMoi3B7Jh
 rlcs@HsKkw1YJMoi3B7Jh
 
 sqlcmd -S localhost -U 'sa' -P 'rlcs@HsKkw1YJMoi3B7Jh' -C
-RESTORE DATABASE wetranf FROM DISK = '/opt/backup.bak' WITH REPLACE
+RESTORE DATABASE wetranf FROM DISK = '/opt/backup.bak' WITH REPLACE;
+GO
 
 ====== Instalação SQL SERVE RLINUX ======
 https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16&tabs=ubuntu2204#prerequisites
