@@ -8,7 +8,7 @@ Criado sexta 24 novembro 2023
 Novo projeto para criação de uma plataforma Crontech de aplicações de TI baseado em:
 
 * Infraestrutura Kubernetes
-* Frontend Baseado no Vue 3 + Nuxt 3 + Prime + Template Base com Layer
+* Frontend Baseado no Vue 3 + Nuxt 3 + ~~Prime~~ + Template Base com Layer
 * Low Code com Node Red
 * RPA com OpenRPA e Puppeter
 	* Gestor de Orquestração integrado com a plataforma

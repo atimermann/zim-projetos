@@ -5,7 +5,7 @@ Creation-Date: 2024-06-03T23:14:43-03:00
 ====== 040 - Fluxo Outbox ======
 Criado segunda 03 junho 2024
 
-* Primeiramente temos um serviço de controle de job **JobManager,** um **workr de orquestração**
+* Primeiramente temos um serviço de controle de job **JobManager,** um **worker de orquestração**
 
 ====== Trigger ======
 
