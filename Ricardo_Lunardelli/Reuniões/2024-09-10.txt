@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-10T21:07:39-03:00
+
+====== 2024-09-10 ======
+Criado terça 10 setembro 2024
+
+* Uma fonte de dados
+* um Schedule (diario, semanal, mensal, horario) perdiodicidade
+* todos os dados q vamos consumir, eles são dados incrementais
+* pegar apenas os dados atualizados
+* um banco de dados enxuto SQL Server Express (deve caiba)
+* não precisa de API (conecta pela outra plataforma)
+* eles usam ClickView
+
+* **Primeiro Fluxo:** Vamos extrair as tabelas:
+	* Vai passar tabela (cliente, fornecedores e técnicos).
+	* Tabels com históricos que todo dia serão alimentados.
+		* Vendas, Contas a receber, recebimentos e bancos.
+	* Analisar como está o andamento na area de vendas, tudo q recebeu no mês quanto recebeu no dia seguinte.
+	* 
+
