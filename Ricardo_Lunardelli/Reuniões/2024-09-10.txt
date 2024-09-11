@@ -18,5 +18,11 @@ Criado terça 10 setembro 2024
 	* Tabels com históricos que todo dia serão alimentados.
 		* Vendas, Contas a receber, recebimentos e bancos.
 	* Analisar como está o andamento na area de vendas, tudo q recebeu no mês quanto recebeu no dia seguinte.
-	* 
 
+
+
+
+**Automation (Template):**
+	* **Trigger**
+	* **template**
+	* adicionar tabela de cadastro de dados para ser usado pela automação
