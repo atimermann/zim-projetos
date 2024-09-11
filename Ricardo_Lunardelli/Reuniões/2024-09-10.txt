@@ -19,10 +19,9 @@ Criado terça 10 setembro 2024
 		* Vendas, Contas a receber, recebimentos e bancos.
 	* Analisar como está o andamento na area de vendas, tudo q recebeu no mês quanto recebeu no dia seguinte.
 
-
-
-
 **Automation (Template):**
 	* **Trigger**
 	* **template**
-	* adicionar tabela de cadastro de dados para ser usado pela automação
+	* adicionar tabela de cadastro de dados para ser usado pela automação, cadastro manual, ou não
+	* Talvez seja necessário criar um gerador de tabela dinamico igual do hh
+
