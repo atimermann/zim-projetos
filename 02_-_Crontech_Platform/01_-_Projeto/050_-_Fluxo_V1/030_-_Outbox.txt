@@ -25,7 +25,7 @@ Existe outro serviço responsável por ler as outbox.
 
 ===== Evitar mensagem duplicada =====
 
-Se ouver uma falha para marcar a mensagem como enviada, ela será enviada novamente no proximo ciclo
+Se houver uma falha para marcar a mensagem como enviada, ela será enviada novamente no proximo ciclo
 
 **Estrutura Básica do Sistema com RabbitMQ**
 * **Publicação de Mensagens:** Envie mensagens para uma fila RabbitMQ.

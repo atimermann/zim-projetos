@@ -13,7 +13,7 @@ Nosso objetivo é descrever uma arquitetura onde podemos criar workflows (automa
 Então teremos 3 entidades principais:
 	* __Service__
 	* __User Workflow__
-	* __Service Workflow__
+	* __Service Workflow (aka automação)__
 
 ====== 1. Serviços ======
 

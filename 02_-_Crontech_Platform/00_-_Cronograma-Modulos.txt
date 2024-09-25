@@ -2,7 +2,7 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.6
 Creation-Date: 2024-06-04T21:32:51-03:00
 
-====== 00 - Cronograma ======
+====== 00 - CronogramaModulos ======
 Criado terça 04 junho 2024
 
 * **04/06/2024:**  Criação versão inicial do cronograma
@@ -17,10 +17,10 @@ Basear no Google Analytics
 Basear na versão antiga as telas 
 
 
-====== Etapa 01: Aplicação ======
+====== Etapa 01: ~~Aplicação~~ Projeto ======
 **Iniciado:** 04/06/2024
 
-* Novo conceito de aplicação para agrupar serviços e automações exclusivo
+* Novo conceito de projeto para agrupar serviços e automações exclusivo
 * Funciona como um agrupamento
 
 [*] Adicionar ao menu
@@ -43,12 +43,11 @@ Basear na versão antiga as telas
 ====== Etapa 03 - Workflows ======
 
 
-* Poderá ser um workflow as service (transparente para o usuario, que verá como serviço. 
-	* Será obrigatóriamente associado a uma aplicação
+* Poderá ser um workflow as service (transparente para o usuario, que verá como serviço. (será chamado de Serviço de automação)
+	* Será obrigatóriamente associado a uma aplicação ??? pq?
 	* pode ser publico ou privado tb
-* Poderá ser de Workflow as user (será criado pelo usuário para montar sua automação). Será chamado de **Automações** e terá seu próprio menu
-	* Não será associado a nenhuma aplicação
-	* Não será oferecido a clientes, apenas pode ser copiado
+* Poderá ser de Workflow as user (será criado pelo usuário para montar sua automação). Será chamado de **Workflow**  e terá seu próprio menu, mas ficará dentro do menu **automação**
+	* Não será oferecido a outros clientes, apenas pode ser copiado
 
 * No futuro vamos implementar outras engine de workflow principalmente rednode e argo flow
 	* Este deve ser básico
@@ -64,11 +63,12 @@ Basear na versão antiga as telas
 [ ] Workflow será descrito com um json  simples composto por array de etapas que será enviado peloas filas via pacote de dados
 
 
-====== Etapa 04 - Automações ======
+====== Etapa 04 - Automação (Workflow) as service ======
 
-* Será workflows de usuário especiais
-* Usuários comunus podem não ter acesso a lista de workflows
+* Será workflows de usuário especiais (revendedores)
+* Usuários comunus podem não ter acesso a lista de automação as service
 * será feito para o usuario acessar
+* Ao montar seu workflow, usuario poderá escolher uma automação pronta (será chamado de automação na interface de montagem de workflow)
 
 ====== Etapa 05 - Jobs ======
 
