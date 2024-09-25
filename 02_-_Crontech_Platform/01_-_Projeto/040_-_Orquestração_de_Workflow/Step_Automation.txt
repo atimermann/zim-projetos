@@ -14,7 +14,7 @@ Na automação do tipo Step Automation, o usuário irá criar uma nova automaç�
 * Deve ser utilizado para automações mais simples, no futuro teremos a opção de nodered
 	* Talvez step atomaticion dispare uma execução do nodered, não sei necessário estudar node-red a fundo
 
-* Existe uma **step principal ou inicial**, que será executado quando a automação for disparada.
+* Existe uma **step principal ou inicial**, que será executado quando a automação for disparada. (Trigger / Gatilho)
 * As steps em geral são executado em paralelo, não existe necessáriamente uma ordem de execução.
 * O que determinar a ordem de execução é o controle de fila, uma step salva em uma fila q será lida por outra step.
 * Fortemene baseado em filas RabbitMQ.
@@ -26,7 +26,7 @@ Na automação do tipo Step Automation, o usuário irá criar uma nova automaç�
 * **Trigger:** Como esse step será disparada para execução, como esta step será executado (Mais detalhe abaixo). 
 * **Cron:** Descrição em formato cron do agendamento de execução
 * **QueueName:** Nome da fila onde este step será executado quando carregar um novo item
-* **Input:** Dados utilizados para execução dessa step, deve ser um **JSON**
+* **Input:** Dados utilizados para execução dessa step, deve ser um **JSON (Payload)**
 * **Execution:** Como será a execução, ex: **Automation** ou **Service**  (Mais detalhes abaixo)
 * **executionName:** Nome da automation ou service para ser executado neste step
 * **Output:** Onde o resultado da execução será salvo, pode ser **null**, ou uma **fila** (Mais detalhes abaixo)

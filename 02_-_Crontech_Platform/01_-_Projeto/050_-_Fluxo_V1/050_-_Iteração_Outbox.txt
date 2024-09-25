@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-25T19:33:45-03:00
+
+====== 050 - Iteração Outbox ======
+Criado quarta 25 setembro 2024
+
+**REF:** https://chatgpt.com/c/66f48db5-857c-800b-ba15-db99a972bd16
+
+* Cada serviço terá sua tabela outbox
+* Cada Serviços terá seu agente
