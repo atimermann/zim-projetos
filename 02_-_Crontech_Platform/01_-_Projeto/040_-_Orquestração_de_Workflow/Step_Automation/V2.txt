@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-25T23:04:59-03:00
+
+====== V2 ======
+Criado quarta 25 setembro 2024
+
+Estou montando uma nova aplicação de automação, baseado em serviços, kubernetes, nodejs, RabbitMq e pattern outbox
+
+* Vamos ter uma tabela principal chamada **workflow**
+* Nesse workflow vamos ter o automationType (entre outros campos não relevantes agora)
+* vamos ter a tabela workflowStep
+* workflowStep vai ter as colunas:
+	* executionType (tipo de ação) ex: trigger, function
+	* executionName (Nome da função q será executada dependendo do serviço) Ex: "Cron", "RdStation.getLeads", "database.query"
+	* config (Configuração em json, que será passado para a function)
+	* nextStep (Nome da proxima step que será executada depois q finalizar, se definido)
+	* 
