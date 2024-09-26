@@ -98,7 +98,6 @@ Nesses casos seria interessante criar um serviço de recebimento de email que ad
 
 ====== Execution STEP ======
 
-
 * Todos os agentes adicionam os step para execução na fila **STEP_EXECUTION**
 * Este é um serviço kubernetes do tipo **deployment** que pode ser facilmente escalado
 * Ele fica ouvindo a fila **AUTOMATION_STEP_OUTPUT** e carrega as propriedades do step

@@ -8,11 +8,18 @@ Criado quarta 25 setembro 2024
 Estou montando uma nova aplicação de automação, baseado em serviços, kubernetes, nodejs, RabbitMq e pattern outbox
 
 * Vamos ter uma tabela principal chamada **workflow**
-* Nesse workflow vamos ter o automationType (entre outros campos não relevantes agora)
+* Nesse workflow vamos ter o automationType (entre outros campos não relevantes agora) vai ser a engine de automação, por enquanto apenas a automação do tipo "step"
 * vamos ter a tabela workflowStep
 * workflowStep vai ter as colunas:
-	* executionType (tipo de ação) ex: trigger, function
-	* executionName (Nome da função q será executada dependendo do serviço) Ex: "Cron", "RdStation.getLeads", "database.query"
-	* config (Configuração em json, que será passado para a function)
-	* nextStep (Nome da proxima step que será executada depois q finalizar, se definido)
-	* 
+	* **Name**
+	* **functionName:** (Nome da função q será executada dependendo do serviço) Ex: "Cron", "RdStation.getLeads", "database.query"
+	* **config:** (Configuração em json, que será passado para a function)
+	* **nextStep:** (Nome da proxima step que será executada depois q finalizar, se definido)
+	* **outputType:** (Pode ser **single** ou **Multiple** ou null**.** Se multiple, o resultado deve ser um array e cada item do array será um item para fila definido em output)
+
+
+Agora vamos ter várias function que vão trabalhar em cima de cada workflowStep, function normalmente são serviços executado no kubernete de varios tipos, segue algumas funções:
+
+===== CronJob Function =====
+* Serviço que sempre q um novo workflowStep do tipo
+
