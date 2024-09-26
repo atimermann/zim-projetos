@@ -1,0 +1,383 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-26T00:15:19-03:00
+
+====== 010 - Roadmap implantação ======
+Criado quinta 26 setembro 2024
+https://chatgpt.com/c/66f48db5-857c-800b-ba15-db99a972bd16
+
+===== RoadMap de Desenvolvimento =====
+
+==== Fase 1: Planejamento e Configuração Inicial ====
+
+**Objetivo:** Estabelecer as bases do projeto, definindo requisitos, configurando o ambiente de desenvolvimento e planejando a arquitetura detalhada.
+
+=== Tarefas: ===
+
+1. **Definir Requisitos Funcionais e Não Funcionais**
+	* Detalhar todos os requisitos do sistema.
+	* Especificar desempenho, segurança e outros requisitos não funcionais.
+2. **Planejar a Arquitetura do Sistema**
+	* Definir a arquitetura detalhada dos serviços.
+	* Desenhar diagramas de fluxo de dados e componentes.
+3. **Configurar o Ambiente de Desenvolvimento**
+	* Configurar máquinas de desenvolvimento.
+	* Instalar Node.js, npm, Docker, Kubernetes (Minikube ou similar) e RabbitMQ.
+	* Configurar ferramentas de versionamento (Git).
+4. **Configurar Repositórios de Código**
+	* Criar repositórios no GitHub ou outra plataforma.
+	* Definir a estrutura dos projetos.
+5. **Definir Padrões de Código e Convenções**
+	* Estabelecer padrões de codificação (ESLint, Prettier).
+	* Definir convenções de nomenclatura e estrutura de diretórios.
+6. **Planejar a Estratégia de Deploy**
+	* Decidir como os serviços serão implantados no Kubernetes.
+	* Definir imagens Docker e pipelines de CI/CD.
+
+
+----
+
+==== Fase 2: Implementação do Banco de Dados e Tabelas ====
+
+**Objetivo:** Criar o esquema do banco de dados necessário para o funcionamento do sistema.
+
+=== Tarefas: ===
+
+1. **Escolher o Banco de Dados**
+	* Decidir entre PostgreSQL, MySQL ou outro SGBD.
+	* Configurar instância local para desenvolvimento.
+2. **Criar Tabelas ''workflow'' e ''workflowStep''**
+	* Definir os campos e tipos de dados.
+	* Escrever scripts SQL para criar as tabelas.
+3. **Criar a Tabela ''outbox''**
+	* Definir o esquema conforme necessário para o padrão Outbox.
+	* Incluir campos como ''id'', ''stepId'', ''payload'', ''status'', ''created_at'', ''processed_at''.
+4. **Implementar Migrações**
+	* Usar ferramentas como Knex.js ou Sequelize para gerenciar migrações.
+5. **Configurar ORM/Query Builder**
+	* Escolher e configurar um ORM (e.g., Knex.js, Sequelize, TypeORM).
+	* Testar conexões e operações básicas.
+
+
+----
+
+==== Fase 3: Desenvolvimento do WorkflowService ====
+
+**Objetivo:** Implementar o serviço central que gerencia o acesso às tabelas ''workflow'' e ''workflowStep''.
+
+=== Tarefas: ===
+
+1. **Configurar o Projeto Node.js para o ''WorkflowService''**
+	* Inicializar o projeto com ''package.json''.
+	* Instalar dependências (Express.js, ORM, etc.).
+2. **Implementar Endpoints da API**
+	* ''GET /workflowStep/:id'': Retorna os detalhes do ''workflowStep''.
+	* (Opcional) ''POST /workflow'': Criar novos workflows.
+3. **Implementar Lógica de Acesso ao Banco de Dados**
+	* Conectar ao banco de dados usando o ORM.
+	* Escrever funções para obter ''workflowStep'' e ''workflow''.
+4. **Implementar Cache (Opcional)**
+	* Utilizar Redis ou cache em memória para melhorar o desempenho.
+5. **Testar o Serviço**
+	* Escrever testes unitários e de integração.
+	* Testar endpoints com ferramentas como Postman ou Insomnia.
+6. **Documentar a API**
+	* Usar Swagger ou outra ferramenta para documentar os endpoints.
+
+
+----
+
+==== Fase 4: Implementação do CronJob Function ====
+
+**Objetivo:** Criar o serviço que inicia os workflows com base em agendamentos.
+
+=== Tarefas: ===
+
+1. **Configurar o Projeto Node.js para o CronJob**
+	* Inicializar o projeto.
+	* Instalar dependências necessárias (axios, amqplib).
+2. **Escrever o Código do CronJob**
+	* Implementar a função que obtém o ''workflowStep'' via ''WorkflowService''.
+	* Conectar ao RabbitMQ e enviar mensagens para o ''nextStep''.
+3. **Criar a Imagem Docker do CronJob**
+	* Escrever o ''Dockerfile''.
+	* Construir e testar a imagem localmente.
+4. **Configurar o CronJob no Kubernetes**
+	* Escrever o arquivo YAML do CronJob.
+	* Definir a programação desejada.
+5. **Testar o CronJob**
+	* Implantar no ambiente de desenvolvimento.
+	* Verificar se as mensagens estão sendo enviadas corretamente ao RabbitMQ.
+
+
+----
+
+==== Fase 5: Implementação do Serviço RdStation.getLeads ====
+
+**Objetivo:** Desenvolver o serviço que consome mensagens, processa dados da API externa e produz novas tarefas.
+
+=== Tarefas: ===
+
+1. **Configurar o Projeto Node.js para o Serviço**
+	* Inicializar o projeto.
+	* Instalar dependências (axios, amqplib, ORM).
+2. **Implementar o Consumidor da Fila**
+	* Conectar ao RabbitMQ.
+	* Consumir mensagens da fila ''RdStation.getLeads''.
+3. **Implementar a Lógica de Processamento**
+	* Obter ''config'', ''nextStep'' e ''outputType'' chamando o ''WorkflowService''.
+	* Consumir a API externa com base nos dados recebidos.
+	* Processar o resultado de acordo com o ''outputType''.
+4. **Implementar o Padrão Outbox**
+	* Inserir mensagens na tabela ''outbox'' dentro de transações atômicas.
+	* Garantir consistência entre operações no banco de dados e envio de mensagens.
+5. **Implementar o Agente de Outbox para este Serviço**
+	* Desenvolver o agente que lê a tabela ''outbox'' e envia mensagens ao RabbitMQ.
+	* Garantir que o agente lide com confirmações de publicação e persistência.
+6. **Escrever Testes**
+	* Testes unitários para a lógica de processamento.
+	* Testes de integração para o consumo e publicação de mensagens.
+7. **Criar a Imagem Docker**
+	* Escrever o ''Dockerfile''.
+	* Construir e testar a imagem.
+8. **Implantar no Kubernetes**
+	* Escrever os arquivos de Deployment e Service.
+	* Implantar e testar o serviço.
+
+
+----
+
+==== Fase 6: Implementação do Serviço Database.query ====
+
+**Objetivo:** Criar o serviço que executa consultas SQL com base no payload e ''config''.
+
+=== Tarefas: ===
+
+1. **Configurar o Projeto Node.js para o Serviço**
+	* Inicializar o projeto.
+	* Instalar dependências (amqplib, ORM).
+2. **Implementar o Consumidor da Fila**
+	* Conectar ao RabbitMQ.
+	* Consumir mensagens da fila ''Database.query''.
+3. **Implementar a Lógica de Execução de Consultas**
+	* Obter ''config'', ''nextStep'' e ''outputType'' via ''WorkflowService''.
+	* Executar consultas SQL dentro de transações.
+	* Processar resultados e lidar com diferentes tipos de saída.
+4. **Implementar o Padrão Outbox**
+	* Inserir mensagens na tabela ''outbox'' dentro da mesma transação da consulta SQL.
+	* Garantir consistência.
+5. **Implementar o Agente de Outbox para este Serviço**
+	* Similar ao serviço anterior, mas adaptado às necessidades específicas.
+6. **Escrever Testes**
+	* Testes unitários e de integração.
+7. **Criar a Imagem Docker**
+	* Escrever o ''Dockerfile''.
+	* Construir e testar.
+8. **Implantar no Kubernetes**
+	* Escrever os arquivos de Deployment e Service.
+	* Implantar e testar o serviço.
+
+
+----
+
+==== Fase 7: Configuração do RabbitMQ ====
+
+**Objetivo:** Configurar o RabbitMQ com as exchanges e filas necessárias.
+
+=== Tarefas: ===
+
+1. **Instalar e Configurar o RabbitMQ**
+	* Usar uma instância Docker ou serviço gerenciado.
+	* Habilitar o plugin de gerenciamento para monitoramento.
+2. **Configurar Exchanges e Filas**
+	* Definir exchanges (se necessário) e filas para cada serviço.
+	* Configurar políticas de durabilidade e persistência.
+3. **Definir Políticas de Segurança**
+	* Criar usuários e definir permissões.
+	* Configurar SSL/TLS se necessário.
+4. **Documentar a Configuração**
+	* Registrar nomes de filas, exchanges e routing keys.
+
+
+----
+
+==== Fase 8: Implementação do Agente de Outbox Geral ====
+
+**Objetivo:** Desenvolver o agente de outbox que processa mensagens das tabelas ''outbox'' e envia ao RabbitMQ.
+
+=== Tarefas: ===
+
+1. **Criar um Projeto Comum para o Agente**
+	* Se possível, reutilizar código entre os agentes dos serviços.
+2. **Implementar Lógica de Processamento**
+	* Ler mensagens da tabela ''outbox''.
+	* Enviar mensagens ao RabbitMQ com confirmações de publicação.
+	* Atualizar o status das mensagens.
+3. **Implementar Tratamento de Erros e Retentativas**
+	* Lidar com falhas de publicação.
+	* Garantir que mensagens não sejam perdidas.
+4. **Escrever Testes**
+	* Testes para garantir a confiabilidade do agente.
+5. **Criar a Imagem Docker**
+	* Escrever o ''Dockerfile''.
+	* Construir e testar.
+6. **Implantar no Kubernetes**
+	* Escrever os arquivos de Deployment e Service.
+	* Configurar autoescalonamento se necessário.
+
+
+----
+
+==== Fase 9: Monitoramento e Logging ====
+
+**Objetivo:** Implementar mecanismos para monitorar os serviços e registrar logs.
+
+=== Tarefas: ===
+
+1. **Implementar Logging Estruturado**
+	* Usar bibliotecas como Winston ou Bunyan.
+	* Padronizar formatos de log.
+2. **Configurar Centralização de Logs**
+	* Usar ELK Stack (Elasticsearch, Logstash, Kibana) ou serviços gerenciados.
+	* Enviar logs dos serviços para o sistema centralizado.
+3. **Implementar Monitoramento de Métricas**
+	* Usar Prometheus e Grafana para coletar e visualizar métricas.
+	* Configurar exportadores nos serviços.
+4. **Configurar Alertas**
+	* Definir alertas para falhas, erros e métricas críticas.
+	* Integrar com ferramentas de notificação (e.g., Slack, email).
+
+
+----
+
+==== Fase 10: Testes Finais e Validação ====
+
+**Objetivo:** Garantir que todos os componentes funcionem corretamente em conjunto.
+
+=== Tarefas: ===
+
+1. **Testes de Integração**
+	* Testar fluxos completos do workflow.
+	* Verificar se as mensagens são processadas corretamente entre os serviços.
+2. **Testes de Carga**
+	* Simular cargas reais para avaliar o desempenho.
+	* Identificar possíveis gargalos.
+3. **Testes de Recuperação de Falhas**
+	* Simular falhas nos serviços e RabbitMQ.
+	* Verificar se o sistema se recupera adequadamente.
+4. **Revisão de Segurança**
+	* Verificar vulnerabilidades nos serviços.
+	* Garantir que as conexões e dados estão protegidos.
+
+
+----
+
+==== Fase 11: Documentação e Treinamento ====
+
+**Objetivo:** Documentar o sistema e preparar a equipe para a operação e manutenção.
+
+=== Tarefas: ===
+
+1. **Documentar o Código**
+	* Comentários claros e concisos.
+	* Instruções de uso e configuração.
+2. **Criar Documentação Técnica**
+	* Arquitetura do sistema.
+	* Guia de desenvolvimento e contribuições.
+3. **Preparar Material de Treinamento**
+	* Tutoriais e manuais para a equipe de operação.
+	* Sessões de treinamento se necessário.
+
+
+----
+
+==== Fase 12: Implantação em Produção ====
+
+**Objetivo:** Implantar o sistema no ambiente de produção.
+
+=== Tarefas: ===
+
+1. **Preparar o Ambiente de Produção**
+	* Configurar clusters Kubernetes.
+	* Configurar banco de dados e RabbitMQ em produção.
+2. **Configurar CI/CD**
+	* Automatizar o processo de build, teste e deploy.
+	* Usar ferramentas como Jenkins, GitLab CI/CD ou GitHub Actions.
+3. **Implantar os Serviços**
+	* Deploy dos contêineres.
+	* Monitorar o processo de implantação.
+4. **Verificar a Operação**
+	* Realizar testes pós-implantação.
+	* Garantir que o sistema está operando conforme esperado.
+
+
+----
+
+==== Fase 13: Planejamento para Fases Futuras ====
+
+**Objetivo:** Planejar melhorias e novas funcionalidades.
+
+=== Tarefas: ===
+
+1. **Implementar Monitoramento para Usuários**
+	* Planejar a implementação de dashboards para os usuários acompanharem a execução dos workflows.
+2. **Otimizações de Desempenho**
+	* Identificar áreas para otimização.
+	* Planejar melhorias.
+3. **Feedback e Ajustes**
+	* Coletar feedback da equipe e usuários.
+	* Ajustar o sistema conforme necessário.
+
+
+----
+
+===== Resumo das Tarefas Principais =====
+
+* **Planejamento e Configuração Inicial**
+* **Implementação do Banco de Dados**
+* **Desenvolvimento do ''WorkflowService''**
+* **Implementação do CronJob Function**
+* **Desenvolvimento dos Serviços ''RdStation.getLeads'' e ''Database.query''**
+* **Configuração do RabbitMQ**
+* **Implementação do Agente de Outbox**
+* **Monitoramento e Logging**
+* **Testes e Validação**
+* **Documentação**
+* **Implantação em Produção**
+
+
+----
+
+===== Dicas para Montar o Cronograma =====
+
+* **Estimar Duração das Tarefas:**
+	* Avalie o tempo necessário para cada tarefa, considerando a complexidade e recursos disponíveis.
+* **Definir Dependências:**
+	* Identifique tarefas que dependem da conclusão de outras e planeje a sequência de acordo.
+* **Alocar Recursos:**
+	* Distribua as tarefas entre os membros da equipe, considerando habilidades e cargas de trabalho.
+* **Incluir Margens de Segurança:**
+	* Considere possíveis imprevistos e inclua buffers de tempo no cronograma.
+* **Reuniões de Checkpoint:**
+	* Agende reuniões regulares para acompanhar o progresso e ajustar o cronograma se necessário.
+
+
+----
+
+===== Considerações Finais =====
+
+Este RoadMap fornece uma visão detalhada das etapas necessárias para implementar sua solução. Cada fase pode ser dividida em sprints ou ciclos de desenvolvimento conforme sua metodologia (e.g., Scrum).
+
+**Próximos Passos:**
+
+* **Detalhar o Cronograma:**
+	* Use este RoadMap para criar um cronograma detalhado, atribuindo datas e responsáveis a cada tarefa.
+* **Comunicação e Alinhamento:**
+	* Certifique-se de que toda a equipe esteja alinhada com os objetivos e prazos estabelecidos.
+* **Flexibilidade e Adaptação:**
+	* Esteja preparado para ajustar o cronograma conforme o projeto avança e novas informações surgem.
+
+
+----
+
+Se precisar de mais detalhes sobre alguma fase ou tarefa específica, ou tiver outras dúvidas, estou à disposição para ajudar!
