@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-27T10:58:07-03:00
+
+====== Multi Tenants ======
+Criado sexta 27 setembro 2024
+

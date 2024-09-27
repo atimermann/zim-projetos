@@ -47,6 +47,7 @@ Serviço responsável por informações e controle dos serviços
 [ ] Configurar e Ouvir uma fila RabbitMq com atualização dos jobs
 [ ] Quando nova atualização chegar, vai atualizar os cron no Kubernetes conectar no kubernetes remover ou adicionar crons
 	* Esse cron executa o modulo 2
+	* [[+Como gerenciar jobs no kubernetes]]
 
 ===== Modulos 2: Execução de CronJobs =====
 * Este serviço será os jobs do kubernete
@@ -55,7 +56,7 @@ Serviço responsável por informações e controle dos serviços
 [ ] Modelar tabela outbox definir padrão (vamos salvar no postgres-operator, mas no futuro terá seu próprio banco de dados, pensar no futuro)
 	* Talvez usar outra estutura em vez de um posgres pesado, mas deve ser de fácil gestão
 [ ] Criar um agente padronizado mas só seu que vai ficar lendo tabela outbox, e salvar no rabbitMQ na fila do nextStep, puxando payload inicial e outros valores definido no projeto outbox
-
+	
  
 	
 

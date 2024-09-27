@@ -1,0 +1,104 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-27T10:47:45-03:00
+
+====== Como gerenciar jobs no kubernetes ======
+Criado sexta 27 setembro 2024
+**REF:** https://github.com/kubernetes-client/javascript
+
+Para gerenciar **CronJobs** do Kubernetes utilizando **Node.js**, você pode usar a biblioteca oficial da **Kubernetes Client for Node.js**. Esta biblioteca permite interagir com o Kubernetes usando a API nativa diretamente a partir do código Node.js, incluindo a criação, listagem, atualização e exclusão de CronJobs.
+
+==== Passos para Gerenciar CronJobs do Kubernetes com Node.js: ====
+
+==== 1. Instalar Dependências ====
+
+Primeiro, você precisa instalar a biblioteca do Kubernetes para Node.js:
+
+	**''npm install @kubernetes/client-node''**
+
+==== 2. Autenticação no Cluster ====
+
+A biblioteca do Kubernetes pode se autenticar de diferentes maneiras:
+
+* **Dentro do Cluster** (usado quando o código Node.js está rodando dentro do cluster Kubernetes).
+* **Fora do Cluster** (usado quando você está rodando localmente ou em outro ambiente, utilizando o ''kubeconfig'').
+
+==== 3. Exemplo de Código para Gerenciar CronJobs ====
+
+=== 3.1. Autenticação e Configuração ===
+
+O primeiro passo é autenticar no cluster Kubernetes. Dependendo de onde você está executando o código (dentro ou fora do cluster), o método de autenticação varia.
+
+== Dentro do Cluster: ==
+
+Se você estiver executando o código dentro de um pod no cluster Kubernetes, você pode usar:
+
+{{{code: lang="js" linenumbers="True"
+const k8s = require('@kubernetes/client-node'); 
+const kc = new k8s.KubeConfig(); 
+kc.loadFromCluster();  
+const k8sApi = kc.makeApiClient(k8s.BatchV1beta1Api);
+}}}
+
+
+
+== Fora do Cluster: ==
+
+Se você estiver rodando o código fora do cluster (por exemplo, localmente), você pode usar o arquivo ''kubeconfig'':
+
+{{{code: lang="js" linenumbers="True"
+const k8s = require('@kubernetes/client-node');
+ const kc = new k8s.KubeConfig();
+ kc.loadFromDefault();  
+  // Carrega o arquivo kubeconfig padrão (normalmente em ~/.kube/config)  const k8sApi = kc.makeApiClient(k8s.BatchV1beta1Api);
+}}}
+
+
+
+=== 3.2. Criando um CronJob ===
+
+Aqui está um exemplo de como criar um **CronJob** no Kubernetes via Node.js:
+{{{code: lang="js" linenumbers="True"
+const cronJobManifest = {   apiVersion: 'batch/v1',   kind: 'CronJob',   metadata: {     name: 'example-cronjob',     namespace: 'default',  // ou outro namespace desejado   },   spec: {     schedule: '*/5 * * * *',  // Agendamento em cron: a cada 5 minutos     jobTemplate: {       spec: {         template: {           spec: {             containers: [               {                 name: 'example-job',                 image: 'busybox',                 args: ['date'],               },             ],             restartPolicy: 'OnFailure',           },         },       },     },   }, };  async function createCronJob() {   try {     const res = await k8sApi.createNamespacedCronJob('default', cronJobManifest);     console.log('CronJob criado com sucesso:', res.body);   } catch (err) {     console.error('Erro ao criar CronJob:', err);   } }  createCronJob();
+}}}
+
+
+
+=== 3.3. Listando CronJobs ===
+
+Você pode listar todos os **CronJobs** de um namespace:
+
+{{{code: lang="js" linenumbers="True"
+async function listCronJobs() {   
+try {     const res = await k8sApi.listNamespacedCronJob('default');    
+ console.log('Lista de CronJobs:', res.body.items);   } catch (err) {     console.error('Erro ao listar CronJobs:', err);   } }  listCronJobs();
+}}}
+
+
+
+=== 3.4. Removendo um CronJob ===
+
+Para remover um **CronJob**, use o seguinte código:
+
+''async function deleteCronJob(cronJobName) {   try {     const res = await k8sApi.deleteNamespacedCronJob(cronJobName, 'default');     console.log('CronJob removido com sucesso:', res.body);   } catch (err) {     console.error('Erro ao remover CronJob:', err);   } }  deleteCronJob('example-cronjob');''
+
+=== 3.5. Atualizando um CronJob ===
+
+Para atualizar um **CronJob**, você pode usar o método ''replaceNamespacedCronJob'':
+
+''async function updateCronJob(cronJobName, updatedManifest) {   try {     const res = await k8sApi.replaceNamespacedCronJob(cronJobName, 'default', updatedManifest);     console.log('CronJob atualizado com sucesso:', res.body);   } catch (err) {     console.error('Erro ao atualizar CronJob:', err);   } }  updateCronJob('example-cronjob', updatedCronJobManifest);''
+
+==== 4. Resumos das Operações: ====
+
+* **Criar CronJob**: Use ''createNamespacedCronJob()''.
+* **Listar CronJobs**: Use ''listNamespacedCronJob()''.
+* **Remover CronJob**: Use ''deleteNamespacedCronJob()''.
+* **Atualizar CronJob**: Use ''replaceNamespacedCronJob()''.
+
+==== Referência para a documentação: ====
+
+Você pode explorar mais sobre a API e os métodos disponíveis na [[https://github.com/kubernetes-client/javascript|documentação oficial do Kubernetes Client for Node.js]].
+
+==== Conclusão: ====
+
+Com este exemplo de código e a biblioteca Kubernetes Client for Node.js, você pode gerenciar facilmente os **CronJobs** em um cluster Kubernetes diretamente do seu código Node.js, permitindo criar, listar, atualizar e remover cron jobs dinamicamente.
