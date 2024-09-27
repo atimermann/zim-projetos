@@ -4,16 +4,60 @@ Creation-Date: 2024-09-26T21:29:42-03:00
 
 ====== Automation Step ======
 Criado quinta 26 setembro 2024
+[ ] A fazer
+[*] Feito
+[x] Cancelado ou problema
+[>] Sem prioridade, deixar para mais tarde
 
 Sistema de automação interno integrado com o kubernetes
 
 * Vamos utilizar um banco de dados centralizado, o ideal é cada serviço ter seu próprio banco, mas por enquanto a titulo de simplicidade vamos deixar no mesmo ~~separado por schema~~
 * No inicio teremos um projeto server que vai centralizar todos os serviços na mesma imagem docker, no futuro podemos quebrar serviços e com isso criando banco de dados unicos para cada
 
-====== WorkflowService ======
+[>] Desenhar em diagrama draw este projeto
 
+====== WorkflowService ======
 Serviço responsável por informações e controle dos serviços
-* Implantar modulo de autenticação no nodejs padrão
-* vamos ter conexão local e externa separar as API
-* Autenticar com keycloak
-* Já organizar por projeto
+
+
+[ ] Modelar banco de dados, vamos utilizar um unico banco de dados central por motivo de simplicidade com o Prisma e operacionalização, porém deixar preparado para fácil sepação futura.
+[ ] Criar cruds no frontend (persistir dados) Workflow e workflowStep
+[ ] Configurar endpoints Socket/Rest e integrar com front (problema do socket é testar, o resto consigo testar facilmente com aplicações como http rest) **ANALISAR:**
+	* Usar socket apenas para o grid (sincronização de dados)
+	* post/put de formulário com REST
+	* Criar uma forma de testar facilmente o Socket externamente (ver se tem ferramentas prontas)
+[ ] Implementar algum tipo de trigger (estudar) que avisa o cronService quando novos trigger do tipo cron foram criado (Deve ter uma interface padrão q o mesmo mecanismo será usado para outros trigger como email, api etc...), 
+	* Usar RabbitMQ para essa comunicação
+
+[>] Implantar o controle de jobs aqui também (apenas para usuario por acompanhar status das tarefas)
+	* Pensar que jobs se multiplicam, então separar em 2 entidades: 
+		* **Jobs:** Execução do workflos em si
+		* **Processos:** Cada unidade de processamento, um job pode se multiplicar em N processos
+[>] Implantar modulo de autenticação no nodejs padrão (Keycloak) DEPOIS
+
+====== CronService ======
+
+[ ] Modelar tabela outbox
+	* Será outro serviço separado e indepentente
+	* Apenas vai utilizar o mesmo banco de dados, mas no futuro terá seu próprui
+
+===== Modulo 1: Gestão de Crons =====
+	Será um serviço que vai ouvir uma fila enviado pelo workflowService com a lista de crons para criar
+	
+[ ] Configurar e Ouvir uma fila RabbitMq com atualização dos jobs
+[ ] Quando nova atualização chegar, vai atualizar os cron no Kubernetes conectar no kubernetes remover ou adicionar crons
+	* Esse cron executa o modulo 2
+
+===== Modulos 2: Execução de CronJobs =====
+* Este serviço será os jobs do kubernete
+* Vai ter uma interface padrão de todos os **WorkflowStepServices (melhorar este nome)**
+* Simplemente vai adicionar em seu outbox a proxima etapa q vai executar passando payload inicial entre outros dados
+[ ] Modelar tabela outbox definir padrão (vamos salvar no postgres-operator, mas no futuro terá seu próprio banco de dados, pensar no futuro)
+	* Talvez usar outra estutura em vez de um posgres pesado, mas deve ser de fácil gestão
+[ ] Criar um agente padronizado mas só seu que vai ficar lendo tabela outbox, e salvar no rabbitMQ na fila do nextStep, puxando payload inicial e outros valores definido no projeto outbox
+
+ 
+	
+
+
+
