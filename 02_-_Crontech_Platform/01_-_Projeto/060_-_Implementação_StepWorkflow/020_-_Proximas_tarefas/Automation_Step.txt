@@ -7,6 +7,13 @@ Criado quinta 26 setembro 2024
 
 Sistema de automação interno integrado com o kubernetes
 
+* Vamos utilizar um banco de dados centralizado, o ideal é cada serviço ter seu próprio banco, mas por enquanto a titulo de simplicidade vamos deixar no mesmo ~~separado por schema~~
+* No inicio teremos um projeto server que vai centralizar todos os serviços na mesma imagem docker, no futuro podemos quebrar serviços e com isso criando banco de dados unicos para cada
+
 ====== WorkflowService ======
 
 Serviço responsável por informações e controle dos serviços
+* Implantar modulo de autenticação no nodejs padrão
+* vamos ter conexão local e externa separar as API
+* Autenticar com keycloak
+* Já organizar por projeto
