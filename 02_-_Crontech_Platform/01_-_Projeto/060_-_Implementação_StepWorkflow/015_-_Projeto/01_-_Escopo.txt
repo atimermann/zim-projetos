@@ -1,0 +1,73 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-26T21:33:26-03:00
+
+====== 01 - Escopo ======
+Criado quinta 26 setembro 2024
+
+
+Estou montando uma nova aplicação de automação, baseado em serviços, kubernetes, nodejs, RabbitMq e pattern outbox
+
+
+* Vamos ter uma tabela principal chamada **workflow**
+* Nesse workflow vamos ter o automationType (entre outros campos não relevantes agora) vai ser a engine de automação, por enquanto apenas a automação do tipo "step"
+* vamos ter a tabela workflowStep
+* workflowStep vai ter as colunas:
+	* **Name**
+	* **functionName:** (Nome da função q será executada dependendo do serviço) Ex: "CronJob", "RdStation.getLeads", "database.query"
+	* **config:** (Configuração em json, que será passado para a function)
+	* **nextStep:** (ID proxima step que será executada depois q finalizar, se definido)
+	* **outputType:** (Pode ser **single** ou **Multiple** ou null**.** Se multiple, o resultado deve ser um array e cada item do array será um item para fila definido em output)
+* 
+
+
+Agora vamos ter várias function que vão trabalhar em cima de cada workflowStep, function normalmente são serviços executado no kubernete de varios tipos, segue algumas funções:
+
+CronJob Function
+--------------------
+
+* Cronjob é um serviço do tipo criador/produtor de workflowJob
+* Serviço que sempre q um novo workflowStep do tipo cronjob é criado ele cria um cronjob no kubernetes
+* Esse cronjob do kubernete dispara um job q é um serviço nodejs que efeticamente executa operação, executando um serviço
+* Quando o serviço é executado, ele deve receber o id do workflowStep
+* Com esse id ele vai obter o workflowStep correspondente (name, config, nextStep, outputType)
+* Como é serviços, estou na duvida se deixo o serviço Cronjob acessar diretamente a tabela workflowStep ou termos outro serviço com api para receber o pedido e retornar os dados, gostaria de saber a melhor opção
+* através do config, ele vai obter o payload inicial desse workflow 
+* Agora ele precisa salvar na fila RabbitMq do nextStep 
+* Para este serviço que só cria tarefas na fila é indicado um outbox ou só salvar na fila é suficiente?
+* se outputType for multiple payload DEVE ser array e cada item do array gera uma nova tarefa na fila do nextStep
+
+
+RdStation.getLeads
+--------------------
+
+* Este é um serviço do tipo consumidor, processador e criador
+* Cada instancia deste serviço deve ler a fila no rabbitMQ com nome RdStation.getLeads e processar
+* Ele é uma implementação em nodejs que vai consumir uma API qualquer baseada nos dados do payload
+* Ele lê workflowStep para obter config, nextStep e outputType (usa esses dados para funcionar)
+* O resultado da API será um array de dados 
+* Se outputType for multiple o resultado dessa API será uma lista de dados, e cada item será adicionado como nova tarefa no Fila do nextStep
+* Se outputType for single, o resultado todo da api é adicionado como uma tarefa apenas na fila do nextStep
+* Para este serviço q apenas coleta dados da api e gera dados para proxima fila é indicado um outbox ou só salvar na fila é suficiente?
+
+
+Database.query
+--------------------
+
+* esse é um serviço do tipo consumidor
+* Cada instancia deste serviço deve ler a fila no rabbitMQ com nome Database.query e processar
+* Ele é uma implementação em nodejs e vai executar uma consumta SQL baseada no payload e config do seu workflowStep
+* Ele pode ser uma consulta de inserção sem retorno, nesse caso ele pode não ter nextStep finalizando o workflow ou repassar o payload para proxima Step
+* pode aguardar ou não a confirmação do insert/update
+* Também pode ser o tipo consulta q lê dados do SQL, ai segue a mesma lógica:
+* Se outputType for multiple o resultado dessa API será uma lista de dados, e cada item será adicionado como nova tarefa no Fila do nextStep
+* Se outputType for single, o resultado todo da api é adicionado como uma tarefa apenas na fila do nextStep
+* OutBox é recomendável aqui tb?
+
+
+
+
+* Agora me ajude a modelar essa solução baseada no outbox, 
+* Sugira melhorias, aponte potenciais problemas
+* No momento quero me preocupar apenas com a execução do workflow, no futuro vou adicionar monitoramento dessa execução de cada task para o usuario acompanhar, mas será em outra fase, ignore isso por enquanto
+* Desenhe melho arquitetura, passo a passo e como implementar baseado em  baseado em serviços, kubernetes, nodejs, RabbitMq e pattern outbox

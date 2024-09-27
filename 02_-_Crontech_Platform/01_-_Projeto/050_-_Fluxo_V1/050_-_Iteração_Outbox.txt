@@ -7,5 +7,7 @@ Criado quarta 25 setembro 2024
 
 **REF:** https://chatgpt.com/c/66f48db5-857c-800b-ba15-db99a972bd16
 
+Explicação simples: https://morioh.com/a/5ff72be14418/microservices-implementing-the-outbox-pattern
+
 * Cada serviço terá sua tabela outbox
 * Cada Serviços terá seu agente

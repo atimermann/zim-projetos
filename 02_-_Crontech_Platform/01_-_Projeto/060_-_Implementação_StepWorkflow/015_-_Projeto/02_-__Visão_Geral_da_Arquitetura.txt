@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-26T21:34:04-03:00
+
+====== 02 -  Visão Geral da Arquitetura ======
+Criado quinta 26 setembro 2024
+
+==== Componentes Principais: ====
+
+1. **Banco de Dados:**
+	* Tabelas ''workflow'' e ''workflowStep''.
+2. **Serviços Node.js:**
+	* **CronJob Function**
+	* **RdStation.getLeads**
+	* **Database.query**
+3. **RabbitMQ:**
+	* Sistema de mensageria para comunicação entre serviços.
+4. **Outbox Pattern:**
+	* Garantir consistência entre operações no banco de dados e mensagens enviadas.
+5. **Kubernetes:**
+	* Orquestração de contêineres e execução de jobs e cronjobs.
+
+==== Estrutura das Tabelas ====
+
+=== Tabela workflow ===
+
+* Contém informações gerais sobre o workflow.
+
+=== Tabela workflowStep ===
+
+* **Campos:**
+	* ''id'': Identificador único.
+	* ''name'': Nome da etapa.
+	* ''functionName'': Nome da função/serviço a ser executado.
+	* ''config'': Configuração em JSON.
+	* ''nextStep'': ID da próxima etapa.
+	* ''outputType'': ''single'', ''multiple'' ou ''null''.
+
+=== Tabela outbox ===
+
+* Armazena mensagens que precisam ser enviadas ao RabbitMQ.
+* Campos comuns: ''id'', ''payload'', ''status'', ''created_at'', ''processed_at''.
+

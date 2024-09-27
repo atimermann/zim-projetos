@@ -8,44 +8,12 @@ https://chatgpt.com/c/66f48db5-857c-800b-ba15-db99a972bd16
 
 ===== RoadMap de Desenvolvimento =====
 
-==== Fase 1: Planejamento e Configuração Inicial ====
-
-**Objetivo:** Estabelecer as bases do projeto, definindo requisitos, configurando o ambiente de desenvolvimento e planejando a arquitetura detalhada.
-
-=== Tarefas: ===
-
-1. **Definir Requisitos Funcionais e Não Funcionais**
-	* Detalhar todos os requisitos do sistema.
-	* Especificar desempenho, segurança e outros requisitos não funcionais.
-2. **Planejar a Arquitetura do Sistema**
-	* Definir a arquitetura detalhada dos serviços.
-	* Desenhar diagramas de fluxo de dados e componentes.
-3. **Configurar o Ambiente de Desenvolvimento**
-	* Configurar máquinas de desenvolvimento.
-	* Instalar Node.js, npm, Docker, Kubernetes (Minikube ou similar) e RabbitMQ.
-	* Configurar ferramentas de versionamento (Git).
-4. **Configurar Repositórios de Código**
-	* Criar repositórios no GitHub ou outra plataforma.
-	* Definir a estrutura dos projetos.
-5. **Definir Padrões de Código e Convenções**
-	* Estabelecer padrões de codificação (ESLint, Prettier).
-	* Definir convenções de nomenclatura e estrutura de diretórios.
-6. **Planejar a Estratégia de Deploy**
-	* Decidir como os serviços serão implantados no Kubernetes.
-	* Definir imagens Docker e pipelines de CI/CD.
-
-
-----
-
 ==== Fase 2: Implementação do Banco de Dados e Tabelas ====
 
 **Objetivo:** Criar o esquema do banco de dados necessário para o funcionamento do sistema.
 
 === Tarefas: ===
 
-1. **Escolher o Banco de Dados**
-	* Decidir entre PostgreSQL, MySQL ou outro SGBD.
-	* Configurar instância local para desenvolvimento.
 2. **Criar Tabelas ''workflow'' e ''workflowStep''**
 	* Definir os campos e tipos de dados.
 	* Escrever scripts SQL para criar as tabelas.

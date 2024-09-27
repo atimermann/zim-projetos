@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-09-26T21:26:04-03:00
+
+====== 020 - Proximas tarefas ======
+Criado quinta 26 setembro 2024
+
+**Meta:**
+* Desenvolver o Tenant (revenda varios cientes)
+* Desenvolver o sistema AutomationStep
+
+====== Automation Step ======
+
+===== Backend =====
+
+==== Serviços ====
+
+* **WorkflowService**
+	* 
+
+
+
+
+
+===== Frontend =====
+
+
+
+
+
+
+
