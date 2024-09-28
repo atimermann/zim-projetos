@@ -58,6 +58,8 @@ Serviço responsável por informações e controle dos serviços
 [ ] Criar um agente padronizado mas só seu que vai ficar lendo tabela outbox, e salvar no rabbitMQ na fila do nextStep, puxando payload inicial e outros valores definido no projeto outbox
 	
  
+====== ConditionService ======
+Serviço que permite definir condições para decidir qual o próximo STEP
 	
 
 
