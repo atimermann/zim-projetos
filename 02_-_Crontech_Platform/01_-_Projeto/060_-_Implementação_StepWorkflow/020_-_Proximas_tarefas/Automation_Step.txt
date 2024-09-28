@@ -20,8 +20,8 @@ Sistema de automação interno integrado com o kubernetes
 Serviço responsável por informações e controle dos serviços
 
 
-[ ] Modelar banco de dados, vamos utilizar um unico banco de dados central por motivo de simplicidade com o Prisma e operacionalização, porém deixar preparado para fácil sepação futura.
-[ ] Criar cruds no frontend (persistir dados) Workflow e workflowStep
+[*] Modelar banco de dados, vamos utilizar um unico banco de dados central por motivo de simplicidade com o Prisma e operacionalização, porém deixar preparado para fácil sepação futura.
+[ ] Criar cruds no frontend (persistir dados) Project, Workflow e workflowStep
 [ ] Configurar endpoints Socket/Rest e integrar com front (problema do socket é testar, o resto consigo testar facilmente com aplicações como http rest) **ANALISAR:**
 	* Usar socket apenas para o grid (sincronização de dados)
 	* post/put de formulário com REST
