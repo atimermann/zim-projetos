@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-10-05T02:20:30-03:00
+
+====== lcw01.crontech.com.br ======
+Criado sábado 05 outubro 2024
+
+* VPS Básica no brasil apenas para comunicação rápida VPN no brasil
+* no futuro pensar em instalar um CDN Local:
+	* nginx
+	* Varnish cache
+	* oq for mais leve
+
+* Locaweb não fornece firewall, portanto está sendo utilizado o UFW
