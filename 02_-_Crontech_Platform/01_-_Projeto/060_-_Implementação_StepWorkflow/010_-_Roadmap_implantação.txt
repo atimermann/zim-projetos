@@ -193,6 +193,8 @@ https://chatgpt.com/c/66f48db5-857c-800b-ba15-db99a972bd16
 	* Escrever os arquivos de Deployment e Service.
 	* Configurar autoescalonamento se necessário.
 
+Cada serviço terá seu agente
+
 
 ----
 

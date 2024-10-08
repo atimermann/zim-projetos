@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-10-08T00:51:01-03:00
+
+====== Diagrama ======
+Criado terça 08 outubro 2024
+
+https://github.com/jerosoler/Drawflow
+
+Considerações ao escolher uma biblioteca:
+Facilidade de Integração: Verifique se a biblioteca oferece suporte direto para Vue 3 ou se existem wrappers disponíveis.
+Funcionalidades Necessárias: Avalie os recursos que você precisa, como personalização, tipos de diagramas suportados, performance com grandes conjuntos de dados, etc.
+Licenciamento: Algumas bibliotecas podem exigir licenças pagas para usos comerciais ou avançados (por exemplo, GoJS e JointJS Pro).
+Comunidade e Suporte: Bibliotecas com comunidades ativas podem oferecer melhor suporte, documentação e frequência de atualizações.
+Recomendações:
+Se você precisa de uma solução simples e rápida, o Drawflow é uma ótima opção devido à sua facilidade de uso e integração com Vue 3.
+Para recursos mais avançados, considere o jsPlumb ou o JointJS, que oferecem maior flexibilidade e funcionalidades adicionais.
+Se preferir gerar diagramas a partir de texto, o Mermaid pode ser útil, especialmente se combinado com componentes Vue.
+Links para as bibliotecas mencionadas:
+Drawflow: GitHub
+jsPlumb: Site Oficial
+GoJS: Site Oficial
+JointJS: Site Oficial
+Mermaid: Site Oficial
+Vue Diagram Maker: GitHub
