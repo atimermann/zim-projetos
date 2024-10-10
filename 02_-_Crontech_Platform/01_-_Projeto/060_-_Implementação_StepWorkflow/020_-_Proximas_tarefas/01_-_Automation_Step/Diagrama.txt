@@ -19,7 +19,7 @@ Se preferir gerar diagramas a partir de texto, o Mermaid pode ser útil, especia
 Links para as bibliotecas mencionadas:
 Drawflow: GitHub
 jsPlumb: Site Oficial
-GoJS: Site Oficial
+GoJS: Site OficialF
 JointJS: Site Oficial
 Mermaid: Site Oficial
 Vue Diagram Maker: GitHub
