@@ -1,0 +1,110 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-10-16T22:03:44-03:00
+
+====== 025 - API REST ======
+Criado quarta 16 outubro 2024
+
+Sobre a arquitetur aa ser usada no server:
+https://chatgpt.com/c/670e7381-3ee0-800b-ba09-b6a095dd9529
+
+
+Logging e Monitoramento:
+
+Implemente um sistema de logs robusto usando bibliotecas como Winston ou Bunyan.
+Integre ferramentas de monitoramento como Prometheus e Grafana para acompanhar métricas de desempenho e saúde da API.
+Testes Automatizados:
+
+Escreva testes unitários e de integração usando frameworks como Jest, Mocha ou Chai.
+Utilize Supertest para testar endpoints HTTP.
+Integração Contínua/Entrega Contínua (CI/CD):
+
+Configure pipelines de CI/CD com ferramentas como Jenkins, Travis CI ou GitHub Actions.
+Automatize testes, builds e implantações para garantir consistência e eficiência.
+Versionamento da API:
+
+Implemente versionamento nos endpoints (ex: /api/v1/) para facilitar a manutenção e atualizações sem quebrar compatibilidade.
+Gerencie depreciações de forma clara e documentada.
+Segurança Avançada:
+
+Utilize bibliotecas como helmet para configurar cabeçalhos HTTP seguros.
+Implemente validação e sanitização de entrada com validator.js.
+Proteja contra ataques comuns (XSS, CSRF, SQL Injection).
+Cacheamento:
+
+Implemente cache em endpoints com alta carga usando Redis ou memória local.
+Utilize middleware como apicache para facilitar o cacheamento.
+Melhoria de Desempenho:
+
+Utilize compressão de respostas HTTP com compression.
+Otimize consultas ao banco de dados e evite overfetching/underfetching.
+Considere usar Cluster para aproveitar múltiplos núcleos de CPU.
+Gerenciamento de Configurações:
+
+Utilize variáveis de ambiente e bibliotecas como dotenv.
+Implemente uma estratégia para diferentes ambientes (desenvolvimento, teste, produção).
+Padronização e Qualidade de Código:
+
+Adote um guia de estilo como o Airbnb JavaScript Style Guide.
+Utilize linters como ESLint e formatadores como Prettier.
+Estrutura de Projetos Escalável:
+
+Organize seu código seguindo boas práticas de arquitetura, como separação em camadas (controllers, services, repositories).
+Utilize padrões de design como o MVC (Model-View-Controller).
+Middleware Personalizado:
+
+Crie middlewares para tratamento de erros, logs de requisições e autenticação.
+Facilita a manutenção e a adição de novas funcionalidades transversais.
+Documentação Adicional:
+
+Além do Swagger, mantenha um README detalhado e guias de contribuição.
+Considere gerar clientes SDK automaticamente para diferentes linguagens.
+Implementação de CORS Adequado:
+
+Configure CORS corretamente para controlar o acesso de origens externas.
+Defina políticas restritivas e específicas conforme necessário.
+Rate Limiting Avançado:
+
+Implemente estratégias de rate limiting por IP, usuário ou chave de API.
+Utilize express-rate-limit para configurações personalizadas.
+Monitoramento de Erros em Tempo Real:
+
+Integre ferramentas como Sentry ou Airbrake para captura e monitoramento de exceções.
+Auditoria e Compliance:
+
+Implemente logs de auditoria para rastrear ações importantes.
+Assegure conformidade com regulações como GDPR, se aplicável.
+Escalabilidade e Alta Disponibilidade:
+
+Planeje para escalabilidade horizontal usando contêineres Docker e orquestradores como Kubernetes.
+Implemente balanceamento de carga e tolerância a falhas.
+Internacionalização (i18n) e Localização (l10n):
+
+Se necessário, suporte múltiplos idiomas usando bibliotecas como i18n.
+Adapte formatos de data, moeda e outros conforme a localidade.
+Tracing Distribuído:
+
+Utilize ferramentas como Jaeger ou Zipkin para rastrear requisições em microsserviços.
+Gestão de Dependências Segura:
+
+Monitore e atualize dependências regularmente.
+Use ferramentas como npm audit ou Snyk para identificar vulnerabilidades.
+Políticas de Backup e Recuperação:
+
+Implemente estratégias de backup para bancos de dados e configurações críticas.
+Teste regularmente os procedimentos de recuperação.
+Feedback e Iteração:
+
+Colete feedback dos usuários da API para identificar áreas de melhoria.
+Mantenha um roadmap e gerencie features com metodologias ágeis (Scrum, Kanban).
+Processo de Revisão de Código:
+
+Estabeleça práticas de code review para manter a qualidade e compartilhamento de conhecimento na equipe.
+Treinamento e Documentação Interna:
+
+Mantenha a equipe atualizada com treinamentos e workshops.
+Documente decisões arquiteturais e práticas internas.
+Uso de Feature Flags:
+
+Implemente feature toggles para ativar ou desativar funcionalidades sem reimplantar o código.
+
