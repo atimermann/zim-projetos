@@ -28,8 +28,6 @@ Basear na versão antiga as telas
 [*] Configurar Banco de dados
 [ ] Implementar CRUD de cadastro
 
-
-
 ====== Etapa 02: Serviços ======
 
 [ ] Configurar banco de dados 
@@ -39,9 +37,7 @@ Basear na versão antiga as telas
 		* Exemplo é a aplicação Google Analytics, terá 2 serviços interno, um para buscar paginação e outro para obter os registor daquela página
 		* Porém será apenas utilzado por uma aplicação do tipo serviço que esse sim é publico e oferecido ao cliente
 
-
 ====== Etapa 03 - Workflows ======
-
 
 * Poderá ser um workflow as service (transparente para o usuario, que verá como serviço. (será chamado de Serviço de automação)
 	* Será obrigatóriamente associado a uma aplicação ??? pq?
@@ -61,7 +57,6 @@ Basear na versão antiga as telas
 	* vamos utilizar: https://mermaid.js.org/intro/ por ser simples
 	* Mas também temos JSPlumb e JointJS porém são editores de diagrama complexo
 [ ] Workflow será descrito com um json  simples composto por array de etapas que será enviado peloas filas via pacote de dados
-
 
 ====== Etapa 04 - Automação (Workflow) as service ======
 

@@ -21,7 +21,6 @@ Criado domingo 10 dezembro 2023
 * Latency might or might not be important depending on the document type and the customer needs, for some cases it might be better to perform inference on an image as soon as it is uploaded to us, in others it might be only necessary to perform inference in a fixed period (e.g. at the end of the month for all documents issued during the month)
 * Since we plan to implement a multi-tenant architecture, it would be useful to have multiple deployments of the same service on separate endpoints, so each endpoint is assigned to a specific customer. This way, two customers could use the same service at the same time without one having to wait for a service to finish processing the requests of the other, since the requests would be routed to separate instances of the service
 
-  
 
 # Questions
 
