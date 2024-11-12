@@ -11,6 +11,9 @@ Antigo
 
 ===== Tasks: =====
 
+* Separar schema do AccountService para facil separação no futuro
 * Configurar na migration a regra unique para parent = null
 * Crud de usuario [[/ conta]] / tenant
 * Criar script para iniciar conta master (Crontech)
+* Configurar o Tanant visual
+* Criar tela customizada do Ricardo
