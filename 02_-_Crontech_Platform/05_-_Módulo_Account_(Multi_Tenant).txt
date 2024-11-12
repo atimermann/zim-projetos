@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-11-12T00:05:05-03:00
+
+====== 05 - Módulo Account (Multi Tenant) ======
+Criado terça 12 novembro 2024
+
+Antigo 
+[[01 - Projeto:030 - Sistema da Plataforma v1]]
+
+
+===== Tasks: =====
+
+* Configurar na migration a regra unique para parent = null
+* Crud de usuario [[/ conta]] / tenant
+* Criar script para iniciar conta master (Crontech)
