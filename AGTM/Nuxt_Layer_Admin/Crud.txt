@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2024-11-22T23:00:34-03:00
+
+====== Crud ======
+Criado sexta 22 novembro 2024
+
+====== Gerador automatico de crud baseado em schema ======
+
+===== Objetivo: =====
+
+[ ] Criar um gerador de crud automatico, parecido com a versão do helmuth, mas baseado em schema
+
+* Os cruds são carregados automaticamente à partir da pasta cruds
+	* Toda descrição do crud estará salvo no schema
+	* A rota poderá ser definida no schemae, no atributo route ou gerada automaticamente em:
+
+**Exemplo:**
+	Se existir  **src/cruds/user.json**
+A rota será:
+	**http://<domain>/c/cruds**
+Onde c é o padrão mas será configurável
+
+Suporta subdiretórios:
+http://<domain/c/account/user
+
+As rotas internas serão padronizadas e automatica como listagem, criação etc...
+
+* Iremos definir as rotas automaticamentes com:
+* https://nuxt.com/docs/guide/recipes/custom-routing
+
+(ver se funciona com layer)
+
+
+
+
+
+[ ] Atualizar documentação do crud
