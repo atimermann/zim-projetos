@@ -48,7 +48,7 @@ Se der erro verifique o firewall, TCP deve estar habilitado, ver aqui: [[Firewal
 * **Não será mais gateway pois o ovh11 tem mais performance**
 * Ainda será  o gateway do K3S com o haproxy habilitado
 	* No futuro poderá ser substituido por um load balance
-	* ou criar um ip failover (IP Virtual) e adicionar outro servidor par para funcionar como gateway
+	* ou criar um ip failover (IP Virtual) e adicionar outro servidor para para funcionar como gateway
 
 
 ---------------------------------------- **PASSMARK** ----------------------------------------
