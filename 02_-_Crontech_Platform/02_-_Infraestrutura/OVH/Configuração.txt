@@ -102,7 +102,7 @@ curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI] sh -s - server --server ht
 ===== ovh09.crontech.com.br =====
 ===== ovh10.crontech.com.br =====
 
-* Funcionará como dataplane
+* Funcionaramcomo dataplane
 
 {{{code: lang="sh" linenumbers="True"
 curl -sfL https://get.k3s.io | K3S_TOKEN=[TOKEN AQUI]  sh -s - agent --server https://192.99.167.10:6443
