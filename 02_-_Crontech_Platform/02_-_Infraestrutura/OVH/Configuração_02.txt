@@ -13,4 +13,14 @@ Nova configuração
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
 
-Não consegui de forma alguma acessar o servidor pelo ip do wireguard 10
+**IMPORTANTE:** Deve ser instalado assim:
+
+	curl -sfL https://get.k3s.io | sh -s - --tls-san=10.12.0.11
+**e não assim como sugerido pela IA:**
+	INSTALL_K3S_EXEC="--tls-san=10.12.0.11" curl -sfL https://get.k3s.io | sh -
+
+**Nota:**
+Você pode validar se o certificado foi criado corretamente para aceitar 10.12.0.1 assim:
+	openssl x509 -in /var/lib/rancher/k3s/server/tls/serving-kube-apiserver.crt -text -noout
+
+veja se 10.12.0.1 aparece
