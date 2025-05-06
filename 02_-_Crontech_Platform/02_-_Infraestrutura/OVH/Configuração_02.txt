@@ -12,3 +12,5 @@ Nova configuração
 **Senha:** bwZ9ebPyGJSa
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
+
+Não consegui de forma alguma acessar o servidor pelo ip do wireguard 10
