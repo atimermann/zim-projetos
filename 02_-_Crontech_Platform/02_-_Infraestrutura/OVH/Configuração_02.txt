@@ -5,16 +5,16 @@ Creation-Date: 2025-05-05T23:24:20-03:00
 ====== Configuração 02 ======
 Criado segunda 05 maio 2025
 
-Nova configuração
+Nova configuração, agora vai ser modelo one master (anteriormente era multi-master) porém vamos adicionar varios nodes extras.
 
-====== ovh11.crontech.com.br ======
+====== ovh11.crontech.com.br (MASTER) ======
+Ubuntu 24.10
 
 **Senha:** bwZ9ebPyGJSa
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
 MDj5emeNtq2X7fCvBd91v6C8uOkuALiu
 
 **IMPORTANTE:** Deve ser instalado assim:
-
 	curl -sfL https://get.k3s.io | sh -s - --tls-san=10.12.0.11
 **e não assim como sugerido pela IA:**
 	INSTALL_K3S_EXEC="--tls-san=10.12.0.11" curl -sfL https://get.k3s.io | sh -
@@ -24,3 +24,9 @@ Você pode validar se o certificado foi criado corretamente para aceitar 10.12.0
 	openssl x509 -in /var/lib/rancher/k3s/server/tls/serving-kube-apiserver.crt -text -noout
 
 veja se 10.12.0.1 aparece
+
+
+====== ovh01.crontech.com.br (Slave) ======
+====== ovh02.crontech.com.br (Slave) ======
+====== ovh03.crontech.com.br (Slave) ======
+Ubuntu 24.10
